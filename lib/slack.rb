@@ -56,14 +56,23 @@ end
 
 def select_member
   puts "Please provide either a username or Slack ID:"
-  user_input = gets.chomp.downcase
+  user_input = gets.chomp
   
-  member = find_member_object(user_input, @members)
+  member = find__object(user_input, @members)
 
   return member.nil? ? "Member does not exist" : member.real_name
 end
 
-def find_member_object(search_term, object_type)
+def select_channel
+  puts "Please provide either a username or Slack ID:"
+  user_input = gets.chomp
+  
+  channel = find__object(user_input, @channels)
+
+  return channel.nil? ? "Channel does not exist" : channel.name
+end
+
+def find__object(search_term, object_type)
   object_type.find {|object| 
     object.id == search_term || object.name == search_term}
 end
@@ -87,6 +96,8 @@ def main
       tp @channels
     when 'select_user'
       puts "You have selected: #{select_member}"
+    when 'select_channel'
+      puts "You have selected: #{select_channel}"
     else
       puts "Looks like this isn't a valid option."
     end
