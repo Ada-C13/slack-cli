@@ -12,17 +12,6 @@ CHANNEL_URL = 'https://slack.com/api/channels.list'
 MEMBER_URL = "https://slack.com/api/users.list"
 
 
-
-# def select_user
-#   puts "Please provide either a username or Slack ID:"
-#   user_input = gets.chomp
-#   puts "You have selected: #{}"
-# end
-
-def find_user_object
-
-end
-
 # channel's name, topic, member count, and Slack ID.
 def list_channels
   query_parameters = {
@@ -65,11 +54,23 @@ end
 @channels = list_channels
 @members = list_members
 
+def select_member
+  puts "Please provide either a username or Slack ID:"
+  user_input = gets.chomp.downcase
+  return find_member_object(user_input)
+end
+
+def find_member_object(search_term)
+  @members.find {|member| 
+    member.id == search_term || member.name == search_term}
+end
+
+
 def main
   puts "Welcome to the Ada Slack CLI!"
-  # TODO project
+
   puts "What would you like to do?"
-  puts "Your options are: list_members, list_channels, or quit"
+  puts "Your options are: list_members, list_channels, select_user or quit"
 
   user_action = gets.chomp.downcase
 
@@ -81,8 +82,8 @@ def main
     when 'list_channels'
       puts "List of Channels:"
       tp @channels
-    # when 'select_user'
-    #   puts ""
+    when 'select_user'
+      puts "You have selected: #{select_member.real_name}"
     else
       puts "Looks like this isn't a valid option."
     end
