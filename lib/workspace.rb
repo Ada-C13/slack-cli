@@ -6,28 +6,30 @@ require 'dotenv'
 
 Dotenv.load
 
-class Workspace
+module SlackCLI
+	class Workspace
 
-	attr_reader :users, :channels
+		attr_reader :users, :channels
 
-	BASE_URL = "https://slack.com/api/"
-	SLACK_TOKEN = ENV["SLACK_TOKEN"]
+		BASE_URL = "https://slack.com/api/"
+		SLACK_TOKEN = ENV["SLACK_TOKEN"]
 
-	def initialize
-		@users = []
-		@channels = []
-	end
-
-	def load_users
-		response = HTTParty.get(BASE_URL + "users.list", query: {token: SLACK_TOKEN})
-
-		response["members"].each do |member|
-			username = member["name"]
-			real_name = member["profile"]["real_name"]
-			slack_id = member["id"]
-
-			self.users << User.new(username, real_name, slack_id)
+		def initialize
+			@users = []
+			@channels = []
 		end
 
+		def load_users
+			response = HTTParty.get(BASE_URL + "users.list", query: {token: SLACK_TOKEN})
+
+			response["members"].each do |member|
+				username = member["name"]
+				real_name = member["profile"]["real_name"]
+				slack_id = member["id"]
+
+				self.users << SlackCLI::User.new(username, real_name, slack_id)
+			end
+
+		end
 	end
 end

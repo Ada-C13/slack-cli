@@ -1,9 +1,11 @@
-class Recipient
+module SlackCLI
+	class Recipient
 
-	attr_reader :slack_id
-	
-	def initialize(slack_id)
-		@slack_id = slack_id
+		attr_reader :slack_id
+		
+		def initialize(slack_id)
+			@slack_id = slack_id
+		end
+
 	end
-
 end
