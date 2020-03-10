@@ -26,4 +26,8 @@ VCR.configure do |config|
 
   # Don't leave our token lying around in a cassette file.
 
+  config.filter_sensitive_data("xoxb-991668681700-992246719632-sZsRkPHzHzV1rdUQMVXYKdlc") do
+    ENV["SLACK_TOKEN"]
+  end
+
 end
