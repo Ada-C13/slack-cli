@@ -13,6 +13,8 @@ require 'dotenv'
 
 Dotenv.load
 
+require_relatve 'lib/slack.rb'
+
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 VCR.configure do |config|
