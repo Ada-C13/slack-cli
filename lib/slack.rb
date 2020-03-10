@@ -57,19 +57,13 @@ end
 def select_member
   puts "Please provide either a username or Slack ID:"
   user_input = gets.chomp
-  
-  member = find__object(user_input, @members)
-
-  return member.nil? ? "Member does not exist" : member.real_name
+  find__object(user_input, @members)
 end
 
 def select_channel
-  puts "Please provide either a username or Slack ID:"
+  puts "Please provide either a channel name or Slack ID:"
   user_input = gets.chomp
-  
-  channel = find__object(user_input, @channels)
-
-  return channel.nil? ? "Channel does not exist" : channel.name
+  find__object(user_input, @channels)
 end
 
 def find__object(search_term, object_type)
@@ -77,12 +71,16 @@ def find__object(search_term, object_type)
     object.id == search_term || object.name == search_term}
 end
 
+def details
+  
+end
+
 
 def main
   puts "Welcome to the Ada Slack CLI!"
 
   puts "What would you like to do?"
-  puts "Your options are: list_members, list_channels, select_user, select_channel, or quit"
+  puts "Your options are: list_members, list_channels, select_user, select_channel, details, or quit"
 
   user_action = gets.chomp.downcase
 
@@ -95,9 +93,21 @@ def main
       puts "List of Channels:"
       tp @channels
     when 'select_user'
-      puts "You have selected: #{select_member}"
+      current_recipient = select_member
+      if current_recipient.nil?
+        puts "Member does not exist"
+      else
+        puts "You have selected the current recipient: #{current_recipient.real_name}"
+      end
     when 'select_channel'
-      puts "You have selected: #{select_channel}"
+      current_recipient = select_channel
+      if current_recipient.nil?
+        puts "Channel does not exist"
+      else
+        puts "You have selected the current recipient: #{current_recipient.name}"
+      end
+    when 'details'
+      tp current_recipient
     else
       puts "Looks like this isn't a valid option."
     end
@@ -111,3 +121,5 @@ def main
 end
 
 main if __FILE__ == $PROGRAM_NAME
+
+# what happens if username and channel name are the same?
