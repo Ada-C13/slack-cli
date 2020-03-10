@@ -10,6 +10,7 @@ Dotenv.load
 
 CHANNEL_URL = 'https://slack.com/api/channels.list'
 MEMBER_URL = "https://slack.com/api/users.list"
+MESSAGE_URL = 'https://slack.com/api/chat.postMessage'
 
 
 # channel's name, topic, member count, and Slack ID.
@@ -71,10 +72,19 @@ def find__object(search_term, object_type)
     object.id == search_term || object.name == search_term}
 end
 
-def details
-  
-end
+def send_message(selected_recipient)
+  puts "What message would you like to send?"
+  message = gets.chomp
 
+  query_parameters = {
+    token: ENV['SLACK_TOKEN'],
+    channel: selected_recipient.id,
+    text: message
+  }
+  
+  response = HTTParty.post(MESSAGE_URL,query: query_parameters)
+
+end
 
 def main
   puts "Welcome to the Ada Slack CLI!"
@@ -108,6 +118,12 @@ def main
       end
     when 'details'
       tp current_recipient
+    when 'send_message'
+      if (current_recipient.is_a? Member) || (current_recipient.is_a? Channel)
+        send_message(current_recipient)
+      else
+        puts "No current recipient selected."
+      end
     else
       puts "Looks like this isn't a valid option."
     end
