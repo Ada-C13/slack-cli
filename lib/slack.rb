@@ -4,6 +4,7 @@ require 'dotenv'
 require 'pry'
 require 'table_print'
 
+require_relative 'workspace'
 require_relative 'channel'
 require_relative 'member'
 Dotenv.load
@@ -83,11 +84,12 @@ def send_message(selected_recipient)
   }
   
   response = HTTParty.post(MESSAGE_URL,query: query_parameters)
-
 end
 
 def main
   puts "Welcome to the Ada Slack CLI!"
+  binding.pry
+  workspace = Workspace.new
 
   puts "What would you like to do?"
   puts "Your options are: list_members, list_channels, select_user, select_channel, details, or quit"
