@@ -57,12 +57,15 @@ end
 def select_member
   puts "Please provide either a username or Slack ID:"
   user_input = gets.chomp.downcase
-  return find_member_object(user_input)
+  
+  member = find_member_object(user_input, @members)
+
+  return member.nil? ? "Member does not exist" : member.real_name
 end
 
-def find_member_object(search_term)
-  @members.find {|member| 
-    member.id == search_term || member.name == search_term}
+def find_member_object(search_term, object_type)
+  object_type.find {|object| 
+    object.id == search_term || object.name == search_term}
 end
 
 
@@ -70,7 +73,7 @@ def main
   puts "Welcome to the Ada Slack CLI!"
 
   puts "What would you like to do?"
-  puts "Your options are: list_members, list_channels, select_user or quit"
+  puts "Your options are: list_members, list_channels, select_user, select_channel, or quit"
 
   user_action = gets.chomp.downcase
 
@@ -83,7 +86,7 @@ def main
       puts "List of Channels:"
       tp @channels
     when 'select_user'
-      puts "You have selected: #{select_member.real_name}"
+      puts "You have selected: #{select_member}"
     else
       puts "Looks like this isn't a valid option."
     end
