@@ -11,32 +11,16 @@ Dotenv.load
 CHANNEL_URL = 'https://slack.com/api/channels.list'
 MEMBER_URL = "https://slack.com/api/users.list"
 
-def main
-  puts "Welcome to the Ada Slack CLI!"
-  # TODO project
-  puts "What would you like to do?"
-  puts "Your options are: list_members, list_channels, or quit"
 
-  user_action = gets.chomp.downcase
 
-  until user_action == 'quit'
-    case user_action
-    when 'list_members'
-      puts "List of Members:"
-      tp list_members
-    when 'list_channels'
-      puts "List of Channels:"
-      tp list_channels
-    else
-      puts "Looks like this isn't a valid option."
-    end
+# def select_user
+#   puts "Please provide either a username or Slack ID:"
+#   user_input = gets.chomp
+#   puts "You have selected: #{}"
+# end
 
-    puts "What would you like to do next?"
-    puts "Your options are: list_members, list_channels, or quit"
-    user_action = gets.chomp.downcase
-  end
-  
-  puts "Thank you for using the Ada Slack CLI"
+def find_user_object
+
 end
 
 # channel's name, topic, member count, and Slack ID.
@@ -76,6 +60,39 @@ def list_members
   }
 
   return list_of_members
+end
+
+@channels = list_channels
+@members = list_members
+
+def main
+  puts "Welcome to the Ada Slack CLI!"
+  # TODO project
+  puts "What would you like to do?"
+  puts "Your options are: list_members, list_channels, or quit"
+
+  user_action = gets.chomp.downcase
+
+  until user_action == 'quit'
+    case user_action
+    when 'list_members'
+      puts "List of Members:"
+      tp @members
+    when 'list_channels'
+      puts "List of Channels:"
+      tp @channels
+    # when 'select_user'
+    #   puts ""
+    else
+      puts "Looks like this isn't a valid option."
+    end
+
+    puts "What would you like to do next?"
+    puts "Your options are: list_members, list_channels, or quit"
+    user_action = gets.chomp.downcase
+  end
+  
+  puts "Thank you for using the Ada Slack CLI"
 end
 
 main if __FILE__ == $PROGRAM_NAME
