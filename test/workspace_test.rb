@@ -31,8 +31,12 @@ describe "Workspace Class" do
         expect(@workspace.users[0]).must_be_kind_of User
       end
 
-      it "one of the users is Nataliya Pogodina" do
-        
+      it "one of the users is Slackbot" do
+        count = 0
+        @workspace.users.each do |user|
+          count += 1 if user.slack_id == "USLACKBOT"
+        end
+        expect(count).must_equal 1
       end
     end
   end

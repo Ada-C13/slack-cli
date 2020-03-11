@@ -24,11 +24,13 @@ class Workspace
 
     response = HTTParty.get(URL, query: query)
 
-    users_list = []
-    response["members"].each do |user|
-      users_list << user
+    users = response["members"].map do |user|
+      User.new(
+        slack_id: user["id"],
+        username: user["name"],
+        real_name: user["profile"]["real_name"]
+      )
     end
-    return users_list
+    return users
   end
-
 end
