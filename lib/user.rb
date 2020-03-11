@@ -1,6 +1,6 @@
 module Slack
 
-  class User
+  class User < Recipient
     # Generator
     attr_reader :real_name, :status_text, :status_emoji
 

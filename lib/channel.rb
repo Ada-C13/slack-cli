@@ -1,6 +1,6 @@
 module Slack
 
-  class Channel
+  class Channel < Recipient
     # Generator
     attr_reader :topic, :member_count
 

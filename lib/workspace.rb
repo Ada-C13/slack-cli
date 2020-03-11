@@ -5,8 +5,9 @@ module Slack
     attr_reader :users, :channels, :selected
 
     # Constructor
-    def initialize(key)
-
+    def initialize
+      @users    = []
+      @channels = []
     end
 
     def select_channel
