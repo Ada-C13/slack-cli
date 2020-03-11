@@ -7,16 +7,19 @@ URL_USER = "https://slack.com/api/users.list"
 
 TOKEN = ENV["SLACK_API_TOKEN"]
 
-
-class Workspace
-
-  attr_reader :users, :channels
+module SlackCli
   
-  def initialize
-    @users = User.get(URL_USER,{token:TOKEN})
-    @channels = Channel.get(URL_CHANNEL,{token:TOKEN})
 
-  
+  class Workspace
+
+    attr_reader :users, :channels
+    
+    def initialize
+      @users = User.get(URL_USER,{token:TOKEN})
+      @channels = Channel.get(URL_CHANNEL,{token:TOKEN})
+
+    
+    end
+
   end
-
-end
+end 

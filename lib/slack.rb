@@ -16,7 +16,7 @@ end
 
 def main
   puts "Welcome to the Ada Slack CLI!"
-  workspace = Workspace.new
+  workspace = SlackCli::Workspace.new
   input = "not quit"
   # TODO project
   while input != "quit"
