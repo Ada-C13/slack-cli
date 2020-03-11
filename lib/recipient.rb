@@ -12,7 +12,7 @@ module SlackCli
       @name = name 
     end
 
-    def self.get(url,params)
+    def self.get_all
     end 
 
   end

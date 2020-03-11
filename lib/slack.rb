@@ -26,7 +26,6 @@ def main
     if input == "list channels"
       puts "Cool, here are the channels..."
       tp workspace.channels , :name,:topic, :member_count, :slack_id
-      p workspace.channels
     elsif  input == "list users"
       puts "Sweet, here are the users"
       tp workspace.users , :name,:real_name, :slack_id
