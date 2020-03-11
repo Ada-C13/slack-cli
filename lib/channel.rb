@@ -1,3 +1,4 @@
+require 'httparty'
 require 'dotenv'
 require 'table_print'
 require_relative 'recipient'
@@ -25,9 +26,13 @@ class Channel < Recipient
       self.new(channel["id"], channel["name"], channel["topic"]["value"], channel["num_members"])    
     end
 
-    tp all_channels, :slack_id, :name, :topic, :member_count
-
     return all_channels
+  end
+  
+
+  def self.print_all
+    all_channels = Channel.list_all
+    tp all_channels, :slack_id, :name, :topic, :member_count
   end
 end
 
