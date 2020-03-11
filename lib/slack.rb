@@ -9,66 +9,15 @@ require_relative 'channel'
 require_relative 'member'
 Dotenv.load
 
-CHANNEL_URL = 'https://slack.com/api/channels.list'
-MEMBER_URL = "https://slack.com/api/users.list"
 MESSAGE_URL = 'https://slack.com/api/chat.postMessage'
 
-
-# channel's name, topic, member count, and Slack ID.
-def list_channels
-  query_parameters = {
-    token: ENV['SLACK_TOKEN']
-  }
-
-  response = HTTParty.post(CHANNEL_URL, query: query_parameters)["channels"]
-  
-  list_of_channels = response.map {|channel| 
-    Channel.new(
-      name: channel["name"],
-      topic: channel["topic"]["value"],
-      member_count: channel["members"].length,
-      id: channel["id"]
-    )
-  }
-
-  return list_of_channels
-end
-
-# username, real name, and Slack ID
-def list_members
-  query_parameters = {
-    token: ENV['SLACK_TOKEN']
-  }
-
-  response = HTTParty.post(MEMBER_URL, query: query_parameters)["members"]
-  
-  list_of_members = response.map {|member| 
-    Member.new(
-      name: member["name"], 
-      real_name: member["profile"]["real_name"], 
-      id: member["id"]
-    )
-  }
-
-  return list_of_members
-end
-
-@channels = list_channels
-@members = list_members
-
-def select_member
-  puts "Please provide either a username or Slack ID:"
+def select_recipient (object_type)
+  puts "Please provide either a recipient name or Slack ID:"
   user_input = gets.chomp
-  find__object(user_input, @members)
+  find_object(user_input, object_type)
 end
 
-def select_channel
-  puts "Please provide either a channel name or Slack ID:"
-  user_input = gets.chomp
-  find__object(user_input, @channels)
-end
-
-def find__object(search_term, object_type)
+def find_object(search_term, object_type)
   object_type.find {|object| 
     object.id == search_term || object.name == search_term}
 end
@@ -86,9 +35,16 @@ def send_message(selected_recipient)
   response = HTTParty.post(MESSAGE_URL,query: query_parameters)
 end
 
+def select_confirmation(current_recipient)
+  if current_recipient.nil?
+    puts "Member does not exist"
+  else
+    puts "You have selected the current recipient: #{current_recipient.name}"
+  end
+end
+
 def main
   puts "Welcome to the Ada Slack CLI!"
-  binding.pry
   workspace = Workspace.new
 
   puts "What would you like to do?"
@@ -100,24 +56,16 @@ def main
     case user_action
     when 'list_members'
       puts "List of Members:"
-      tp @members
+      tp workspace.users
     when 'list_channels'
       puts "List of Channels:"
-      tp @channels
+      tp workspace.channels
     when 'select_user'
-      current_recipient = select_member
-      if current_recipient.nil?
-        puts "Member does not exist"
-      else
-        puts "You have selected the current recipient: #{current_recipient.real_name}"
-      end
+      current_recipient = select_recipient(workspace.users)
+      select_confirmation(current_recipient)
     when 'select_channel'
-      current_recipient = select_channel
-      if current_recipient.nil?
-        puts "Channel does not exist"
-      else
-        puts "You have selected the current recipient: #{current_recipient.name}"
-      end
+      current_recipient = select_recipient(workspace.channels)
+      select_confirmation(current_recipient)
     when 'details'
       tp current_recipient
     when 'send_message'

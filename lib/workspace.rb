@@ -16,14 +16,12 @@ class Workspace
   MESSAGE_URL = 'https://slack.com/api/chat.postMessage'
 
   def initialize
-    @users = list_channels
-    @channels = list_members
-
-    list_channels()
+    @users = list_members
+    @channels = list_channels
   end
 
 # channel's name, topic, member count, and Slack ID.
-  def self.list_channels
+  def list_channels
     query_parameters = {
       token: ENV['SLACK_TOKEN']
     }
@@ -41,7 +39,7 @@ class Workspace
   end
 
 # username, real name, and Slack ID
-  def self.list_members
+  def list_members
     query_parameters = {
       token: ENV['SLACK_TOKEN']
     }
