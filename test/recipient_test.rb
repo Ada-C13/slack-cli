@@ -35,6 +35,31 @@ describe "recipient" do
     end
   end
 
+  describe "#send_message" do
+    it "can send a valid message" do
+      VCR.use_cassette("chat_post_endpoint") do
+        recipient01 = Recipient.new("UV6BANLCV")
+        response = recipient01.send_message("Can I do this?")
+        expect(response).must_equal true
+      end
+    end
+  
+    it "will raise an exception when the recipient name or id is invalid" do
+      VCR.use_cassette("chat_post_endpoint") do
+        recipient01 = Recipient.new("bogus")
+        expect {recipient01.send_message("Let's get an error.")}.must_raise SlackAPIError
+      end
+    end
+
+    it "will raise an exception when missing the correct arguments" do
+      VCR.use_cassette("chat_post_endpoint") do
+        recipient02 = Recipient.new("UV6BANLCV")
+        expect {recipient02.send_message()}.must_raise ArgumentError
+      end
+    end
+  
+  end
+
   describe "#get_details" do
     it "is an abstract method that needs to be implemented by subclasses" do
       new_recipient = Recipient.new("TESTID001", "test_recipient")
