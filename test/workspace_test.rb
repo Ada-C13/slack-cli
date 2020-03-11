@@ -39,5 +39,14 @@ describe "Workspace Class" do
         expect(count).must_equal 1
       end
     end
+
+    describe "list_users" do
+      it "return a string" do
+        expect(@workspace.list_users).must_be_kind_of String
+      end
+      it "this string is a concat of strings - one per user" do
+        
+      end
+    end
   end
 end

@@ -7,4 +7,8 @@ class User
     @slack_id = slack_id
   end
 
+  def get_details
+    return "#{username} => real name: #{real_name}, Slack ID: #{slack_id}"
+  end
+
 end

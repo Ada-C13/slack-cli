@@ -15,6 +15,15 @@ class Workspace
     @channels = []
   end
 
+  def list_users
+    result = ""
+    users.each do |user|
+      result += user.get_details
+      result += "\n"
+    end
+    return result.chop.chop
+  end
+
   private
 
   def load_users
