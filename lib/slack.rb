@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require_relative 'workspace'
+require 'table_print'
 
 #list users username, real name, and Slack ID.
 #list channels name, topic, member count, and Slack ID.
@@ -24,10 +25,11 @@ def main
 
     if input == "list channels"
       puts "Cool, here are the channels..."
+      tp workspace.channels , :name,:topic, :member_count, :slack_id
       p workspace.channels
     elsif  input == "list users"
       puts "Sweet, here are the users"
-      p workspace.users
+      tp workspace.users , :name,:real_name, :slack_id
     else
       puts "not a valid input"
     end 

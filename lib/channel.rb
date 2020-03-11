@@ -1,6 +1,7 @@
 require_relative 'recipient'
 
 class Channel < Recipient
+  attr_reader :member_count, :topic
 
   def initialize(slack_id:,name:,member_count:,topic:)
     super(slack_id,name)
