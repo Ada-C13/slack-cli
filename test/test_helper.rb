@@ -1,16 +1,28 @@
+# require simplecov
 require 'simplecov'
 SimpleCov.start do
   add_filter 'test/'
 end
 
+# require gems
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
+require 'dotenv'
 
+# require lib files
+require_relative '../lib/channel'
+require_relative '../lib/recipient'
+require_relative '../lib/slack'
+require_relative '../lib/user'
+require_relative '../lib/workspace'
+
+# minitest stuff
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
+# VCR configuration
 VCR.configure do |config|
   config.cassette_library_dir = "test/cassettes"
   config.hook_into :webmock
@@ -24,6 +36,7 @@ VCR.configure do |config|
     :match_requests_on => [:method, :uri, :body], # The http method, URI and body of a request all need to match
   }
 
+  # keeping tokens private
   config.filter_sensitive_data("<SLACK_TOKEN>") do
     ENV["SLACK_TOKEN"]
   end
