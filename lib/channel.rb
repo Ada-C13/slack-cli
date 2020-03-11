@@ -20,8 +20,17 @@ class Channel < Recipient
         token: ENV['SLACK_TOKEN'],
       }
       response = self.get(url,params)
-    return response['channels'].map{ |channel| channel["name"]}
+      array_of_info = []
+      response["channels"].each do |channel|
+        array_of_info.push({
+          name: channel["name"],
+          topic: channel["topic"]["value"],
+          member_count: channel["members"].length,
+          slack_id: channel["id"]
+        })
+      end
 
+    return array_of_info
   end 
 
 end
