@@ -11,11 +11,10 @@ class Workspace
   attr_reader :users, :channels
 
   CHANNEL_URL = 'https://slack.com/api/channels.list'
-  MEMBER_URL = "https://slack.com/api/users.list"
+  MEMBER_URL = 'https://slack.com/api/users.list'
   TOKEN = ENV['SLACK_TOKEN']
 
   def initialize
-
     @users = list_members
     @channels = list_channels
   end
@@ -26,7 +25,7 @@ class Workspace
       token: TOKEN
     }
 
-    response = HTTParty.post(CHANNEL_URL, query: query_parameters)["channels"]
+    response = HTTParty.get(CHANNEL_URL, query: query_parameters)["channels"]
     
     response.map {|channel| 
       Channel.new(
@@ -40,12 +39,11 @@ class Workspace
 
 # username, real name, and Slack ID
   def list_members
-    
     query_parameters = {
       token: TOKEN
     }
 
-    response = HTTParty.post(MEMBER_URL, query: query_parameters)["members"]
+    response = HTTParty.get(MEMBER_URL, query: query_parameters)["members"]
   
     response.map {|member| 
       Member.new(
