@@ -1,6 +1,5 @@
 require 'httparty'
 require 'dotenv'
-require 'table_print'
 require_relative 'recipient'
 
 Dotenv.load
@@ -30,13 +29,5 @@ class User < Recipient
 
     return all_users
   end
-
-
-  def self.print_all
-    all_users = User.list_all
-    tp all_users, :slack_id, :name, :real_name
-  end
 end
 
-# can just use this in workspace or slack.rb #remember to require 'table_print'
-# tp (User.list_all), :slack_id, :name, :real_name
