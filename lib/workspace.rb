@@ -1,45 +1,38 @@
 require 'httparty'
 require 'dotenv'
+require_relative 'user'
+require_relative 'channel'
 
-BASE_URL = "https://slack.com/api/"
 
 Dotenv.load
 
 class Workspace
 
-  attr_reader :users, :channenls
+  attr_reader :users, :channels, :selected 
 
   def initialize
-    @users = []
-    @channels = list_channels
+    @users = UserRecipient.list_all
+    @channels = ChannelRecipient.list_all
+    @selected = selected
 
   end 
   def list_users
-
-    query = {
-      token:  ENV["SLACK_TOKEN"]
-    }
-    response = HTTParty.get(BASE_URL + "users.list", query: query)
-
+    #TODO a prettier way to print 
+    return @users
   end
+
   def list_channels 
-    query = {
-      token: ENV["SLACK_TOKEN"]
-    }
-    response = HTTParty.get(BASE_URL + "conversations.list", query: query)
-    return response
+    #TODO a prettier way to print 
+    return @channels
   end 
-  
 
+  def select_user
 
+  end 
+
+  def select_channel
+
+  end 
 
 end 
 
-# def main 
-
-#   workspace = Workspace.new()
-#   puts workspace.list_channels()
-
-# end 
-
-# main 
