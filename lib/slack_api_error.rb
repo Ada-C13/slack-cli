@@ -1,0 +1,2 @@
+class SlackAPIError < StandardError
+end
