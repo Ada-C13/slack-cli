@@ -1,16 +1,21 @@
 require_relative 'recipient'
-require 'dotenv'
 
-params = {token: TOKEN}
+
 class User < Recipient
 
-  attr_reader :real_name
-
-  def initialize(slack_id,name,real_name)
+  def initialize(slack_id:,name:,real_name:)
     super(slack_id,name)
     @real_name = real_name
-
-    
   end
 
+  def self.get(url,params)
+    data = HTTParty.get(url,query: params)["members"]
+    empty_array = []
+    data.each do |member|
+      empty_array << new(slack_id: member["id"], name: member["name"], real_name:member["real_name"])
+    end 
+    return empty_array 
+
+  end 
+ 
 end
