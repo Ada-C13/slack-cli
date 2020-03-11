@@ -1,8 +1,41 @@
 #!/usr/bin/env ruby
+require 'dotenv'
+require 'httparty'
+require 'awesome_print'
+
+Dotenv.load
+
+TOKEN     = ENV["SLACK_API_TOKEN"]
+SLACK_URL_CL = "https://slack.com/api/conversations.list"
+SLACK_URL_UL = "https://slack.com/api/users.list"
 
 def main
   puts "Welcome to the Ada Slack CLI!"
-  workspace = Workspace.new
+  # workspace = Workspace.new
+
+  
+  query_parameters = { token: TOKEN }
+  result = HTTParty.get(SLACK_URL_CL, query: query_parameters)
+  
+  puts result.code
+  puts result["ok"]
+  result["channels"].each do |channel|
+    puts "Name = #{channel["name"]}, creator = #{channel["creator"]}"
+  end
+
+  query_parameters = { token: TOKEN }
+  result = HTTParty.get(SLACK_URL_UL, query: query_parameters)
+  
+  puts result.code
+  puts result["ok"]
+  # ap result["members"].first
+  result["members"].each do |member|
+    puts "ID = #{member["id"]}, name = #{member["name"]}, real name = #{member["real_name"]}"
+  end
+
+
+  
+
 
   # TODO project
 
