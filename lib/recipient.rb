@@ -1,13 +1,18 @@
+require 'httparty'
+require 'dotenv'
+Dotenv.load 
+
+SLACK_URL = "https://slack.com/api/conversations.list"
+TOKEN = ENV["SLACK_API_TOKEN"]
+
 class Recipient
 
-  attr_reader :slack_id, :name
-  def initialize(slack_id,name)
-    @slack_id = slack_id,
-    @name = name
+  attr_reader :slack_id
+
+  def initialize
+    @slack_id = HTTParty.get(SLACK_URL,query: {token: TOKEN})["channels"][0]["id"]
   end
 
-  def self.get(url,params)
-  end 
 
   def details
   end 

@@ -1,5 +1,7 @@
 require_relative 'recipient'
+require 'dotenv'
 
+params = {token: TOKEN}
 class User < Recipient
 
   attr_reader :real_name
@@ -10,5 +12,5 @@ class User < Recipient
 
     
   end
-  
+
 end

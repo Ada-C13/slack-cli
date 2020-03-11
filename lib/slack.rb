@@ -5,8 +5,8 @@ require 'dotenv'
 
 Dotenv.load
 
-SLACK_URL = "https://slack.com/api/conversations.list"
-TOKEN = ENV["SLACK_API_TOKEN"]
+# SLACK_URL = "https://slack.com/api/conversations.list"
+# TOKEN = ENV["SLACK_API_TOKEN"]
 
 #list users username, real name, and Slack ID.
 #list channels name, topic, member count, and Slack ID.
@@ -19,12 +19,10 @@ def main
   workspace = Workspace.new
 
   # TODO project
-  query_parameters = {token: TOKEN}
-  result = HTTParty.get(SLACK_URL, query: query_parameters)
-  
+
 
   
-
+  p workspace.channels.slack_id
 
   
 
