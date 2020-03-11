@@ -39,3 +39,18 @@ end
 
 
 
+# message = "testing 7,8,9"
+# url = "https://slack.com/api/chat.postMessage"
+# SLACK_TOKEN = ENV["SLACK_TOKEN"]
+
+# query_param = {
+#   token: SLACK_TOKEN,
+#   channel: "CV5S4LJPN",
+#   text: message
+# }
+# # response = HTTParty.get(USERS_URI, query: {token: SLACK_TOKEN})
+# # puts response
+# sending = HTTParty.get(url, query: query_param)
+# puts sending
+
+
