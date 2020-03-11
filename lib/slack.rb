@@ -3,6 +3,7 @@ require_relative 'workspace'
 require 'dotenv'
 require 'httparty'
 
+
 def ask_again
   puts "Choose from the following: 
   1. list users
@@ -10,6 +11,7 @@ def ask_again
   3. select user
   4. select channel
   5. details
+  6. send message
 
   -1. quit
   "
@@ -23,29 +25,28 @@ def main
   input = ask_again
   recipient = nil 
   while input != -1
+
     if input == 1
-      puts workspace.list_users
+      puts workspace.list_users.to_s
       input = ask_again
     elsif input == 2
-      puts workspace.list_channels
+      puts workspace.list_channels.to_s
       input = ask_again
     elsif input == 3
       puts "What is the user's ID?"
-      recipient = UserRecipient.find(gets.chomp)
+      recipient = workspace.select_user(gets.chomp)
+      puts "User: #{recipient}"
       input = ask_again
     elsif input == 4
       puts "What is the channels's ID?"
-      recipient = ChannelRecipient.find(gets.chomp)
-      puts recipient
+      recipient = workspace.select_channel(gets.chomp)
+      puts "Channel: #{recipient}"
       input = ask_again
     elsif input == 5
-      # if recipient.instance_of? Recipient 
-
-      # else
-      #   raise ArgumentError("You have not chosen a user or channel")
-      # end 
-
+      puts workspace.get_details(recipient)
       input = ask_again
+    elsif input == 6
+      #TODO
     else
       puts "idk"
       input = ask_again

@@ -34,3 +34,4 @@ class Recipient
   end 
 
 end 
+

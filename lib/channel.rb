@@ -19,8 +19,13 @@ class ChannelRecipient < Recipient
 
 
   def details 
-
-
+    pretty_string = "DETAILS:
+    Slack ID: #{@slack_id}
+    Name: #{@name}
+    Topic: #{@topic}
+    Member Count: #{@member_count}
+    "
+    return pretty_string
   end 
 
   def self.list_all
@@ -40,13 +45,12 @@ class ChannelRecipient < Recipient
   end 
 
   def self.find(id)
-    channels = self.list_all
-    channels.each do |channel|
-      if id = channel["id"]
+    self.list_all.each do |channel|
+      if id == channel.slack_id
         return channel
       end 
     end
-    return ArgumentError.new("Channel not found")
+    return "CHANNEL NOT FOUND"
   end 
 
 end 
