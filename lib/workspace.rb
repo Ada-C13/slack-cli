@@ -1,31 +1,27 @@
-module Slack
+class Workspace
+  # Generator
+  attr_reader :users, :channels, :selected
 
-  class Workspace
-    # Generator
-    attr_reader :users, :channels, :selected
+  # Constructor
+  def initialize
+    @users    = []
+    @channels = []
+  end
 
-    # Constructor
-    def initialize
-      @users    = []
-      @channels = []
-    end
+  def select_channel
 
-    def select_channel
+  end
 
-    end
+  def select_user
 
-    def select_user
+  end
 
-    end
+  def show_details
 
-    def show_details
+  end
 
-    end
+  def send_message
 
-    def send_message
+  end
 
-    end
-
-  end # Class
-  
-end # Module
+end # Class

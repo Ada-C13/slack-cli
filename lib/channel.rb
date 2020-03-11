@@ -1,22 +1,18 @@
-module Slack
+class Channel < Recipient
+  # Generator
+  attr_reader :topic, :member_count
 
-  class Channel < Recipient
-    # Generator
-    attr_reader :topic, :member_count
+  # Constructor
+  def initialize
 
-    # Constructor
-    def initialize
+  end
 
-    end
+  def details
 
-    def details
+  end
 
-    end
+  def self.list_all
 
-    def self.list_all
+  end
 
-    end
-
-  end # Class
-  
-end # Module
+end # Class

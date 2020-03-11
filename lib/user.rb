@@ -1,22 +1,18 @@
-module Slack
+class User < Recipient
+  # Generator
+  attr_reader :real_name, :status_text, :status_emoji
 
-  class User < Recipient
-    # Generator
-    attr_reader :real_name, :status_text, :status_emoji
+  # Constructor
+  def initialize
 
-    # Constructor
-    def initialize
+  end
 
-    end
+  def details
 
-    def details
+  end
 
-    end
+  def self.list_all
 
-    def self.list_all
+  end
 
-    end
-
-  end # Class
-  
-end # Module
+end # Class
