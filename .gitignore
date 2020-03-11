@@ -1,6 +1,10 @@
 /coverage/
+test/coverage/
 
 .DS_Store
 
-# Ignore environemnt variables
+lib/try.rb
+
+# Ignore environment variables
 .env
+
