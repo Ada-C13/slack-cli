@@ -8,7 +8,19 @@ Dotenv.load
 SLACK_URL = "https://slack.com/api/conversations.list"
 TOKEN = ENV["SLACK_API_TOKEN"]
 
-
+# name, topic, member count, and Slack ID.
+def list_channels(input)
+  list = []
+  input["channels"].each do |h|
+    a_hash = {}
+    a_hash["name"] = h["name"]
+    a_hash["topic"]= h["topic"]["value"]
+    a_hash["member_count"] = h["num_members"]
+    a_hash["slack_id"] =  h["id"]
+    list << a_hash
+  end 
+  return list 
+end 
 
 
 
@@ -22,7 +34,7 @@ def main
   result = HTTParty.get(SLACK_URL, query: query_parameters)
   
   # loop through channel names
-  result["channels"].map {|h| puts h["name"]}
+  p list_channels(result)
   
 
 
