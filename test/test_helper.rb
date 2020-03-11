@@ -8,6 +8,9 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
+require "webmock/minitest" #added
+require "dotenv"  #added
+Dotenv.load   #added
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
@@ -27,3 +30,10 @@ VCR.configure do |config|
   # Don't leave our token lying around in a cassette file.
 
 end
+
+require_relative "../lib/workspace.rb"
+require_relative "../lib/slack.rb"
+require_relative "../lib/user.rb"
+require_relative "../lib/channel.rb"
+require_relative "../lib/recipient.rb"
+
