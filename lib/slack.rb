@@ -10,8 +10,15 @@ def list_options
   puts "===================================="
   puts "list users"
   puts "list channels"
+  puts "select channel"
+  puts "select user"
+  puts "details"
   puts "quit"
   puts "===================================="
+end 
+
+def take_input
+  gets.chomp
 end 
 
 def main
@@ -21,14 +28,36 @@ def main
   # TODO project
   while input != "quit"
     list_options
-    input = gets.chomp 
+    input = take_input 
 
     if input == "list channels"
       puts "Cool, here are the channels..."
       tp workspace.channels , :name,:topic, :member_count, :slack_id
+
     elsif  input == "list users"
       puts "Sweet, here are the users"
       tp workspace.users , :name,:real_name, :slack_id
+
+    elsif input == "select channel"
+      puts "What channel name?"
+      name = take_input.to_s
+      workspace.select_channel(name)
+      puts "#{workspace.selected.name} is selected!"
+
+
+    elsif input == "select user"
+      puts "What user name?"
+      name = take_input.to_s
+
+      workspace.select_user(name)
+      puts "#{workspace.selected.name} is selected!"
+
+    elsif input == "details"
+      if workspace.selected == nil 
+        puts "No channel or user was selected!"
+      else 
+        workspace.show_details
+      end 
     else
       puts "not a valid input"
     end 

@@ -21,5 +21,9 @@ module SlackCli
       @selected = @users.select{|user|user.name == name}[0]
     end 
 
+    def show_details
+      puts @selected.inspect 
+    end 
+
   end
 end 
