@@ -1,3 +1,7 @@
+require_relative 'user'
+require_relative 'channel'
+require_relative 'slack_api_error'
+
 
 class Workspace
   attr_reader :users, :channels
