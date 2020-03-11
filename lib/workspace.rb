@@ -15,13 +15,15 @@ class Workspace
   end
 
   def list_users
-    # raise SlackAPIError, "No users were loaded from the API." if @users.length == 0
+    raise SlackAPIError, "No users were loaded from the API." if @users.length == 0
     tp @users, :slack_id, :name, :real_name
-    # return true
+    return true
   end
 
   def list_channels
+    raise SlackAPIError, "No channels were loaded from the API." if @channels.length == 0
     tp @channels, :slack_id, :name, :topic, :member_count
+    return true
   end
 
   def select_user(id: nil, username: nil)

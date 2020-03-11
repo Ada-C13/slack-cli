@@ -68,4 +68,38 @@ describe "workspace" do
       end
     end
   end
+
+  describe "#list_users" do
+    it "can list all the users from @users" do
+      VCR.use_cassette("workspace_endpoint") do
+        test_space = Workspace.new
+        response = test_space.list_users
+        expect(response).must_equal true
+      end
+    end
+
+    # it "will raise an exception when the recipient name or id is invalid" do
+    #   VCR.use_cassette("workspace_endpoint") do
+    #     test_space = Workspace.new
+    #     expect {test_space.list_users}.must_raise SlackAPIError
+    #   end
+    # end
+  end
+
+  describe "#list_channels" do
+    it "can list all the channels from @channels" do
+      VCR.use_cassette("workspace_endpoint") do
+        test_space = Workspace.new
+        response = test_space.list_channels
+        expect(response).must_equal true
+      end
+    end
+
+    # it "will raise an exception when the recipient name or id is invalid" do
+    #   VCR.use_cassette("workspace_endpoint") do
+    #     test_space = Workspace.new
+    #     expect {test_space.list_channels}.must_raise SlackAPIError
+    #   end
+    # end
+  end
 end
