@@ -12,9 +12,7 @@ class User < Recipient
   SLACK_TOKEN = ENV["SLACK_TOKEN"]
 
   def initialize(slack_id = "", name = "", real_name = "", status_text = "", status_emoji = "")
-    # super(slack_id, name)
-    @slack_id = slack_id
-    @name = name
+    super(slack_id, name)
     @real_name = real_name
     @status_text = status_text
     @status_emoji = status_emoji
