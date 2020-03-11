@@ -4,8 +4,6 @@ require "dotenv"
 require_relative "workspace"
 Dotenv.load
 
-# # https://slack.com/api/channels.list?token=xoxb-994132166407-992328436848-atsqHImJXoziETtq74sFLM52&pretty=1
-# SLACK_TOKEN = ENV["SLACK_TOKEN"]
 # def test
 # url = "https://slack.com/api/channels.list?token=#{SLACK_TOKEN}&pretty=1"
 # response = HTTParty.get(url)
