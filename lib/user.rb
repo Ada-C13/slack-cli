@@ -1,14 +1,13 @@
-class User
-  attr_reader :username, :real_name, :slack_id
+class User < Recipient
+  attr_reader :name, :real_name, :slack_id
 
-  def initialize(slack_id:, username:, real_name:)
-    @username = username
+  def initialize(name:, real_name:, slack_id:)
+    super(name: name, slack_id: slack_id)
     @real_name = real_name
-    @slack_id = slack_id
   end
 
   def get_details
-    return "#{username} => real name: #{real_name}, Slack ID: #{slack_id}"
+    return "#{name} => real name: #{real_name}, Slack ID: #{slack_id}"
   end
 
 end

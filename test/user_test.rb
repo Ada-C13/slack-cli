@@ -2,7 +2,7 @@ require "test_helper"
 
 describe "User Class" do
   before do
-    @user = User.new(slack_id: "merlin_03", username: "Merlin", real_name: "Merlin Farmer")
+    @user = User.new(slack_id: "merlin_03", name: "Merlin", real_name: "Merlin Farmer")
   end
   describe "Instantiation" do
     it "creates an instanse of User" do
@@ -10,7 +10,7 @@ describe "User Class" do
     end
 
     it "has @username" do
-      expect(@user.username).must_equal "Merlin"
+      expect(@user.name).must_equal "Merlin"
     end
 
     it "has real name" do
