@@ -13,6 +13,10 @@ query_parameters = {
 
 response = HTTParty.get(URL, query: query_parameters)
 
+response["channels"].each do |channel|
+  puts channel["name"]
+end
+
 
 
 # def main
