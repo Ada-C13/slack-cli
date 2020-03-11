@@ -18,5 +18,9 @@ module SlackCLI
 		def self.get_response(endpoint)
 			return HTTParty.get(BASE_URL + endpoint, query: {token: SLACK_TOKEN})
 		end
+
+		# def details
+
+		# end
 	end
 end

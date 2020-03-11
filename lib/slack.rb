@@ -30,19 +30,27 @@ def main
     elsif ["3", "select user"].include?(choice)
       puts "What USER would you like to select?"
       workspace.select_user(gets.chomp)
-      puts "Selected user: #{ workspace.selected.username }"
+      
+      if workspace.selected != nil
+        puts "******\nSelected user: #{ workspace.selected.username }\n******"
+      end
 
     elsif ["4", "select channel"].include?(choice)
       puts "What CHANNEL would you like to select?"
       workspace.select_channel(gets.chomp)
-      puts "Selected channel: #{ workspace.selected.name }"
 
+      if workspace.selected != nil
+        puts "******\nSelected channel: #{ workspace.selected.name }\n******"
+      end
+      
     elsif ["5", "details"].include?(choice)
-      continue = false
+      puts "******"
+      workspace.show_details
+      puts "******"
 
     elsif ["6", "quit", "q"].include?(choice)
       continue = false
-      
+
     else
       puts "Please choice an option above."
     end

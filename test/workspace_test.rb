@@ -115,3 +115,24 @@ describe "#select_channel" do
 	end
 	
 end
+
+describe "#show_details" do
+	
+	before do
+		VCR.use_cassette("workspace_create") do
+			@workspace = SlackCLI::Workspace.new
+		end
+	end
+
+	it "returns a USER" do
+		@workspace.select_user("jessicursliang")
+		@workspace.show_details
+		expect(@workspace.selected).must_be_instance_of SlackCLI::User
+	end
+
+	it "returns a CHANNEL" do
+		@workspace.select_channel("general")
+		@workspace.show_details
+		expect(@workspace.selected).must_be_instance_of SlackCLI::Channel
+	end
+end
