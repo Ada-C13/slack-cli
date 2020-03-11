@@ -1,12 +1,27 @@
 #!/usr/bin/env ruby
 
-def main
-  puts "Welcome to the Ada Slack CLI!"
-  workspace = Workspace.new
+require 'httparty'
+require 'dotenv'
 
-  # TODO project
+Dotenv.load
 
-  puts "Thank you for using the Ada Slack CLI"
-end
+URL = "https://slack.com/api/channels.list"
 
-main if __FILE__ == $PROGRAM_NAME
+query_parameters = {
+  token: ENV['SLACK_API_TOKEN']
+}
+
+response = HTTParty.get(URL, query: query_parameters)
+
+
+
+# def main
+#   puts "Welcome to the Ada Slack CLI!"
+#   workspace = Workspace.new
+
+#   # TODO project
+
+#   puts "Thank you for using the Ada Slack CLI"
+# end
+
+# main if __FILE__ == $PROGRAM_NAME
