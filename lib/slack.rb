@@ -13,12 +13,17 @@ def list_options
   puts "select channel"
   puts "select user"
   puts "details"
+  puts "send message"
   puts "quit"
   puts "===================================="
 end 
 
 def take_input
   gets.chomp
+end 
+
+def pretty_up
+  puts "########################################"
 end 
 
 def main
@@ -58,6 +63,15 @@ def main
       else 
         workspace.show_details
       end 
+
+    elsif input == "send message"
+      puts "Please type in the message:"
+      message = take_input.to_s
+      pretty_up
+      puts "OKAY. Sending the following message:#{message}..."
+      pretty_up
+      workspace.selected.send_msg(message)
+      puts "message sent!"
     else
       puts "not a valid input"
     end 
