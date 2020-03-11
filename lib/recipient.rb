@@ -1,5 +1,8 @@
-require 'httparty'
 require_relative 'slack_api_error'
+require 'httparty'
+require 'dotenv'
+
+Dotenv.load
 
 
 class Recipient
@@ -10,9 +13,10 @@ class Recipient
     @name = name
   end
 
-
-  POST_URL = "https://slack.com/api/chat.postMessage"
+  
   def send_message(message)
+    post_uri = "https://slack.com/api/chat.postMessage"
+
     query_params = {
       body: {
         token: ENV["SLACK_TOKEN"],
@@ -24,7 +28,7 @@ class Recipient
       }
     }
 
-    response = HTTParty.post(POST_URL, query_params)
+    response = HTTParty.post(post_uri, query_params)
 
     if response.code != 200 || response["ok"] != true
       raise SlackAPIError.new "Error when posting #{message} to #{@name}, error: #{response.parsed_response["error"]}"
@@ -44,8 +48,7 @@ class Recipient
     return response
   end
 
-  #### abstract methods below ######
-
+  ### abstract methods below ###
   def get_details
     raise NotImplementedError, "TODO: Implement me in a subclass!"
   end

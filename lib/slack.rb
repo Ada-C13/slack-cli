@@ -27,9 +27,9 @@ def main
     choice = gets.chomp
     case choice
       when "1", "list users"
-        puts "list users"
+        workspace.list_users
       when "2", "list channels"
-        puts "list channels"
+        workspace.list_channels
       when "0", "quit", "exit"
         control_loop = false
     end
