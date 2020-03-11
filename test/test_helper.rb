@@ -11,7 +11,7 @@ require 'dotenv'
 require 'vcr'
 require 'pry'
 
-Dotenv.load('../lib/.env')
+Dotenv.load('lib/.env')
 
 require_relative '../lib/channel'
 require_relative '../lib/member'
@@ -37,4 +37,5 @@ VCR.configure do |config|
   # Don't leave our token lying around in a cassette file.
   config.filter_sensitive_data("<SLACK_TOKEN>"){
     ENV['SLACK_TOKEN']}
+    binding.pry
 end

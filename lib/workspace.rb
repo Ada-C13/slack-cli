@@ -3,7 +3,6 @@ require 'dotenv'
 require 'pry'
 require 'table_print'
 
-require_relative 'workspace'
 require_relative 'channel'
 require_relative 'member'
 Dotenv.load

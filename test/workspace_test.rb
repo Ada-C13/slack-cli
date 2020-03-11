@@ -21,18 +21,6 @@ describe "Slack API" do
 end
 
 
-  # list out all users 
-  # first user should be XXX
-  # last user should be XXX
-  # OR users should include... list of names
-  # number of user should be X
-  
-  # list out all channels
-  # first channels should be XXX
-  # last channels should be XXX
-  # OR channels should include... list of channels
-  # number of channels should be
-
   # user can exit out of program
   # after command "quit" is entered, unable to interact with interface anymore
 
