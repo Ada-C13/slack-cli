@@ -36,10 +36,11 @@ class Workspace
     users = response["members"].map do |user|
       User.new(
         slack_id: user["id"],
-        username: user["name"],
+        name: user["name"],
         real_name: user["profile"]["real_name"]
       )
     end
     return users
   end
+  
 end

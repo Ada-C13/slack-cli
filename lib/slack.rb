@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require_relative "workspace"
-require_relative "user"
 require_relative "recipient"
+require_relative "user"
 
 def main
   puts "Welcome to the Ada Slack CLI!"
