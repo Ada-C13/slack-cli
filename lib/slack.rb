@@ -5,7 +5,6 @@ require 'dotenv'
 Dotenv.load
 
 BASE_URL = "https://slack.com/api/conversations.list"
-# SLACK_TOKEN="xoxb-991668681700-992319339045-1rqVRB8RaNIcsSZpkAE2YpI7"
 KEY = ENV["SLACK_TOKEN"]
 
 def main
