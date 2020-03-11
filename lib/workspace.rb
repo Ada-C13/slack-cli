@@ -1,3 +1,4 @@
+require 'table_print'
 require_relative 'user'
 require_relative 'channel'
 require_relative 'slack_api_error'
@@ -8,16 +9,26 @@ class Workspace
   attr_accessor :selected
 
   def initialize
-    @users = []
-    @channels = []
+    @users = User.list_all
+    @channels = Channel.list_all
     @selected = nil 
+  end
+
+  def list_users
+    # raise SlackAPIError, "No users were loaded from the API." if @users.length == 0
+    tp @users, :slack_id, :name, :real_name
+    # return true
+  end
+
+  def list_channels
+    tp @channels, :slack_id, :name, :topic, :member_count
   end
 
   def select_user(id: nil, username: nil)
     if id
       @selected = @users.find{|user|user.slack_id == id}
     elsif username
-      @selected = @users.find{|user|user.name == name}
+      @selected = @users.find{|user|user.name == username}
     else
       raise ArgumentError, 'SLACK ID or username is required'
     end
