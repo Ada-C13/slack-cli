@@ -5,8 +5,6 @@ require 'pry'
 require 'table_print'
 
 require_relative 'workspace'
-require_relative 'channel'
-require_relative 'member'
 Dotenv.load
 
 MESSAGE_URL = 'https://slack.com/api/chat.postMessage'
@@ -37,7 +35,7 @@ end
 
 def select_confirmation(current_recipient)
   if current_recipient.nil?
-    puts "Member does not exist"
+    puts "Recipient does not exist"
   else
     puts "You have selected the current recipient: #{current_recipient.name}"
   end

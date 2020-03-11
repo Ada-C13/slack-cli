@@ -13,9 +13,10 @@ class Workspace
 
   CHANNEL_URL = 'https://slack.com/api/channels.list'
   MEMBER_URL = "https://slack.com/api/users.list"
-  MESSAGE_URL = 'https://slack.com/api/chat.postMessage'
+  TOKEN = ENV['SLACK_TOKEN']
 
   def initialize
+
     @users = list_members
     @channels = list_channels
   end
@@ -23,7 +24,7 @@ class Workspace
 # channel's name, topic, member count, and Slack ID.
   def list_channels
     query_parameters = {
-      token: ENV['SLACK_TOKEN']
+      token: TOKEN
     }
 
     response = HTTParty.post(CHANNEL_URL, query: query_parameters)["channels"]
@@ -40,12 +41,13 @@ class Workspace
 
 # username, real name, and Slack ID
   def list_members
+    
     query_parameters = {
-      token: ENV['SLACK_TOKEN']
+      token: TOKEN
     }
 
     response = HTTParty.post(MEMBER_URL, query: query_parameters)["members"]
-    
+  
     response.map {|member| 
       Member.new(
         name: member["name"], 

@@ -1,28 +1,24 @@
 require_relative 'test_helper'
 
-describe "Slack Test" do
-  before do 
-    list_of_names = list_users()
+describe "Slack API" do
+  before do
+    VCR.use_cassette("working_case") do
+      @workspace = Workspace.new
+    end
   end
 
-  describe 'list out all users' do
-    it 'first user is listed out correctly' do
-      expect(list_of_names.first).must_equal 'Jocelyn Wang'
-    end
-
-    it 'last user is listed out correctly' do
-      expect(list_of_names.last).must_equal 'Jocelyn Wang'
-    end
-
-    it 'list of users should include...' do
-      expect(list_of_names).must_include 'Jocelyn Wang'
-    end
-
-    it 'correct number of users returned' do
-      expect(list_of_names.length).must_equal 1
-    end
-
+  it 'list out all users' do
+    expect(@workspace.users.first).must_be_kind_of Member
+    expect(@workspace.users.first.name).must_include 'slackbot'
+    expect(@workspace.users.length).must_equal 3 
   end
+
+  it 'list out all users' do
+    expect(@workspace.channels.first).must_be_kind_of Channel
+    expect(@workspace.channels.first.name).must_include 'general'
+    expect(@workspace.channels.length).must_equal 3 
+  end
+end
 
 
   # list out all users 
@@ -42,4 +38,3 @@ describe "Slack Test" do
 
 
   # Messages are sent from bot
-end

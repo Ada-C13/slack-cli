@@ -1,11 +1,12 @@
-class Channel
+require_relative 'recipient'
+
+class Channel < Recipient
   attr_reader :name, :topic, :member_count, :id
 
   def initialize(name:,topic:,member_count:,id:)
-    @name = name
+    super(name, id)
     @topic = topic
     @member_count = member_count
-    @id = id
   end
-  
+
 end
