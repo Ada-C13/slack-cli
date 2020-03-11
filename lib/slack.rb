@@ -42,10 +42,10 @@ def main
       if workspace.selected != nil
         puts "******\nSelected channel: #{ workspace.selected.name }\n******"
       end
-      
+
     elsif ["5", "details"].include?(choice)
       puts "******"
-      workspace.show_details
+      tp workspace.show_details
       puts "******"
 
     elsif ["6", "quit", "q"].include?(choice)

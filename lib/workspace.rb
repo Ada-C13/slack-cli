@@ -47,7 +47,11 @@ module SlackCLI
 
 		# Finds details of the object currently selected.
 		def show_details
-			tp @selected
+			if @selected != nil
+				return @selected
+			else
+				puts "Nothing has been selected to show details."
+			end
 		end
 
 	end

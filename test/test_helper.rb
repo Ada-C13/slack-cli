@@ -10,6 +10,7 @@ require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
 require 'webmock/minitest'
+require 'table_print'
 require 'dotenv'
 
 Dotenv.load

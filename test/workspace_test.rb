@@ -126,13 +126,19 @@ describe "#show_details" do
 
 	it "returns a USER" do
 		@workspace.select_user("jessicursliang")
-		@workspace.show_details
+		expect(@workspace.show_details).must_be_instance_of SlackCLI::User
 		expect(@workspace.selected).must_be_instance_of SlackCLI::User
 	end
 
 	it "returns a CHANNEL" do
 		@workspace.select_channel("general")
-		@workspace.show_details
+		expect(@workspace.show_details).must_be_instance_of SlackCLI::Channel
 		expect(@workspace.selected).must_be_instance_of SlackCLI::Channel
+	end
+
+	it "does not show details if nothing is selected" do
+		@workspace.select_user("butthead")
+
+		expect(@workspace.show_details).must_be_nil
 	end
 end
