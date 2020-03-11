@@ -10,7 +10,6 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
-require 'dotenv'
 
 # require lib files
 require_relative '../lib/channel'
