@@ -1,7 +1,5 @@
 require_relative 'recipient'
-Dotenv.load 
-TOKEN = ENV["SLACK_API_TOKEN"]
-BASE_URL = "https://slack.com/api/"
+
 
 module SlackCli
   class User < Recipient

@@ -1,6 +1,5 @@
 require_relative 'test_helper'
 
-
 describe SlackCli::User do
   describe "User Class" do
 
