@@ -1,0 +1,83 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://slack.com/api/channels.list?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '567'
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 11 Mar 2020 02:17:53 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - bfd86505d39a3aa2ef4963d76b417aa0
+      X-Oauth-Scopes:
+      - chat:write,channels:read,users:read
+      X-Accepted-Oauth-Scopes:
+      - channels:read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-exg7
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 82ea95080f526df99896343fb7269b07.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - tTophEJ8BKbsnE9O5Y_-jxkSTIKdxyvTpcxFFl7NBhU4n6IGuZ9_7A==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"CUURD2M5Z","name":"slackcli","is_channel":true,"created":1583874439,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UV85Q5X6K","name_normalized":"slackcli","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UV6A4F83S","UUW7BN96D","UUUSFT2AX","UV85Q5X6K"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":4},{"id":"CV85Q6S0P","name":"random","is_channel":true,"created":1583874438,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UV85Q5X6K","name_normalized":"random","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UV6A4F83S","UUW7BN96D","UUUSFT2AX","UV85Q5X6K"],"topic":{"value":"Non-work
+        banter and water cooler conversation","creator":"UV85Q5X6K","last_set":1583874438},"purpose":{"value":"A
+        place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
+        you''d prefer to keep out of more focused work-related channels.","creator":"UV85Q5X6K","last_set":1583874438},"previous_names":[],"num_members":4},{"id":"CV8FWUH8W","name":"general","is_channel":true,"created":1583874438,"is_archived":false,"is_general":true,"unlinked":0,"creator":"UV85Q5X6K","name_normalized":"general","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UV6A4F83S","UUW7BN96D","UUUSFT2AX","UV85Q5X6K"],"topic":{"value":"Company-wide
+        announcements and work-based matters","creator":"UV85Q5X6K","last_set":1583874438},"purpose":{"value":"This
+        channel is for workspace-wide communication and announcements. All members
+        are in this channel.","creator":"UV85Q5X6K","last_set":1583874438},"previous_names":[],"num_members":4}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Wed, 11 Mar 2020 02:17:53 GMT
+recorded_with: VCR 5.1.0
