@@ -1,0 +1,83 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '619'
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 11 Mar 2020 05:10:46 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - edefea4b5ca160e34bc0bb2633223b9e
+      X-Oauth-Scopes:
+      - users:read,channels:read,chat:write,chat:write.customize
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-1pft
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 6a9b42e38e76b7d4a4044ebe0e0eca09.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - nRxObzUasFG2iDeedW1pzJ1tQa4nYESrE0rnO5FWYpMdv5GZaxZvkg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"CUW7M14MP","name":"a-slack-command-line-app","is_channel":true,"is_group":false,"is_im":false,"created":1583874857,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"a-slack-command-line-app","is_shared":false,"parent_conversation":null,"creator":"UUW7LV8TB","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TV6AN59D3"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":5},{"id":"CV5S4LJPN","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1583874857,"is_archived":false,"is_general":true,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"UUW7LV8TB","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TV6AN59D3"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"Company-wide
+        announcements and work-based matters","creator":"UUW7LV8TB","last_set":1583874857},"purpose":{"value":"This
+        channel is for workspace-wide communication and announcements. All members
+        are in this channel.","creator":"UUW7LV8TB","last_set":1583874857},"previous_names":[],"num_members":6},{"id":"CV6AN643F","name":"random","is_channel":true,"is_group":false,"is_im":false,"created":1583874857,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"random","is_shared":false,"parent_conversation":null,"creator":"UUW7LV8TB","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TV6AN59D3"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"Non-work
+        banter and water cooler conversation","creator":"UUW7LV8TB","last_set":1583874857},"purpose":{"value":"A
+        place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
+        you''d prefer to keep out of more focused work-related channels.","creator":"UUW7LV8TB","last_set":1583874857},"previous_names":[],"num_members":5}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Wed, 11 Mar 2020 05:10:46 GMT
+recorded_with: VCR 5.1.0
