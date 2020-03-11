@@ -20,7 +20,7 @@ module SlackCLI
 			@users.each do |user|
 				if /^U[A-Z0-9]{8}$/.match(search.upcase) && user.slack_id.upcase == search.upcase
 					@selected = user
-				elsif user.username.upcase == search.upcase
+				elsif user.name.upcase == search.upcase
 					@selected = user
 				else
 					@selected == nil
@@ -53,6 +53,12 @@ module SlackCLI
 				puts "Nothing has been selected to show details."
 			end
 		end
+
+		# def send_message
+		# 	if @selected != nil
+		# 		puts "What message would you like to send to the selected user/channel?"
+		# 	end
+		# end
 
 	end
 

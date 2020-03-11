@@ -14,12 +14,12 @@ def main
   
   continue = true
   until continue == false
-    puts "What would you like to do ?\n1. List users\n2. List channels\n3. Select user\n4. Select channel\n5. Details\n6. Quit"
+    puts "What would you like to do ?\n1. List users\n2. List channels\n3. Select user\n4. Select channel\n5. Details\n6. Send message\n7. Quit"
     choice = gets.chomp.downcase
 
     if ["1", "list users"].include?(choice)
       puts "*"
-      tp workspace.users, :username
+      tp workspace.users, :name
       puts "*"
 
     elsif ["2", "list channels"].include?(choice)
@@ -32,7 +32,7 @@ def main
       workspace.select_user(gets.chomp)
       
       if workspace.selected != nil
-        puts "******\nSelected user: #{ workspace.selected.username }\n******"
+        puts "******\nSelected user: #{ workspace.selected.name }\n******"
       end
 
     elsif ["4", "select channel"].include?(choice)
@@ -48,7 +48,10 @@ def main
       tp workspace.show_details
       puts "******"
 
-    elsif ["6", "quit", "q"].include?(choice)
+    elsif ["6", "send message", "message", "send"].include?(choice)
+      continue = false
+      # workspace.send_message
+    elsif ["7", "quit", "q"].include?(choice)
       continue = false
 
     else

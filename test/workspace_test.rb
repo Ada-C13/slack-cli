@@ -28,7 +28,7 @@ describe "#select_user" do
 		searching = "UV6A4F83S"
 		@workspace.select_user(searching)
 		expect(@workspace.selected).must_be_instance_of SlackCLI::User
-		expect(@workspace.selected.username).must_equal "jessicursliang"
+		expect(@workspace.selected.name).must_equal "jessicursliang"
 	end
 
 	it "returns a user based on username" do
@@ -42,7 +42,7 @@ describe "#select_user" do
 		searching = "uv6a4f83s"
 		@workspace.select_user(searching)
 		expect(@workspace.selected).must_be_instance_of SlackCLI::User
-		expect(@workspace.selected.username).must_equal "jessicursliang"
+		expect(@workspace.selected.name).must_equal "jessicursliang"
 	end
 
 	it "returns a user based on username wrong case" do

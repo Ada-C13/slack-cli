@@ -16,13 +16,13 @@ describe "initialize" do
 	end
 
 	it "creates Channel with correctly set instance variables" do
-		expect(@new_user.username).must_equal "slackbot"
+		expect(@new_user.name).must_equal "slackbot"
 		expect(@new_user.real_name).must_equal "Slackbot"
 		expect(@new_user.slack_id).must_equal "USLACKBOT"
 	end
 
 	it "creates Channel with correctly set instance variables again" do
-		expect(@new_user_two.username).must_equal "corinna.fabre"
+		expect(@new_user_two.name).must_equal "corinna.fabre"
 		expect(@new_user_two.real_name).must_equal "Corinna Fabre"
 		expect(@new_user_two.slack_id).must_equal "UUUSFT2AX"
 	end
