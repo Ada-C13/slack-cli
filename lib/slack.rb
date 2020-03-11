@@ -10,7 +10,6 @@ require_relative 'user'
 def main
   puts "Welcome to the Ada Slack CLI!"
   workspace = SlackCLI::Workspace.new
-  SlackCLI::User.load_all
 
   puts "#{ workspace.channels.length } channels loaded.."
   puts "#{ workspace.users.length } users loaded.."

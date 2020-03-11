@@ -4,10 +4,8 @@ module SlackCLI
 		attr_reader :users, :channels
 
 		def initialize
-			@users = []
-			@channels = []
-
 			@users = User.load_all
+			@channels = Channel.load_all
 		end
 
 	end

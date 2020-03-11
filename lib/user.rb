@@ -1,4 +1,5 @@
 require_relative "recipient"
+require_relative "workspace"
 
 module SlackCLI
 	class User < Recipient
