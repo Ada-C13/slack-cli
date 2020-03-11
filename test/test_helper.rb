@@ -25,5 +25,9 @@ VCR.configure do |config|
   }
 
   # Don't leave our token lying around in a cassette file.
+  config.filter_sensitive_data("<SLACKAPI_TOKEN>") do
+    ENV["SLACKAPI_TOKEN"]
+  end
+
 
 end
