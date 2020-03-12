@@ -7,7 +7,7 @@ require_relative 'recipient'
 Dotenv.load
 
 class User < Recipient
-  attr_reader :real_name, :status_text, :status_emoji
+  attr_reader :username
 
   def initialize(slack_id, name, username)
     super(slack_id, name)
