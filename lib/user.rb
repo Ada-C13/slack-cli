@@ -17,7 +17,22 @@ module SlackCli
         empty_array << new(slack_id: member["id"], name: member["name"], real_name:member["real_name"])
       end 
       return empty_array 
-    end 
+    end
+    
+    
+    def send_msg(message)
+      resp = HTTParty.post(POST_URL, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: {
+          token: TOKEN,
+          channel: self.slack_id,
+          text: message
+        }
+      })
+      return resp.code == 200 && resp.parsed_response["ok"]
+    end
 
   
   end
