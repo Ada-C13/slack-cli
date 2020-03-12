@@ -1,11 +1,14 @@
-
-
+require 'dotenv'
+require 'httparty'
 
 class Recipient
-  Dotenv.load
+  attr_reader :name, :slack_id
 
-  BASE_URL = "https://slack.com/api/conversations.list"
-  SLACK_ID = ENV["SLACK_TOKEN"]
+  def initialize(name:, slack_id:)
+    @name = name
+    @slack_id = slack_id
+  end
+
   
   def send_message(message)
   

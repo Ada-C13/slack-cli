@@ -4,3 +4,6 @@
 
 # Ignore environemnt variables
 .env
+
+# ignore practice sheet
+lib/practice.rb
