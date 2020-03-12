@@ -87,3 +87,4 @@ end
 main if __FILE__ == $PROGRAM_NAME
 
 # what happens if username and channel name are the same?
+# confirm that message was actually sent
