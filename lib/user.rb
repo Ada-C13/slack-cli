@@ -22,6 +22,8 @@ class User < Recipient
   end
 
   def details
-    puts "User name: #{name}, Real name: #{real_name}, Slack ID: #{slack_id}"
+    info = "User name: #{name}, Real name: #{real_name}, Slack ID: #{slack_id}"
+    puts info
+    return info
   end
 end
