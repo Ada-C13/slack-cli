@@ -5,6 +5,8 @@ require 'table_print'
 
 Dotenv.load
 
+class SearchError < StandardError; end
+
 class Recipient
   attr_reader :name,:id
 
@@ -17,12 +19,16 @@ class Recipient
     @id = id
   end
 
-  def self.get_recipients(url,keyword)
+  def self.get_recipients(url)
     query_parameters = {
       token: TOKEN
     }
 
-    HTTParty.get(url, query: query_parameters)[keyword]
+    response = HTTParty.get(url, query: query_parameters)
+    if !response["ok"] || response["ok"] == "ok"
+      raise SearchError, "Unable to retrieve info through API: #{response["error"]}"
+    end
+
+    return response
   end
-  
 end

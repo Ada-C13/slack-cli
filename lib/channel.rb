@@ -10,7 +10,7 @@ class Channel < Recipient
   end
   
   def self.all
-    get_recipients(CHANNEL_URL,"channels").map {|channel| 
+    get_recipients(CHANNEL_URL)["channels"].map {|channel| 
       Channel.new(
         name: channel["name"],
         topic: channel["topic"]["value"],
