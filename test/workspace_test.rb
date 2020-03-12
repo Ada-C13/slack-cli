@@ -103,7 +103,7 @@ describe "#select_channel" do
 	end
 
 	it "does not select anything if nothing is found for searched channel name" do
-		searching_name = "butthead"
+		searching_name = "butthead222"
 		@workspace.select_channel(searching_name)
 		expect(@workspace.selected).must_be_nil
 	end
@@ -140,5 +140,23 @@ describe "#show_details" do
 		@workspace.select_user("butthead")
 
 		expect(@workspace.show_details).must_be_nil
+	end
+end
+
+describe "#send_message" do
+	before do
+		VCR.use_cassette("workspace_create") do
+			@workspace = SlackCLI::Workspace.new
+		end
+	end
+
+	# it "recieves a 200 OK if something is selected" do
+	# 	@workspace.select_channel("general")
+	# 	expect(@workspace.selected).must_be_instance_of SlackCLI::Channel
+	# 	expect{@workspace.send_message}.must_equal true
+	# end
+
+	it "raises an ArgumentError if nothing is selected prior to sending message" do
+		expect{@workspace.send_message}.must_raise ArgumentError
 	end
 end

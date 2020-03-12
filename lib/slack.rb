@@ -49,8 +49,8 @@ def main
       puts "******"
 
     elsif ["6", "send message", "message", "send"].include?(choice)
-      continue = false
-      # workspace.send_message
+      workspace.send_message
+      
     elsif ["7", "quit", "q"].include?(choice)
       continue = false
 

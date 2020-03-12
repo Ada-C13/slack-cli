@@ -19,5 +19,20 @@ module SlackCLI
 		def self.get_response(endpoint)
 			return HTTParty.get(BASE_URL + endpoint, query: {token: SLACK_TOKEN})
 		end
+
+		def self.send_message(message, selected)
+			response = HTTParty.post(BASE_URL + "/chat.postMessage", {
+				headers: { 
+					'Content-Type' => 'application/x-www-form-urlencoded',
+					'charset' => 'utf-8'
+				},
+				body: {
+					token: SLACK_TOKEN,
+					channel: selected.slack_id,
+					text: message
+				}
+			})
+			return response.code == 200 && response.parsed_response["ok"]
+		end
 	end
 end
