@@ -6,12 +6,12 @@ module SlackCli
     attr_reader :users, :channels
     def initialize()
       @users = SlackCli::User.load_all
-      @channels = []
+      @channels = SlackCli::Channel.load_all
     end #initialize
   end #class
 end #module
 
-test_workspace = SlackCli::Workspace.new
-test_workspace.users.each do |user|
-  puts user.real_name  
-end
+# test_workspace = SlackCli::Workspace.new
+# test_workspace.users.each do |user|
+#   puts user.real_name  
+# end
