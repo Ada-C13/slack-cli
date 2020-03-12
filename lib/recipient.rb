@@ -16,11 +16,11 @@ class Recipient
   end
 
   def details
-
+    return "" # No details here, define in sub-class
   end
 
   def self.list_all
-
+    return [] # No details here, define in sub-class
   end
 
 end # Class

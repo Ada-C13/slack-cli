@@ -1,27 +1,31 @@
-  class Workspace
-    # Generator
-    attr_reader :users, :channels, :selected
+require_relative 'user'
+require_relative 'channel'
 
-    # Constructor
-    def initialize
-      @users    = []
-      @channels = []
-    end
+class Workspace
+  # Generator
+  attr_reader :users, :channels, :selected
 
-    def select_channel
+  # Constructor
+  def initialize
+    @users    = User.list_all
+    @channels = Channel.list_all
+    @selected = nil
+  end
 
-    end
+  def select_channel
 
-    def select_user
+  end
 
-    end
+  def select_user
 
-    def show_details
+  end
 
-    end
+  def show_details
 
-    def send_message
+  end
 
-    end
+  def send_message
 
-  end # Class
+  end
+
+end # Class
