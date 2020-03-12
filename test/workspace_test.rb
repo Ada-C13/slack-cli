@@ -79,10 +79,6 @@ describe "Workspace" do
 
   describe "show_details" do
 
-    # before do
-      
-    # end
-
     it "can blahblah showing details" do
       VCR.use_cassette("workspace_class") do
         @workspace = SlackCLI::Workspace.new
@@ -98,15 +94,18 @@ describe "Workspace" do
 
     # before do
     #   @workspace = SlackCLI::Workspace.new
+    #   @workspace.select_user("Slackbot")
     # end
 
-    # it "can blahblah selecting users stuff" do
-    #   VCR.use_cassette("workspace_class") do
+    it "can blahblah sending message stuff" do
+      VCR.use_cassette("workspace_class") do
+        @workspace = SlackCLI::Workspace.new
+        @workspace.select_user("Slackbot")
 
-    #     expect(@workspace.select_user("Slackbot").length).must_equal 3
+        expect(@workspace.send_message).must_equal 7
 
-    #     expect(@workspace.select_user("random")).must_be_kind_of Array
-    #   end
-    # end
+        #expect(@workspace.select_user("random")).must_be_kind_of Array
+      end
+    end
   end
 end

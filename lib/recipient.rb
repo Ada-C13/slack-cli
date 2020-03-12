@@ -1,4 +1,4 @@
-require_relative 'workspace.rb'
+#require_relative 'workspace.rb'
 
 require 'httparty'
 require 'dotenv'
@@ -21,8 +21,8 @@ module SlackCLI
       HTTParty.get(BASE_URL + endpoint, query: {token: SLACK_TOKEN})
     end
 
-    def send_message(message)
-    
+    def self.send_message(message)
+      return message
     end
 
     def details

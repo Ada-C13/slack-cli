@@ -2,7 +2,6 @@
 require 'httparty'
 require 'dotenv'
 
-require_relative 'workspace.rb'
 require_relative 'recipient.rb'
 
 Dotenv.load

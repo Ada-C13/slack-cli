@@ -3,15 +3,19 @@ require 'httparty'
 require 'dotenv'
 require 'awesome_print'
 
-#require_relative 'slack.rb'
+require_relative 'channel.rb'
+require_relative 'users.rb'
 
 Dotenv.load
 
 module SlackCLI
   class Workspace
-    CHANNEL_URL = "https://slack.com/api/conversations.list"
-    USER_URL = "https://slack.com/api/users.list"
-    
+    # CHANNEL_URL = "https://slack.com/api/conversations.list"
+    # USER_URL = "https://slack.com/api/users.list"
+    BASE_URL = "https://slack.com/api/"
+    POST_URL = "https://slack.com/api/chat.postMessage"
+    SLACK_TOKEN = ENV["OAuth"]
+
     attr_reader :users, :channels, :selected
 
     def initialize
@@ -60,8 +64,35 @@ module SlackCLI
     end
 
     def send_message
-    
+      if @selected.slack_id[0] == "U"
+        resp = HTTParty.post(POST_URL, {
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: {
+              token: SLACK_TOKEN,
+              channel: @selected.name,
+              text: SlackCLI::User.send_message
+            }
+          })
+      # elsif @selected.slack_id[0] == "C"
+      #   resp = HTTParty.post(POST_URL, {
+      #       headers: {
+      #         "Content-Type": "application/x-www-form-urlencoded"
+      #       },
+      #       body: {
+      #         token: SLACK_TOKEN,
+      #         channel: @selected.name,
+      #         text: SlackCLI::User.send_message
+      #       }
+      #     })
+        end
+      # return resp
+      # #p POST_URL
+      # #p SLACK_TOKEN
+      puts resp.body
+      
+      return resp.code == 200 && resp.parsed_response["ok"]
     end
-
   end
 end

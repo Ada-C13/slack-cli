@@ -1,4 +1,3 @@
-require_relative 'workspace.rb'
 require_relative 'recipient.rb'
 
 module SlackCLI
