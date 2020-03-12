@@ -5,11 +5,11 @@ require_relative "recipient"
 
 Dotenv.load
 
+CHANNEL_LIST_URL = "https://slack.com/api/channels.list"
+KEY = ENV["SLACK_TOKEN"]
+
 class Channel < Recipient
-
-  CHANNEL_LIST_URL = "https://slack.com/api/channels.list"
-  KEY = ENV["SLACK_TOKEN"]
-
+  
   attr_reader :topic, :member_count
 
   def initialize(id, name, topic, member_count)

@@ -10,7 +10,7 @@ class User < Recipient
   USER_LIST_URL = "https://slack.com/api/users.list"
   KEY = ENV["SLACK_TOKEN"]
 
-  def initialize(id, name)
+  def initialize(id, name, real_name)
     super(id, name)
   end
 
