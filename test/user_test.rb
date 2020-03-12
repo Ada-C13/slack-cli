@@ -3,14 +3,38 @@ require_relative 'test_helper'
 describe 'instantiates a user' do
   
   it 'user object properties' do
-    new_user = User.new('U0G9QF9C6', "Cherdonna", "Cherdonna Shinatra", "Worth My Salt", "🤡")
+    new_user = User.new('U0G9QF9C6', "SlackBot", "Slack Bot", "Worth My Salt", "🤡")
     
     expect(new_user).must_be_instance_of User
     expect(new_user.slack_id).must_equal 'U0G9QF9C6'
-    expect(new_user.name).must_equal "Cherdonna"
-    expect(new_user.real_name).must_equal "Cherdonna Shinatra"
+    expect(new_user.name).must_equal "SlackBot"
+    expect(new_user.real_name).must_equal "Slack Bot"
     expect(new_user.status_text).must_equal "Worth My Salt"
     expect(new_user.status_emoji).must_equal "🤡"
+  end
+  
+end
+
+describe 'it loads all the users from slack api' do
+  
+  it 'loads users' do
+    VCR.use_cassette('load_users') do 
+      all_users = User.list_users
+      expect(all_users).must_be_kind_of Array
+      expect(all_users[0]).must_be_instance_of User
+    end
+  end
+  
+  it 'loads correct user info' do
+    VCR.use_cassette('load_users') do 
+      all_users = User.list_users
+      test_user = all_users[0]
+      expect(test_user.slack_id).must_equal "USLACKBOT"
+      expect(test_user.name).must_equal "slackbot"
+      expect(test_user.real_name).must_equal "Slackbot"
+      expect(test_user.status_text).must_equal ""
+      expect(test_user.status_emoji).must_be_empty
+    end
   end
   
 end

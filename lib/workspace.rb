@@ -1,53 +1,69 @@
 require 'dotenv'
 require 'httparty'
+require_relative 'user'
+require_relative 'channel'
 
-Dotenv.load
+# YOU HAD YOUR SLACK TOKEN HERE, BUT YOU DELETED IT BECAUSE YOU DON'T NEED IT IN WORKSPACE AT THIS POINT
 
-SLACK_TOKEN = ENV['SLACK_TOKEN']
-
+# IT IS NOW LISTED IN RECIPIENT
 
 class Workspace
-  attr_reader :users, :channels
+  attr_reader :users, :channels, :selected
   
   def initialize
-    @users = [] # will be array of user objects
-    @channels = [] # will be array of channel objects
-    @selected = []
-  end
-  
-  # this method will list all the channels!
-  # looking at "channels" in response
-  # for each thing in channels (channel), look at the thing labelled "name", shove that into the array
-  def list_channels
-    url = "https://slack.com/api/channels.list?token=#{SLACK_TOKEN}&pretty=1"
-    response = HTTParty.get(url)
+    @users = User.list_users # will be array of user objects
+    @channels = Channel.list_channels # will be array of channel objects
+    @selected = nil # will be current instance of selected user or channel to STORE IT so the user can: display details or send message
     
-    channel_list = []
-    response['channels'].each do |channel|
-      channel_list << channel["name"]
-    end
-    
-    return channel_list
   end
-  
 
+  
   # def select_channel
-
+  
   # end
-
-
+  
+  
   # def select_user
-
+  
   # end
-
-
+  
+  
   # def show_details
-
+  
   # end
-
-
+  
+  
   # def send_message
-
+  
   # end
-
+  
+  private
+  
+  
 end
+
+# def self.load_all(full_path: nil, directory: nil, file_name: nil)
+#   full_path ||= build_path(directory, file_name)
+
+#   return CSV.read(
+#     full_path,
+#     headers: true,
+#     header_converters: :symbol,
+#     converters: :numeric
+#   ).map { |record| from_csv(record) }
+# end
+
+# private
+
+#   def self.load_all
+#   response = Recipient.get_response("channels.list")
+#   all_channels = []
+#   response["channels"].each do |channel|
+#     name = channel["name"]
+#     topic = channel["topic"]["value"]
+#     member_count = channel["members"].length
+#     slack_id = channel["id"]
+#     all_channels << SlackCLI::Channel.new(name, topic, member_count, slack_id)
+#   end
+#   return all_channels
+# end

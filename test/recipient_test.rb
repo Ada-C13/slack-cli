@@ -23,4 +23,4 @@ describe 'initialize' do
   #   expect{ Recipient.new(123456, name) }.must_raise ArgumentError
   # end
 
-end
+end 

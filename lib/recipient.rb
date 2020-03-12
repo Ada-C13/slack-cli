@@ -1,5 +1,14 @@
+require 'dotenv'
+require 'httparty'
+
+Dotenv.load
+
+SLACK_TOKEN = ENV['SLACK_TOKEN']
+
+
 class Recipient
   attr_reader :slack_id, :name
+  
   
   def initialize(slack_id, name)
     #self.class.validate_id(id) <== this is what was in CSV record
@@ -20,28 +29,29 @@ class Recipient
   # end
   
   
-  # def self.get(url, params)
+  # class method that builds a URL to send with GET HTTParty
+  # invoked in workspace initialize
+  # this is where API calls will happen in child classes
+  # whole thing: "https://slack.com/api/channels.list?token=#{SLACK_TOKEN}&pretty=1"
   
-  # end
+  def self.get_everything(sub_url)
+    url = "https://slack.com/api/#{sub_url}?token=#{SLACK_TOKEN}"
+    
+    response = HTTParty.get(url)
+    
+    return response
+  end
   
-  # def self.load_all(full_path: nil, directory: nil, file_name: nil)
-  #   full_path ||= build_path(directory, file_name)
-
-  #   return CSV.read(
-  #     full_path,
-  #     headers: true,
-  #     header_converters: :symbol,
-  #     converters: :numeric
-  #   ).map { |record| from_csv(record) }
-  # end
+  
   
   # def details
   
   # end
   
   
-  # def self.list_all
-  
-  # end
   
 end
+
+
+
+
