@@ -28,7 +28,12 @@ describe "Recipient Access - Working Case" do
 
   it 'able to send messages' do
     VCR.use_cassette("send_message") do
-      
+      recipient = Recipient.new('general','CUVFN5GQ1')
+      response = recipient.send_message("Hello World")
+
+      expect(response["ok"]).must_equal true
+      expect(response["channel"]).must_equal 'CUVFN5GQ1'
+      expect(response["message"]["text"]).must_equal 'Hello World'
     end
   end
 

@@ -7,8 +7,6 @@ require 'table_print'
 require_relative 'workspace'
 Dotenv.load
 
-MESSAGE_URL = 'https://slack.com/api/chat.postMessage'
-
 def select_recipient (object_type)
   puts "Please provide either a recipient name or Slack ID:"
   user_input = gets.chomp

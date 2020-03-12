@@ -12,6 +12,7 @@ class Recipient
 
   CHANNEL_URL = 'https://slack.com/api/channels.list'
   MEMBER_URL = 'https://slack.com/api/users.list'
+  MESSAGE_URL = 'https://slack.com/api/chat.postMessage'
   TOKEN = ENV['SLACK_TOKEN']
 
   def initialize(name,id)
