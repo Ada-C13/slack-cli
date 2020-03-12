@@ -20,4 +20,10 @@ class User < Recipient
 
     return user_list
   end
+
+  def details
+    return "Slack name: #{name}\nSlack ID: #{slack_id}\nReal name: #{real_name}"
+  end
+  
+
 end
