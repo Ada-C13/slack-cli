@@ -8,5 +8,10 @@ module SlackCli
       @id = id
       @name = name
     end #initialize
+
+    private
+    def self.load_all() #abstract method/template
+      raise NotImplementedError, 'Implement me in a child class!'
+    end
   end #class
 end #module
