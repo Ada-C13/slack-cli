@@ -11,6 +11,7 @@ module SlackCLI
 			@member_count = member_count
 		end
 
+		# Load all channels.
 		def self.load_all
 			response = Recipient.get_response("channels.list")
 			all_channels = []

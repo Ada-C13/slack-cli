@@ -10,6 +10,7 @@ module SlackCLI
 			@real_name = real_name
 		end
 
+		# Load all users.
 		def self.load_all
 			response = Recipient.get_response("users.list")
 			all_users = []

@@ -55,6 +55,7 @@ module SlackCLI
 			end
 		end
 
+		# Send a message.
 		def send_message(message)
 			SlackCLI::Recipient.send_message(message, @selected)
 		end
