@@ -31,4 +31,17 @@ class Recipient
 
     return response
   end
+
+  def send_message
+    puts "What message would you like to send?"
+    message = gets.chomp
+  
+    query_parameters = {
+      token: TOKEN,
+      channel: @id,
+      text: message
+    }
+    
+    response = HTTParty.post(MESSAGE_URL,query: query_parameters)
+  end
 end

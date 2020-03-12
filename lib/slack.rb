@@ -20,19 +20,6 @@ def find_object(search_term, object_type)
     object.id == search_term || object.name == search_term}
 end
 
-def send_message(selected_recipient)
-  puts "What message would you like to send?"
-  message = gets.chomp
-
-  query_parameters = {
-    token: ENV['SLACK_TOKEN'],
-    channel: selected_recipient.id,
-    text: message
-  }
-  
-  response = HTTParty.post(MESSAGE_URL,query: query_parameters)
-end
-
 def select_confirmation(current_recipient)
   if current_recipient.nil?
     puts "Recipient does not exist"
@@ -68,7 +55,7 @@ def main
       tp current_recipient
     when 'send_message'
       if (current_recipient.is_a? Member) || (current_recipient.is_a? Channel)
-        send_message(current_recipient)
+        current_recipient.send_message
       else
         puts "No current recipient selected."
       end
