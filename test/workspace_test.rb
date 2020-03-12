@@ -54,7 +54,7 @@ describe "workspace" do
     end
   end
 
-  describe "#send_message" do
+  describe "#send_message" do  #other #send_message tests in Recipient
     it "will raise an ArgumentError when there is no selected recipient" do
       VCR.use_cassette("workspace_endpoint") do
         test_space = Workspace.new
@@ -71,6 +71,18 @@ describe "workspace" do
         test_space.selected = user01
         response = test_space.show_details
         expect(response).must_equal true
+      end
+    end
+  end
+
+  describe "#assign_selected" do
+    it "can assign a recipient instance to @selected" do
+      VCR.use_cassette("workspace_endpoint") do
+        test_space = Workspace.new
+        recipient01 = test_space.find_recipient("USLACKBOT")
+        expect(test_space.assign_selected(recipient01)).must_equal test_space.selected
+        recipient02 = test_space.find_recipient("general")
+        expect(test_space.assign_selected(recipient02)).must_equal test_space.selected
       end
     end
   end

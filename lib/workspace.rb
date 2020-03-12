@@ -14,6 +14,30 @@ class Workspace
     @selected = nil 
   end
 
+  def select_user
+    puts "To select user, please enter a Slack ID or username:"
+    user_input = gets.chomp
+    assign_selected(find_recipient(user_input))
+  end
+
+  def select_channel
+    puts "To select channel, please enter a Slack ID or name:"
+    user_input = gets.chomp
+    assign_selected(find_recipient(user_input))
+  end
+
+  def send_message
+    raise ArgumentError, "There is not yet a selected recipient" if @selected == nil
+    puts "Enter the message you want to send out:"
+    user_input = gets.chomp
+    @selected.send_message(user_input)
+  end
+
+  def show_details
+    @selected.get_details
+    return true
+  end
+
   def find_recipient(id_name)
     channel_found = @channels.find{|channel|channel.slack_id == id_name || channel.name == id_name }
     user_found = @users.find{|channel|channel.slack_id == id_name || channel.name == id_name}
@@ -30,29 +54,8 @@ class Workspace
     return found_recipient
   end
 
-  def select_user
-    puts "To select user, please enter a Slack ID or username:"
-    user_input = gets.chomp
-    @selected = find_recipient(user_input)
-  end
-
-  def select_channel
-    puts "To select channel, please enter a Slack ID or name:"
-    user_input = gets.chomp
-    @selected = find_recipient(user_input)
-  end
-
-  def send_message
-    raise ArgumentError, "There is not yet a selected recipient" if @selected == nil
-    puts "Enter the message you want to send out:"
-    user_input = gets.chomp
-    @selected.send_message(user_input)
-    return true
-  end
-
-  def show_details
-    @selected.get_details
-    return true
+  def assign_selected(recipient_instance)
+    @selected = recipient_instance
   end
 end
 
