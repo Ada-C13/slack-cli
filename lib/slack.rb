@@ -27,7 +27,7 @@ end
 
 def main
   puts "Welcome to the Ada Slack CLI!"
-  workspace = Workspace.new
+  workspace = SlackCLI::Workspace.new
 
   # TODO project
   control_loop = true

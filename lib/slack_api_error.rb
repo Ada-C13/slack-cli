@@ -1,2 +1,4 @@
-class SlackAPIError < StandardError
+module SlackCLI
+  class SlackAPIError < StandardError
+  end
 end

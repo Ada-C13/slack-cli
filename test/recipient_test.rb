@@ -7,7 +7,7 @@ describe "recipient" do
   describe "self.get" do
     it "receives response from the API call" do
       VCR.use_cassette("users_list_endpoint") do
-        response = Recipient.get(USERS_URI, {token: SLACK_TOKEN})
+        response = SlackCLI::Recipient.get(USERS_URI, {token: SLACK_TOKEN})
         expect(response["members"]).wont_be_nil
         expect(response["members"][0]["name"]).must_equal "slackbot"
         expect(response["members"][0]["id"]).must_equal "USLACKBOT"
@@ -18,7 +18,7 @@ describe "recipient" do
       VCR.use_cassette("users_list_endpoint") do
         # new_key = "bogus"
         # bad_url = ""
-        expect{Recipient.get(USERS_URI, {key: SLACK_TOKEN})}.must_raise SlackAPIError
+        expect{SlackCLI::Recipient.get(USERS_URI, {key: SLACK_TOKEN})}.must_raise SlackCLI::SlackAPIError
         # expect{Recipient.get(bad_url, {token: SLACK_TOKEN})}.must_raise SlackAPIError
       end
     end
@@ -28,8 +28,8 @@ describe "recipient" do
     it "instantiates a new Recipient class object" do
       id = "TESTID001"
       name = "test_recipient"
-      new_recipient = Recipient.new(id, name)
-      expect(new_recipient).must_be_instance_of Recipient
+      new_recipient = SlackCLI::Recipient.new(id, name)
+      expect(new_recipient).must_be_instance_of SlackCLI::Recipient
       expect(new_recipient.slack_id).must_equal id
       expect(new_recipient.name).must_equal name
     end
@@ -38,7 +38,7 @@ describe "recipient" do
   describe "#send_message" do
     it "can send a valid message" do
       VCR.use_cassette("chat_post_endpoint") do
-        recipient01 = Recipient.new("UV6BANLCV")
+        recipient01 = SlackCLI::Recipient.new("UV6BANLCV")
         response = recipient01.send_message("Can I do this?")
         expect(response).must_equal true
       end
@@ -46,14 +46,14 @@ describe "recipient" do
   
     it "will raise an exception when the recipient name or id is invalid" do
       VCR.use_cassette("chat_post_endpoint") do
-        recipient01 = Recipient.new("bogus")
-        expect {recipient01.send_message("Let's get an error.")}.must_raise SlackAPIError
+        recipient01 = SlackCLI::Recipient.new("bogus")
+        expect {recipient01.send_message("Let's get an error.")}.must_raise SlackCLI::SlackAPIError
       end
     end
 
     it "will raise an exception when missing the correct arguments" do
       VCR.use_cassette("chat_post_endpoint") do
-        recipient02 = Recipient.new("UV6BANLCV")
+        recipient02 = SlackCLI::Recipient.new("UV6BANLCV")
         expect {recipient02.send_message()}.must_raise ArgumentError
       end
     end
@@ -62,14 +62,14 @@ describe "recipient" do
 
   describe "#get_details" do
     it "is an abstract method that needs to be implemented by subclasses" do
-      new_recipient = Recipient.new("TESTID001", "test_recipient")
+      new_recipient = SlackCLI::Recipient.new("TESTID001", "test_recipient")
       expect{new_recipient.get_details}.must_raise NotImplementedError
     end
   end
 
   describe "self.list_all" do
     it "is an abstract method that needs to be implemented by subclasses" do
-      expect{Recipient.list_all}.must_raise NotImplementedError
+      expect{SlackCLI::Recipient.list_all}.must_raise NotImplementedError
     end
   end
 end
