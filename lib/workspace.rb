@@ -23,10 +23,19 @@ module Slack
       @channels.length
     end 
 
-    def select_channel 
+
+    # When I type select user, I should be able to supply a username or Slack ID. The corresponding user should be the "selected" recipient.
+    def select_user(user_input) 
+      selected = @users.find { |user| (user.name == user_input) || (user.slack_id == user_input) || () || (user.real_name == user_input)}
+
+      return selected
     end 
 
-    def select_user 
+    # When I type select channel, I should be able to supply a channel name or Slack ID. The corresponding channel should be the "selected" recipient.
+    def select_channel(user_input) 
+      selected = @channels.find { |channel| (channel.name == user_input) || channel.slack_id == user_input}
+
+      return selected
     end 
 
     def show_details 
@@ -36,3 +45,18 @@ module Slack
     end 
   end 
 end 
+
+
+
+# I should see three additional options:
+# select user: select a user as the current recipient
+
+# select channel: select a channel as the current recipient
+
+# details: show details on the current recipient
+# As a user who is at the program's input prompt...
+
+
+# For selecting both users and channels, if no user/channel has that name or ID, the program should let me know and return to the main command loop.
+# When I type details, the program should print out details for the currently selected recipient. What information is printed depends on whether it's a channel or a user.
+# If no recipient is currently selected, the program should let me know and return to the main command prompt.
