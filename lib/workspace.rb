@@ -12,6 +12,7 @@ class Workspace
   def initialize
     @users = [] # will be array of user objects
     @channels = [] # will be array of channel objects
+    @selected = []
   end
   
   # this method will list all the channels!
@@ -29,4 +30,24 @@ class Workspace
     return channel_list
   end
   
+
+  # def select_channel
+
+  # end
+
+
+  # def select_user
+
+  # end
+
+
+  # def show_details
+
+  # end
+
+
+  # def send_message
+
+  # end
+
 end

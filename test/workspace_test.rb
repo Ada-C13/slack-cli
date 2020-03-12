@@ -9,6 +9,7 @@ describe 'initialize' do
     expect(@workspace).must_be_instance_of Workspace
     expect(@workspace.users).must_be_kind_of Array
     expect(@workspace.channels).must_be_kind_of Array
+    expect(@workspace.selected).must_be_kind_of Array
   end
   
 end
