@@ -46,13 +46,4 @@ class ChannelRecipient < Recipient
     return "CHANNEL NOT FOUND"
   end 
 
-  # def send_message(message)
-  #   query = {
-  #     token: ENV["SLACK_TOKEN"],
-  #     text: message, 
-  #     channel: @slack_id
-  #   }
-  #   response = HTTParty.post(BASE_URL + "chat.postMessage", query: query)
-  # end 
-
 end 
