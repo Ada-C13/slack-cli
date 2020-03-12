@@ -18,17 +18,18 @@ describe "class methods" do
     end
   end
 
+  it "can find the right channel" do 
+    VCR.use_cassette("channel_data") do
+      channel = ChannelRecipient.find("CUUG9HF6X")
+      channel.name.must_equal "general"
+    end
+  end 
 
-
-
-  # it "all" do
-  #   VCR.use_cassette("location_find") do
-  #     location = ""
-  #     expect {
-  #       response = get_location(location)
-  #     }.must_raise SearchError
-  #   end
-  # end
-  #expect(response["Seattle"][:lon]).must_equal "-122.3300624"
-      #expect(response["Seattle"][:lat]).must_equal "47.6038321"
+  it "can print out the details" do 
+    VCR.use_cassette("channel_data") do
+      channel = ChannelRecipient.find("CUUG9HF6X")
+      string = channel.details 
+      string.must_be_instance_of String
+    end
+  end
 end
