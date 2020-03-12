@@ -55,13 +55,8 @@ module SlackCLI
 			end
 		end
 
-		def send_message
-			if @selected != nil
-				puts "What message would you like to send to the selected user/channel?"
-				SlackCLI::Recipient.send_message(gets.chomp, @selected)
-			else
-				raise ArgumentError.new("No user or channel has been chosen to send a message.")
-			end
+		def send_message(message)
+			SlackCLI::Recipient.send_message(message, @selected)
 		end
 
 	end

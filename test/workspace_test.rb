@@ -150,7 +150,14 @@ describe "#send_message" do
 		end
 	end
 
-	it "raises an ArgumentError if nothing is selected prior to sending message" do
-		expect{@workspace.send_message}.must_raise ArgumentError
+	it "recieves a 200 OK if something is selected" do
+		VCR.use_cassette("recipient_create") do
+			space = SlackCLI::Workspace.new
+			message = "hello world"
+			space.select_channel("butthead")
+			expect(space.send_message(message)).must_equal true
+		end
 	end
+
+	
 end

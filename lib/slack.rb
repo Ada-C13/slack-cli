@@ -49,7 +49,12 @@ def main
       puts "******"
 
     elsif ["6", "send message", "message", "send"].include?(choice)
-      workspace.send_message
+      if workspace.selected != nil
+				puts "What message would you like to send to the selected user/channel?"
+				workspace.send_message(gets.chomp)
+			else
+				raise ArgumentError.new("No user or channel has been chosen to send a message.")
+      end
       
     elsif ["7", "quit", "q"].include?(choice)
       continue = false
