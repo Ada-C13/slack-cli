@@ -158,4 +158,390 @@ http_interactions:
         Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"timevickiapi_project","real_name_normalized":"timevickiapi_project","display_name":"","display_name_normalized":"","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"ga63c3996f1a","api_app_id":"AUUPU6DL3","always_active":false,"bot_id":"BV8EJ6QP8","image_24":"https:\/\/secure.gravatar.com\/avatar\/a63c3996f1aa050bfdd6681ff69717e0.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/a63c3996f1aa050bfdd6681ff69717e0.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/a63c3996f1aa050bfdd6681ff69717e0.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/a63c3996f1aa050bfdd6681ff69717e0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/a63c3996f1aa050bfdd6681ff69717e0.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/a63c3996f1aa050bfdd6681ff69717e0.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-512.png","status_text_canonical":"","team":"TV83TQ5ST"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":true,"is_app_user":false,"updated":1583873095}],"cache_ts":1583959747,"response_metadata":{"next_cursor":""}}'
     http_version: null
   recorded_at: Wed, 11 Mar 2020 20:49:07 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_API_TOKEN>&channel=random&text=hey%20there%21
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '328'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 12 Mar 2020 20:26:53 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 03a6f8694ffce9e1014f661bb44c8cce
+      X-Oauth-Scopes:
+      - chat:write,channels:read,usergroups:read,users:read,chat:write.customize,chat:write.public
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-270m
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 536063cb28bfc05fcb7a78183dd89b73.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - Kt_mjz8QJHB6gFf2Esyk540TbTsud9j6VlY19j4QzQTRHC6TeBEffw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"CUTE2BDA6","ts":"1584044813.000200","message":{"bot_id":"BV8EJ6QP8","type":"message","text":"hey
+        there!","user":"UV68W8EVB","ts":"1584044813.000200","team":"TV83TQ5ST","bot_profile":{"id":"BV8EJ6QP8","deleted":false,"name":"Time-Vicki-API
+        Project","updated":1583873095,"app_id":"AUUPU6DL3","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TV83TQ5ST"}}}'
+    http_version: null
+  recorded_at: Thu, 12 Mar 2020 20:26:54 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_API_TOKEN>&channel=slackbot&text=hey%20there%20user%21
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '60'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 12 Mar 2020 20:29:57 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 79c027b52383359a4bfc4b40b65743fd
+      X-Oauth-Scopes:
+      - chat:write,channels:read,usergroups:read,users:read,chat:write.customize,chat:write.public
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-suv8
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 5565a51537c689d1d16f6b4d41f40082.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - LUwaw2HvugTnhCRqT22jjZNiqqHNF97NJ2YmBJLwALCiLIhcoIw6dA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"channel_not_found"}'
+    http_version: null
+  recorded_at: Thu, 12 Mar 2020 20:29:57 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_API_TOKEN>&channel=vwhwang38&text=hey%20there%20user%21
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '60'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 12 Mar 2020 20:31:04 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 43d1c865d4c14263e8fc0824f7d09c73
+      X-Oauth-Scopes:
+      - chat:write,channels:read,usergroups:read,users:read,chat:write.customize,chat:write.public
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-wqwr
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 1002c05e647d0804e83147cdd205d14a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - 8UaOfmoozMuAqjwVWlyIurgUS4BHXgbhZHLLNM7_XFOvDhQTEGb--w==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"channel_not_found"}'
+    http_version: null
+  recorded_at: Thu, 12 Mar 2020 20:31:04 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_API_TOKEN>&channel=CUTE2BDA6&text=hey%20there%21
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '329'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 12 Mar 2020 20:32:52 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 03d6a1771857ba898bd6b06d7c421695
+      X-Oauth-Scopes:
+      - chat:write,channels:read,usergroups:read,users:read,chat:write.customize,chat:write.public
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-d2dx
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 b2f9564ebf9c745cc2ceae96d434977e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - 2fGQLN0R9hIeQT9zEqOKNYa2vCEDIvBqjl1shEb-g3WE0veUOzdvnA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"CUTE2BDA6","ts":"1584045172.000300","message":{"bot_id":"BV8EJ6QP8","type":"message","text":"hey
+        there!","user":"UV68W8EVB","ts":"1584045172.000300","team":"TV83TQ5ST","bot_profile":{"id":"BV8EJ6QP8","deleted":false,"name":"Time-Vicki-API
+        Project","updated":1583873095,"app_id":"AUUPU6DL3","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TV83TQ5ST"}}}'
+    http_version: null
+  recorded_at: Thu, 12 Mar 2020 20:32:53 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_API_TOKEN>&channel=USLACKBOT&text=hey%20there%20user%21
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '330'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 12 Mar 2020 20:32:53 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 5bbfa65f4526d9499def54e3d7bb9620
+      X-Oauth-Scopes:
+      - chat:write,channels:read,usergroups:read,users:read,chat:write.customize,chat:write.public
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-32oc
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 5565a51537c689d1d16f6b4d41f40082.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - z66fpHUXxy9MyBWQLYrcCR0lEVdW9C82glpqPatEYupDKXsNkJiacg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"DV8EJ6W06","ts":"1584045173.000100","message":{"bot_id":"BV8EJ6QP8","type":"message","text":"hey
+        there user!","user":"UV68W8EVB","ts":"1584045173.000100","team":"TV83TQ5ST","bot_profile":{"id":"BV8EJ6QP8","deleted":false,"name":"Time-Vicki-API
+        Project","updated":1583873095,"app_id":"AUUPU6DL3","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TV83TQ5ST"}}}'
+    http_version: null
+  recorded_at: Thu, 12 Mar 2020 20:32:53 GMT
 recorded_with: VCR 5.1.0

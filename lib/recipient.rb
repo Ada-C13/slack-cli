@@ -26,7 +26,7 @@ module SlackCli
         },
         body: {
           token: TOKEN,
-          channel: self.name,
+          channel: self.slack_id,
           text: message
         }
       })

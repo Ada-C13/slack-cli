@@ -13,5 +13,15 @@ describe SlackCli::Channel do
       end
     end
 
+    it "can send message to channel" do 
+
+      VCR.use_cassette("slack-posts") do
+        data = SlackCli::Channel.get_all
+        response = data[0].send_msg("hey there!")
+        expect(response).must_equal true 
+      end 
+      
+    end 
+
   end 
 end
