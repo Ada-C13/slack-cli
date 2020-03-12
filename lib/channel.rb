@@ -13,7 +13,7 @@ class User
   #
   end
 
-  def self.list_all(each)
+  def self.list_all
   #
   end
 end
