@@ -1,10 +1,11 @@
-module Slack 
-  class Recipient
-    attr_reader 
-    def initialize
+# module Slack 
+#   class Recipient
+#     attr_reader 
+#     def initialize
       
-    end
+#     end
 
+    
 
-  end
-end
+#   end
+# end

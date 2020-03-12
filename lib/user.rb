@@ -1,3 +1,5 @@
+require 'table_print'
+
 module Slack 
   class User 
     attr_reader 
@@ -5,6 +7,6 @@ module Slack
       
     end
 
-
+   
   end
 end
