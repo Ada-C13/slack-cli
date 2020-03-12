@@ -52,4 +52,43 @@ describe "Workspace" do
       end
     end
   end
+
+  describe "#select_user" do
+    it "selects existing user by assigning it to 'selected' variable" do
+      VCR.use_cassette("list users") do
+        workspace = Workspace.new
+        workspace.select_user("UUT7ESHPU")
+        expect(workspace.selected.slack_id).must_equal "UUT7ESHPU"
+        expect(workspace.selected.name).must_equal "Ekaterina"
+        p workspace.selected
+      end
+    end
+
+    it "leaves 'selected' variable empty if user is not found" do
+      VCR.use_cassette("list_users") do
+        workspace = Workspace.new
+        workspace.select_user("7ESHPU")
+        expect(workspace.selected).must_equal ""
+      end
+    end
+  end
+
+  describe "#select_channel" do
+    it "selects existing channel by assigning it to 'selected' variable" do
+      VCR.use_cassette("list_channels") do
+        workspace = Workspace.new
+        workspace.select_channel("general")
+        expect(workspace.selected.name).must_equal "general"
+        p workspace.selected
+      end
+    end
+
+    it "leaves 'selected' variable empty if channel is not found" do
+      VCR.use_cassette("list_channel") do
+        workspace = Workspace.new
+        workspace.select_channel("nono")
+        expect(workspace.selected).must_equal ""
+      end
+    end
+  end
 end
