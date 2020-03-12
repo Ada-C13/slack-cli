@@ -1,13 +1,18 @@
-require 'simplecov'
+require "simplecov"
 SimpleCov.start do
-  add_filter 'test/'
+  add_filter "test/"
 end
 
-require 'minitest'
-require 'minitest/autorun'
-require 'minitest/reporters'
-require 'minitest/skip_dsl'
-require 'vcr'
+require "minitest"
+require "minitest/autorun"
+require "minitest/reporters"
+require "minitest/skip_dsl"
+require "vcr"
+# Do I keep this?
+require "dotenv"
+Dotenv.load
+
+require_relative "../lib/slack.rb"
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
@@ -24,6 +29,18 @@ VCR.configure do |config|
     :match_requests_on => [:method, :uri, :body], # The http method, URI and body of a request all need to match
   }
 
-  # Don't leave our token lying around in a cassette file.
-
+  # tells VCR not to put token into cassette file
+  config.filter_sensitive_data("SLACK_TOKEN") do
+    ENV["SLACK_TOKEN"]
+  end
 end
+
+# Any tests involving a User should use the username SlackBot
+# Any tests involving a Channel should use the #random channel
+
+# Do not need to test your main command loop, or the user interaction portions of your app. However, all classes and helper methods should be thoroughly tested.
+
+# Follow TDD best practices (pseudocode, red, green, refactor)
+# Add tests for all code you write
+# Make sure all tests are green before pushing to GitHub
+# Make sure all tests are green after you pull
