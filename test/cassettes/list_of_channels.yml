@@ -80,4 +80,63 @@ http_interactions:
         you''d prefer to keep out of more focused work-related channels.","creator":"UV5KNL1UL","last_set":1583868525},"previous_names":[],"num_members":4}],"response_metadata":{"next_cursor":""}}'
     http_version: null
   recorded_at: Wed, 11 Mar 2020 22:28:54 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/channels.list?query%5Btoken%5D=SLACK_TOKEN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '58'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 12 Mar 2020 22:57:27 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding
+      X-Slack-Req-Id:
+      - c6bb8089f535ed47c8a7f3fe298b4cd8
+      X-Xss-Protection:
+      - '0'
+      X-Slack-Backend:
+      - h
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-q9vr
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 0ccf0c27e4c676af10b19744f165c448.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - ORD51-C3
+      X-Amz-Cf-Id:
+      - ayoRgvBEHWD08xRbKXpiB4EikbkzdqVIUKDAgfkfA5qXmSjgB9Idlg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"invalid_array_arg"}'
+    http_version: null
+  recorded_at: Thu, 12 Mar 2020 22:57:27 GMT
 recorded_with: VCR 5.1.0

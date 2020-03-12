@@ -1,9 +1,15 @@
+require "httparty"
+require "dotenv"
+require "awesome_print"
+
+Dotenv.load
+
 class Recipient
   
-  KEY = ENV["SLACK_TOKEN"]
+  attr_reader :id, :name
 
-  def initialize(slack_id, name)
-    @slack_id = slack_id
+  def initialize(id, name) # (string, sting)
+    @id = id
     @name = name
   end
 
@@ -12,6 +18,8 @@ class Recipient
     raise NotImplementedError, 'Implement me in a child class!'
   end
 
-
+  def self.get(url, params)
+    return response = HTTParty.get(url, query: params)
+  end
 
 end
