@@ -33,6 +33,10 @@ module SlackCli
       return resp.code == 200 && resp.parsed_response["ok"]
     end
 
+    def show_details
+      return self.inspect
+    end 
+
 
   end
 end 

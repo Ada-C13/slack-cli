@@ -5,7 +5,8 @@ require_relative 'channel'
 module SlackCli
   class Workspace
 
-    attr_reader :users, :channels, :selected
+    attr_reader :users, :channels
+    attr_accessor :selected
     
     def initialize
       @users = User.get_all
@@ -22,7 +23,7 @@ module SlackCli
     end 
 
     def show_details
-      puts @selected.inspect 
+      return @selected.show_details
     end 
 
   end

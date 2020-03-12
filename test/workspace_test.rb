@@ -24,6 +24,27 @@ describe SlackCli::Workspace do
         expect(slack_start.selected.name).must_equal "slackbot"
         expect(slack_start.selected.slack_id).must_equal "USLACKBOT"
       end 
+    end
+    
+    it "#show_details will show correct info" do 
+      VCR.use_cassette("slack-posts") do
+        slack_start = SlackCli::Workspace.new
+        select_one = slack_start.select_user("vwhwang38")
+        result = select_one.show_details
+
+        expect(result).must_be_instance_of String
+        expect(result.match? /vwhwang38/).must_equal true 
+      end 
+    end 
+
+
+    it "#show_details will show correct info from workspace as well" do 
+      VCR.use_cassette("slack-posts") do
+        slack_start = SlackCli::Workspace.new
+        slack_start.select_channel("random")
+        expect(slack_start.show_details).must_be_instance_of String
+        expect(slack_start.show_details.match? /random/).must_equal true 
+      end 
     end 
 
 

@@ -61,7 +61,7 @@ def main
       if workspace.selected == nil 
         puts "No channel or user was selected!"
       else 
-        workspace.show_details
+        puts workspace.show_details
       end 
 
     elsif input == "send message"
