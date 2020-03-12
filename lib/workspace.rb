@@ -2,9 +2,9 @@ require 'pry'
 require "httparty"
 require "awesome_print"
 require "dotenv"
-require_relative 'workspace'
 require_relative 'recipient'
 require_relative 'user'
+require_relative 'channel'
 
 module SlackCLI
   class Workspace

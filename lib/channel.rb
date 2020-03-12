@@ -1,13 +1,13 @@
 require 'pry'
 require 'httparty'
-require 'recipient'
+require_relative 'recipient'
 
 module SlackCLI
   class Channel < Recipient
     attr_reader :slack_id, :name, :topic, :member_count
 
     BASE_URL = "https://slack.com/api/conversations.list"
-    SLACK_TOKEN = ENV["SLACK_TOKEN"]
+    SLACK_TOKEN = 
 
     def initialize(slack_id:, name:, topic:, member_count:)
       super(slack_id: slack_id, name: name)
@@ -22,18 +22,19 @@ module SlackCLI
     end
 
     def self.list_all
-      response = self.get(BASE_URL, query: {token: SLACK_TOKEN})
+      response = self.get(BASE_URL, query: {token: ENV["SLACK_TOKEN"]})
+      unless response["ok"]
+        raise Exception.new(response["error"])
+      end
       channels = []
-      ap response
       response["channels"].each do |channel|
         channels << self.new(
           slack_id: channel['id'], 
           name: channel['name'], 
-          topic: channel['topic'],
+          topic: channel['topic']['value'],
           member_count: channel['num_members']
         )
       end
-      ap channels
       return channels
     end
   end

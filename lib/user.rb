@@ -6,7 +6,6 @@ module SlackCLI
     attr_reader :slack_id, :name, :real_name
 
     BASE_URL = "https://slack.com/api/users.list"
-    SLACK_TOKEN = ENV["SLACK_TOKEN"]
 
     def initialize(slack_id:, name:, real_name:)
       super(slack_id: slack_id, name: name)
@@ -22,7 +21,7 @@ module SlackCLI
     end
 
     def self.list_all
-      response = self.get(BASE_URL, query: {token: SLACK_TOKEN})
+      response = self.get(BASE_URL, query: {token: ENV["SLACK_TOKEN"]})
       users = []
       response["members"].each do |member|
         users << self.new(slack_id: member['id'], name: member['name'], real_name: member['real_name'])

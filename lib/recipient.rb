@@ -29,6 +29,9 @@ module SlackCLI
 
     def self.get(url, params)
       response = HTTParty.get(url, params)
+      unless response["ok"]
+        raise Exception.new(response["error"])
+      end
       return response 
     end
 
