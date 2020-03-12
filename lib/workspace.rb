@@ -15,4 +15,13 @@ class Workspace
     @channels = Channel.all
   end
 
+  def select_recipient (user_input)
+    find_object(@users, user_input) || find_object(@channels, user_input)
+  end
+  
+  def find_object(object_type, search_term)
+    object_type.find {|object| 
+      object.id == search_term || object.name == search_term}
+  end
+
 end

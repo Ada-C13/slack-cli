@@ -43,11 +43,10 @@ def main
     when 'list_channels'
       puts "List of Channels:"
       tp workspace.channels
-    when 'select_user'
-      current_recipient = select_recipient(workspace.users)
-      select_confirmation(current_recipient)
-    when 'select_channel'
-      current_recipient = select_recipient(workspace.channels)
+    when 'select_user','select_channel'
+      puts "Please provide either a recipient name or Slack ID:"
+      user_input = gets.chomp
+      current_recipient = workspace.select_recipient(user_input)
       select_confirmation(current_recipient)
     when 'details'
       tp current_recipient
