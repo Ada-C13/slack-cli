@@ -23,13 +23,14 @@ class Recipient
     #override
   end 
 
-  # def send_message(message)
-  #   query = {
-  #     token: ENV["SLACK_TOKEN"],
-  #     text: message, 
-  #     channel: @slack_id
-  #   }
-  #   response = HTTParty.post(BASE_URL + "chat.postMessage", query: query)
-  # end 
+  def send_message(message)
+    query = {
+      token: ENV["SLACK_TOKEN"],
+      text: message, 
+      channel: @slack_id
+    }
+    response = HTTParty.post(BASE_URL + "chat.postMessage", query: query)
+    return response
+  end 
 end 
 

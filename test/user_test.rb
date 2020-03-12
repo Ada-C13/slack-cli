@@ -32,3 +32,13 @@ describe "class methods" do
     end
   end
 end
+
+describe "send message" do 
+  it "can send a valid message" do
+    VCR.use_cassette("slack_posts") do
+      recipient = user = UserRecipient.find("UUVTJ2NPK")
+      response = recipient.send_message("Hey I can post messages!")
+      expect(response["ok"]).must_equal true
+    end
+  end
+end
