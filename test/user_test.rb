@@ -25,4 +25,15 @@ describe "user" do
       end
     end
   end
+
+  describe "#get_details" do
+    it "can get all the details of the user" do
+      VCR.use_cassette("users_list_endpoint") do
+        all_users = User.list_all
+        user01 = all_users[0]
+        response = user01.get_details
+        expect(response).must_equal true
+      end
+    end
+  end
 end

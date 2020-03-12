@@ -27,6 +27,11 @@ class Channel < Recipient
 
     return all_channels
   end
+
+  def get_details
+    tp self, :slack_id, :name, :topic, :member_count
+    return true
+  end
 end
 
    # name, topic, member count, and Slack ID

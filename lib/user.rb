@@ -29,5 +29,11 @@ class User < Recipient
 
     return all_users
   end
+
+  def get_details
+    tp self, :slack_id, :name, :real_name, :status_text, :status_emoji
+    return true
+  end
+
 end
 

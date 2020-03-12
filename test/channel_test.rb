@@ -25,4 +25,15 @@ describe "channel" do
       end
     end
   end
+
+  describe "#get_details" do
+    it "can get all the details of the channel" do
+      VCR.use_cassette("channels_list_endpoint") do
+        all_channels = Channel.list_all
+        channel01 = all_channels[0]
+        response = channel01.get_details
+        expect(response).must_equal true
+      end
+    end
+  end
 end
