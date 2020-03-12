@@ -13,11 +13,6 @@ class ChannelRecipient < Recipient
     @member_count = member_count
   end 
 
-
-
-
-
-
   def details 
     pretty_string = "DETAILS:
     Slack ID: #{@slack_id}
@@ -32,15 +27,13 @@ class ChannelRecipient < Recipient
     query = {
       token: ENV["SLACK_TOKEN"]
     }
-    
     response = HTTParty.get(BASE_URL + "conversations.list", query: query)
-
+  
     channels = response["channels"]
     channels_array = []
     channels.each do |channel|
       channels_array << ChannelRecipient.new(channel["id"], channel["name"], channel["topic"], channel["num_members"])
     end 
-
     return channels_array
   end 
 
@@ -51,6 +44,15 @@ class ChannelRecipient < Recipient
       end 
     end
     return "CHANNEL NOT FOUND"
+  end 
+
+  def send_message(message)
+    query = {
+      token: ENV["SLACK_TOKEN"],
+      text: message, 
+      channel: @slack_id
+    }
+    response = HTTParty.post(BASE_URL + "chat.postMessage", query: query)
   end 
 
 end 

@@ -26,24 +26,29 @@ class Workspace
   end 
 
   def select_user(id)
-    return UserRecipient.find(id)
-
+    @selected = UserRecipient.find(id)
+    return @selected
   end 
 
   def select_channel(id)
-    return ChannelRecipient.find(id)
+    @selected = ChannelRecipient.find(id)
+    return @selected
   end 
 
-  def get_details(recipient)
-    if recipient.instance_of?(UserRecipient) || recipient.instance_of?(ChannelRecipient)
-      return recipient.details
+  def get_details
+    if @selected.instance_of?(UserRecipient) || @selected.instance_of?(ChannelRecipient)
+      return @selected.details
     else
       return "You have not chosen a user or channel, can't grab details for ya"
     end 
   end 
 
-  def send_message
-
+  def send_message(message)
+    if selected.instance_of? UserRecipient
+      @selected.send_message(message)
+    elsif selected.instance_of? ChannelRecipient
+      @selected.send_message(message)
+    end 
   end 
 
 end 

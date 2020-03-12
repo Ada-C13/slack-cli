@@ -43,17 +43,18 @@ def main
       puts "Channel: #{recipient}"
       input = ask_again
     elsif input == 5
-      puts workspace.get_details(recipient)
+      puts workspace.get_details
       input = ask_again
     elsif input == 6
-      #TODO
+      puts "Input the message you would like to send:"
+      workspace.send_message(gets.chomp)
+      input = ask_again
     else
       puts "idk"
       input = ask_again
     end 
   end 
   puts "Thank you for using the Ada Slack CLI"
-
 end
 
 main if __FILE__ == $PROGRAM_NAME

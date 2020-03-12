@@ -13,25 +13,18 @@ class Recipient
     @slack_id = slack_id
     @name = name 
 
-  end 
-
-  def self.get(url, params)
-    
-
-  end 
-
-
-  def send_message(message)
-  
-  end 
+  end  
 
   def details
-
+    #override
   end 
 
   def self.list_all
-
+    #override
   end 
 
+  def send_message
+    #override
+  end 
 end 
 
