@@ -9,12 +9,10 @@ require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
 
-Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
+require_relative '../lib/user'
+require_relative '../lib/channel'
 
-VCR.configure do |config|
-  config.cassette_library_dir = "test/cassettes"
-  config.hook_into :webmock
-end
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 VCR.configure do |config|
   config.cassette_library_dir = "test/cassettes" # folder where casettes will be located
