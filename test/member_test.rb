@@ -15,6 +15,7 @@ describe "User Access - Working Case" do
   it 'list out all users' do
     expect(@users.first).must_be_kind_of Member
     expect(@users.length).must_equal 3 
+    expect(@users.first.real_name).must_equal 'Slackbot' 
   end
 
 end
