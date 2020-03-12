@@ -16,7 +16,15 @@ class Workspace
   end
 
   def select_recipient (user_input)
-    find_object(@users, user_input) || find_object(@channels, user_input)
+    current_recipient = find_object(@users, user_input) || find_object(@channels, user_input)
+
+    if current_recipient.nil?
+      puts "Recipient does not exist"
+    else
+      puts "You have selected the current recipient: #{current_recipient.name}"
+      return current_recipient
+    end
+
   end
   
   def find_object(object_type, search_term)

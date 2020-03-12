@@ -7,25 +7,6 @@ require 'table_print'
 require_relative 'workspace'
 Dotenv.load
 
-def select_recipient (object_type)
-  puts "Please provide either a recipient name or Slack ID:"
-  user_input = gets.chomp
-  find_object(user_input, object_type)
-end
-
-def find_object(search_term, object_type)
-  object_type.find {|object| 
-    object.id == search_term || object.name == search_term}
-end
-
-def select_confirmation(current_recipient)
-  if current_recipient.nil?
-    puts "Recipient does not exist"
-  else
-    puts "You have selected the current recipient: #{current_recipient.name}"
-  end
-end
-
 def main
   puts "Welcome to the Ada Slack CLI!"
   workspace = Workspace.new
@@ -38,16 +19,13 @@ def main
   until user_action == 'quit'
     case user_action
     when 'list_members'
-      puts "List of Members:"
       tp workspace.users
     when 'list_channels'
-      puts "List of Channels:"
       tp workspace.channels
     when 'select_user','select_channel'
       puts "Please provide either a recipient name or Slack ID:"
       user_input = gets.chomp
       current_recipient = workspace.select_recipient(user_input)
-      select_confirmation(current_recipient)
     when 'details'
       tp current_recipient
     when 'send_message'
