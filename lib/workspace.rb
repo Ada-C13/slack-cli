@@ -1,11 +1,9 @@
-require 'httparty'
-require 'dotenv'
 require_relative 'user'
 require_relative 'channel'
 require_relative 'recipient'
 
 
-Dotenv.load
+
 
 class Workspace
 
