@@ -14,6 +14,6 @@ class Recipient
     params = {
       token: ENV["SLACK_TOKEN"]
     }
-    response = HTTParty.get(url, query: params)
+    HTTParty.get(url, query: params)
   end
 end
