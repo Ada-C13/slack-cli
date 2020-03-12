@@ -7,6 +7,16 @@ require 'table_print'
 require_relative 'workspace'
 Dotenv.load
 
+def recipient_available?(current_recipient)
+  if current_recipient.nil?
+    puts "No current recipient selected."
+  else
+    puts "What message would you like to send?"
+    current_recipient.send_message(gets.chomp)
+  end
+end
+
+
 def main
   puts "Welcome to the Ada Slack CLI!"
   workspace = Workspace.new
@@ -29,18 +39,13 @@ def main
     when 'details'
       tp current_recipient
     when 'send_message'
-      if (current_recipient.is_a? Member) || (current_recipient.is_a? Channel)
-        puts "What message would you like to send?"
-        current_recipient.send_message(gets.chomp)
-      else
-        puts "No current recipient selected."
-      end
+      recipient_available?(current_recipient)
     else
       puts "Looks like this isn't a valid option."
     end
 
     puts "What would you like to do next?"
-    puts "Your options are: list_members, list_channels, or quit"
+    puts "Your options are: list_members, list_channels, select_user, select_channel, details, send_message or quit"
     user_action = gets.chomp.downcase
   end
   
@@ -50,4 +55,3 @@ end
 main if __FILE__ == $PROGRAM_NAME
 
 # what happens if username and channel name are the same?
-# confirm that message was actually sent
