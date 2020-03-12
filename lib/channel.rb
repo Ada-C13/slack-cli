@@ -4,7 +4,8 @@ require 'dotenv'
 
 Dotenv.load
 
-BASE_URL = "https://slack.com/api/conversations.list"
+CHANNAL_URL = "https://slack.com/api/channels.list"
+KEY = ENV["SLACK_TOKEN"]
 
 class Channel < Recipiant
   attr_reader :topice, :member_count
@@ -17,13 +18,26 @@ class Channel < Recipiant
 
 
 
+
+
   def details
 
   end
 
   def self.list_all
+    chanels = []
+    query_parameters = {token: KEY}
 
+    channels = HTTParty.get(CHANNAL_URL, query: query_parameters)
+
+    channels["channels"].each do |chanel|
+      chanels << chanel["name"]
+    end
+    return chanels
   end
 
+
+
 end
+
   

@@ -6,26 +6,23 @@ require_relative "workspace"
 
 Dotenv.load
 
-BASE_URL = "https://slack.com/api/conversations.list"
+BASE_URL = "https://slack.com/api/channels.list"
 KEY = ENV["SLACK_TOKEN"]
 
 def main
   puts "Welcome to the Ada Slack CLI!"
-  # workspace = Workspace.new
 
   query_parameters = {token: KEY} 
 
 
   response = HTTParty.get(BASE_URL, query: query_parameters)
   
-
-
   puts "Thank you for using the Ada Slack CLI"
   puts response
 
-  # response[:channels]each do |chanel|
-  #   puts chanel
-  # end
+  response["channels"].each do |chanel|
+    puts chanel["name"]
+  end
 
 end
 

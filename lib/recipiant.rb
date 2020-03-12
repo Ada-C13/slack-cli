@@ -13,20 +13,20 @@ class Recipiant
     @name = name
   end
 
-  def send_message(message)
+  # def send_message(message)
 
-  end
+  # end
 
-  def self.get(url, params)
+  # def self.get(url, params)
 
-  end
+  # end
 
-  def details
+  # def details
 
-  end
+  # end
 
-  def self.list_all
+  # def self.list_all
 
-  end
+  # end
 end
   

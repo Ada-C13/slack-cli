@@ -8,14 +8,19 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
+require 'webmock/minitest'
+require 'dotenv'
+Dotenv.load
 
-Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
+
 
 require_relative "../lib/channel"
 require_relative "../lib/user"
 require_relative "../lib/recipiant"
 require_relative "../lib/slack"
 
+
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 VCR.configure do |config|
   config.cassette_library_dir = "test/cassettes"
@@ -31,5 +36,7 @@ VCR.configure do |config|
   }
 
   # Don't leave our token lying around in a cassette file.
-
+  config.filter_sensitive_data("<LOCATIONIQ_TOKEN>") do
+    ENV["SLACK_TOKEN"]
+  end
 end
