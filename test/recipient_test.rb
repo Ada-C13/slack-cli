@@ -13,3 +13,16 @@ describe "initalize" do
 	end
 
 end
+
+describe "self#send_message" do
+
+	it "returns true if the request is valid" do
+		VCR.use_cassette("recipient_create") do
+			workspace = SlackCLI::Workspace.new
+			workspace.select_channel("butthead")
+
+			expect(SlackCLI::Recipient.send_message("hello world", workspace.selected)).must_equal true
+		end
+	end
+
+end

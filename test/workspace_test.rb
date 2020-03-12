@@ -150,12 +150,6 @@ describe "#send_message" do
 		end
 	end
 
-	# it "recieves a 200 OK if something is selected" do
-	# 	@workspace.select_channel("general")
-	# 	expect(@workspace.selected).must_be_instance_of SlackCLI::Channel
-	# 	expect{@workspace.send_message}.must_equal true
-	# end
-
 	it "raises an ArgumentError if nothing is selected prior to sending message" do
 		expect{@workspace.send_message}.must_raise ArgumentError
 	end
