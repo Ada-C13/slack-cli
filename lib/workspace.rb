@@ -28,7 +28,7 @@ module SlackCLI
 				end
 			end
 			
-			puts "No such user found based on ID." if @selected == nil
+			raise ArgumentError.new("No such user found based on ID.") if @selected == nil
 		end
 		
 		# Finds a channel based on channel ID or channel name.
@@ -43,7 +43,7 @@ module SlackCLI
 				end
 			end
 			
-			puts "No such user found based on ID." if @selected == nil
+			raise ArgumentError.new("No such user found based on ID.") if @selected == nil
 		end
 
 		# Finds details of the object currently selected.
@@ -51,7 +51,7 @@ module SlackCLI
 			if @selected != nil
 				return @selected
 			else
-				puts "Nothing has been selected to show details."
+				raise ArgumentError.new("Nothing has been selected to show details.")
 			end
 		end
 

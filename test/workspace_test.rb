@@ -54,13 +54,13 @@ describe "#select_user" do
 
 	it "does not select anything if nothing is found for searched username" do
 		searching_name = "butthead"
-		@workspace.select_user(searching_name)
+		expect{@workspace.select_user(searching_name)}.must_raise ArgumentError
 		expect(@workspace.selected).must_be_nil
 	end
 
 	it "does not select anything if nothing is found for searched id" do
 		searching_id = "UV6AFFF76"
-		@workspace.select_user(searching_id)
+		expect{@workspace.select_user(searching_id)}.must_raise ArgumentError
 		expect(@workspace.selected).must_be_nil
 	end
 
@@ -104,13 +104,13 @@ describe "#select_channel" do
 
 	it "does not select anything if nothing is found for searched channel name" do
 		searching_name = "butthead222"
-		@workspace.select_channel(searching_name)
+		expect{@workspace.select_channel(searching_name)}.must_raise ArgumentError
 		expect(@workspace.selected).must_be_nil
 	end
 
 	it "does not select anything if nothing is found for searched channel id" do
 		searching_id = "CV6AFFF76"
-		@workspace.select_user(searching_id)
+		expect{@workspace.select_user(searching_id)}.must_raise ArgumentError
 		expect(@workspace.selected).must_be_nil
 	end
 	
@@ -137,9 +137,8 @@ describe "#show_details" do
 	end
 
 	it "does not show details if nothing is selected" do
-		@workspace.select_user("butthead")
-
-		expect(@workspace.show_details).must_be_nil
+		expect{@workspace.select_user("butthead")}.must_raise ArgumentError
+		expect{@workspace.show_details}.must_raise ArgumentError
 	end
 end
 
@@ -159,5 +158,5 @@ describe "#send_message" do
 		end
 	end
 
-	
+
 end
