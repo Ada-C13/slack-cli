@@ -26,6 +26,12 @@ describe "Recipient Access - Working Case" do
     end
   end
 
+  it 'able to send messages' do
+    VCR.use_cassette("send_message") do
+      
+    end
+  end
+
   it 'will raise argument error if incorrect url' do
     VCR.use_cassette("incorrect_url") do
       url = 'https://slack.com'

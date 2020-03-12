@@ -32,10 +32,7 @@ class Recipient
     return response
   end
 
-  def send_message
-    puts "What message would you like to send?"
-    message = gets.chomp
-  
+  def send_message(message)
     query_parameters = {
       token: TOKEN,
       channel: @id,

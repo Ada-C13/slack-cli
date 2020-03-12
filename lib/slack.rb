@@ -55,7 +55,8 @@ def main
       tp current_recipient
     when 'send_message'
       if (current_recipient.is_a? Member) || (current_recipient.is_a? Channel)
-        current_recipient.send_message
+        puts "What message would you like to send?"
+        current_recipient.send_message(gets.chomp)
       else
         puts "No current recipient selected."
       end
