@@ -26,4 +26,9 @@ describe Recipiant do
       recipiant.name.must_equal name
     end
   end
+
+  it 'self.list_all' do
+    expect{Recipiant.list_all}.must_raise NotImplementedError
+  end
+  
 end

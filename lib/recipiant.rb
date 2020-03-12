@@ -13,6 +13,10 @@ class Recipiant
     @name = name
   end
 
+  def self.list_all
+    raise NotImplementedError, 'Implement me in a child class!'
+  end
+
   # def send_message(message)
 
   # end
@@ -25,8 +29,5 @@ class Recipiant
 
   # end
 
-  # def self.list_all
-
-  # end
 end
   
