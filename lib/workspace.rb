@@ -3,33 +3,23 @@
 
   require "dotenv"
   require "httparty"
+  require_relative "user"
+  require_relative "channel"
+  require_relative "recipient"
   
   Dotenv.load
   
   SLACK_TOKEN = ENV["SLACK_TOKEN"]
   
   class Workspace
-    attr_reader :users, :channels
+    attr_reader :users, :channels, :selected
   
     def initialize
-      @users = []
-      @channels = []
+      @users = User.list_users
+      @channels = Channel.list_channels
+
+      # need to use Recipient class here???
+      @selected = nil
     end
 
-    def list_channels
-      url = "https://slack.com/api/channels.list?token=#{SLACK_TOKEN}&pretty=1"
-      response = HTTParty.get(url)
-    
-      channels_list = []
-      # looking for channels in response
-      response["channels"].each do |channel|
-        channels_list << channel["name"]
-      end
-    
-      return channels_list
-    end
-    
-  #  def list_users
-  #  end
-  
   end

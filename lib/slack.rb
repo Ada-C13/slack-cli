@@ -13,7 +13,7 @@ def main
     if answer == "list channels"
       # puts workspace.list_channels (method that shows channels)
     elsif answer == "list users"
-      # puts workspace.list_users
+      # puts workspace.list_users (method that shows users)
     elsif answer == "quit"
       i = 1
     end
