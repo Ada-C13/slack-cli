@@ -9,6 +9,9 @@ require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
 
+require_relative '../lib/slack.rb'
+require_relative '../lib/workspace.rb'
+
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 VCR.configure do |config|
