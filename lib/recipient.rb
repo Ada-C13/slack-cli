@@ -5,8 +5,10 @@ Dotenv.load
 TOKEN = ENV["SLACK_API_TOKEN"]
 BASE_URL = "https://slack.com/api/"
 
+class SlackAPIError < StandardError
+end 
+
 module SlackCli
-  
   class Recipient
 
     attr_reader :slack_id, :name

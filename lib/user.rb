@@ -11,6 +11,12 @@ module SlackCli
     end
 
     def self.get_all
+      check_api = HTTParty.get("#{BASE_URL}users.list",query: {token:TOKEN})["ok"]
+      
+      if  check_api == false 
+        raise SlackAPIError ," API Error"
+      end 
+
       data = HTTParty.get("#{BASE_URL}users.list",query: {token:TOKEN})["members"]
       empty_array = []
       data.each do |member|

@@ -3,6 +3,9 @@ require_relative 'channel'
 
 
 module SlackCli
+
+
+
   class Workspace
 
     attr_reader :users, :channels
