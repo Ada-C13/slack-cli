@@ -1,5 +1,7 @@
 require 'rake/testtask'
+require 'dotenv'
 
+Dotenv.load
 Rake::TestTask.new do |t|
   t.libs = ["lib"]
   t.warning = true

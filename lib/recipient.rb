@@ -1,6 +1,5 @@
 require 'pry'
 require 'httparty'
-Dotenv.load
 
 module SlackCLI
   class Recipient

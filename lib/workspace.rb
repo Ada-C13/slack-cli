@@ -5,7 +5,6 @@ require "dotenv"
 require_relative 'workspace'
 require_relative 'recipient'
 require_relative 'user'
-Dotenv.load
 
 module SlackCLI
   class Workspace
@@ -13,7 +12,7 @@ module SlackCLI
 
     def initialize
       @users = SlackCLI::User.list_all
-      @channels = []
+      @channels = SlackCLI::Channel.list_all
     end
 
     def select_user
