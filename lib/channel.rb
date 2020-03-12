@@ -20,21 +20,21 @@ class Channel < Recipiant
 
 
 
-  def details
+  # def details
 
-  end
+  # end
 
-  def self.list_all
-    chanels = []
-    query_parameters = {token: KEY}
+  # def self.list_all
+  #   chanels = []
+  #   query_parameters = {token: KEY}
 
-    channels = HTTParty.get(CHANNAL_URL, query: query_parameters)
+  #   channels = HTTParty.get(CHANNAL_URL, query: query_parameters)
 
-    channels["channels"].each do |chanel|
-      chanels << chanel["name"]
-    end
-    return chanels
-  end
+  #   channels["channels"].each do |chanel|
+  #     chanels << chanel["name"]
+  #   end
+  #   return chanels
+  # end
 
 
 

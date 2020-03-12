@@ -1,28 +1,28 @@
 require_relative "test_helper"
 describe Channel do
-
   describe 'constructor' do
     
-    it "Creates an instance of reservation" do
-      slack_id = "CV5KNMDKN"
-      name = "slack-cli"
-      recipiant = Recipiant.new("CV5KNMDKN", "slack-cli")
-      recipiant.must_be_kind_of Recipiant
+    it "Creates an instance of channel" do
+      topice = {}
+      member_count = []
+      channel = Channel.new({},[])
+      channel.must_be_kind_of Channel
     end
 
-    it 'Keep treck of selck_id' do
-      name = "slack-cli"
-      slack_id = "CV5KNMDKN"
-      recipiant = Recipiant.new(slack_id, name)
-      recipiant.must_respond_to :slack_id
-      recipiant.slack_id.must_equal slack_id
+    it 'Keep treck of topice' do
+      topice = {}
+      member_count = []
+      channel = Channel.new(topice, member_count)
+      channel.must_respond_to :topice
+      expect(channel.topice).must_be_kind_of Hash
     end
 
-    it 'Keep treck of slack name' do
-      name = "slack-cli"
-      slack_id = "CV5KNMDKN"
-      recipiant = Recipiant.new(slack_id, name)
-      recipiant.must_respond_to :name
-      recipiant.name.must_equal name
+    it 'Keep treck of slack member_count' do
+      topice = {}
+      member_count = []
+      channel = Channel.new(topice, member_count)
+      channel.must_respond_to :member_count
+      expect(channel.member_count).must_be_kind_of Array
     end
   end
+end
