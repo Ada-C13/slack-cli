@@ -15,13 +15,15 @@ def main
   
   user_input = gets.chomp.downcase
   while user_input != options[-1]
-    if user_input == options[0]
+    if user_input == options[0] 
       #list users with username, real name, and Slack ID.
       tp workspace.users, :id, :name, :real_name #https://github.com/arches/table_print usage
+    else user_input == options[1]
+      #list channel with name, topic, member count, and Slack ID
+      tp workspace.channels, :id, :name, :topic, :member_count
     end 
     user_input = gets.chomp
   end
-  
   
   # TODO project
 
