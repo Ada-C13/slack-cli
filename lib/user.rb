@@ -53,12 +53,12 @@ end #module
 
 # testuser = SlackCli::User.new(1, "kate", "katem")
 # puts testuser.handle
-all_users = SlackCli::User.load_all
+# all_users = SlackCli::User.load_all
 
-all_users.each do |user|
-  puts user.name
-  puts user.real_name
-  puts user.status_text
-  puts user.status_emoji
-end
+# all_users.each do |user|
+#   puts user.name
+#   puts user.real_name
+#   puts user.status_text
+#   puts user.status_emoji
+# end
 
