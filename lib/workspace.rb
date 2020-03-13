@@ -1,5 +1,4 @@
 require "httparty"
-require "dotenv"
 require_relative "channel"
 require_relative "user"
 
@@ -12,43 +11,29 @@ class Workspace
     @selected = nil
   end
 
-  #condense this method so checks the name and slack id in one loop?
   def select_user(name_or_slack_id)
     user = @users.find do |user|
-      p user
-      user.name == name_or_slack_id || user.slack_id == name_or_slack_id
+      user.name.downcase == name_or_slack_id.downcase || user.slack_id.downcase == name_or_slack_id.downcase
     end
 
-    return "no such user exists 😢" if user == nil
-
-    @selected = user
-    return "you've selected a user yay! 🤗"
+    @selected = user unless user == nil 
   end
-
- select_user("UV60Q76GG")
 
   def select_channel(name_or_slack_id)
     channel = @channels.find do |channel|
-      p channel 
-      channel.name == name_or_slack_id || channel.slack_id == name_or_slack_id
+      channel.name.downcase == name_or_slack_id.downcase || channel.slack_id.downcase == name_or_slack_id.downcase
     end
 
-    return "no such channel exists 🤔" if channel == nil
-
-    @selected = channel
-    return "you've selected a channel yay! 🥳"
+    @selected = channel unless channel == nil
   end
 
   def details_of
-    return "please select a user or channel to get details on" if @selected == nil
-
     return @selected.details
   end
 
   def text_me(message)
-    return "Please write a message...." if message == nil
-    return "you must choose a user or channel you want to send this message to" if @selected == nil
     channel = @selected.slack_id
-    @selected.send_message(channel, message)
+    request = @selected.send_message(channel, message)
+    return false if request["okay"] == false
   end
 end

@@ -23,7 +23,7 @@ def main
   end
 
   while true
-    puts "What would you like to do?"
+    puts "\nWhat would you like to do?"
     puts "\n🔵 list users\n🔵 list channels\n🔵 select user\n🔵 select channel\n🔵 details\n🔵 send message\n🔵 quit"
     options = ["list users", "list channels", "select user", "select channel", "details", "quit", "send message"]
     users_option = gets.chomp.downcase
@@ -38,19 +38,46 @@ def main
     when "list channels"
       pretty_channel_list(workspace)
     when "select user"
-      puts "enter name of a user"
+      puts "enter username or slack ID of a user"
       select_user = gets.chomp.downcase
-      puts workspace.select_user(select_user)
+      workspace.select_user(select_user)
+      if workspace.selected.nil?
+        puts "no such user exists 😢"
+      elsif workspace.selected != nil 
+        puts "you've selected a user yay! 🤗"
+      end
     when "select channel"
-      puts "enter name of a channel"
+      puts "enter username or slack ID of a channel"
       select_channel = gets.chomp.downcase
-      puts workspace.select_channel(select_channel)
+      workspace.select_channel(select_channel)
+      if workspace.selected.nil?
+        puts "no such channel exists 🤔"
+      elsif workspace.selected != nil 
+        puts "you've selected a channel yay! 🥳"
+      end
+
+      
     when "details"
-      puts workspace.details_of #colorize?
+      if workspace.selected.nil?
+        puts "please select a user or channel to get details on"
+      else
+        puts workspace.details_of
+      end
     when "send message"
       puts "what is your message?"
-      message = gets.chomp.downcase
-      workspace.text_me(message)
+      message = gets.chomp
+      until message != nil && message != ""
+        puts "enter your message"
+        message = gets.chomp
+      end
+
+      if workspace.selected.nil?
+        puts "you must choose a channel or a user before you send a message"
+      elsif workspace.text_me(message) == false
+        puts "unable to send your message 🥺"
+      else
+        puts "your message has been succefully sent 📨"
+      end
     when "quit"
       break
     end
@@ -60,6 +87,3 @@ def main
 end
 
 main if __FILE__ == $PROGRAM_NAME
-
-#do something that tells the user their message has been sent
-#return "Your message has been sent 📨" if response["okay"] == true

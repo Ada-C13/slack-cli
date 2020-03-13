@@ -19,11 +19,10 @@ class Recipient
       channel: channel,
       text: message,
     }
-    response = HTTParty.post(url, query: query)
-    raise(Exception, "Failed to send your message") if response["true"] == false 
+    request = HTTParty.post(url, query: query)
+    raise(Exception, "Failed to send your message") if request["true"] == false 
+    return request
   end
-
-  private
 
   def self.get(base_url)
     query = {

@@ -1,5 +1,6 @@
 require_relative "recipient"
 
+
 class Channel < Recipient
   attr_reader :topic, :member_count
 
@@ -26,5 +27,4 @@ class Channel < Recipient
   def details
     return "Channel name: #{name}\nSlack ID: #{slack_id}\nChannel topic: #{topic}\nMember count: #{member_count}"
   end
-
 end

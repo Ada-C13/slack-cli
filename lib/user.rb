@@ -24,6 +24,4 @@ class User < Recipient
   def details
     return "Slack name: #{name}\nSlack ID: #{slack_id}\nReal name: #{real_name}"
   end
-  
-
 end
