@@ -3,7 +3,7 @@ require_relative "test_helper"
 describe "Workspace class" do 
 
   # Question: I cannot use `before block` here?
-  # Because when I try to access it inside of `VCR.use_cassette`, it gives me an error
+  # Because when I try to access @work_space inside of `VCR.use_cassette`, it gives me an error
   # before do 
   #   @workspace = Slack::Workspace.new()
   # end 
@@ -12,7 +12,7 @@ describe "Workspace class" do
   describe "#initialize" do
     it "creates a `users` array and return all users' list" do 
 
-      VCR.use_cassette("workspace_attributes") do 
+      VCR.use_cassette("Workspace#initialize") do 
         users = Slack::Workspace.new().users
         channels = Slack::Workspace.new().channels
 
@@ -29,7 +29,7 @@ describe "Workspace class" do
 
   describe "#select_user(user_input)" do 
     before do 
-      VCR.use_cassette("select_user") do 
+      VCR.use_cassette("Workspace#select_user") do 
         @workspace = Slack::Workspace.new()
       end 
     end 
@@ -57,11 +57,17 @@ describe "Workspace class" do
       expect(user).must_be_kind_of Slack::User
       expect(user.real_name).must_equal real_name
     end 
+
+    it "raises an ArgumentError if no user found" do 
+      name = "elephant"
+      expect{@workspace.select_user(name)}.must_raise ArgumentError
+    end 
   end 
 
-  describe "#select_user(user_input)" do 
+
+  describe "#select_channel(user_input)" do 
     before do 
-      VCR.use_cassette("select_channel") do 
+      VCR.use_cassette("Workspace#select_channel") do 
         @workspace = Slack::Workspace.new()
       end 
     end 
@@ -82,6 +88,32 @@ describe "Workspace class" do
       expect(channel.slack_id).must_equal id
     end 
 
-    
+    it "raises an ArgumentError if no channel found" do 
+      name = "my fur baby"
+      expect{@workspace.select_channel(name)}.must_raise ArgumentError
+    end 
   end 
+
+
+  describe "#show_details" do 
+    before do 
+      VCR.use_cassette("Workspace#show_details") do 
+        @workspace = Slack::Workspace.new()
+      end 
+    end 
+
+    it "returns the selected user details" do 
+      name = "slackbot"
+
+      # Invoke #select_user to assign "selected" variable
+      @workspace.select_user(name)
+      
+      details = @workspace.show_details
+
+      expect(details).must_be_kind_of Array 
+      expect(details.length).must_equal 5
+      expect(details[1]).must_equal name
+    end 
+  end 
+
 end 
