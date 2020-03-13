@@ -7,14 +7,15 @@ require_relative 'recipient'
 Dotenv.load
   
 class Users < Recipient
-  attr_reader :topic, :number_of_users
+  attr_reader :real_name, :status_text, :status_emoji
 
       
   USERS_URL = "https://slack.com/api/users.list?"
   SLACK_TOKEN = ENV["SLACK_TOKEN"]
 
 
-  def initialize
+  def initialize(id, name, real_name, status_text, status_emoji)
+    super(id, name)
 
   end
 
