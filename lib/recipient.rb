@@ -1,4 +1,7 @@
 require 'httparty'
+require "dotenv" # do I need this?
+Dotenv.load # do I need this?
+
 
 class Recipient
   attr_reader :name, :slack_id
@@ -10,6 +13,7 @@ class Recipient
 
   
   def send_message(message)
+    
     response = HTTParty.post("https://slack.com/api/chat.postMessage", query: {token: ENV['BOT_TOKEN'], channel: self.slack_id, text: message })
 
     if response.code != 200 || response["ok"] == false
