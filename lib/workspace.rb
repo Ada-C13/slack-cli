@@ -43,8 +43,11 @@ class Workspace
   end
 
   def message
+    # TODO move user input statement to slack.rb
+    # TODO test this method if it's returning sent string
     puts "Please enter a message you would like to send to #{selected.name}"
     print "=> "
-    selected.send_message(gets.chomp)
+    sent_message = selected.send_message(gets.chomp)
+    return sent_message
   end
 end
