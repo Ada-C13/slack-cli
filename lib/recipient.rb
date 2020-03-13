@@ -15,3 +15,8 @@ module SlackCli
     end
   end #class
 end #module
+
+#Common to tell other files in the program
+#Per Devin, include here so it's accessible to other classes
+class SlackAPIError < Exception
+end
