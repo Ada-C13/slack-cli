@@ -14,6 +14,22 @@ class Recipient
     params = {
       token: ENV["SLACK_TOKEN"]
     }
-    HTTParty.get(url, query: params)
+    response = HTTParty.get(url, query: params)
+    raise Exception if response.code != 200
+    return response
+  end
+
+  def send_message(message)
+    puts "#{message} #{slack_id}"
+    url = "https://slack.com/api/chat.postMessage"
+    params = {
+      token: ENV["SLACK_TOKEN"],
+      channel: slack_id,
+      text: message
+    }
+
+    response = HTTParty.post(url, query: params)
+    raise Exception if response.code != 200
+    return response
   end
 end
