@@ -16,6 +16,17 @@ describe "Channel Class" do
     expect(@channel).must_be_kind_of Array
     expect(@channel[0]).must_be_kind_of Channel
     expect(@channel.length).must_be_kind_of Integer
-    expect(@channel.length).must_equal 3
+    expect(@channel.length).must_be :>, 0
+    @channel.each do |channel|
+      expect(channel).must_be_kind_of Channel
+    end
+  end
+
+   describe "Return an error" do
+    it "Returns error if incorrect querty given" do
+      VCR.use_cassette("bogus") do
+        expect{Channel.list_users.must_raise SlackAPI::SlackAPIError}
+      end
+    end
   end
 end
