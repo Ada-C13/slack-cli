@@ -5,10 +5,10 @@ require_relative "recipient"
 
 Dotenv.load
 
-BASE_URL = "https://slack.com/api/users.list"
-SLACK_TOKEN = ENV["SLACK_TOKEN"]
+USER_BASE_URL = "https://slack.com/api/users.list"
+# SLACK_TOKEN = ENV["SLACK_TOKEN"]
 
-class User < Recipient
+class User # < Recipient
   attr_reader :real_name, :status_text, :status_emoji
 
   def initialize(name:, slack_id:, real_name:, status_text:, status_emoji:)
@@ -21,8 +21,9 @@ class User < Recipient
   end
 
   def self.list_all
-    users = HTTParty.get("#{BASE_URL}?token=#{SLACK_TOKEN}")
-    users = users["members"].map do |user|
+    data = HTTParty.get("#{USER_BASE_URL}?token=#{SLACK_TOKEN}")
+    @user_data = data["members"]
+    output = @user_data.map do |user|
       self.new(
         name: user["name"],
         slack_id: user["id"],
@@ -31,6 +32,7 @@ class User < Recipient
         status_emoji: user["profile"]["status_emoji"],
       )
     end
+    return output
   end
 
   def details(each)
@@ -101,5 +103,3 @@ end
 #   "is_app_user": false,
 #   "updated": 1583868865
 # },
-
-print User.list_all
