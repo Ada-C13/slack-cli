@@ -20,7 +20,7 @@ class Recipient
       text: message,
     }
     request = HTTParty.post(url, query: query)
-    raise(Exception, "Failed to send your message") if request["true"] == false 
+    raise(Exception, "Encountered an error: #{request["error"]}") if request["true"] == false || request.code != 200
     return request
   end
 
@@ -29,7 +29,7 @@ class Recipient
       token: AUTH_TOKEN,
     }
     response = HTTParty.get(base_url, query: query)
-    raise(Exception, "Failed to access API, check url") if response["okay"] == false
+    raise(Exception, "Encountered an error: #{response["error"]}") if response["okay"] == false || response.code != 200
     return response
   end
 

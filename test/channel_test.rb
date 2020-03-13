@@ -1,9 +1,9 @@
 require_relative "test_helper"
 describe "channel" do
-  describe "get" do
+  describe "self.get" do
     before do
       VCR.use_cassette("uses_get(url)") do
-        @url = "https://slack.com/api/channels.list"
+        @url = "https://slack.com/api/conversations.list"
         @response = Channel.get(@url)
       end
     end
@@ -14,7 +14,7 @@ describe "channel" do
 
     it "Should raise an Exception if the API search fails" do
       url = ""
-      expect { response = Channel.get(url) }.must_raise Exception
+      expect { Channel.get(url) }.must_raise Exception
     end
     #this is dependent on Slacks api
     it "Should return a list of all channels within the workspace" do
@@ -42,6 +42,7 @@ describe "channel" do
     end
     it "Should return an array of Channel objects" do
       expect(@channel_list).must_be_kind_of Array
+      expect(@channel_list.length).must_be :>, 0
       @channel_list.each do |channel|
         expect(channel).must_be_instance_of Channel
       end
