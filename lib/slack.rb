@@ -8,8 +8,11 @@ def main
   puts "Welcome to the Ada Slack CLI!"
   workspace = Workspace.new
   puts "+++++++++++++++++++++++++++++"
-  puts "Your workspace has #{workspace.users.count} users."
+  puts "Your workspace has #{workspace.users.count} users and #{workspace.channels.count} channels."
+  puts "+++++++++++++++++++++++++++++"
   puts workspace.list_users
+  puts "+++++++++++++++++++++++++++++"
+  puts workspace.list_channels
 
   # TODO project
 

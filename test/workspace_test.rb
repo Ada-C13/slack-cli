@@ -53,8 +53,17 @@ describe "Workspace Class" do
     it "return a string" do
       expect(@workspace.list_users).must_be_kind_of String
     end
-    it "this string is a concat of strings - one per user" do
+    # it "this string is a concat of strings - one per user" do
       
+    # end
+  end
+
+  describe "list_channels" do
+    it "returns a string" do
+      expect(@workspace.list_channels).must_be_kind_of String
     end
+    # it "this string is a concat of strings - one per channel" do
+      
+    # end
   end
 end

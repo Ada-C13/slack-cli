@@ -27,6 +27,15 @@ class Workspace
     return result.chop.chop
   end
 
+  def list_channels
+    result = ""
+    channels.each do |channel|
+      result += channel.get_details
+      result += "\n"
+    end
+    return result.chop.chop
+  end
+
   private
 
   def load_users
