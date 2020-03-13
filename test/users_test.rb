@@ -14,6 +14,18 @@ describe "User Class" do
     #test that the channel is count is an Integer
     expect(@user).must_be_kind_of Array
     expect(@user[0]).must_be_kind_of User
-    expect(@user.length).must_be_kind_of Integer
+    # expect(@user.length).must_be_kind_of Integer
+    expect(@user.length).must_be :>, 0
+    @user.each do |user|
+      expect(user).must_be_kind_of User
+    end
+  end
+
+  describe "Return an error" do
+    it "Returns error if incorrect querty given" do
+      VCR.use_cassette("bogus") do
+        expect{User.list_users.must_raise SlackAPI::SlackAPIError}
+      end
+    end
   end
 end
