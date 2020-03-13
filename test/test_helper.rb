@@ -11,6 +11,7 @@ require "vcr"
 require_relative "../lib/workspace"
 require_relative "../lib/channels"
 require_relative "../lib/users"
+
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 VCR.configure do |config|

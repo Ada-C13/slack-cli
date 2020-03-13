@@ -1,13 +1,13 @@
 require_relative "test_helper"
 
-describe "initialize" do
+describe "Workspace" do
   before do
     VCR.use_cassette("workspace_creation") do
       @workspace = Workspace.new
     end
   end
 
-  it "creates a new instance of Workspace" do
+  it "Creates a new instance of Workspace" do
     expect(@workspace).must_be_kind_of Workspace
     expect(@workspace).must_respond_to :users
     expect(@workspace).must_respond_to :channels
