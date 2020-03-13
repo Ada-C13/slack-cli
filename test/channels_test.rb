@@ -8,7 +8,7 @@ describe "Channel Class" do
     end
   end
 
-  it "Test List Channel method " do
+  it "Test List Channels Method " do
     #testing that we are return an Array
     #testing that we are return a channel array
     #test that the channel is count is an Integer

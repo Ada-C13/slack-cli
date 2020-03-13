@@ -5,6 +5,7 @@ require_relative "recipient"
 class User < Recipient
   attr_accessor :real_name, :status_text, :status_emoji
 
+  # every time
   def initialize(slack_id, name, real_name, status_text = nil, status_emoji = nul)
     super(slack_id, name)
     @real_name = real_name
