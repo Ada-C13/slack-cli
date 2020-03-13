@@ -29,13 +29,13 @@ describe "getting number of users" do
   end  
 end
 
-xdescribe "listing users" do
+xdescribe "listing users" do  # look in to test the 2 listing functions do i need to break the functin apart?
 
   it "outputs list of users" do
-    VCR.use_cassette("users.list") do
+    VCR.use_cassette("users1") do
       response = Workspace.new
 
-      expect(Workspace.new.list_users(response)).must_be_kind_of String
+      expect(response.list_users).must_equal 
     end
   end 
 end

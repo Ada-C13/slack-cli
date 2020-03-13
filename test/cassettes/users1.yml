@@ -25,11 +25,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 13 Mar 2020 05:34:11 GMT
+      - Fri, 13 Mar 2020 05:34:10 GMT
       Server:
       - Apache
       X-Slack-Req-Id:
-      - 35344daec45893937a33900e70273a94
+      - e76eac35b5ce03c54bf29d61682af74b
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write
       X-Accepted-Oauth-Scopes:
@@ -60,15 +60,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-zk2s
+      - haproxy-www-qsab
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 e8afb729a4bc6f5676d32307ea14bdae.cloudfront.net (CloudFront)
+      - 1.1 84d78693f5031616e2902bea6b3ea970.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - HIO50-C1
       X-Amz-Cf-Id:
-      - EVTARcfzEKaOmbjYO-gb7PFeHTyEWYq_9kmG4f__CDLZDhX5rogu0g==
+      - PFwctIWyS891wVPEte3sBD3Mn9T24a9R4FCqseZF8oeJDSAs0HCAGw==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"channels":[{"id":"CUURD2M5Z","name":"slackcli","is_channel":true,"is_group":false,"is_im":false,"created":1583874439,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"slackcli","is_shared":false,"parent_conversation":null,"creator":"UV85Q5X6K","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TV85Q5X0X"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"A
@@ -82,7 +82,7 @@ http_interactions:
         is sending messages here !","creator":"UV6A4F83S","last_set":1583966700},"previous_names":[],"num_members":1},{"id":"CVAEAU1LN","name":"honeybucket","is_channel":true,"is_group":false,"is_im":false,"created":1583949693,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"honeybucket","is_shared":false,"parent_conversation":null,"creator":"UUUSFT2AX","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TV85Q5X0X"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"I
         am a honeybucket.","creator":"UUUSFT2AX","last_set":1583959733},"previous_names":[],"num_members":2}],"response_metadata":{"next_cursor":""}}'
     http_version: null
-  recorded_at: Fri, 13 Mar 2020 05:34:11 GMT
+  recorded_at: Fri, 13 Mar 2020 05:34:10 GMT
 - request:
     method: get
     uri: https://slack.com/api/users.list?token=SLACK_TOKEN
@@ -112,7 +112,7 @@ http_interactions:
       Server:
       - Apache
       X-Slack-Req-Id:
-      - f9eeb67e64aa600603bdf5b643b0198e
+      - 54e1b7c73cd656cef7482bfe4415b2e7
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write
       X-Accepted-Oauth-Scopes:
@@ -143,15 +143,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-a0o8
+      - haproxy-www-coly
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 c34da255183aa208dd1c722ff211f9b2.cloudfront.net (CloudFront)
+      - 1.1 cd48ffda04934d18865e47e99ea080bc.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - HIO50-C1
       X-Amz-Cf-Id:
-      - al1MichJMOoBLmcf0nlbrj61dAnR5p-d0XX3SuHVs5DSid9wHm8nPQ==
+      - dPS8u6_m35owl9xQtJzHBGH5mkTY7YO6sJwlwiD5APg1XgeDua4q3A==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"members":[{"id":"USLACKBOT","team_id":"TV85Q5X0X","name":"slackbot","deleted":false,"color":"757575","real_name":"Slackbot","tz":null,"tz_label":"Pacific
