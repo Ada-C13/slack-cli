@@ -8,8 +8,32 @@ def ask_for_action
   puts "* Select from the options below:"
   puts "* list users"
   puts "* list channels"
+  puts "* select user"
+  puts "* select channel"
   puts "* quit" 
   puts
+end
+
+def user_selected?(workspace)
+  puts "Enter a username or Slack ID:"
+  identifier = gets.chomp
+  user = workspace.select_user(identifier)
+  if user
+    return "user #{identifier} selected"
+  else
+    return "user #{identifier} was not found"
+  end
+end
+
+def channel_selected?(workspace)
+  puts "Enter a channel name or Slack ID:"
+  identifier = gets.chomp
+  channel = workspace.select_channel(identifier)
+  if channel
+    return "channel #{identifier} selected"
+  else
+    return "channel #{identifier} was not found"
+  end
 end
 
 def perform_action(action, workspace)
@@ -18,6 +42,10 @@ def perform_action(action, workspace)
     workspace.list_users
   when "list channels"
     workspace.list_channels
+  when "select user"
+    user_selected?(workspace)
+  when "select channel"
+    channel_selected?(workspace)
   end
 end
 

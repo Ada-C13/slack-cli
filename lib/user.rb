@@ -25,8 +25,8 @@ class User < Recipient
 
     response = HTTParty.get(base_url, query: query)
     users = response["members"]
-    return users.map { |user| User.new(user["id"], user["name"], 
-      user["real_name"]) }
+    return users.map { |user| User.new(user["id"], user["real_name"], 
+      user["profile"]["display_name"]) }
   end
 
 end

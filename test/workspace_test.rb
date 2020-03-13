@@ -84,7 +84,7 @@ describe "Workspace" do
     end
 
     it "leaves 'selected' variable empty if channel is not found" do
-      VCR.use_cassette("list_channel") do
+      VCR.use_cassette("list_channels") do
         workspace = Workspace.new
         workspace.select_channel("nono")
         expect(workspace.selected).must_equal ""
