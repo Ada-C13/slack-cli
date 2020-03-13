@@ -17,7 +17,10 @@ class Channel < Recipient
 
   # Return details for a channel
   def details
-    return "ID = #{@id}, name = #{@name}, topic = #{@topic}, member_count = #{@member_count}"
+    return "ID           = #{@id}\n" + 
+           "Name         = #{@name}\n" + 
+           "Topic        = #{@topic}\n" + 
+           "Member Count = #{@member_count}"
   end
 
   # Get channels from slack

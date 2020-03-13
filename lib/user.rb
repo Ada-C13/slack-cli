@@ -18,7 +18,11 @@ class User < Recipient
 
   # Return details for a user
   def details
-    return "ID = #{@id}, name = #{@name}, real name = #{@real_name}, status text = #{@status_text}, status emoji = #{@status_emoji}"
+    return "ID           = #{@id}\n" +
+           "Name         = #{@name}\n" + 
+           "Real Name    = #{@real_name}\n" + 
+           "Status Text  = #{@status_text}\n" + 
+           "Status Emoji = #{@status_emoji}"
   end
 
   # Get users from slack

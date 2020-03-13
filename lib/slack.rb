@@ -49,17 +49,41 @@ def list_users(workspace)
 end
 
 def list_channels(workspace)
-  # workspace.channels.each do |channel|
-  #   puts channel.details
-  # end
   puts "\nChannel List\n\n"
   tp workspace.channels, "id", "name", "topic", "member_count"
+end
+
+def select_user(workspace)
+  print "Enter user id or name: "
+  choice = gets.chomp
+  begin
+    workspace.select_user(choice)
+  rescue => exception
+    puts "Error: #{exception.message}"
+  end
+end
+
+def select_channel(workspace)
+  print "Enter channel id or name: "
+  choice = gets.chomp
+  begin
+    workspace.select_channel(choice)
+  rescue => exception
+    puts "Error: #{exception.message}"
+  end
+end
+
+def show_details(workspace)
+  begin
+    puts workspace.show_details
+  rescue => exception
+    puts "Error: #{exception.message}"
+  end
 end
 
 def send_message(workspace)
 
 end
-
 
 # Main method to show CLI options and call other methods
 def main
@@ -71,18 +95,28 @@ def main
     puts "\nSlack Main Menu:"
     puts "1 - List Users (lu)"
     puts "2 - List Channels (lc)" 
-    puts "3 - Send Message (sm)"
-    puts "4 - Quit (q)"
+    puts "3 - Select User (su)" 
+    puts "4 - Select Channel (sc)"
+    puts "5 - Show Details (sd)"
+    puts "6 - Send Message (sm)"
+    puts "7 - Quit (q)"
     print "\nWhat would you like to do? "
     choice = gets.chomp.downcase
+    puts
     case choice
       when "list users", "lu", "1"
         list_users(workspace)
       when "list channels", "lc", "2"
         list_channels(workspace)
-      when "send message", "sm", "3"
+      when "select user", "su", "3"
+        select_user(workspace)
+      when "select channel", "sc", "4"
+        select_channel(workspace)
+      when "show details", "sd", "5"
+        show_details(workspace)
+      when "send message", "sm", "6"
         send_message(workspace)
-      when "quit", "q", "4"
+      when "quit", "q", "7"
         choice = "quit"
       else
        puts "Invalid choice!"
