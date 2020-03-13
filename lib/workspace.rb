@@ -49,9 +49,9 @@ module SlackCLI
       i = 0
       list_users = SlackCLI::User.load_all
       list_users.length.times do
-        if list_users[i].name == identifier
+        if list_users[i].name == identifier || list_users[i].username == identifier
           @selected = list_users[i]
-        elsif list_users[i].name != identifier
+        elsif list_users[i].name != identifier || list_users[i].username != identifier
           i+=1
         end
       end
@@ -71,26 +71,23 @@ module SlackCLI
             },
             body: {
               token: SLACK_TOKEN,
-              channel: @selected.name,
-              text: SlackCLI::User.send_message
+              username: @selected.username,
+              text: SlackCLI::User.send_message("I am a honeybucket")
             }
           })
-      # elsif @selected.slack_id[0] == "C"
-      #   resp = HTTParty.post(POST_URL, {
-      #       headers: {
-      #         "Content-Type": "application/x-www-form-urlencoded"
-      #       },
-      #       body: {
-      #         token: SLACK_TOKEN,
-      #         channel: @selected.name,
-      #         text: SlackCLI::User.send_message
-      #       }
-      #     })
-        end
-      # return resp
-      # #p POST_URL
-      # #p SLACK_TOKEN
-      puts resp.body
+      elsif @selected.slack_id[0] == "C"
+        resp = HTTParty.post(POST_URL, {
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: {
+              token: SLACK_TOKEN,
+              channel: @selected.name,
+              text: SlackCLI::User.send_message("I am a honeybucket")
+            }
+          })
+      end
+      return resp
       
       return resp.code == 200 && resp.parsed_response["ok"]
     end

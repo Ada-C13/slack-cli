@@ -11,6 +11,7 @@ module SlackCLI
     attr_reader :slack_id
 
     BASE_URL = "https://slack.com/api/"
+    POST_URL = "https://slack.com/api/chat.postMessage"
     SLACK_TOKEN = ENV["OAuth"]
 
     def initialize(slack_id)

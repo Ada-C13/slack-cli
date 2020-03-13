@@ -32,12 +32,9 @@ describe "Workspace" do
 
   describe "list_users" do
 
-    before do
-      @workspace = SlackCLI::Workspace.new
-    end
-
     it "can blahblah something users" do
       VCR.use_cassette("workspace_class") do
+        @workspace = SlackCLI::Workspace.new
         expect(@workspace.list_users[0].name).must_equal "Slackbot"
         expect(@workspace.list_users.length).must_equal 8
         expect(@workspace.list_users).must_be_kind_of Array
@@ -73,6 +70,10 @@ describe "Workspace" do
         expect(@workspace.select_user("Slackbot").username).must_equal "slackbot"
 
         expect(@workspace.select_user("Slackbot").name).must_equal "Slackbot"
+
+        expect(@workspace.select_user("time_jessica_slack_cli").name).must_equal "time_jessica_slack_cli"
+
+        expect(@workspace.select_user("time_jessica_slack_cli").name).must_equal "time_jessica_slack_cli"
       end
     end
   end
@@ -92,17 +93,23 @@ describe "Workspace" do
 
   describe "send_message" do
 
-    # before do
-    #   @workspace = SlackCLI::Workspace.new
-    #   @workspace.select_user("Slackbot")
-    # end
-
-    it "can blahblah sending message stuff" do
+    it "can blahblah sending message stuff to users" do
       VCR.use_cassette("workspace_class") do
         @workspace = SlackCLI::Workspace.new
-        @workspace.select_user("Slackbot")
+        @workspace.select_user("time_jessica_slack_cli")
+        sent_message = @workspace.send_message
+        # expect(sent_message.parsed_response).must_equal 
 
-        expect(@workspace.send_message).must_equal 7
+        #expect(@workspace.select_user("random")).must_be_kind_of Array
+      end
+    end
+
+    it "can blahblah sending message stuff to a channel" do
+      VCR.use_cassette("workspace_class") do
+        @workspace = SlackCLI::Workspace.new
+        @workspace.select_channel("honeybucket")
+        sent_message = @workspace.send_message
+        expect(sent_message.parsed_response["ok"]).must_equal true
 
         #expect(@workspace.select_user("random")).must_be_kind_of Array
       end
