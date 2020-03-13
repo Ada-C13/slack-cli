@@ -7,7 +7,6 @@ module SlackCLI
     attr_reader :slack_id, :name, :topic, :member_count
 
     BASE_URL = "https://slack.com/api/conversations.list"
-    SLACK_TOKEN = 
 
     def initialize(slack_id:, name:, topic:, member_count:)
       super(slack_id: slack_id, name: name)

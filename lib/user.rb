@@ -22,6 +22,9 @@ module SlackCLI
 
     def self.list_all
       response = self.get(BASE_URL, query: {token: ENV["SLACK_TOKEN"]})
+      unless response["ok"]
+        raise Exception.new(response["error"])
+      end
       users = []
       response["members"].each do |member|
         users << self.new(slack_id: member['id'], name: member['name'], real_name: member['real_name'])
