@@ -11,14 +11,4 @@ describe "Channel" do
   it "is a channel class" do 
     expect(@new_channel).must_be_kind_of SlackApp::Channel
   end 
-
-  describe "self.list_all" do 
-    it "self.load_all can load info with token" do 
-      VCR.use_cassette("slack-channel") do 
-        response = SlackApp::Channel.list_all
-        expect(response["ok"]).must_equal true 
-      end 
-    end 
-  end 
-
 end 
