@@ -22,6 +22,12 @@ describe "channel.get_everthing" do
       expect(all_channels["channels"].length).must_be :>, 0
     end
   end
+  
+  it 'raises a Slack API Error if it receives an error code' do
+    VCR.use_cassette('load_channels') do
+      expect{ Channel.get_everything("bad.sub.url") }.must_raise SlackAPIError
+    end
+  end
 end
 
 
