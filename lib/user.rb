@@ -3,21 +3,23 @@ require 'httparty'
 
 module SlackCLI
   class User < Recipient
-    attr_reader :slack_id, :name, :real_name
+    attr_reader :slack_id, :name, :real_name, :status_text, :status_emoji
 
     BASE_URL = "https://slack.com/api/users.list"
 
-    def initialize(slack_id:, name:, real_name:)
-      super(slack_id: slack_id, name: name)
-      @real_name = real_name
-      # @status_text = status_text
-      # @status_emoji = status_emoji
+    def initialize(data)
+      super(slack_id: data['id'], name: data['name'])
+      @real_name = data['real_name']
+      @status_text = data['profile']['status_text']
+      @status_emoji = data['profile']['status_emoji']
     end
 
     def details
-      # response = self.get(BASE_URL, {token: SLACK_TOKEN})
-      # user = response['name']    
-      # return user
+      details = "The slack user with username #{self.name} and Slack ID #{self.slack_id} is named #{self.real_name}."
+      unless self.status_text == '' && self.status_emoji == ''
+        details += "Their status text is '#{self.status_text}' and their status emoji is #{self.status_emoji}."
+      end
+      return details
     end
 
     def self.list_all
@@ -27,7 +29,7 @@ module SlackCLI
       end
       users = []
       response["members"].each do |member|
-        users << self.new(slack_id: member['id'], name: member['name'], real_name: member['real_name'])
+        users << self.new(member)
       end
       return users
     end

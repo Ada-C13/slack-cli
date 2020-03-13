@@ -8,16 +8,14 @@ module SlackCLI
 
     BASE_URL = "https://slack.com/api/conversations.list"
 
-    def initialize(slack_id:, name:, topic:, member_count:)
-      super(slack_id: slack_id, name: name)
-      @topic = topic
-      @member_count = member_count
+    def initialize(data)
+      super(slack_id: data['id'], name: data['name'])
+      @topic = data['topic']['value']
+      @member_count = data['num_members']
     end
 
     def details
-      # response = self.get(BASE_URL, {token: SLACK_TOKEN})
-      # user = response['name']    
-      # return user
+      return self
     end
 
     def self.list_all
@@ -27,12 +25,7 @@ module SlackCLI
       end
       channels = []
       response["channels"].each do |channel|
-        channels << self.new(
-          slack_id: channel['id'], 
-          name: channel['name'], 
-          topic: channel['topic']['value'],
-          member_count: channel['num_members']
-        )
+        channels << self.new(channel)
       end
       return channels
     end

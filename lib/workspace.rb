@@ -15,13 +15,18 @@ module SlackCLI
       @channels = SlackCLI::Channel.list_all
     end
 
-    def select_user
+    def select_user(input)
+      selected = @users.select{|user| user.slack_id == input.upcase || user.name == input}
+      return selected[0]
     end
 
-    def select_channel
+    def select_channel(channel)
+      selected = @channels.select{|channel| channel.slack_id == input.upcase || channel.name == input}
+      return selected[0]
     end
 
-    def show_details
+    def show_details(selected)
+      selected.details
     end
 
     def send_message

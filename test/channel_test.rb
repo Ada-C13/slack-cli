@@ -11,10 +11,4 @@ describe ".list_all" do
     expect(channels.first).must_be_instance_of SlackCLI::Channel
     expect(channels.last).must_be_instance_of SlackCLI::Channel
   end
-
-  it "raises an error if response fails" do
-    VCR.use_cassette("channels") do
-      expect{SlackCLI::Channel.list_all}.must_raise Exception
-    end
-  end
 end
