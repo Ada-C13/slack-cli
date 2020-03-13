@@ -35,13 +35,14 @@ module SlackCLI
     end
 
     def show_details
+      raise ArgumentError, "There is not yet a selected recipient" if @selected == nil
       @selected.get_details
       return true
     end
 
     def find_recipient(id_name)
       channel_found = @channels.find{|channel|channel.slack_id == id_name || channel.name == id_name }
-      user_found = @users.find{|channel|channel.slack_id == id_name || channel.name == id_name}
+      user_found = @users.find{|user|user.slack_id == id_name || user.name == id_name}
       found_recipient = nil
 
       if channel_found != nil
@@ -49,7 +50,7 @@ module SlackCLI
       elsif user_found != nil
         found_recipient = user_found
       else
-        raise ArgumentError, 'A valid SLACK ID or username is required'
+        raise ArgumentError, 'Recipient not found. A valid Slack ID or username is required.'
       end
 
       return found_recipient
@@ -61,67 +62,11 @@ module SlackCLI
   end
 end
 
+# #select_user or #select_channel when taking in argument
 # def select_user(id_name)
-#   found_by_id = @users.find{|user|user.slack_id == id_name}
-#   found_by_name = @users.find{|user|user.name == id_name}
-
-#   if found_by_id != nil
-#     @selected = found_by_id
-#   elsif found_by_name != nil
-#     @selected = found_by_name
-#   else
-#     raise ArgumentError, 'A valid SLACK ID or username is required'
-#   end
-
-#   return @selected
+#   user_found = @users.find{|channel|channel.slack_id == id_name || channel.name == id_name}
+#   
+#   raise ArgumentError, 'A valid SLACK ID or username is required' if user_found == nil
+#  
+#   return @selected = user_found
 # end
-
-# #methods without parameters, I could prompt user gets.chomp inside the method. But is that right? How to test?
-
-# def select_channel(id_name)
-#   found_by_id = @channels.find{|channel|channel.slack_id == id_name}
-#   found_by_name = @channels.find{|channel|channel.name == id_name}
-
-#   if found_by_id != nil
-#     @selected = found_by_id
-#   elsif found_by_name != nil
-#     @selected = found_by_name
-#   else
-#     raise ArgumentError, 'A valid SLACK ID or username is required'
-#   end
-
-#   return @selected
-# end
-
-  # def list_users
-  #   tp @users, :slack_id, :name, :real_name
-  #   return true
-  # end
-
-  # def list_channels
-  #   tp @channels, :slack_id, :name, :topic, :member_count
-  #   return true
-  # end
-
-  # def select_user(id: nil, username: nil)
-  #   if id
-  #     @selected = @users.find{|user|user.slack_id == id}
-  #   elsif username
-  #     @selected = @users.find{|user|user.name == username}
-  #   else
-  #     raise ArgumentError, 'SLACK ID or username is required'
-  #   end
-
-  #   return @selected
-  # end
-
-  # def send_message
-  #   if @selected is a channel
-  #     @selected.send_message #but channel#send_message needs argument??
-  #   elsif @selected is a users
-  #     @selected.send_message #but channel#send_message needs argument??
-  #   end
-  # end
-
-# testspace = Workspace.new
-# testspace.send_message("what what")

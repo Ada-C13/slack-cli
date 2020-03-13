@@ -52,7 +52,7 @@ describe "workspace" do
     end
   end
 
-  describe "#send_message" do  #other #send_message tests in Recipient
+  describe "#send_message" do   #other send_message tests in Recipient
     it "will raise an ArgumentError when there is no selected recipient" do
       VCR.use_cassette("workspace_endpoint") do
         test_space = SlackCLI::Workspace.new
@@ -71,6 +71,13 @@ describe "workspace" do
         expect(response).must_equal true
       end
     end
+
+    it "will raise an ArgumentError when there is no selected recipient" do
+      VCR.use_cassette("workspace_endpoint") do
+        test_space = SlackCLI::Workspace.new
+        expect{test_space.send_message}.must_raise ArgumentError
+      end
+    end
   end
 
   describe "#assign_selected" do
@@ -79,64 +86,29 @@ describe "workspace" do
         test_space = SlackCLI::Workspace.new
         recipient01 = test_space.find_recipient("USLACKBOT")
         expect(test_space.assign_selected(recipient01)).must_equal test_space.selected
-        recipient02 = test_space.find_recipient("general")
+        recipient02 = test_space.find_recipient("random")
         expect(test_space.assign_selected(recipient02)).must_equal test_space.selected
       end
     end
   end
 end
-  # describe "select_user" do
-  #   it "returns the instance variable @selected" do
-  #     VCR.use_cassette("workspace_endpoint") do
-  #       test_space = Workspace.new
-  #       expect(test_space.select_user("USLACKBOT")).must_equal test_space.selected
-  #       expect(test_space.select_user("slackbot")).must_equal test_space.selected
-  #     end
-  #   end
 
-  #   it "raises an ArgumentError if no or invalid Slack ID or name is passed in" do
-  #     VCR.use_cassette("workspace_endpoint") do
-  #       test_space = Workspace.new
-  #       expect{test_space.select_user()}.must_raise ArgumentError
-  #       expect{test_space.select_user("bogus")}.must_raise ArgumentError
-  #     end
-  #   end
-  # end
 
-  # describe "select_channel" do
-  #   it "returns the instance variable @selected" do
-  #     VCR.use_cassette("workspace_endpoint") do
-  #       test_space = Workspace.new
-  #       expect(test_space.select_channel("general")).must_equal test_space.selected
-  #       expect(test_space.select_channel("random")).must_equal test_space.selected
-  #     end
-  #   end
+# test for #select_user when taking in an argument
+# describe "#select_user" do
+#   it "returns the instance variable @selected" do
+#     VCR.use_cassette("workspace_endpoint") do
+#       test_space = Workspace.new
+#       expect(test_space.select_user("USLACKBOT")).must_equal test_space.selected
+#       expect(test_space.select_user("slackbot")).must_equal test_space.selected
+#     end
+#   end
 
-  #   it "raises an ArgumentError if no or invalid Slack ID or name is passed in" do
-  #     VCR.use_cassette("workspace_endpoint") do
-  #       test_space = Workspace.new
-  #       expect{test_space.select_channel()}.must_raise ArgumentError
-  #       expect{test_space.select_channel("thisbogusidshouldraiseerror")}.must_raise ArgumentError
-  #     end
-  #   end
-  # end
-
-  # describe "#list_users" do
-  #   it "can list all the users from @users" do
-  #     VCR.use_cassette("workspace_endpoint") do
-  #       test_space = Workspace.new
-  #       response = test_space.list_users
-  #       expect(response).must_equal true
-  #     end
-  #   end
-  # end
-
-  # describe "#list_channels" do
-  #   it "can list all the channels from @channels" do
-  #     VCR.use_cassette("workspace_endpoint") do
-  #       test_space = Workspace.new
-  #       response = test_space.list_channels
-  #       expect(response).must_equal true
-  #     end
-  #   end
-  # end
+#   it "raises an ArgumentError if no or invalid Slack ID or name is passed in" do
+#     VCR.use_cassette("workspace_endpoint") do
+#       test_space = Workspace.new
+#       expect{test_space.select_user()}.must_raise ArgumentError
+#       expect{test_space.select_user("bogus")}.must_raise ArgumentError
+#     end
+#   end
+# end

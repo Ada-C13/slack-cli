@@ -31,7 +31,7 @@ module SlackCLI
       response = HTTParty.post(post_uri, query_params)
 
       if response.code != 200 || response["ok"] != true
-        raise SlackAPIError.new "Error when posting #{message} to #{@name}, error: #{response.parsed_response["error"]}"
+        raise SlackAPIError.new "Error when posting #{message} to #{@name}, error: #{response["error"]}"
       end
 
       return true
@@ -59,20 +59,3 @@ module SlackCLI
     end
   end
 end
-
-
-# message = "testing 7,8,9"
-# url = "https://slack.com/api/chat.postMessage"
-# SLACK_TOKEN = ENV["SLACK_TOKEN"]
-
-# query_param = {
-#   token: SLACK_TOKEN,
-#   channel: "CV5S4LJPN",
-#   text: message
-# }
-# # response = HTTParty.get(USERS_URI, query: {token: SLACK_TOKEN})
-# # puts response
-# sending = HTTParty.get(url, query: query_param)
-# puts sending
-
-

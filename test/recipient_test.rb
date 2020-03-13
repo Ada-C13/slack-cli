@@ -9,6 +9,7 @@ describe "recipient" do
       VCR.use_cassette("users_list_endpoint") do
         response = SlackCLI::Recipient.get(USERS_URI, {token: SLACK_TOKEN})
         expect(response["members"]).wont_be_nil
+        expect(response["members"]).must_be_instance_of Array
         expect(response["members"][0]["name"]).must_equal "slackbot"
         expect(response["members"][0]["id"]).must_equal "USLACKBOT"
       end
@@ -16,10 +17,8 @@ describe "recipient" do
 
     it "will raise an exception if the search fails" do
       VCR.use_cassette("users_list_endpoint") do
-        # new_key = "bogus"
-        # bad_url = ""
+        #use the wrong keyword key instead of token
         expect{SlackCLI::Recipient.get(USERS_URI, {key: SLACK_TOKEN})}.must_raise SlackCLI::SlackAPIError
-        # expect{Recipient.get(bad_url, {token: SLACK_TOKEN})}.must_raise SlackAPIError
       end
     end
   end
@@ -38,8 +37,8 @@ describe "recipient" do
   describe "#send_message" do
     it "can send a valid message" do
       VCR.use_cassette("chat_post_endpoint") do
-        recipient01 = SlackCLI::Recipient.new("UV6BANLCV")
-        response = recipient01.send_message("Can I do this?")
+        recipient01 = SlackCLI::Recipient.new("USLACKBOT")
+        response = recipient01.send_message("Can I do this? I can do this!")
         expect(response).must_equal true
       end
     end
@@ -47,13 +46,13 @@ describe "recipient" do
     it "will raise an exception when the recipient name or id is invalid" do
       VCR.use_cassette("chat_post_endpoint") do
         recipient01 = SlackCLI::Recipient.new("bogus")
-        expect {recipient01.send_message("Let's get an error.")}.must_raise SlackCLI::SlackAPIError
+        expect {recipient01.send_message("Let's get an error")}.must_raise SlackCLI::SlackAPIError
       end
     end
 
     it "will raise an exception when missing the correct arguments" do
       VCR.use_cassette("chat_post_endpoint") do
-        recipient02 = SlackCLI::Recipient.new("UV6BANLCV")
+        recipient02 = SlackCLI::Recipient.new("USLACKBOT")
         expect {recipient02.send_message()}.must_raise ArgumentError
       end
     end
