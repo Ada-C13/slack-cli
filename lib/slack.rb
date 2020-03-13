@@ -16,7 +16,6 @@ def recipient_available?(current_recipient)
   end
 end
 
-
 def main
   puts "Welcome to the Ada Slack CLI!"
   workspace = Workspace.new

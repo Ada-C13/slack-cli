@@ -45,3 +45,6 @@ describe "Workspace Access - Working Case" do
     expect(recipient).must_be_nil
   end
 end
+
+# add in test for if the message does not go through
+# confirm that all bots have been added to channels
