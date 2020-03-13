@@ -1,8 +1,13 @@
-class Recipient
-  attr_reader :slack_id, :name
+require 'httparty'
+require 'awesome_print'
+#require 'dotenv'
 
-  def initialize(slack_id, name)
-    @slack_id = slack_id
+
+class Recipient
+  attr_reader :id, :name
+
+  def initialize(id, name)
+    @id = id
     @name = name
   end
 end
