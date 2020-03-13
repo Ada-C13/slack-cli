@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+require "table_print"
+require_relative "workspace"
 
 def main
   puts "Welcome to the Ada Slack CLI!"
@@ -6,14 +8,14 @@ def main
 
   i = -1
   while i < 0
-    puts "Your workspace has #{num_channels} channels and #{num_users} users."
+    # puts "Your workspace has #{num_channels} channels and #{num_users} users."
     puts "--------------------"
     puts "What would you like to do? 'list channels', 'list users', or 'quit'"
     answer = gets.chomp.downcase
     if answer == "list channels"
-      # puts workspace.list_channels (method that shows channels)
+      puts workspace.channels
     elsif answer == "list users"
-      # puts workspace.list_users (method that shows users)
+      puts workspace.users
     elsif answer == "quit"
       i = 1
     end
