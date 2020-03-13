@@ -21,7 +21,7 @@ class Workspace
     @channels = Channel.all
   end
 
-  def select_recipient (user_input)
+  def select_recipient user_input
     find_object(@users, user_input) || find_object(@channels, user_input)
   end
   
@@ -41,7 +41,7 @@ class Workspace
           users: bot
         }
 
-        response = HTTParty.get(ADD_CHANNEL_URL, query: query_parameters)
+        HTTParty.get(ADD_CHANNEL_URL, query: query_parameters)
       end
     end
   end
