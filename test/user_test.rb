@@ -20,8 +20,7 @@ describe "User" do
         result = User.get("https://slack.com/api/users.list")
         expect(result).must_be_kind_of HTTParty::Response
         expect(result["ok"]).must_equal true
-        users = result["members"]
-        expect(users).must_be_kind_of Array
+        expect(result["members"]).must_be_kind_of Array
 
       end
     end

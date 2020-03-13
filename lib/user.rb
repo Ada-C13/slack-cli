@@ -17,8 +17,8 @@ class User < Recipient
 
   def self.list_all 
     response = User.get("https://slack.com/api/users.list")
-
     users = response["members"]
+    
     return users.map { |user| User.new(user["id"], user["real_name"], 
       user["profile"]["display_name"], user["profile"]["status_text"],
       user["profile"]["status_emoji"]) }
