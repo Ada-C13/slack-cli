@@ -7,10 +7,12 @@ Dotenv.load
 class Workspace
   attr_reader :users, :channels
 
-  URL = "https://slack.com/api/users.list"
+  BASE_URL = "https://slack.com/api/"
+  USERS_URL = "#{BASE_URL}users.list"
+  CHANNELS_URL = "#{BASE_URL}conversations.list"
+
   SLACK_TOKEN = ENV["SLACK_TOKEN"]
 
-  # BASE_URL = "https://slack.com/api/"
   # POST_URL = "#{BASE_URL}chat.postMessage"
 
   def initialize
@@ -43,7 +45,7 @@ class Workspace
       token: SLACK_TOKEN
     }
 
-    response = HTTParty.get(URL, query: query)
+    response = HTTParty.get(USERS_URL, query: query)
 
     users = response["members"].map do |user|
       User.new(
@@ -57,7 +59,7 @@ class Workspace
 
   def load_channels
     query = { token: SLACK_TOKEN }
-    response = HTTParty.get("https://slack.com/api/conversations.list", query: query)
+    response = HTTParty.get(CHANNELS_URL, query: query)
 
     channels = response["channels"].map do |channel|
       Channel.new(
