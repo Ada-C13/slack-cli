@@ -58,10 +58,10 @@ describe "Workspace class" do
       expect(user.real_name).must_equal real_name
     end 
 
-    it "raises an ArgumentError if no user found" do 
-      name = "elephant"
-      expect{@workspace.select_user(name)}.must_raise ArgumentError
-    end 
+    # it "raises an ArgumentError if no user found" do 
+    #   name = "elephant"
+    #   expect{@workspace.select_user(name)}.must_raise ArgumentError
+    # end 
   end 
 
 
@@ -88,10 +88,10 @@ describe "Workspace class" do
       expect(channel.slack_id).must_equal id
     end 
 
-    it "raises an ArgumentError if no channel found" do 
-      name = "my fur baby"
-      expect{@workspace.select_channel(name)}.must_raise ArgumentError
-    end 
+    # it "raises an ArgumentError if no channel found" do 
+    #   name = "my fur baby"
+    #   expect{@workspace.select_channel(name)}.must_raise ArgumentError
+    # end 
   end 
 
 
@@ -110,9 +110,9 @@ describe "Workspace class" do
       
       details = @workspace.show_details
 
-      expect(details).must_be_kind_of Array 
+      expect(details).must_be_kind_of Hash
       expect(details.length).must_equal 5
-      expect(details[1]).must_equal name
+      expect(details[:name]).must_equal name
     end 
   end 
 

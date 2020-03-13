@@ -30,13 +30,13 @@ describe "User class" do
 
         user = Slack::User.new(slack_id: slack_id, name: name, real_name: real_name, status_text: status_text, status_emoji: status_emoji)
 
-        expect(user.details).must_be_kind_of Array      
+        expect(user.details).must_be_kind_of Hash      
         expect(user.details.length).must_equal 5   
-        expect(user.details[0]).must_equal slack_id    
-        expect(user.details[1]).must_equal name  
-        expect(user.details[2]).must_equal real_name  
-        expect(user.details[3]).must_equal status_text  
-        expect(user.details[4]).must_equal status_emoji   
+        expect(user.details[:slack_id]).must_equal slack_id    
+        expect(user.details[:name]).must_equal name  
+        expect(user.details[:real_name]).must_equal real_name  
+        expect(user.details[:status_text]).must_equal status_text  
+        expect(user.details[:status_emoji]).must_equal status_emoji   
       end 
     end 
   end 

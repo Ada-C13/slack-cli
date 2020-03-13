@@ -4,7 +4,7 @@ require_relative "channel"
 module Slack 
   class Workspace 
 
-    attr_reader :users, :channels
+    attr_reader :users, :channels, :selected
 
     def initialize
       @users = Slack::User.list_all
@@ -28,8 +28,6 @@ module Slack
     def select_user(user_input) 
       @selected = @users.find { |user| (user.name == user_input) || (user.slack_id == user_input) || () || (user.real_name == user_input)}
 
-      raise ArgumentError, "No user found" if !@selected
-
       return @selected
     end 
 
@@ -37,34 +35,16 @@ module Slack
     def select_channel(user_input) 
       @selected = @channels.find { |channel| (channel.name == user_input) || channel.slack_id == user_input}
 
-      raise ArgumentError, "No channel found" if !@selected
-
       return @selected
     end 
 
     def show_details 
       @selected.details if @selected
+
+      # tp @selected, [*@selected.details.keys] if @selected
     end 
 
     def send_message 
     end 
   end 
 end 
-
-
-
-# I should see three additional options:
-# select user: select a user as the current recipient
-
-# select channel: select a channel as the current recipient
-
-# details: show details on the current recipient
-# As a user who is at the program's input prompt...
-
-
-# For selecting both users and channels, if no user/channel has that name or ID, the program should let me know and return to the main command loop.
-
-
-# When I type details, the program should print out details for the currently selected recipient. What information is printed depends on whether it's a channel or a user.
-
-# If no recipient is currently selected, the program should let me know and return to the main command prompt.

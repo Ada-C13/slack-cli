@@ -19,8 +19,14 @@ module Slack
 
 
     def details 
-      [@slack_id, @name, @topic, @member_count]
+      return {
+        :slack_id => @slack_id,
+        :name => @name, 
+        :topic => @topic, 
+        :member_count => @member_count
+      }
     end 
+    
 
     def self.list_all 
       response_data = self.get(CHANNEL_URL, SLACK_TOKEN)
