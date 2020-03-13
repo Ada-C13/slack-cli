@@ -1,4 +1,12 @@
 #!/usr/bin/env ruby
+require "table_print"
+require "httparty"
+require "table_print"
+
+def menu
+  # should be able to 3 things Wave 1
+  #
+end
 
 def main
   puts "Welcome to the Ada Slack CLI!"
@@ -14,6 +22,7 @@ def main
     elsif answer == "list users"
       # puts workspace.list_users
     elsif answer == "quit"
+      # need to quit
       i = 1
     end
   end
@@ -21,19 +30,3 @@ def main
 end
 
 main if __FILE__ == $PROGRAM_NAME
-
-# {
-#   "Our_channels" => {
-#     :name => respnse[0]["channels"]["name"]
-#   }
-# }
-# def main
-#   puts "Welcome to the Ada Slack CLI!"
-#   workspace = Workspace.new
-
-#   # TODO project
-
-#   puts "Thank you for using the Ada Slack CLI"
-# end
-
-# main if __FILE__ == $PROGRAM_NAME
