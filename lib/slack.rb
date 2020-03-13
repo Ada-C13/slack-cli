@@ -41,7 +41,7 @@ def main
 
     elsif  input == "list users"
       puts "Sweet, here are the users"
-      tp workspace.users , :name,:real_name, :slack_id
+      tp workspace.users , :name,:real_name, :slack_id, :status_text, :status_emoji
 
     elsif input == "select channel"
       puts "What channel name?"
