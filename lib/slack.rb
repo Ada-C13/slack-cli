@@ -51,15 +51,16 @@ def main
       response = HTTParty.get(url, query: query_parameters)
 
            
-
+      # to do move this into recipient class
       channels = response["channels"].map do |channel|
-        puts channel["name"]
-        puts channel["topic"]
-        puts (channel["members"]).length
-        puts channel["id"]
+        {:name => channel["name"],
+        :topic => channel["topic"]["value"],
+        :member_count => (channel["members"]).length,
+        :slack_id => channel["id"]}
         # ["name"]
       end
       
+      tp channels
     
     when "quit", "3"
       program_running = false
