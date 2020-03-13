@@ -13,12 +13,12 @@ class Channel < Recipient
   end
 
   # called in the workspace
-  # in this list channel method we are calling on the Recipient 
+  # in this list channel method we are calling on the Recipient
   def self.list_channels
     response = Recipient.get("channels.list")
     channel_list = []
     if response["ok"] != true
-      raise SlackAPI::SlackError, "There was an error. The error message is #{response["error"]}"
+      raise SlackError, "There was an error. The error message is #{response["error"]}"
     else
       response["channels"].each do |channel|
         @slack_id = channel["id"]
@@ -32,5 +32,3 @@ class Channel < Recipient
     return channel_list
   end
 end
-
-
