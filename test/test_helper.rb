@@ -7,11 +7,14 @@ require 'minitest'
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
+require 'dotenv'
 require 'vcr'
 
 require_relative '../lib/user'
 require_relative '../lib/channel'
 require_relative '../lib/workspace'
+
+Dotenv.load
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 

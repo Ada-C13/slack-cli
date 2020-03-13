@@ -1,10 +1,6 @@
-require 'httparty'
-require 'dotenv'
 require 'awesome_print'
 
 require_relative 'recipient'
-
-Dotenv.load
 
 class Channel < Recipient
   attr_reader :topic, :member_count
@@ -20,11 +16,7 @@ class Channel < Recipient
   end
 
   def self.list_all
-    base_url = "https://slack.com/api/channels.list"
-    query = {
-      token: ENV["SLACK_TOKEN"]
-    }
-    response = HTTParty.get(base_url, query: query)
+    response = Channel.get("https://slack.com/api/channels.list")
     channels = response["channels"]
 
     return channels.map { |channel| Channel.new(channel["id"], 

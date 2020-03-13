@@ -1,3 +1,5 @@
+require 'httparty'
+
 class Recipient
   attr_reader :slack_id, :name 
 
@@ -9,7 +11,17 @@ class Recipient
   def send_message(message)
   end
 
-  def self.get(url, params)
-    HTTParty.get(url, params)
+  def self.get(url)
+    response = HTTParty.get(url, query: {token: ENV["SLACK_TOKEN"]})
+
+    # checking for errors
+    if response.code != 200 || response["ok"] == false 
+      raise SlackApiError.new("The problem is: #{response["error"]}")
+    end
+
+    return response
   end
+end
+
+class SlackApiError < Exception
 end

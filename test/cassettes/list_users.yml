@@ -163,4 +163,68 @@ http_interactions:
         you''d prefer to keep out of more focused work-related channels.","creator":"UUUGBHPDH","last_set":1583865723},"previous_names":[],"num_members":5},{"id":"CV8KPL19U","name":"katiestestchannel","is_channel":true,"created":1583879041,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UUUGBHPDH","name_normalized":"katiestestchannel","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UUUGBHPDH"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":1}],"response_metadata":{"next_cursor":""}}'
     http_version: null
   recorded_at: Thu, 12 Mar 2020 03:41:44 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/users.listik?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '77'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Mar 2020 21:29:48 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Referrer-Policy:
+      - no-referrer
+      X-Slack-Backend:
+      - h
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 42e6c6704a31a6d82f4e3ea6a415866e
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-9e4s
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 68eedbdfabd017beabf28d04341fec21.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - 3Ad5Jpjj64LTSKDcWf_CI4PCFV8bzmSxFkB_C6TjZ0muJJYABV8Cgw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"unknown_method","req_method":"users.listik"}'
+    http_version: null
+  recorded_at: Fri, 13 Mar 2020 21:29:48 GMT
 recorded_with: VCR 5.1.0
