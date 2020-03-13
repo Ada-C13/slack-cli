@@ -14,26 +14,22 @@ def display_options
   puts "\n"
 end
 
-def get_id_name(recipient)
-  puts "To select a #{recipient}, please enter a Slack ID or name:"
-  user_input = gets.chomp
-  return user_input
-end
-
-def prompt_message
-  puts "Enter the message you want to send out:"
-  user_input = gets.chomp
-  return user_input
-end
 
 def pretty_line
   puts "*****************************************************************************"
 end
 
+
 def main
   pretty_line
   puts "\u{1F49B}\u{2764}\u{1F49A}\u{1F499}  Welcome to the Ada Slack CLI  \u{1F499}\u{1F49A}\u{2764}\u{1F49B}"
-  workspace = SlackCLI::Workspace.new
+  
+  begin
+    workspace = SlackCLI::Workspace.new
+  rescue Exception => exception
+    puts "Oops! Encountered an error: #{exception}"
+  end
+  
   puts "A total of \u{1F4AC} #{workspace.channels.length} Channels and \u{1F596} #{workspace.users.length} Users have been loaded in this Workspace"
   pretty_line
 
@@ -52,21 +48,21 @@ def main
         begin
           chosen = workspace.select_user
         rescue ArgumentError => exception
-          puts "Encountered an error: #{exception}"
+          puts "Oops! Encountered an error: #{exception}"
         end
       when "4", "select channel"
         # user_input = get_id_name("channel")
         begin
           chosen = workspace.select_channel
         rescue ArgumentError => exception
-          puts "Encountered an error: #{exception}"
+          puts "Oops! Encountered an error: #{exception}"
         end
       when "5", "details"
         if workspace.selected != nil
           begin
             workspace.show_details
           rescue StandardError => exception
-            puts "Encountered an error: #{exception}"
+            puts "Oops! Encountered an error: #{exception}"
           end
         else
           puts "There is no recipient selected. Please select a user or channel first."
@@ -76,7 +72,7 @@ def main
           begin
             workspace.send_message
           rescue StandardError => exception
-            puts "Encountered an error: #{exception}"
+            puts "Oops! Encountered an error: #{exception}"
           end
         else
           puts "There is no recipient selected. Please select a user or channel first."
@@ -86,7 +82,8 @@ def main
     end
   end
 
-  puts "Thank you for using the Ada Slack CLI"
+  puts "Thank you for using the Ada Slack CLI \u{1F49B}"
 end
+
 
 main if __FILE__ == $PROGRAM_NAME
