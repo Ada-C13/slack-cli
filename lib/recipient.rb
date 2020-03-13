@@ -1,4 +1,3 @@
-require 'dotenv'
 require 'httparty'
 
 class Recipient
@@ -11,19 +10,33 @@ class Recipient
 
   
   def send_message(message)
-  
+    response = HTTParty.post("https://slack.com/api/chat.postMessage", query: {token: ENV['BOT_TOKEN'], channel: self.slack_id, text: message })
+
+    if response.code != 200 || response["ok"] == false
+      raise SlackAPIError, "We encountered a problem: #{response["error"]}"
+    end
   end
 
-  def self.get(uri, params)
+  def self.get(url)
+    response = HTTParty.get(url, query: {token: ENV['SLACK_TOKEN']})
+
+    if response.code != 200 || response["ok"] == false
+      raise SlackAPIError, "We encountered a problem: #{response["error"]}"
+    end
+
+    return response
 
   end
   
-  def details(each)
+  def details
     raise NotImplementedError, 'Implement me in a child class!'
   end
 
-  def self.list_all(each)
+  def self.list_all
     raise NotImplementedError, 'Implement me in a child class!'
   end
 
+end
+
+class SlackAPIError < Exception
 end

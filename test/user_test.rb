@@ -19,7 +19,7 @@ describe "User class" do
 
   describe "list_all" do
     it "creates an array of users" do
-      VCR.use_cassette("list-users") do
+      VCR.use_cassette("list-users_endpoint") do
         users = User.list_all
 
         expect(users).wont_be :empty?
