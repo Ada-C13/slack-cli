@@ -14,6 +14,7 @@ def list_options
   puts "select user"
   puts "details"
   puts "send message"
+  puts "fun message"
   puts "quit"
   puts "===================================="
 end 
@@ -51,13 +52,14 @@ def main
 
 
     elsif input == "select user"
-      puts "What user name?"
+      puts "Which user name?"
       name = take_input.to_s
 
       workspace.select_user(name)
       puts "#{workspace.selected.name} is selected!"
 
     elsif input == "details"
+
       if workspace.selected == nil 
         puts "No channel or user was selected!"
       else 
@@ -65,13 +67,34 @@ def main
       end 
 
     elsif input == "send message"
-      puts "Please type in the message:"
-      message = take_input.to_s
-      pretty_up
-      puts "OKAY. Sending the following message:#{message}..."
-      pretty_up
-      workspace.selected.send_msg(message)
-      puts "message sent!"
+      
+      if workspace.selected == nil
+        puts "No channel or user was selected!"
+      else 
+        puts "Please type in the message:"
+        message = take_input.to_s
+        pretty_up
+        puts "OKAY. Sending the following message:#{message}..."
+        pretty_up
+        workspace.selected.send_msg(message)
+        puts "message sent!"
+      end 
+
+    elsif input == "fun message"
+
+      if workspace.selected == nil
+        puts "No channel or user was selected!"
+      else 
+        puts "Please type in the message:"
+        msg = take_input.to_s
+        puts "emoji (:bug)"
+        emoji = take_input.to_s
+        puts "name to show:"
+        name_to_show = take_input.to_s
+        workspace.selected.msg_emoji_name(msg,emoji,name_to_show)
+        puts "fun message sent!"
+      end 
+
 
     elsif input == "quit"
       next 

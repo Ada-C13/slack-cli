@@ -45,6 +45,20 @@ module SlackCli
       return resp.code == 200 && resp.parsed_response["ok"]
     end
 
+
+    def msg_emoji_name(msg,emoji,name_to_show)
+      resp = HTTParty.post(POST_URL, {
+        body: {
+          token: TOKEN,
+          channel: self.slack_id,
+          text: msg,
+          username: name_to_show,
+          icon_emoji: emoji
+        }
+      })
+      return resp.code == 200 && resp.parsed_response["ok"]
+    end 
+
     def show_details
       return self.inspect
     end 
