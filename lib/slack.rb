@@ -2,10 +2,17 @@
 require_relative 'workspace'
 require 'table_print'
 require 'colorize'
+require 'terminal-table'
+
+# Question: decide workspace or WORKSPACE
+WORKSPACE = Slack::Workspace.new
 
 OPTIONS = {
   "1" => ["list users", "list user"],
   "2" => ["list channels", "list channel"],
+  "3" => ["select user"],
+  "4" => ["select channel"],
+  "5" => ["details", "detail"],
   "9" => ["quit", "exit", "q"]
 }
 
@@ -31,8 +38,8 @@ end
 
 def validate_option(option) 
   while !OPTIONS.keys.include?(option) && !OPTIONS.values.flatten.include?(option)
-    puts "You chose a wrong option!😅 Try again."
-    print "> "
+    puts "  #{"⚠️  You chose a wrong option!😅 Try again".light_black}."
+    print " > "
     option = gets.chomp.downcase
   end 
   return option
@@ -43,14 +50,82 @@ end
 # Is it good to put in "slack.rb" or "workspace.rb?
 
 # reference: http://tableprintgem.com/
-def list_users(workspace)
+def list_users(workspace) # TODO
+  # tp object, attributes
   tp workspace.users, :name, :real_name, :slack_id
 end 
 
-def list_channels(workspace)
+def list_channels(workspace) #TODO
   tp workspace.channels, :name, :topic, :member_count, :slack_id
 end 
 
+
+def get_user_name 
+  puts "Select a user name, a real name, or a slack id"
+  print "> "
+  name = gets.chomp
+  name = validate_user_name(name) 
+
+  return name
+end 
+
+
+def validate_user_name(name) 
+  user = WORKSPACE.select_user(name) ##
+
+  while user == nil
+    puts "  #{"⚠️  No user found!😅 Try again".light_black}"
+    print "> " 
+    name = gets.chomp
+    user = WORKSPACE.select_user(name) ##
+  end 
+
+  puts "  ✅ You've selected the user name, #{user.name.bold}"
+  return name
+end 
+
+
+def get_channel_name 
+  puts "Select a channel name or a slack id"
+  print "> "
+  name = gets.chomp
+  user = validate_channel_name(name) 
+
+  puts "  ✅ You've selected the channel name, ##{user.name.bold}"
+
+  return name
+end 
+
+
+def validate_channel_name(name)
+  user = WORKSPACE.select_channel(name) ##
+
+  while user == nil
+    puts "No channel found!😅 Try again"
+    print "> " 
+    name = gets.chomp
+    user = WORKSPACE.select_channel(name) ##
+  end 
+
+  return user
+end 
+
+
+def display_details 
+  details = WORKSPACE.show_details ##
+
+  if !details 
+    puts " #{"⚠️  No user or channel selected".light_black}"
+    puts "    #{"After selecting one of them, try again!".light_black}"
+  else 
+    table = Terminal::Table.new do |t|
+      t.headings = [details.keys]
+      t.rows = [details.values]
+      t.style = { :border_top => false, :border_bottom => false }
+    end
+    puts table
+  end 
+end 
 
 def main
   puts "Welcome to the Ada Slack CLI!💬"
@@ -67,20 +142,38 @@ def main
     case option 
     when "1", "list users", "list user"
       # workspace.list_users
-      list_users(workspace)
+      list_users(workspace) # TODO
   
       display_options
       option = get_option
 
     when "2", "list channels", "list channel" 
       # workspace.list_channels
-      list_channels(workspace)
+      list_channels(workspace) # TODO
   
       display_options
       option = get_option
 
+    when "3", "select user" 
+      get_user_name
+
+      display_options
+      option = get_option
+
+    when "4", "select channel"
+      get_channel_name
+
+      display_options
+      option = get_option
+
+    when "5", "details", "detail"
+      display_details 
+      
+      display_options
+      option = get_option
+
     when "9", "quit", "exit", "q"
-      puts "Bye 👋🏼👋🏼👋🏼👋🏼"
+      puts "Bye 👋👋🏻👋🏼👋🏽👋🏾👋🏿"
       continue = false
     end 
   end 
