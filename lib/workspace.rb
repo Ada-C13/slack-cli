@@ -10,9 +10,12 @@ class Workspace
   URL = "https://slack.com/api/users.list"
   SLACK_TOKEN = ENV["SLACK_TOKEN"]
 
+  # BASE_URL = "https://slack.com/api/"
+  # POST_URL = "#{BASE_URL}chat.postMessage"
+
   def initialize
     @users = load_users
-    @channels = []
+    @channels = load_channels
   end
 
   def list_users
@@ -41,6 +44,21 @@ class Workspace
       )
     end
     return users
+  end
+
+  def load_channels
+    query = { token: SLACK_TOKEN }
+    response = HTTParty.get("https://slack.com/api/conversations.list", query: query)
+
+    channels = response["channels"].map do |channel|
+      Channel.new(
+        slack_id: channel["id"],
+        name: channel["name"],
+        topic: channel["topic"]["value"],
+        member_count: channel["num_members"]
+      )
+    end
+    return channels
   end
   
 end
