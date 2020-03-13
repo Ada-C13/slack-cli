@@ -19,7 +19,7 @@ class Workspace
   end
 
   def select_user(identifier)
-    user = @users.find { |user| user.slack_id == identifier || user.username == identifier }
+    user = @users.find { |user| user.slack_id == identifier || user.name == identifier }
     if !user.nil?
       @selected = user
     end
@@ -29,6 +29,14 @@ class Workspace
     channel = @channels.find { |channel| channel.slack_id == identifier || channel.name == identifier }
     if !channel.nil?
       @selected = channel
+    end
+  end
+
+  def show_details
+    if @selected != ""
+      @selected.details 
+    else
+      "No recipient is selected"
     end
   end
 
