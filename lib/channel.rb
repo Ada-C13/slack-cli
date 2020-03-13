@@ -1,5 +1,4 @@
 require_relative 'recipient'
-POST_URL = "#{BASE_URL}chat.postMessage"
 
 module SlackCli
   class Channel < Recipient
