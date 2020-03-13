@@ -68,7 +68,6 @@ def main
     action = gets.chomp.downcase
   end
   
-
   puts "Thank you for using the Ada Slack CLI"
 end
 

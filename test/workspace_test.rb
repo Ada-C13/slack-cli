@@ -57,10 +57,9 @@ describe "Workspace" do
     it "selects existing user by assigning it to 'selected' variable" do
       VCR.use_cassette("list users") do
         workspace = Workspace.new
-        workspace.select_user("UUT7ESHPU")
-        expect(workspace.selected.slack_id).must_equal "UUT7ESHPU"
-        expect(workspace.selected.name).must_equal "Ekaterina"
-        p workspace.selected
+        workspace.select_user("USLACKBOT")
+        expect(workspace.selected.slack_id).must_equal "USLACKBOT"
+        expect(workspace.selected.name).must_equal "Slackbot"
       end
     end
 
@@ -77,9 +76,8 @@ describe "Workspace" do
     it "selects existing channel by assigning it to 'selected' variable" do
       VCR.use_cassette("list_channels") do
         workspace = Workspace.new
-        workspace.select_channel("general")
-        expect(workspace.selected.name).must_equal "general"
-        p workspace.selected
+        workspace.select_channel("random")
+        expect(workspace.selected.name).must_equal "random"
       end
     end
 
@@ -88,6 +86,32 @@ describe "Workspace" do
         workspace = Workspace.new
         workspace.select_channel("nono")
         expect(workspace.selected).must_equal ""
+      end
+    end
+  end
+
+  describe "#show_details method" do
+    it "shows details of the selected user" do
+      VCR.use_cassette("list_users") do
+        workspace = Workspace.new 
+        user = workspace.select_user("USLACKBOT")
+        expect(workspace.show_details.include? user.slack_id).must_equal true
+
+      end
+    end
+
+    it "shows details of the selected channel" do 
+      VCR.use_cassette("list_channels") do
+        workspace = Workspace.new
+        channel = workspace.select_channel("random")
+        expect(workspace.show_details.include? channel.name).must_equal true
+      end
+    end
+
+    it "returns 'No recipient is selected' if no recipient is selected" do
+      VCR.use_cassette("list_users") do
+        workspace = Workspace.new
+        expect(workspace.show_details).must_equal "No recipient is selected"
       end
     end
   end
