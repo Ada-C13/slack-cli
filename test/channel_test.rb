@@ -3,6 +3,9 @@ require_relative 'test_helper.rb'
 
 describe "Channel" do
   it "can initialize channel with slack id" do
+  end
+
+  it "can list all channels" do
     VCR.use_cassette("self.list_all") do
 
       response = Channel.list_all
