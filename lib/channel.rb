@@ -17,7 +17,9 @@ module Slack
       @member_count = member_count
     end 
 
+
     def details 
+      [@slack_id, @name, @topic, @member_count]
     end 
 
     def self.list_all 
