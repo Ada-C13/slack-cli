@@ -336,4 +336,80 @@ http_interactions:
         you''d prefer to keep out of more focused work-related channels.","creator":"UV5GLBZT6","last_set":1583865622},"previous_names":[],"num_members":5}],"response_metadata":{"next_cursor":""}}'
     http_version: null
   recorded_at: Fri, 13 Mar 2020 00:15:53 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=CV86RT7AS&text=Hello%20World&token=SLACK_TOKEN
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '337'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Mar 2020 02:56:53 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 0c90a550b2c808bf8723c41733ca4ec7
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-9s4u
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 4c48e9fb20d53d40e9fe273dbdae1099.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - _vNwkpZaO3ygiST2hQgEG6G2Oz1YPk81TyIFfky4xxrpGTXlbEE3Sw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"CV86RT7AS","ts":"1584068213.000200","message":{"bot_id":"BV65E8B53","type":"message","text":"Hello
+        World","user":"UV64BM5QV","ts":"1584068213.000200","team":"TUVTGCG8H","bot_profile":{"id":"BV65E8B53","deleted":false,"name":"Space
+        - Nikki V - API Project","updated":1583869732,"app_id":"AV80E6U15","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TUVTGCG8H"}}}'
+    http_version: null
+  recorded_at: Fri, 13 Mar 2020 02:56:53 GMT
 recorded_with: VCR 5.1.0
