@@ -30,7 +30,7 @@ def main
   puts "Welcome to the Ada Slack CLI!"
   workspace = SlackCli::Workspace.new
   input = "not quit"
-  # TODO project
+
   while input != "quit"
     list_options
     input = take_input 
@@ -72,6 +72,9 @@ def main
       pretty_up
       workspace.selected.send_msg(message)
       puts "message sent!"
+
+    elsif input == "quit"
+      next 
     else
       puts "not a valid input"
     end 
