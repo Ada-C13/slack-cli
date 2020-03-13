@@ -32,6 +32,7 @@ module SlackCLI
 
     def get_details
       tp self, :slack_id, :name, :topic, :member_count
+      return false if self == nil
       return true
     end
   end

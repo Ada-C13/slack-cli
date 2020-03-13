@@ -19,7 +19,11 @@ describe "channel" do
       # name, topic, member count, and Slack ID
       VCR.use_cassette("channels_list_endpoint") do
         all_channels = SlackCLI::Channel.list_all
-        expect(all_channels[2].name).must_equal "random"
+        all_channels.each do |channel|
+          expect(channel.slack_id).must_be_instance_of String
+          expect(channel.name).must_be_instance_of String
+          expect(channel.member_count).must_be_instance_of Integer
+        end
       end
     end
   end
