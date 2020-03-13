@@ -31,7 +31,7 @@ describe "class Channel < Recipient" do
   # Get channels from slack
   describe "self.list_all" do
     it "returns an array of channels" do 
-      VCR.use_cassette("channel_list") do 
+      VCR.use_cassette("list") do 
         channels = Channel.list_all
         expect(channels).must_be_kind_of Array
         channels.each do |channel|

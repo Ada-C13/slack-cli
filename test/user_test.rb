@@ -33,7 +33,7 @@ describe "class User < Recipient" do
   # Get users from slack
   describe "self.list_all" do
     it "returns an array of users" do 
-      VCR.use_cassette("user_list") do 
+      VCR.use_cassette("list") do 
         users = User.list_all
         expect(users).must_be_kind_of Array
         users.each do |user|
