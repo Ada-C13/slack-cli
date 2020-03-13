@@ -3,7 +3,7 @@ require_relative 'workspace'
 
 
 def display_options
-  puts "\nEnter one of the following options."
+  puts "\n\u{1f30f} Enter one of the following options \u{1f30f}"
   puts "1. list users"
   puts "2. list channels"
   puts "3. select user"
@@ -11,6 +11,7 @@ def display_options
   puts "5. details"
   puts "6. send message"
   puts "0. quit"
+  puts "\n"
 end
 
 def get_id_name(recipient)
@@ -25,11 +26,17 @@ def prompt_message
   return user_input
 end
 
-def main
-  puts "Welcome to the Ada Slack CLI!"
-  workspace = SlackCLI::Workspace.new
+def pretty_line
+  puts "*****************************************************************************"
+end
 
-  # TODO project
+def main
+  pretty_line
+  puts "\u{1F49B}\u{2764}\u{1F49A}\u{1F499}  Welcome to the Ada Slack CLI  \u{1F499}\u{1F49A}\u{2764}\u{1F49B}"
+  workspace = SlackCLI::Workspace.new
+  puts "A total of \u{1F4AC} #{workspace.channels.length} Channels and \u{1F596} #{workspace.users.length} Users have been loaded in this Workspace"
+  pretty_line
+
   control_loop = true
 
   while control_loop
