@@ -1126,4 +1126,670 @@ http_interactions:
         you''d prefer to keep out of more focused work-related channels.","creator":"UUVFN4E1X","last_set":1583855502},"previous_names":[],"num_members":2}],"response_metadata":{"next_cursor":""}}'
     http_version: null
   recorded_at: Fri, 13 Mar 2020 02:44:43 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.invite?channel=CUVFN5GQ1&token=<USER_TOKEN>&users=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '50'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Mar 2020 02:58:04 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - e9c8ea8efb76fd6ba6e49033bbec225c
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,channels:write,chat:write,groups:write,im:write,mpim:write
+      X-Accepted-Oauth-Scopes:
+      - channels:write,groups:write,mpim:write,im:write,post
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-6vtt
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 1002c05e647d0804e83147cdd205d14a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - WIxEHDBUj-OgQAS_zWGE1MPaKXoWRJWdN5fNneaLWObxDrKZYiD8Vg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"no_user"}'
+    http_version: null
+  recorded_at: Fri, 13 Mar 2020 02:58:04 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.invite?channel=CUVFN5GQ1&token=<USER_TOKEN>&users=UUSV2BNFL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '89'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Mar 2020 02:58:04 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - d8c7422aff91e9f7c184fbf45ef9b616
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,channels:write,chat:write,groups:write,im:write,mpim:write
+      X-Accepted-Oauth-Scopes:
+      - channels:write,groups:write,mpim:write,im:write,post
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - r
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-nzry
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 995664ee945c06fc706b5cb8e0e650dc.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - "-LOu_7z2GctpFDSTNXe_T74BjIeP_bYPRv_3im-jR8c9ImPW9miARA=="
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"already_in_channel","errors":[{"user":"UUSV2BNFL","ok":false,"error":"already_in_channel"}]}'
+    http_version: null
+  recorded_at: Fri, 13 Mar 2020 02:58:04 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.invite?channel=CUVFN5GQ1&token=<USER_TOKEN>&users=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '50'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Mar 2020 02:58:04 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - d32476aba18722cd831887233e162683
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,channels:write,chat:write,groups:write,im:write,mpim:write
+      X-Accepted-Oauth-Scopes:
+      - channels:write,groups:write,mpim:write,im:write,post
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-nhgw
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 8275ae3e861a04a309ec8b466cdc4a26.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - U6mGIj7ZP1pgjL2JoKHbDsFJX94oZsR7JbMz-pFMr4pqpxMUjXZIIw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"no_user"}'
+    http_version: null
+  recorded_at: Fri, 13 Mar 2020 02:58:04 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.invite?channel=CV54SHGHJ&token=<USER_TOKEN>&users=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '50'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Mar 2020 02:58:04 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 20db05299be8953077983d3a4258db3a
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,channels:write,chat:write,groups:write,im:write,mpim:write
+      X-Accepted-Oauth-Scopes:
+      - channels:write,groups:write,mpim:write,im:write,post
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-5fln
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 ec2a2c75c16156e4d43504606c118b91.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - 9svrBerPCBdZUtb1pAzro9Kt42Z7X_TYKsV0CocsnX-A2eBKXra1zQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"no_user"}'
+    http_version: null
+  recorded_at: Fri, 13 Mar 2020 02:58:04 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.invite?channel=CV54SHGHJ&token=<USER_TOKEN>&users=UUSV2BNFL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '89'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Mar 2020 02:58:04 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - f69906e43354e2c7c59dbba379cb64a0
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,channels:write,chat:write,groups:write,im:write,mpim:write
+      X-Accepted-Oauth-Scopes:
+      - channels:write,groups:write,mpim:write,im:write,post
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-7q61
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 49cdeca097624936e070b73619df7da9.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - dXRY4OJclHy1echoarbmxK174pEl6tFX3Dj1bTIg1jNNQQh4B1q7dw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"already_in_channel","errors":[{"user":"UUSV2BNFL","ok":false,"error":"already_in_channel"}]}'
+    http_version: null
+  recorded_at: Fri, 13 Mar 2020 02:58:04 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.invite?channel=CV54SHGHJ&token=<USER_TOKEN>&users=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '50'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Mar 2020 02:58:04 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 35fbf91cb81b27af639f3411273dc08c
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,channels:write,chat:write,groups:write,im:write,mpim:write
+      X-Accepted-Oauth-Scopes:
+      - channels:write,groups:write,mpim:write,im:write,post
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-ee90
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 174acb08636ac7d9e9a778bbf1bcbc53.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - 6PdciVuyKmXBoHzgGBEV3sx9p64J52WcPy0vh9LIBAxah2NyejEbWA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"no_user"}'
+    http_version: null
+  recorded_at: Fri, 13 Mar 2020 02:58:04 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.invite?channel=CV5J58KCG&token=<USER_TOKEN>&users=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '50'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Mar 2020 02:58:05 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - bc55db3387b061bc2b1d1b432cb2021d
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,channels:write,chat:write,groups:write,im:write,mpim:write
+      X-Accepted-Oauth-Scopes:
+      - channels:write,groups:write,mpim:write,im:write,post
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-y3hd
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 1002c05e647d0804e83147cdd205d14a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - WxHfIj8xIqYG9kjtBkRC8t1ACeqRWC2vKkmhTm-oZUr0g9qvNEGQXA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"no_user"}'
+    http_version: null
+  recorded_at: Fri, 13 Mar 2020 02:58:05 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.invite?channel=CV5J58KCG&token=<USER_TOKEN>&users=UUSV2BNFL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '89'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Mar 2020 02:58:05 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 3628c8fcf1dc4cb025389382d819a773
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,channels:write,chat:write,groups:write,im:write,mpim:write
+      X-Accepted-Oauth-Scopes:
+      - channels:write,groups:write,mpim:write,im:write,post
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-wl4e
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 331202b5b8aab67acbf389883133f257.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - lCIqCjECs75phONRQr8_qY9JKC9b_-Mb6BcnE0UhN77yZE14BAq6xA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"already_in_channel","errors":[{"user":"UUSV2BNFL","ok":false,"error":"already_in_channel"}]}'
+    http_version: null
+  recorded_at: Fri, 13 Mar 2020 02:58:05 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.invite?channel=CV5J58KCG&token=<USER_TOKEN>&users=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '50'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Mar 2020 02:58:05 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 685e3665be7174091bb7cc84589e6af8
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,channels:write,chat:write,groups:write,im:write,mpim:write
+      X-Accepted-Oauth-Scopes:
+      - channels:write,groups:write,mpim:write,im:write,post
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-tt4n
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 27a84054de24e45f952ea4056a821764.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - N_J_l2cf_oLJ-X6rjjJAcd0VeSsRxBUG3vbijXsokjKneyKdRliZlQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"no_user"}'
+    http_version: null
+  recorded_at: Fri, 13 Mar 2020 02:58:05 GMT
 recorded_with: VCR 5.1.0

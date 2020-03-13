@@ -16,6 +16,15 @@ def recipient_available?(current_recipient)
   end
 end
 
+def selected_recipient?(current_recipient)
+  if current_recipient.nil?
+    puts "Recipient does not exist"
+  else
+    puts "You have selected the current recipient: #{current_recipient.name}"
+    return current_recipient
+  end
+end
+
 def main
   puts "Welcome to the Ada Slack CLI!"
   workspace = Workspace.new
@@ -33,12 +42,12 @@ def main
       tp workspace.channels
     when 'select_user','select_channel'
       puts "Please provide either a recipient name or Slack ID:"
-      user_input = gets.chomp
-      current_recipient = workspace.select_recipient(user_input)
+      current_recipient = workspace.select_recipient(gets.chomp)
+      selected_recipient?(current_recipient)
     when 'details'
       tp current_recipient
     when 'send_message'
-      recipient_available?(current_recipient)
+      puts recipient_available?(current_recipient)
     else
       puts "Looks like this isn't a valid option."
     end
