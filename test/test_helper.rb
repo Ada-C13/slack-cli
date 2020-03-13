@@ -11,6 +11,10 @@ require 'vcr'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
+require_relative '../lib/workspace.rb'
+require_relative '../lib/user.rb'
+require_relative '../lib/recipient.rb'
+require_relative '../lib/channel.rb'
 
 VCR.configure do |config|
   config.cassette_library_dir = "test/cassettes"
