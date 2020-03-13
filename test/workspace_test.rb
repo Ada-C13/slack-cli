@@ -38,4 +38,9 @@ describe 'Workspace class' do
       end
     end
   end
+
+  describe 'message method' do
+    it 'should return the sent message' do
+    end
+  end
 end
