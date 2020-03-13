@@ -33,26 +33,6 @@ describe "Workspace" do
     end
   end
 
-  describe "#list_users" do
-    it "returns a list of users" do
-      VCR.use_cassette("list_users") do
-        workspace = Workspace.new
-        expect(workspace.list_users).must_be_kind_of Array
-        expect(workspace.list_users.length > 0).must_equal true
-      end
-    end
-  end
-
-  describe "#list_channels" do
-    it "returns a list of channels" do
-      VCR.use_cassette("list_channels") do
-        workspace = Workspace.new
-        expect(workspace.list_channels).must_be_kind_of Array
-        expect(workspace.list_channels.length > 0).must_equal true
-      end
-    end
-  end
-
   describe "#select_user" do
     it "selects existing user by assigning it to 'selected' variable" do
       VCR.use_cassette("list users") do

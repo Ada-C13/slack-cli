@@ -10,16 +10,6 @@ class Workspace
     @selected = ""
   end
 
-  def list_users
-    @users.map { |user| 
-      "slack_id: #{user.slack_id}, user: #{user.name}, username: #{user.username}"}
-  end
-
-  def list_channels
-    @channels.map { |channel| 
-      "slack_id: #{channel.slack_id}, channel: #{channel.name}, topic: #{channel.topic}, member count: #{channel.member_count}"}
-  end
-
   def select_user(identifier)
     user = @users.find { |user| 
       user.slack_id == identifier || user.name == identifier }

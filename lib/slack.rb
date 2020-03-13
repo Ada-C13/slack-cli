@@ -1,8 +1,10 @@
 #!/usr/bin/env ruby
 require "awesome_print"
 require 'table_print'
+require 'dotenv'
 require_relative "workspace"
 
+Dotenv.load
 
 def ask_for_action
   puts "* Select from the options below:"
@@ -40,9 +42,9 @@ end
 def perform_action(action, workspace)
   case action
   when "list users"
-    workspace.list_users
+    tp workspace.users, "slack_id", "name", "username"
   when "list channels"
-    workspace.list_channels
+    tp workspace.channels, "slack_id", "name", "topic", "member_count"
   when "select user"
     user_selected?(workspace)
   when "select channel"
