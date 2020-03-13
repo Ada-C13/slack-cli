@@ -11,21 +11,23 @@ module SlackCli
       @topic = topic 
     end
 
-    def self.get_all
-      check_api = HTTParty.get("#{BASE_URL}conversations.list",query:{token: TOKEN})["ok"]
-      
-      if  check_api == false 
-        raise SlackAPIError ," API Error"
+  
+
+    def self.list_all
+      data = self.get("#{BASE_URL}conversations.list")
+
+      channels = []
+
+      data["channels"].each do |channel|
+        channels << Channel.new(
+          slack_id: channel["id"], 
+          name: channel["name"], 
+          member_count:channel["num_members"], 
+          topic:channel["topic"]["value"]
+        )
       end 
 
-      data = HTTParty.get("#{BASE_URL}conversations.list",query: {token:TOKEN})["channels"]
-
-
-      empty_array = []
-      data.each do |channel|
-        empty_array << new(slack_id: channel["id"], name: channel["name"], member_count:channel["num_members"], topic:channel["topic"]["value"])
-      end 
-      return empty_array 
+      return channels 
     end 
 
   

@@ -5,8 +5,6 @@ Dotenv.load
 TOKEN = ENV["SLACK_API_TOKEN"]
 BASE_URL = "https://slack.com/api/"
 
-class SlackAPIError < StandardError
-end 
 
 module SlackCli
   class Recipient
@@ -18,7 +16,17 @@ module SlackCli
       @name = name 
     end
 
-    def self.get_all
+    def self.get(url)
+      response = HTTParty.get(url,query:{token:TOKEN})
+
+      if response["ok"] == false || response.code != 200
+        raise SlackAPIError, "Error on API #{response["error"]}"
+      end 
+
+      return response 
+    end 
+
+    def self.list_all
     end 
 
     def send_msg(message)
@@ -41,4 +49,8 @@ module SlackCli
 
 
   end
+end 
+
+
+class SlackAPIError < Exception 
 end 

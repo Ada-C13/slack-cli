@@ -5,9 +5,9 @@ describe SlackCli::Channel do
   describe "Channel Class" do
 
     it "can generate all channels as a class" do
-      VCR.use_cassette("slack-posts") do
+      VCR.use_cassette("conversations_list") do
 
-        data = SlackCli::Channel.get_all
+        data = SlackCli::Channel.list_all
         
         expect(data[0]).must_be_instance_of SlackCli::Channel
       end
@@ -15,12 +15,20 @@ describe SlackCli::Channel do
 
     it "can send message to channel" do 
 
-      VCR.use_cassette("slack-posts") do
-        data = SlackCli::Channel.get_all
+      VCR.use_cassette("conversations_list") do
+        data = SlackCli::Channel.list_all
         response = data[0].send_msg("hey there!")
         expect(response).must_equal true 
       end 
       
+    end 
+
+    it "raise SlackAPIError if incorrect url" do 
+      VCR.use_cassette("conversations_list") do
+
+        expect{SlackCli::Channel.get("https://slack.com/api/wrong")}.must_raise SlackAPIError
+
+      end 
     end 
 
   end 

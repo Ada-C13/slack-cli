@@ -1,6 +1,5 @@
 require_relative 'recipient'
 
-
 module SlackCli
   class User < Recipient
 
@@ -10,19 +9,19 @@ module SlackCli
       @real_name = real_name
     end
 
-    def self.get_all
-      check_api = HTTParty.get("#{BASE_URL}users.list",query: {token:TOKEN})["ok"]
-      
-      if  check_api == false 
-        raise SlackAPIError ," API Error"
+    def self.list_all
+      data = self.get("#{BASE_URL}users.list")
+      users = []
+
+      data["members"].each do |member|
+        users << self.new(
+          slack_id: member["id"], 
+          name: member["name"], 
+          real_name:member["profile"]["real_name"]
+        )
       end 
 
-      data = HTTParty.get("#{BASE_URL}users.list",query: {token:TOKEN})["members"]
-      empty_array = []
-      data.each do |member|
-        empty_array << new(slack_id: member["id"], name: member["name"], real_name:member["real_name"])
-      end 
-      return empty_array 
+      return users 
     end
     
 

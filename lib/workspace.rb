@@ -4,16 +4,14 @@ require_relative 'channel'
 
 module SlackCli
 
-
-
   class Workspace
 
     attr_reader :users, :channels
     attr_accessor :selected
     
     def initialize
-      @users = User.get_all
-      @channels = Channel.get_all
+      @users = User.list_all
+      @channels = Channel.list_all
       @selected = nil    
     end
 
