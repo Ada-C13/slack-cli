@@ -12,7 +12,7 @@ describe "Channel Class" do
     #testing that we are return an Array
     #testing that we are return a channel array
     #test that the channel is count is an Integer
-    #there are currently 3 channels on 
+    #there are currently 3 channels on
     expect(@channel).must_be_kind_of Array
     expect(@channel[0]).must_be_kind_of Channel
     expect(@channel.length).must_be_kind_of Integer
