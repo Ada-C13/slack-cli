@@ -7,6 +7,10 @@ require 'table_print'
 require_relative 'workspace'
 Dotenv.load
 
+# Need to provide keys via .env file first
+# Bot Token Scopes for App: app_mentions:read, channels:history, channels:read, chat:write, im:history, users:read
+# User Token Scopes for App: channels:read, channels:write, chat:write, groups:write, im:history, mpim:write, users:read
+
 def recipient_available?(current_recipient)
   if current_recipient.nil?
     puts "No current recipient selected."
