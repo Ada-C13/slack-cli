@@ -29,6 +29,9 @@ describe "Workspace Class" do
       end
       expect(count).must_equal 1
     end
+
+    # it "raises an error when a call fails" do
+    # end
   end
 
   describe "channels" do
@@ -65,5 +68,18 @@ describe "Workspace Class" do
     # it "this string is a concat of strings - one per channel" do
       
     # end
+  end
+
+  describe "select_user" do
+    it "returns an instanse of User" do
+      selection = @workspace.select_user(slack_id: "USLACKBOT")
+      expect(selection).must_be_kind_of User
+    end
+
+    it "name should be equal to user input" do
+    end
+
+    it "Slack ID should be equal to user input" do
+    end
   end
 end

@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '639'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Mar 2020 22:15:32 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 11ebd7b83348d156c16a1fea4d7af9fd
+      X-Oauth-Scopes:
+      - chat:write,channels:read,users:read
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-lxmb
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 0a2ce08fa1ec3c33302a7547d3305978.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - 987ZXB0-7O4ohYWjAT8-kw7QetJZMS1Q-J9DD-HU8kKk7HiMAy9zyw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"CUT7CLL1Y","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1583866138,"is_archived":false,"is_general":true,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"UV614256C","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TV5H57Z7E"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Company-wide
+        announcements and work-based matters","creator":"UV614256C","last_set":1583866138},"purpose":{"value":"This
+        channel is for workspace-wide communication and announcements. All members
+        are in this channel.","creator":"UV614256C","last_set":1583866138},"previous_names":[],"num_members":8},{"id":"CUT7CM7M0","name":"ada-projects","is_channel":true,"is_group":false,"is_im":false,"created":1583866139,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"ada-projects","is_shared":false,"parent_conversation":null,"creator":"UV614256C","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TV5H57Z7E"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"This
+        channel is for ada-projects collaboration and communication.","creator":"UV828MW79","last_set":1584052023},"previous_names":[],"num_members":8},{"id":"CV5H594KE","name":"random","is_channel":true,"is_group":false,"is_im":false,"created":1583866138,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"random","is_shared":false,"parent_conversation":null,"creator":"UV614256C","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TV5H57Z7E"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Non-work
+        banter and water cooler conversation","creator":"UV614256C","last_set":1583866138},"purpose":{"value":"A
+        place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
+        you''d prefer to keep out of more focused work-related channels.","creator":"UV614256C","last_set":1583866138},"previous_names":[],"num_members":8}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Fri, 13 Mar 2020 22:15:32 GMT
+recorded_with: VCR 5.1.0

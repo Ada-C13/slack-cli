@@ -43,4 +43,28 @@ describe "Channel Class" do
       expect(@channel.get_details.include? "4").must_equal true
     end
   end
+
+  describe "self.load_all" do
+    before do
+      VCR.use_cassette("list_conversations_endpoint") do
+        @result = Channel.load_all
+      end
+    end
+
+    it "returns an Array" do
+      expect(@result).must_be_kind_of Array
+    end
+
+    it "returns an array of Users" do
+      expect(@result[0]).must_be_kind_of Channel
+    end
+
+    it "one of the channel is named random" do
+      count = 0
+      @result.each do |channel|
+        count += 1 if channel.name == "random"
+      end
+      expect(count).must_equal 1
+    end
+  end
 end

@@ -1,8 +1,18 @@
-#!/usr/bin/env ruby
+require "httparty"
+require "dotenv"
+Dotenv.load
+
 require_relative "workspace"
 require_relative "recipient"
 require_relative "user"
 require_relative "channel"
+
+BASE_URL = "https://slack.com/api/"
+USERS_URL = "#{BASE_URL}users.list"
+CHANNELS_URL = "#{BASE_URL}conversations.list"
+# POST_URL = "#{BASE_URL}chat.postMessage"
+
+SLACK_TOKEN = ENV["SLACK_TOKEN"]
 
 def menu
   puts "\nWhat would you like to do?"
@@ -31,14 +41,12 @@ def main
       puts "Thank you for using the Ada Slack CLI"
       exit
     else 
-      puts "Unknown command."
+      puts "\nUnknown command."
     end
 
     menu
     input = gets.chomp
   end
-
-  # TODO project
 end
 
 main if __FILE__ == $PROGRAM_NAME

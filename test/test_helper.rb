@@ -3,6 +3,10 @@ SimpleCov.start do
   add_filter 'test/'
 end
 
+require "httparty"
+require "dotenv"
+Dotenv.load
+
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/reporters'
@@ -13,6 +17,13 @@ require_relative "../lib/workspace"
 require_relative "../lib/recipient"
 require_relative "../lib/user"
 require_relative "../lib/channel"
+
+BASE_URL = "https://slack.com/api/"
+USERS_URL = "#{BASE_URL}users.list"
+CHANNELS_URL = "#{BASE_URL}conversations.list"
+# POST_URL = "#{BASE_URL}chat.postMessage"
+
+SLACK_TOKEN = ENV["SLACK_TOKEN"]
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
