@@ -1,9 +1,19 @@
 # !/usr/bin/env ruby
 require_relative 'workspace'
+require_relative 'user'
+require_relative 'channel'
+require 'table_print'
 
 def main
-  # display welcome
-  welcome 
+  puts "*****************************"
+  puts "Welcome to the Ada Slack CLI!"
+  puts "*****************************"
+  @workspace = Workspace.new
+  num_channels = @workspace.channels.length
+  num_users = @workspace.users.length
+  
+  puts "Here are some details about your slack workspace:"
+  puts "\nYour workspace has #{num_channels} channels, and #{num_users} users." 
   
   # display options
   user_choice = display_and_get_choice
@@ -19,19 +29,6 @@ def main
 end
 
 
-def welcome 
-  puts "*****************************"
-  puts "Welcome to the Ada Slack CLI!"
-  puts "*****************************"
-  workspace = Workspace.new
-  num_channels = workspace.channels.length
-  num_users = workspace.users.length
-
-  puts "Here are some details about your slack workspace:"
-  puts "\nYour workspace has #{num_channels} channels, and #{num_users} users."
-end
-
-
 def display_and_get_choice
   puts "\n***************************"
   puts "What would you like to do?"
@@ -44,10 +41,10 @@ end
 
 
 def valid_choice?(user_choice)
-  valid_choice = ["channels", "details", "display", "display details", "exit", "list channels", "list users", "quit", "select channel", "select user", "users"]
+  valid_choice = ["channels", "details", "display", "display details", "exit", "lc", "list channels", "list users", "lu", "message", "quit", "q", "select channel", "select user", "send message", "users"]
   until valid_choice.include? user_choice
-    puts "That doesn't look like a valid choice..."
-    puts "You can enter: list users, list channels, or quit."
+    puts "#{user_choice.capitalize} is not a command I can execute..."
+    puts "You can enter: List Users, List Channels, Select User, Select Channel, Display Details, Quit."
     print "So what'll it be? ==> "
     user_choice = gets.chomp.downcase
   end
@@ -57,9 +54,9 @@ end
 
 def user_wants_to(choice)
   case choice
-  when "users", "list users"
+  when "users", "list users", "lu"
     return "users"
-  when "channels", "list channels"
+  when "channels", "list channels", "lc"
     return "channels"
   when "details", "list details", "display details", "display"
     return "details"
@@ -67,37 +64,54 @@ def user_wants_to(choice)
     return "select user"
   when "select channel"
     return "select channel"
-  when "quit", "exit"
+  when "message", "send message"
+    return "message"
+  when "quit", "q", "exit"
     return "quit"
   end
-  # add select, details, etc.
 end
 
 
 def execute_choice(user_choice)
   if user_choice == "users"
-    # run list users method
-    # list users coould be in workspace
-    p "we're checking out our users here"
+    puts "Here's a list of the users currently in your workspace:"
     tp.set User, :slack_id, :name, :real_name, :status_text, :status_emoji
     tp User.list_users
+    
   elsif user_choice == "channels"
-    # run list channels method
-    # list channels could be in workspace
-    p "we're looking at the channels"
+    puts "Here's a list of the channels currently in your workspace:"
     tp.set Channel, :slack_id, :name, :topic, :member_count
     tp Channel.list_channels
+    
   elsif user_choice == "select user"
-    # set @selected to that user object
-    p "we're gonna have a selected user here!  wow!"
+    print "Which user do you want to select? ==> "
+    user_for_details = gets.chomp
+    if @workspace.select_user(user_for_details) == []
+      puts "\n(!) There is no user with the name or slack ID #{user_for_details}."
+    else 
+      puts "You got it!  #{user_for_details} is now selected"
+    end
+    
   elsif user_choice == "select channel"
-    # set @selected to that channel object
-    p "we're gonna have a selected channel here!  wow!"
-  elsif user_choice == "details" && @selected.class == User
-    # show details of selected user
-  elsif user_choice == "details" && @selected.class == Channel
-    # show details of selected channel
+    print "Which channel do you want to select? ==> "
+    channel_for_details = gets.chomp
+    if @workspace.select_channel(channel_for_details) == []
+      puts "\n(!) There is no channel with the name or slack ID #{channel_for_details}."
+    else 
+      puts "You got it!  #{channel_for_details} is now selected"
+    end
+    
+  elsif user_choice == "details"
+    if @workspace.show_details == []
+      puts "\n(!) There is not a currently selected user or channel.  \n(!) Please first select the user or channel you would like details about by typing 'select user' or 'select channel'."
+    else
+      puts "\nHere are your selection's details: \n#{@workspace.show_details}"
+    end
+    
+  elsif user_choice == "message"
+    p "you can sure send a message to #{user_choice}"
   end
 end
+
 
 main if __FILE__ == $PROGRAM_NAME

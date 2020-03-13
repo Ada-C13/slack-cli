@@ -11,7 +11,6 @@ class Recipient
   attr_reader :slack_id, :name
   
   def initialize(slack_id, name)
-    #self.class.validate_id(id) <== this is what was in CSV record
     @slack_id = slack_id
     @name = name
   end
@@ -37,18 +36,22 @@ class Recipient
     url = "https://slack.com/api/#{sub_url}?token=#{SLACK_TOKEN}"
     
     response = HTTParty.get(url)
-    
+
+    if response["ok"] != true || response.code != 200
+      raise SlackAPIError.new("There was an error retrieving information from the Slack API: #{response["error"]}")
+    end
+
     return response
   end
   
-  # invoked using recip_object.details
-  # we would expect when this is called, it displays info from instance variables - printed as a table?
+
   def details
-    return "#{slack_id}, #{name},"
+    return "Slack ID: #{slack_id}, Name: #{name},"
   end
   
 end
 
 
-
+class SlackAPIError < Exception
+end
 

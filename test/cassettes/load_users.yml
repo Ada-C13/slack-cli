@@ -88,4 +88,68 @@ http_interactions:
         Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"yesenia_app","real_name_normalized":"yesenia_app","display_name":"","display_name_normalized":"","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"gf34360f759b","api_app_id":"AUV59CB7U","always_active":false,"bot_id":"BV7FDL9LL","image_24":"https:\/\/secure.gravatar.com\/avatar\/f34360f759b97596f887a292520ed479.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0005-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/f34360f759b97596f887a292520ed479.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0005-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/f34360f759b97596f887a292520ed479.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0005-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/f34360f759b97596f887a292520ed479.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0005-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/f34360f759b97596f887a292520ed479.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0005-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/f34360f759b97596f887a292520ed479.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0005-512.png","status_text_canonical":"","team":"TV83W4WBZ"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":true,"is_app_user":false,"updated":1583943022}],"cache_ts":1584045203,"response_metadata":{"next_cursor":""}}'
     http_version: null
   recorded_at: Thu, 12 Mar 2020 20:33:23 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/bogus.endpoint?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '80'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Mar 2020 17:21:03 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Referrer-Policy:
+      - no-referrer
+      X-Slack-Backend:
+      - h
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - f74b622840183654e4deaa46db98344f
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-vmz3
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 6ca7826fb0f4c565b1af9c7737725c49.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - C-chXSJSw-SJpm1EiXo_PXioFXJK6MF2ozJdJJPuls8G0icZzHXz8g==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"unknown_method","req_method":"bogus.endpoint"}'
+    http_version: null
+  recorded_at: Fri, 13 Mar 2020 17:21:03 GMT
 recorded_with: VCR 5.1.0

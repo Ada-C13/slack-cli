@@ -9,3 +9,22 @@
   
 #   return channel_list
 # end
+
+
+
+# describe 'list channels' do
+#   before do
+#     @workspace = Workspace.new
+#   end
+
+#   it 'can find channels' do
+#     VCR.use_cassette('list_channels') do
+#       channels = @workspace.list_channels
+
+#       expect(channels).must_be_kind_of Array
+#       expect(channels.length).must_equal 3
+#       expect(channels).must_equal ["general", "api-testing", "random"]
+#     end
+#   end
+
+# end

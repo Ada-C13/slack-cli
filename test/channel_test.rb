@@ -14,15 +14,18 @@ describe 'instantiates a channel' do
   
 end
 
-describe 'it loads all the channels from slack api' do
-  
+describe "channel.get_everthing" do
   it 'loads channels' do
     VCR.use_cassette('load_channels') do 
-      all_channels = Channel.list_channels
-      expect(all_channels).must_be_kind_of Array
-      expect(all_channels[0]).must_be_instance_of Channel
+      all_channels = Channel.get_everything("channels.list")
+      expect(all_channels).must_be_kind_of HTTParty::Response
+      expect(all_channels["channels"].length).must_be :>, 0
     end
   end
+end
+
+
+describe 'channel.list_all' do
   
   it 'loads correct channel info' do
     VCR.use_cassette('load_channels') do 
@@ -37,29 +40,13 @@ describe 'it loads all the channels from slack api' do
   
 end
 
+
 describe 'details' do
   before do 
     @channel = Channel.new('CUTE4M96W', "general", "a place for general communications", 6)
   end
   
   it "displays details of selected recipient" do
-    expect(@channel.details).must_equal "CUTE4M96W, general, a place for general communications, 6"
+    expect(@channel.details).must_equal "Slack ID: CUTE4M96W, Name: general, Topic: a place for general communications, Member Count: 6"
   end
 end
-
-# describe 'list channels' do
-#   before do
-#     @workspace = Workspace.new
-#   end
-
-#   it 'can find channels' do
-#     VCR.use_cassette('list_channels') do
-#       channels = @workspace.list_channels
-
-#       expect(channels).must_be_kind_of Array
-#       expect(channels.length).must_equal 3
-#       expect(channels).must_equal ["general", "api-testing", "random"]
-#     end
-#   end
-
-# end

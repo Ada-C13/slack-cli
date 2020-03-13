@@ -13,11 +13,10 @@ class Channel < Recipient
   def self.list_channels
     # response received from get_everthing method in Recipient
     response = Recipient.get_everything("channels.list")
-    # if response["ok"] != true
-    # raise ERROR
-# 
+    
     all_channels_list = []
 
+    # you could refactor to use .map
     response["channels"].each do |channel|
       slack_id = channel["id"]
       name = channel["name"]
@@ -32,7 +31,7 @@ class Channel < Recipient
   
 
   def details
-    return "#{super} #{topic}, #{member_count}"
+    return "#{super} Topic: #{topic}, Member Count: #{member_count}"
   end
    
 end

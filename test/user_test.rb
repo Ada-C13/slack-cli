@@ -1,4 +1,5 @@
 require_relative 'test_helper'
+require_relative "../lib/user" # so we inherit the error
 
 describe 'instantiates a user' do
   
@@ -15,16 +16,18 @@ describe 'instantiates a user' do
   
 end
 
-describe 'it loads all the users from slack api' do
-  
+describe "User.get_everything" do
   it 'loads users' do
     VCR.use_cassette('load_users') do 
-      all_users = User.list_users
-      expect(all_users).must_be_kind_of Array
-      expect(all_users[0]).must_be_instance_of User
+      all_users = User.get_everything("users.list")
+      expect(all_users).must_be_kind_of HTTParty::Response
+      expect(all_users["members"].length).must_be :>, 0
     end
   end
-  
+end
+
+
+describe 'User.list_users' do
   it 'loads correct user info' do
     VCR.use_cassette('load_users') do 
       all_users = User.list_users
@@ -37,7 +40,14 @@ describe 'it loads all the users from slack api' do
     end
   end
   
+  it 'raises an error when a call fails' do
+    VCR.use_cassette('load_users') do
+      expect{ User.get_everything("bogus.endpoint") }.must_raise SlackAPIError
+    end
+  end
+  
 end
+
 
 describe 'details' do
   before do 
@@ -45,6 +55,6 @@ describe 'details' do
   end
   
   it "displays details of selected recipient" do
-    expect(@user.details).must_equal "U0G9QF9C6, SlackBot, Slack Bot, Worth My Salt, 🤡"
+    expect(@user.details).must_equal "Slack ID: U0G9QF9C6, Name: SlackBot, Real Name: Slack Bot, Status Text: Worth My Salt, Status Emoji: 🤡"
   end
 end

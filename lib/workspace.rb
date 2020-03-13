@@ -3,33 +3,46 @@ require 'httparty'
 require_relative 'user'
 require_relative 'channel'
 
-# YOU HAD YOUR SLACK TOKEN HERE, BUT YOU DELETED IT BECAUSE YOU DON'T NEED IT IN WORKSPACE AT THIS POINT
-
-# IT IS NOW LISTED IN RECIPIENT
 
 class Workspace
   attr_reader :users, :channels, :selected
   
   def initialize
-    @users = User.list_users # will be array of user objects
-    @channels = Channel.list_channels # will be array of channel objects
-    @selected = nil # will be current instance of selected user or channel to STORE IT so the user can: display details or send message
+    @users = User.list_users
+    @channels = Channel.list_channels
+    @selected = nil 
   end
+  
 
+  def select_channel(user_channel)
+    if channels.find { |channel| channel.name == user_channel } == nil && channels.find { |channel| channel.slack_id == user_channel } == nil
+      return []
+    elsif 
+      @selected = channels.find { |channel| channel.name == user_channel }
+    elsif
+      @selected = channels.find { |channel| channel.slack_id == user_channel } 
+    end
+  end
   
-  # def select_channel
   
-  # end
+  def select_user(user_name)
+    if users.find { |user|  user.name == user_name } == nil && users.find { |user| user.slack_id == user_name } == nil
+      return []
+    elsif 
+      @selected = users.find { |user| user.name == user_name }
+    elsif
+      @selected = users.find { |user| user.slack_id == user_name } 
+    end
+  end
   
   
-  # def select_user
-  
-  # end
-  
-  
-  # def show_details
-  
-  # end
+  def show_details
+    if @selected == nil
+      return []
+    end
+    
+    return @selected.details
+  end
   
   
   # def send_message
