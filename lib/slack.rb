@@ -27,6 +27,7 @@ def main
     - select user
     - select channel
     - details
+    - send message
     - quit"
     print "=> "
     user_option = gets.chomp
@@ -50,6 +51,12 @@ def main
       else
         puts "Here are your for #{workspace.selected}"
         workspace.selected.details
+      end
+    when "send message"
+      if workspace.selected.nil?
+        puts "Sorry, you have not selected a Channel or User to send a message to"
+      else
+        workspace.message
       end
     end
   end
