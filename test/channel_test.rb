@@ -3,6 +3,10 @@ require_relative 'test_helper.rb'
 
 describe "Channel" do
   it "can initialize channel with slack id" do
+    slack_id = "CUT6XEYR0"
+    new_channel = Channel.new(slack_id)
+    expect(new_channel).must_be_kind_of Channel
+    expect(new_channel.slack_id).must_equal slack_id
   end
 
   it "can list all channels" do

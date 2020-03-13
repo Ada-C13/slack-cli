@@ -2,7 +2,10 @@ require_relative 'test_helper.rb'
 
 describe "User" do
   it "can initialize user with slack id" do
-    skip
+    slack_id = "UUT7ESHPU"
+    new_user = User.new(slack_id)
+    expect(new_user).must_be_kind_of User
+    expect(new_user.slack_id).must_equal slack_id
   end
 
   it "can list all users" do
