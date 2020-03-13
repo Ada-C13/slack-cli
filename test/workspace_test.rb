@@ -35,7 +35,9 @@ xdescribe "listing users" do
     VCR.use_cassette("users.list") do
       response = Workspace.new
 
-      expect(SWorkspace.new.list_users(response)).must_be_kind_of String
+      expect(Workspace.new.list_users(response)).must_be_kind_of String
     end
   end 
 end
+
+
