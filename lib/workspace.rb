@@ -41,4 +41,10 @@ class Workspace
       return @selected
     end
   end
+
+  def message
+    puts "Please enter a message you would like to send to #{selected.name}"
+    print "=> "
+    selected.send_message(gets.chomp)
+  end
 end
