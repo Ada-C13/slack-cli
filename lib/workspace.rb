@@ -18,7 +18,11 @@ module SlackCLI
 
     def select_user(input)
       selected_array = @users.select{|user| user.slack_id == input.upcase || user.name == input}
-      @selected = selected_array[0]
+      if selected_array.empty?
+        @selected = nil
+      else
+        @selected = selected_array[0]
+      end
       return @selected
     end
 

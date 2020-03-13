@@ -29,11 +29,20 @@ def main
       tp workspace.channels, :slack_id, :name, :topic, :member_count
       puts
     when 'select user', '3', '3.'
-      print "Please provide a username or Slack ID => "
-      user = gets.chomp.downcase
-      puts
-      workspace.select_user(user)
-      puts "You've selected user with Slack ID #{workspace.selected.slack_id}".blue
+      selected_user = nil
+      while selected_user.nil?
+        print "Please provide a username or Slack ID or hit Enter to exit => "
+        user = gets.chomp.downcase
+        if user == ''
+          break
+        end
+        selected_user = workspace.select_user(user)
+        if selected_user.nil?
+          puts "\nInvalid username or Slack ID".red
+        else
+          puts "\nYou've selected user with Slack ID #{workspace.selected.slack_id}".blue
+        end
+      end
     when 'select channel', '4', '4.'
       print "Please provide a channel name or Slack ID => "
       channel = gets.chomp.downcase
