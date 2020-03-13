@@ -43,9 +43,9 @@ class Recipient
     response = HTTParty.post(MESSAGE_URL,query: query_parameters)
     
     if response["ok"] 
-      puts "Message successfully delivered!"
+      return "Message successfully delivered!"
     else
-      puts "Message delivery unsucessful: #{response["error"]}"
+      return "Message delivery unsucessful: #{response["error"]}"
     end
     
   end

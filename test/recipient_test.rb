@@ -31,9 +31,16 @@ describe "Recipient Access - Working Case" do
       recipient = Recipient.new('general','CUVFN5GQ1')
       response = recipient.send_message("Hello World")
 
-      expect(response["ok"]).must_equal true
-      expect(response["channel"]).must_equal 'CUVFN5GQ1'
-      expect(response["message"]["text"]).must_equal 'Hello World'
+      expect(response).must_include "successfully"
+    end
+  end
+
+  it 'do not send messages if information is incorrect' do
+    VCR.use_cassette("fail_message") do
+      recipient = Recipient.new('general','EVILBOT')
+      response = recipient.send_message("Hello World")
+
+      expect(response).must_include "unsucessful"
     end
   end
 

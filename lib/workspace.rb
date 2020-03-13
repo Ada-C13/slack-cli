@@ -18,6 +18,7 @@ class Workspace
     @channels = Channel.all
 
     add_to_channel
+    @channels = Channel.all
   end
 
   def select_recipient (user_input)
@@ -49,7 +50,6 @@ class Workspace
         }
 
         response = HTTParty.get(ADD_CHANNEL_URL, query: query_parameters)
-        
       end
     end
   end

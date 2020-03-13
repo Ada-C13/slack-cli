@@ -44,7 +44,14 @@ describe "Workspace Access - Working Case" do
     
     expect(recipient).must_be_nil
   end
+
+  it 'successfully added in app bot to channels' do
+    expect(@workspace.channels[0].member_count).must_equal 2
+    expect(@workspace.channels[1].member_count).must_equal 2
+    expect(@workspace.channels[2].member_count).must_equal 2
+  end
 end
+
 
 # add in test for if the message does not go through
 # confirm that all bots have been added to channels
