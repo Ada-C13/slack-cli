@@ -15,7 +15,8 @@ module SlackCLI
     end
 
     def details
-      return self
+      details = "The channel with name #{self.name.capitalize} and Slack ID #{self.slack_id} is described as '#{self.topic}'.\n"
+      details += "There are #{self.member_count} members in this channel."
     end
 
     def self.list_all

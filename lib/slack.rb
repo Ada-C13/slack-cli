@@ -32,17 +32,23 @@ def main
       print "Please provide a username or Slack ID => "
       user = gets.chomp.downcase
       puts
-      selected = workspace.select_user(user)
+      workspace.select_user(user)
+      puts "You've selected user with Slack ID #{workspace.selected.slack_id}".blue
     when 'select channel', '4', '4.'
       print "Please provide a channel name or Slack ID => "
       channel = gets.chomp.downcase
       puts
       selected = workspace.select_channel(channel)
+      puts "You've selected channel with Slack ID #{workspace.selected.slack_id}".blue
     when 'details', '5', '5.'
-      puts workspace.show_details(selected).blue
+      if workspace.selected.nil?
+        puts "\nYou haven't selected a user or a channel".blue
+      else
+        puts workspace.show_details.blue
+      end
     end
-    puts "\nChoose another option:  \n1. List users\n2. List channels\n3. User details\n4. Channel details"
-    puts "5. Send a message.\n6. Quit\n"
+    puts "\nChoose your option:  \n1. List users\n2. List channels\n3. Select user\n4. Select channel"
+    puts "5. Details.\n6. Quit\n"
     user_command = gets.chomp.downcase
   end
 
