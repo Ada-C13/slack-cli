@@ -45,7 +45,7 @@ end
 
 def list_users(workspace)
   puts "\nUser List\n\n"
-  tp workspace.users, "id", "name", "real_name"
+  tp workspace.users, "id", "name", "real_name", "status_text", "status_emoji"
 end
 
 def list_channels(workspace)
