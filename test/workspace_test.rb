@@ -2,7 +2,6 @@ require_relative 'test_helper'
 
 describe 'initialize' do
   
-  
   it 'instantiates a workspace object' do
     VCR.use_cassette("load_workspace") do
       @workspace = Workspace.new

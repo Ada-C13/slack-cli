@@ -10,19 +10,19 @@ class User < Recipient
     @status_emoji = status_emoji
   end
   
-  # def details
-
-  # end
-
-
+  def details
+    return "#{super} #{real_name}, #{status_text}, #{status_emoji}"
+  end
+  
+  
   def self.list_users
     # response received from Recipient
     response = Recipient.get_everything("users.list")
     # if response["ok"] != true
     # raise ERROR
-
+    
     all_users_list = []
-
+    
     response["members"].each do |member|
       slack_id = member["id"]
       name = member["name"]
@@ -35,5 +35,5 @@ class User < Recipient
     
     return all_users_list
   end
-
+  
 end

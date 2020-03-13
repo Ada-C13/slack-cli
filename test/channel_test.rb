@@ -37,6 +37,16 @@ describe 'it loads all the channels from slack api' do
   
 end
 
+describe 'details' do
+  before do 
+    @channel = Channel.new('CUTE4M96W', "general", "a place for general communications", 6)
+  end
+  
+  it "displays details of selected recipient" do
+    expect(@channel.details).must_equal "CUTE4M96W, general, a place for general communications, 6"
+  end
+end
+
 # describe 'list channels' do
 #   before do
 #     @workspace = Workspace.new

@@ -38,3 +38,13 @@ describe 'it loads all the users from slack api' do
   end
   
 end
+
+describe 'details' do
+  before do 
+    @user = User.new('U0G9QF9C6', "SlackBot", "Slack Bot", "Worth My Salt", "🤡")
+  end
+  
+  it "displays details of selected recipient" do
+    expect(@user.details).must_equal "U0G9QF9C6, SlackBot, Slack Bot, Worth My Salt, 🤡"
+  end
+end

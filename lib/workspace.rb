@@ -14,7 +14,6 @@ class Workspace
     @users = User.list_users # will be array of user objects
     @channels = Channel.list_channels # will be array of channel objects
     @selected = nil # will be current instance of selected user or channel to STORE IT so the user can: display details or send message
-    
   end
 
   
@@ -36,9 +35,6 @@ class Workspace
   # def send_message
   
   # end
-  
-  private
-  
   
 end
 
