@@ -1,3 +1,4 @@
+require 'table_print'
 require 'httparty'
 require 'dotenv'
 require_relative 'recipient'

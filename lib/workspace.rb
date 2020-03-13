@@ -1,4 +1,3 @@
-require 'table_print'
 require_relative 'user'
 require_relative 'channel'
 require_relative 'slack_api_error'
@@ -61,6 +60,7 @@ module SlackCLI
     end
   end
 end
+
 
 # #select_user or #select_channel when taking in argument
 # def select_user(id_name)

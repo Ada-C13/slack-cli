@@ -1,8 +1,6 @@
 require_relative 'slack_api_error'
 require 'httparty'
-require 'dotenv'
 
-Dotenv.load
 
 module SlackCLI
   class Recipient
