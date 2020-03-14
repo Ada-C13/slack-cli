@@ -17,18 +17,18 @@ class Channel < Recipient
   def self.list_channels
     response = Recipient.get("channels.list")
     channel_list = []
-    if response["ok"] != true
+    unless response["ok"] == true
       raise SlackError, "There was an error. The error message is #{response["error"]}"
-    else
-      response["channels"].each do |channel|
-        @slack_id = channel["id"]
-        @name = channel["name"]
-        @topic = channel["topic"]
-        @member_count = channel["members"].length
-
-        channel_list << Channel.new(@slack_id, @name, @topic, @member_count)
-      end
     end
+    response["channels"].each do |channel|
+      @slack_id = channel["id"]
+      @name = channel["name"]
+      @topic = channel["topic"]
+      @member_count = channel["members"].length
+
+      channel_list << Channel.new(@slack_id, @name, @topic, @member_count)
+    end
+
     return channel_list
   end
 end
