@@ -1,14 +1,14 @@
 require 'httparty'
 require 'dotenv'
-require_relative 'constants'
 
 Dotenv.load 
 
 module Slack 
-  class Recipient 
 
-    MESSAGE_URL = "https://slack.com/api/chat.postMessage"
-    SLACK_TOKEN = ENV["SLACK_TOKEN"]
+  MESSAGE_URL = "https://slack.com/api/chat.postMessage"
+  SLACK_TOKEN = ENV["SLACK_TOKEN"]
+
+  class Recipient 
 
     attr_reader :slack_id, :name 
 
@@ -17,27 +17,51 @@ module Slack
       @name = name 
     end 
 
-    def send_message(message)
+    def send_message(text, selected)
+      response = HTTParty.post(
+        MESSAGE_URL,
+        headers: {
+          'Content-Type' => 'application/x-www-form-urlencoded'
+        },
+        body: {
+          token: SLACK_TOKEN,
+          text: text,
+          channel: selected.slack_id,
+          username: "My Bot"
+        }
+      )
+
+
+      unless response.code == 200 && response.parsed_response["ok"]
+        raise SlackApiError, "Error when posting #{text} to #{@name}, error: #{response.parsed_response["error"]}"
+      end  
+
+      return true  
     end 
+
+    def details 
+      raise NotImplementedError, 'Implement me in a child class!'
+    end 
+
 
     def self.get(url, params)
       response = HTTParty.get(url, query: params)
 
       if response["ok"] == false 
-        raise ArgumentError, "We failed to get information from API"
+        raise SlackApiError, "We failed to get information from API"
       end 
 
       response_data = JSON.parse(response.body)
 
       return response_data
-    end 
-
-    def details 
-      raise NotImplementedError, 'Implement me in a child class!'
     end  
+
 
     def self.list_all 
       raise NotImplementedError, 'Implement me in a child class!'
     end 
   end 
 end 
+
+
+class SlackApiError < StandardError; end
