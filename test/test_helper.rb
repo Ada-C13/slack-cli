@@ -1,21 +1,15 @@
-require_relative "../lib/channel"
-require_relative "../lib/recipient"
-require_relative "../lib/slack"
-require_relative "../lib/user"
-require_relative "../lib/workspace"
-
-require 'simplecov'
+require "simplecov"
 SimpleCov.start do
-  add_filter 'test/'
+  add_filter "test/"
 end
 
-require 'minitest'
-require 'minitest/autorun'
-require 'minitest/reporters'
-require 'minitest/skip_dsl'
+require "minitest"
+require "minitest/autorun"
+require "minitest/reporters"
+require "minitest/skip_dsl"
 require "webmock/minitest"
-require 'dotenv'
-require 'vcr'
+require "dotenv"
+require "vcr"
 
 Dotenv.load
 
@@ -29,9 +23,7 @@ VCR.configure do |config|
     :match_requests_on => [:method, :uri, :body], # The http method, URI and body of a request all need to match
   }
   # Don't leave our token lying around in a cassette file.
-  config.filter_sensitive_data("<SLACK_TOKEN>") do
-    ENV["SLACK_TOKEN"]
+  config.filter_sensitive_data("<BOT_TOKEN>") do
+    ENV["BOT_TOKEN"]
   end
-
-
 end
