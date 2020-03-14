@@ -1,8 +1,6 @@
 #!/usr/bin/env ruby
 require_relative 'workspace'
-require 'dotenv'
-
-Dotenv.load
+require 'table_print'
 
 def main
   puts "Welcome to the Ada Slack CLI!"
@@ -14,19 +12,15 @@ def main
   input = ""
   until input == "quit"
     puts "\nWhat would you like to do?"
-    options = ["list users", "list channels", "select user", "select channel", "details", "quit"]
-
-    options.each_with_index do |option, i|
-      puts "#{i + 1}. #{option}"
-    end
+    list_options
 
     input = gets.chomp.downcase
 
     case input
       when "1", "list users"
-        puts workspace.users
+        tp workspace.users, :slack_id, :name, :real_name
       when "2", "list channels"
-        puts workspace.channels
+        tp workspace.channels, :slack_id, :name, :topic, :member_count
       when "3", "select user"
         print "\nProvide the username or Slack ID of the user you want to select: "
         user = gets.chomp.upcase
@@ -44,16 +38,16 @@ def main
     end
   end
 
-  # list users
-  # list channels
-  # quit
-  # As a user who is at the program's input prompt...
-  
-  # When I type quit, the program should exit.
-  # After completing any command other than quit, the program should reprint the list of commands and ask for another input.
-
 
   puts "Thank you for using the Ada Slack CLI"
+end
+
+def list_options
+    options = ["list users", "list channels", "select user", "select channel", "details", "quit"]
+
+    options.each_with_index do |option, i|
+      puts "#{i + 1}. #{option}"
+    end
 end
 
 main if __FILE__ == $PROGRAM_NAME
