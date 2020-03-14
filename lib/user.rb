@@ -27,18 +27,23 @@ class User < Recipient
 
   # When I type list users, I should see a list of all the users in the Slack workspace
   def self.list_all
-    response = HTTParty.get(BASE_URL + "users.list", query: QUERY)
-    all_users = []
+    response = self.get("users.list", QUERY)
+    all = []
+
+    # if response.code != 200 || response[‘message’] != ‘success’
+    #   raise IssLocationError, “API call failed with code #{response.code} and reason ’#{response[‘reason’]}”
+    # end
+
 
     response["members"].each do |member|
-      all_users << {
+      all << {
         name: member["name"],
-        real_name: member["real_name"],
-        id: member["id"]
+        id: member["id"],
+        real_name: member["real_name"]
       } 
     end
     
-    return all_users
+    return all
   end
 
 end
