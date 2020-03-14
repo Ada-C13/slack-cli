@@ -23,7 +23,7 @@ class Channel < Recipient
     all_channel_array = []
    
     response["channels"].each do |channel|
-      topic = channel["topic"]
+      topic = channel["topic"]["value"]
       member_count = channel["num_members"]
       slack_id = channel["id"]
       name = channel["name"]

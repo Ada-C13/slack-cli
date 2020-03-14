@@ -12,13 +12,15 @@ def main
   # TODO project
   
   choice = init_user_options
+  puts "\n"
   until choice == "quit"
     
     case choice
     when "list users"
 
-      tp User.list_all
+      tp workspace.users, "real_name", "name", "slack_id"
 
+      puts "\n"
       puts "What would you like to do?"
       puts "•Select user \n•Return to Main Menu \n•Quit "
       
@@ -62,8 +64,8 @@ def main
       end
     
     when "list channels"
-      tp Channel.list_all
-
+      tp workspace.channels, "name", "topic", "member_count", "slack_id"
+      puts "\n"
       puts "What would you like to do?"
       puts "•Select channel \n•Return to Main Menu \n•Quit "
       selection = gets.chomp.downcase
