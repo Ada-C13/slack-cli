@@ -40,9 +40,7 @@ module Slack
 
 
     def show_details 
-      @selected.details if @selected
-
-      # tp @selected, [*@selected.details.keys] if @selected
+      tp @selected, [*@selected.details.keys] if @selected
     end 
 
 

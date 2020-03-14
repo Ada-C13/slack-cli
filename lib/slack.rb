@@ -106,16 +106,9 @@ end
 def display_details 
   details = WORKSPACE.show_details ##
 
-  if !details 
-    error_message
-  else 
-    table = Terminal::Table.new do |t|
-      t.headings = [details.keys]
-      t.rows = [details.values]
-      t.style = { :border_top => false, :border_bottom => false }
-    end
-    puts table
-  end 
+  error_message if !details 
+
+  details
 end 
 
 
