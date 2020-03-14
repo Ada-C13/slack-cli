@@ -23,44 +23,43 @@ describe "Workspace class" do
     end
   end  
 
-  # describe "select user" do
-  #   it "stores the user id to @selected" do
-  #     VCR.use_cassette("list_of_users") do
-  #       workspace = Workspace.new
-  #       workspace.select_user("USLACKBOT")
-  #       expect(workspace.selected).must_equal "USLACKBOT"
-  #     end
-  #   end
+  describe "select user" do
+    it "stores the user id to @selected" do
+      VCR.use_cassette("list_of_users") do
+        workspace = Workspace.new
+        workspace.select_user("USLACKBOT")
+        expect(workspace.selected.slack_id).must_equal "USLACKBOT"
+      end
+    end
 
-  #   it "stores the username to @selected" do
-  #     VCR.use_cassette("list_of_users") do
-  #       workspace = Workspace.new
-  #       workspace.select_user("slackbot")
-  #       expect(workspace.selected).must_equal "slackbot"
-  #     end
-  #   end
+    it "stores the username to @selected" do
+      VCR.use_cassette("list_of_users") do
+        workspace = Workspace.new
+        workspace.select_user("slackbot")
+        expect(workspace.selected.name).must_equal "slackbot"
+      end
+    end
 
-  #   it "notify user if the provided user id or username is invalid" do
-  #     VCR.use_cassette("list_of_users") do
-  #       workspace = Workspace.new
-  #       expect(workspace.select_user("xxxxxxxx")).must_equal "User doesn't exist!"
-  #     end
-  #   end
-  # end
+    it "notify user if the provided user id or username is invalid" do
+      VCR.use_cassette("list_of_users") do
+        workspace = Workspace.new
+        expect(workspace.select_user("xxxxxxxx")).must_equal nil
+      end
+    end
+  end
 
   describe "#show_details method" do
-  #   it "see user details of the current selected user" do
-  #     VCR.use_cassette("list_of_users") do
-  #       workspace = Workspace.new
-  #       users = User.list_all
-  #       @selected = ""
-  #       workspace.select_user("slackbot")
-  #       details = workspace.show_details(users)
-  #       expect(details[0]).must_be_kind_of User
-  #       expect(details[0].name).must_equal "slackbot"
-  #       expect(details[0].real_name).must_equal "Slackbot"
-  #     end
-  #   end
+    it "see user details of the current selected user" do
+      VCR.use_cassette("list_of_users") do
+        workspace = Workspace.new
+        users = User.list_all
+        @selected = ""
+        workspace.select_user("slackbot")
+        details = workspace.show_details
+        expect(details).must_be_kind_of String
+        expect(details).must_equal "Slack ID: USLACKBOT\nName: slackbot\nReal Name: Slackbot\nStatus Text: \nStatus Emoji: "
+      end
+    end
   
     it "see channel details of the current selected channel" do
       VCR.use_cassette("list_of_channels") do
@@ -68,11 +67,9 @@ describe "Workspace class" do
         channels = Channel.list_all
         @selected = ""
         workspace.select_channel("CV63MEZTJ")
-        details = workspace.show_details(channels)
-        expect(details[0]).must_be_kind_of Channel
-        expect(details[0].name).must_equal "random"
-        expect(details[0].topic).must_be_kind_of Hash
-        expect(details[0].member_count).must_equal 4
+        details = workspace.show_details
+        expect(details).must_be_kind_of String
+        expect(details).must_equal "Slack ID: CV63MEZTJ\nName: random\nTopic: \{\"value\"=>\"Non-work banter and water cooler conversation\", \"creator\"=>\"UV5KNL1UL\", \"last_set\"=>1583868525\}\nMember Count: 4"
       end
     end
   end
@@ -82,7 +79,7 @@ describe "Workspace class" do
       VCR.use_cassette("list_of_channels") do
         workspace = Workspace.new
         workspace.select_channel("CV63MEZTJ")
-        expect(workspace.selected).must_equal "CV63MEZTJ"
+        expect(workspace.selected.slack_id).must_equal "CV63MEZTJ"
       end
     end
 
@@ -90,14 +87,14 @@ describe "Workspace class" do
       VCR.use_cassette("list_of_channels") do
         workspace = Workspace.new
         workspace.select_channel("random")
-        expect(workspace.selected).must_equal "random"
+        expect(workspace.selected.name).must_equal "random"
       end
     end
 
     it "notify user if the provided channel id or channel name is invalid" do
       VCR.use_cassette("list_of_channels") do
         workspace = Workspace.new
-        expect(workspace.select_channel("xxxxxxxx")).must_equal "Channel doesn't exist!"
+        expect(workspace.select_channel("xxxxxxxx")).must_equal nil
       end
     end
   end

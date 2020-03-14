@@ -11,29 +11,33 @@ class Workspace
   attr_reader :users, :channels, :selected
 
   def initialize
-    @users = User.list_all # arrays of users
-    @channels = Channel.list_all # arrays of channels
+    @users = User.list_all
+    @channels = Channel.list_all
     @selected = ""
   end
 
   def select_user(user_id_or_username)
-    if @users.any? {|user| user.slack_id == user_id_or_username || user.name == user_id_or_username}
-      @selected = user_id_or_username
-    else 
-      p "User doesn't exist!"
-    end
+    @selected = @users.find {|user| 
+      user.slack_id == user_id_or_username || 
+      user.name == user_id_or_username
+    }
+    return @selected
   end
 
   def select_channel(channel_id_or_channelname)
-    if @channels.any? {|channel| channel.slack_id == channel_id_or_channelname || channel.name == channel_id_or_channelname}
-      @selected = channel_id_or_channelname
-    else 
-      p "Channel doesn't exist!"
-    end
+    @selected = @channels.find {|channel| 
+      channel.slack_id == channel_id_or_channelname || 
+      channel.name == channel_id_or_channelname
+    }
+    return @selected 
   end
 
-  def show_details(lists) # array of objects
-    return lists.select {|list| list.slack_id == @selected || list.name == @selected}
+  def show_details
+    if @selected != ""
+      return @selected.details
+    else
+      return @selected
+    end
   end
 
   def prompt_options
@@ -42,3 +46,4 @@ class Workspace
     return input
   end
 end
+
