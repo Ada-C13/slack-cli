@@ -3,7 +3,7 @@ require_relative 'recipient'
 class User < Recipient
   attr_reader :real_name, :status_text, :status_emoji, :all_users
 
-  def initialize(slack_id, name)
+  def initialize(slack_id, name, real_name, status_text, status_emoji)
     super(slack_id, name)
     @real_name = real_name
     @status_text = status_text
@@ -27,20 +27,17 @@ class User < Recipient
 
   # When I type list users, I should see a list of all the users in the Slack workspace
   def self.list_all
-    response = self.get("users.list", QUERY)
+    response = self.get("users.list")
     all = []
 
-    # if response.code != 200 || response[‘message’] != ‘success’
-    #   raise IssLocationError, “API call failed with code #{response.code} and reason ’#{response[‘reason’]}”
-    # end
-
-
     response["members"].each do |member|
-      all << {
-        name: member["name"],
-        id: member["id"],
-        real_name: member["real_name"]
-      } 
+      all << User.new(
+        member["id"],
+        member["name"],
+        member["real_name"],
+        member["profile"]["status_text"],
+        member["profile"]["status_emoji"]
+      )
     end
     
     return all
