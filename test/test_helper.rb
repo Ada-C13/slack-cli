@@ -13,6 +13,10 @@ require 'dotenv'
 Dotenv.load
 
 require_relative '../lib/workspace'
+require_relative '../lib/slack'
+require_relative '../lib/channel.rb'
+require_relative '../lib/recipient.rb'
+require_relative '../lib/user.rb'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
