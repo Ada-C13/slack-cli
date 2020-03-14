@@ -9,16 +9,24 @@ def main
 
   i = -1
   while i < 0
-    puts "----------"
     puts
-    puts "What would you like to do? ('list channels', 'list users', or 'quit')"
+    puts "What would you like to do? Enter the number of your choice.\n"
+    puts " 1: list channels \n 2: list users \n 3: select channel \n 4: select user \n 5: show selected recipient's details \n 6: quit"
+    puts "----------"
     answer = gets.chomp.downcase
-    if answer == "list channels"
-      tp workspace.channels, "slack_id", "name", "member_count", "topic"
-    elsif answer == "list users"
-      tp workspace.users, "slack_id", "name", "real_name", "status_text", "status_emoji"
-    elsif answer == "quit"
-      i = 1
+    case answer
+      when "1"
+        tp workspace.channels, "slack_id", "name", "member_count", "topic"
+      when "2"
+        tp workspace.users, "slack_id", "name", "real_name", "status_text", "status_emoji"
+      when "3"
+        # select channel instance
+      when "4"
+        # select user instance
+      when "5"
+        # show details of selected recipient
+      when "6"
+        i = 1
     end
   end
 
