@@ -7,7 +7,7 @@ class User < Recipient
 
   # Constructor
   def initialize(id, name, real_name, status_text, status_emoji)
-    @id = id
+    @id   = id
     @name = name
     @real_name    = real_name
     @status_text  = status_text
@@ -25,7 +25,7 @@ class User < Recipient
            "Status Emoji = #{@status_emoji}"
   end
 
-  # Get users from slack
+  # Get users from Slack
   def self.list_all
     result = Recipient.get("users.list")
     users  = []

@@ -25,8 +25,7 @@ class Channel < Recipient
 
   # Get channels from slack
   def self.list_all
-
-    result = Recipient.get("conversations.list")
+    result   = Recipient.get("conversations.list")
     channels = []
     result["channels"].each do |channel|
       id           = channel["id"]
@@ -36,7 +35,6 @@ class Channel < Recipient
       channels << Channel.new(id, name, topic, member_count)
     end
     return channels
-
   end
 
 end # Class

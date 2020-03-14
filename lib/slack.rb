@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-
+#
 # Title  : Slack CLI - Ada Cohort 13 - Space
 # Author : Suely Barreto
 # Date   : March 2020
@@ -35,7 +35,7 @@ def test_slack
   ap result
 
   # Send message to Suely user
-  query_parameters = { token: TOKEN, channel: "UV6AV2NRW", text: "testing 1,2,3" } # id for Suely user
+  query_parameters = { token: TOKEN, channel: "UV6AV2NRW", text: "testing 1,2,3" } # id for Suely's user
   result = HTTParty.post(SLACK_URL_PM, query: query_parameters)
   puts result.code
   puts result["ok"]
@@ -43,16 +43,19 @@ def test_slack
 
 end
 
+# Function to prompt list of users
 def list_users(workspace)
   puts "\nUser List\n\n"
   tp workspace.users, "id", "name", "real_name", "status_text", "status_emoji"
 end
 
+# Function to prompt list of channels
 def list_channels(workspace)
   puts "\nChannel List\n\n"
   tp workspace.channels, "id", "name", "topic", "member_count"
 end
 
+# Function to select user
 def select_user(workspace)
   print "Enter user id or name: "
   choice = gets.chomp
@@ -63,6 +66,7 @@ def select_user(workspace)
   end
 end
 
+# Function to select channel
 def select_channel(workspace)
   print "Enter channel id or name: "
   choice = gets.chomp
@@ -73,6 +77,7 @@ def select_channel(workspace)
   end
 end
 
+# Function to show details
 def show_details(workspace)
   begin
     puts workspace.show_details
@@ -81,11 +86,12 @@ def show_details(workspace)
   end
 end
 
+# Function to send message
 def send_message(workspace)
 
 end
 
-# Main method to show CLI options and call other methods
+# Main function to show CLI options and call other methods
 def main
   workspace = Workspace.new
 
