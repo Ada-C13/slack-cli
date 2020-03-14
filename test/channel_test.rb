@@ -8,8 +8,9 @@ describe "Channel class" do
     it "returns a response of channels list from API" do 
       VCR.use_cassette("channels-list-endpoint") do 
         url = "https://slack.com/api/channels.list"
+        token = ENV["SLACK_TOKEN"]
 
-        response = Slack::Channel.get(url)
+        response = Slack::Channel.get(url, token)
 
         expect(response["ok"]).must_equal true
       end 
@@ -29,7 +30,7 @@ describe "Channel class" do
       end  
     end 
 
-    it "raises SlackApiError" do
+    it "raises SlackApiError when given a bogus channel name" do
       VCR.use_cassette("channels-list-endpoint") do
         channel = Slack::Channel.new(slack_id: "123456", name: "test-channel")
 

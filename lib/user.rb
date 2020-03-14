@@ -1,11 +1,10 @@
 require_relative 'recipient'
 
 module Slack
+  
   class User < Recipient
 
-    SLACK_TOKEN = {
-      token: ENV["SLACK_TOKEN"]
-    }
+    SLACK_TOKEN = ENV["SLACK_TOKEN"]
  
     attr_reader :slack_id, :name, :real_name, :status_text, :status_emoji
     
@@ -29,7 +28,7 @@ module Slack
     end 
 
     def self.list_all 
-      response_data = self.get(USER_URL)
+      response_data = self.get(USER_URL, SLACK_TOKEN)
 
       users = response_data["members"]
 

@@ -8,12 +8,24 @@ describe "User class" do
     it "returns a response of users list from API" do
       VCR.use_cassette("users-list-endpoint") do
         url = "https://slack.com/api/users.list"
+        token = ENV["SLACK_TOKEN"]
 
-        response = Slack::User.get(url)
+        response = Slack::User.get(url, token)
         
         expect(response["ok"]).must_equal true
       end  
-    end     
+    end  
+    
+    it "raises SlackApiError when given a bogus URL" do 
+      VCR.use_cassette("users-list-endpoint") do 
+        url = "https://slack.com/api/users.list"
+        token = "bogussdfkljdsf123"
+
+        expect{
+          Slack::User.get(url, token)
+        }.must_raise SlackApiError
+      end 
+    end 
   end 
 
 
@@ -30,9 +42,9 @@ describe "User class" do
     end 
 
 
-    it "raises SlackApiError" do
+    it "raises SlackApiError when given a bogus user name" do
       VCR.use_cassette("users-list-endpoint") do
-        user = Slack::User.new(slack_id: "123456", name: "test-channel")
+        user = Slack::User.new(slack_id: "123456", name: "test-user")
 
         expect{user.send_message("Hungry", user)}.must_raise SlackApiError
       end 

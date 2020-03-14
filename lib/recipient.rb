@@ -41,18 +41,19 @@ module Slack
       return true  
     end 
 
+
     def details 
       raise NotImplementedError, 'Implement me in a child class!'
     end 
 
 
-    def self.get(url)
+    def self.get(url, token)
       response = HTTParty.get(url, query: {
-        token: SLACK_TOKEN
+        token: token
       })
 
       # TO DO
-      if response["ok"] == false 
+      if response["ok"] == false || response.code != 200
         raise SlackApiError, "We failed to get information from API"
       end 
 

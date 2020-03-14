@@ -3,6 +3,8 @@ require_relative 'recipient'
 module Slack 
   class Channel < Recipient
 
+    SLACK_TOKEN = ENV["SLACK_TOKEN"]
+
     attr_reader :slack_id, :name, :topic, :member_count 
 
     def initialize(topic: nil, member_count: nil, **args) 
@@ -23,7 +25,7 @@ module Slack
     
 
     def self.list_all 
-      response_data = self.get(CHANNEL_URL)
+      response_data = self.get(CHANNEL_URL, SLACK_TOKEN)
 
       channels = response_data["channels"]
 

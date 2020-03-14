@@ -22,8 +22,23 @@ describe "Workspace class" do
         expect(users[0]).must_be_kind_of Slack::User 
         expect(channels[0]).must_be_kind_of Slack::Channel
       end 
-
     end  
+  end 
+
+  describe "#list_users & #list_channels" do 
+    before do 
+      VCR.use_cassette("users-list-and-channels-list-endpoint") do 
+        @workspace = Slack::Workspace.new() 
+      end 
+    end 
+
+    it "returns user list" do  
+      expect(@workspace.list_users).must_be_instance_of TablePrint::Returnable
+    end 
+
+    it "returns channel list" do  
+      expect(@workspace.list_channels).must_be_instance_of TablePrint::Returnable
+    end 
   end 
 
 
