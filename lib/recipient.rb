@@ -32,7 +32,7 @@ class Recipient
   def send_message(message)
     query_parameters = { token: TOKEN, channel: @id, text: message }
     result = HTTParty.post(SLACK_URL + "chat.postMessage", query: query_parameters)
-    self.check_results(result)
+    Recipient.check_results(result)
     return result
   end # def send_message
 
@@ -40,7 +40,7 @@ class Recipient
   def self.get(method)
     query_parameters = { token: TOKEN }
     result = HTTParty.get(SLACK_URL + method, query: query_parameters)
-    self.check_results(result)
+    Recipient.check_results(result)
     return result
   end # def self.get
 
