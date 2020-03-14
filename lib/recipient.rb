@@ -48,7 +48,6 @@ class Recipient
 
 end
 
-# This will be common to all the other files in the program
-# so I'm including it here, where it will be accessible to each other class.
+
 class SlackAPIError < Exception
 end
