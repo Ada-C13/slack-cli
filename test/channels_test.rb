@@ -22,10 +22,10 @@ describe "Channel Class" do
     end
   end
 
-   describe "Return an error" do
+  describe "Return an error" do
     it "Returns error if incorrect querty given" do
       VCR.use_cassette("bogus") do
-        expect{Channel.list_users.must_raise SlackAPI::SlackAPIError}
+        expect { Channel.list_users.must_raise SlackAPI::SlackAPIError }
       end
     end
   end

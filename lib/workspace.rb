@@ -2,6 +2,9 @@
 # but User stuff and Channel stuff are defined in their own clases
 require "dotenv"
 require "httparty"
+require_relative "recipient"
+require_relative "channel"
+require_relative "user"
 
 Dotenv.load
 
@@ -25,5 +28,16 @@ class Workspace
       channels_list << channel["name"]
     end
     return channels_list
+  end
+
+  def list_users
+    url = "https://slack.com/api/channels.list?token=#{SLACK_TOKEN}&pretty=1"
+    response = HTTParty.get(url)
+    users_list = []
+    # looking for user in response
+    response["user"].each do |user|
+      users_list << user["name"]
+    end
+    return users_list
   end
 end
