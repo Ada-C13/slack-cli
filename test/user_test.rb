@@ -6,22 +6,43 @@ describe "User class" do
 
   describe "self.get" do 
     it "returns a response of users list from API" do
-      VCR.use_cassette("User.get") do
+      VCR.use_cassette("users-list-endpoint") do
         url = "https://slack.com/api/users.list"
-        query = {
-          token: ENV["SLACK_TOKEN"]
-        }
 
-        response = Slack::User.get(url, query)
+        response = Slack::User.get(url)
         
         expect(response["ok"]).must_equal true
       end  
     end     
   end 
 
+
+  describe "#send_message" do 
+    it "sends a message to a selected user" do 
+      VCR.use_cassette("users-list-endpoint") do 
+
+        workspace = Slack::Workspace.new
+
+        user = workspace.select_user("USLACKBOT")       
+
+        expect(user.send_message("Good morning SLACKBOT!", user)).must_equal true 
+      end  
+    end 
+
+
+    it "raises SlackApiError" do
+      VCR.use_cassette("users-list-endpoint") do
+        user = Slack::User.new(slack_id: "123456", name: "test-channel")
+
+        expect{user.send_message("Hungry", user)}.must_raise SlackApiError
+      end 
+    end 
+  end 
+
+
   describe "#details" do
     it "returns the user details" do 
-      VCR.use_cassette("User#details") do 
+      VCR.use_cassette("users-list-endpoint") do 
         slack_id = "USLACKBOT"
         name = "slackbot"
         real_name = "Slack bot"
@@ -44,7 +65,7 @@ describe "User class" do
 
   describe "self.list_all" do 
     it "creates and returns instances of users" do 
-      VCR.use_cassette("User.list_all") do 
+      VCR.use_cassette("users-list-endpoint") do 
         user_list = Slack::User.list_all 
 
         expect(user_list).must_be_kind_of Array 

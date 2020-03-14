@@ -10,9 +10,9 @@ describe "Workspace class" do
 
 
   describe "#initialize" do
-    it "creates a `users` array and return all users' list" do 
+    it "creates a `users` and `channels` array and return all their list" do 
 
-      VCR.use_cassette("Workspace#initialize") do 
+      VCR.use_cassette("users-list-and-channels-list-endpoint") do 
         users = Slack::Workspace.new().users
         channels = Slack::Workspace.new().channels
 
@@ -29,7 +29,7 @@ describe "Workspace class" do
 
   describe "#select_user(user_input)" do 
     before do 
-      VCR.use_cassette("Workspace#select_user") do 
+      VCR.use_cassette("users-list-endpoint") do 
         @workspace = Slack::Workspace.new()
       end 
     end 
@@ -67,7 +67,7 @@ describe "Workspace class" do
 
   describe "#select_channel(user_input)" do 
     before do 
-      VCR.use_cassette("Workspace#select_channel") do 
+      VCR.use_cassette("channels-list-endpoint") do 
         @workspace = Slack::Workspace.new()
       end 
     end 
@@ -97,23 +97,18 @@ describe "Workspace class" do
 
   describe "#show_details" do 
     before do 
-      VCR.use_cassette("Workspace#show_details") do 
+      VCR.use_cassette("users-list-and-channels-list-endpoint") do 
         @workspace = Slack::Workspace.new()
       end 
     end 
 
     it "returns the selected user details" do 
-      name = "slackbot"
+      id = "USLACKBOT"
 
       # Invoke #select_user to assign "selected" variable
-      @workspace.select_user(name)
-      
-      details = @workspace.show_details
+      @workspace.select_user(id)
 
-      expect(details).must_be_kind_of Hash
-      expect(details.length).must_equal 5
-      expect(details[:name]).must_equal name
+      expect(@workspace.show_details).must_be_kind_of TablePrint::Returnable
     end 
   end 
-
 end 
