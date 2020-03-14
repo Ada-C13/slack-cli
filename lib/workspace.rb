@@ -1,12 +1,10 @@
 require_relative 'user'
 require_relative 'channel'
-require_relative 'slack_api_error'
 
 module SlackCLI
 
   class Workspace
-    attr_reader :users, :channels
-    attr_accessor :selected
+    attr_reader :users, :channels, :selected
 
     def initialize
       @users = User.list_all
@@ -18,12 +16,14 @@ module SlackCLI
       puts "To select user, please enter a Slack ID or username:"
       user_input = gets.chomp
       assign_selected(find_recipient(user_input))
+      puts "Okay, #{selected.name} has been selected"  # inspired by Devin(dHelmgren)
     end
 
     def select_channel
       puts "To select channel, please enter a Slack ID or name:"
       user_input = gets.chomp
       assign_selected(find_recipient(user_input))
+      puts "Okay, #{selected.name} has been selected"  # inspired by Devin(dHelmgren)
     end
 
     def send_message
@@ -62,7 +62,7 @@ module SlackCLI
 end
 
 
-# #select_user or #select_channel when taking in argument
+##select_user or #select_channel when taking in argument
 # def select_user(id_name)
 #   user_found = @users.find{|channel|channel.slack_id == id_name || channel.name == id_name}
 #   
