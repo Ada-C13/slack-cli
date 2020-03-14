@@ -94,6 +94,20 @@ describe "class Workspace" do
       end
     end
 
+    it "raises an Error if HTTP Result is not 200" do
+      @workspace.select_user("USLACKBOT")
+      VCR.use_cassette("send500") do 
+        expect { @workspace.send_message("test") }.must_raise RuntimeError
+      end
+    end
+
+    it "raises an Error if Slack says it's not ok" do
+      @workspace.select_user("USLACKBOT")
+      VCR.use_cassette("sendnotok") do 
+        expect { @workspace.send_message("test") }.must_raise RuntimeError
+      end
+    end
+
     it "raises an error if message is not a string" do
       @workspace.select_user("USLACKBOT")
       expect { @workspace.send_message(1) }.must_raise ArgumentError
