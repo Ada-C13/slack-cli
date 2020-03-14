@@ -35,12 +35,13 @@ class Workspace
   end
 
   def show_details
-    @selected
+    if @selected != nil
+      return @selected
+    else
+      return nil
+    end
   end
 
   def send_message
   end
 end
-
-workspace = Workspace.new
-p workspace.channels[0].topic

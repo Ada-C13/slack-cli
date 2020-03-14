@@ -33,34 +33,26 @@ def main
 
         if selected_user.is_a? User
           puts "You have selected user: #{workspace.selected.name}"
+
+          puts "Would you like to see details about your selected user, send message to that user or quit?"
+          puts "•Details \n•Send message \n•Return to Main Menu \n•Quit "
+          choice = gets.chomp.downcase
+
+          case choice
+          when "details"
+            tp workspace.show_details, "real_name", "slack_id", "status_text", "status_emoji"
+          when "send message"
+            # put in the code that will allow them to send a message to that recipient
+          when "return to main menu"
+            next
+          when "quit"
+            exit
+          end
+          
         elsif selected_user == "User not found!"
           puts "#{selected_user} Please try again!"
-          puts "Please supply a username or Slack ID for the user"
-          user = gets.chomp.downcase
-          seleted_user = workspace.select_user(user)
         end
        
-        puts "Would you like to see details about your selected user, send message to that user or quit?"
-        puts "•Details \n•Send message \n•Return to Main Menu \n•Quit "
-        choice = gets.chomp.downcase
-
-        case choice
-        when "details"
-          #put in the code that will show the details of the current selected user
-          #If no recipient is currently selected, the program should let me know and return to the main command prompt.(user = nil?)
-        when "send message"
-          # put in the code that will allow them to send a message to that recipient
-        when "return to main menu"
-          choice = init_user_options
-          puts "\n"
-        when "quit"
-          exit
-        end
-
-        # puts "Would you like to see details about your selected user, send message to that user or quit?"
-        # puts "•Details \n•Send message \n•Return to Main Menu \n•Quit "
-        # choice = gets.chomp.downcase
-
       when "return to main menu"
         choice = init_user_options
         puts "\n"

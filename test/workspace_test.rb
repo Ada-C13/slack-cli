@@ -59,4 +59,17 @@ describe "Workspace class" do
       expect(@workspace.selected.name).must_equal user
     end
   end
+
+  describe "show_details" do
+    it "returns the selected user/channel if one is selected" do
+      user = "slackbot"
+      @workspace.select_user(user)
+
+      expect(@workspace.show_details.name).must_equal user
+    end
+
+    it "returns nil if no user was selected" do
+      expect(@workspace.show_details).must_be_nil
+    end
+  end
 end
