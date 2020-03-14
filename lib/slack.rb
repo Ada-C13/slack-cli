@@ -13,6 +13,7 @@ OPTIONS = {
   "3" => ["select user"],
   "4" => ["select channel"],
   "5" => ["details", "detail"],
+  "6" => ["send message", "send", "message"],
   "9" => ["quit", "exit", "q"]
 }
 
@@ -43,20 +44,6 @@ def validate_option(option)
     option = gets.chomp.downcase
   end 
   return option
-end 
-
-
-# Question
-# Is it good to put in "slack.rb" or "workspace.rb?
-
-# reference: http://tableprintgem.com/
-def list_users(workspace) # TODO
-  # tp object, attributes
-  tp workspace.users, :name, :real_name, :slack_id
-end 
-
-def list_channels(workspace) #TODO
-  tp workspace.channels, :name, :topic, :member_count, :slack_id
 end 
 
 
@@ -110,13 +97,17 @@ def validate_channel_name(name)
   return user
 end 
 
+def error_message 
+  puts " #{"⚠️  No user or channel selected".light_black}"
+  puts "    #{"After selecting one of them, try again!".light_black}"
+end 
+
 
 def display_details 
   details = WORKSPACE.show_details ##
 
   if !details 
-    puts " #{"⚠️  No user or channel selected".light_black}"
-    puts "    #{"After selecting one of them, try again!".light_black}"
+    error_message
   else 
     table = Terminal::Table.new do |t|
       t.headings = [details.keys]
@@ -127,9 +118,29 @@ def display_details
   end 
 end 
 
+
+def get_message 
+  print "Enter your message > "
+  gets.chomp
+end 
+
+
+def validate_message(message)
+  send_message = WORKSPACE.send_message(message)
+  if !send_message
+    error_message
+  end 
+end 
+
+
 def main
-  puts "Welcome to the Ada Slack CLI!💬"
+  puts "\nWelcome to the Ada Slack CLI!💬"
   workspace = Slack::Workspace.new
+
+  puts "-------------------------"
+  puts "##{workspace.users.length} users || ##{workspace.channels.length} channels" 
+  puts "-------------------------"
+
 
   # TODO project
 
@@ -141,15 +152,13 @@ def main
   while continue 
     case option 
     when "1", "list users", "list user"
-      # workspace.list_users
-      list_users(workspace) # TODO
+      WORKSPACE.list_users  ##
   
       display_options
       option = get_option
 
     when "2", "list channels", "list channel" 
-      # workspace.list_channels
-      list_channels(workspace) # TODO
+      WORKSPACE.list_channels ##
   
       display_options
       option = get_option
@@ -169,6 +178,13 @@ def main
     when "5", "details", "detail"
       display_details 
       
+      display_options
+      option = get_option
+ 
+    when "6", "send message", "send", "message"
+      message = get_message
+      validate_message(message)
+
       display_options
       option = get_option
 
