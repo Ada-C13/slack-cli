@@ -24,6 +24,14 @@ class Workspace
     end
   end
 
+  def select_channel(channel_id_or_channelname)
+    if @channels.any? {|channel| channel.slack_id == channel_id_or_channelname || channel.name == channel_id_or_channelname}
+      @selected = channel_id_or_channelname
+    else 
+      p "Channel doesn't exist!"
+    end
+  end
+
   def show_details(lists) # array of objects
     return lists.select {|list| list.slack_id == @selected || list.name == @selected}
   end
