@@ -6,11 +6,11 @@ Dotenv.load
 
 class Recipient
   
-  attr_reader :id, :name
+  attr_reader :slack_id, :name
 
-  def initialize(id, name) # (string, sting)
-    @id = id
-    @name = name
+  def initialize(slack_id, name)
+    @slack_id = slack_id
+    @name = name  
   end
 
   # to list all the users and channels
@@ -18,8 +18,23 @@ class Recipient
     raise NotImplementedError, 'Implement me in a child class!'
   end
 
-  def self.get(url, params)
-    return response = HTTParty.get(url, query: params)
+  def self.get(url)
+    response = HTTParty.get(url, query: {token: ENV["SLACK_TOKEN"]})
+    if response.code != 200 || response["ok"] == false
+      raise SlackAPIError.new("We encounter a problem (got #{response["error"]})")
+    else 
+      return response
+    end
   end
 
+  
+
+  # def details
+
+  # end
+
+end
+
+
+class SlackAPIError < Exception
 end

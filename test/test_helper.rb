@@ -8,6 +8,9 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
+require 'dotenv'
+
+Dotenv.load
 
 require_relative "../lib/recipient"
 require_relative "../lib/user"

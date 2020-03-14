@@ -11,7 +11,7 @@ describe Channel do
     it "must include #general the channel" do
       VCR.use_cassette("list_of_channels") do
         response = Channel.list_all
-        expect(response[1][:channel_name]).must_equal "general"
+        expect(response[1].name).must_equal "general"
       end
     end
   end
