@@ -10,13 +10,23 @@ class Channel < Recipient
     @member_count = member_count || []
   end
 
-  
-  response = Channel.get("https://slack.com/api/channels.list")
-  channels = []
+  def details
+  end
 
+  def self.list_all
+    response = Channel.get("https://slack.com/api/channels.list")
+    channels = []
 
-
-
+    response["channels"].each do |item|
+      channels << Channel.new(
+        topic: item["topics"],
+        member_count: item["members"],
+        slack_id: item["id"], 
+        name: item["name"]
+      )
+    end
+    return channels
+  end
 end
 
   
