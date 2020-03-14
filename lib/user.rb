@@ -21,14 +21,19 @@ class User < Recipient
 
     user_lists = []
     response["members"].each do |member|
-      user_lists << User.new(
-        slack_id = member["id"],
-        name = member["name"],
-        real_name = member["real_name"],
-        status_text = member["profile"]["status_text"], 
-        status_emoji = member["profile"]["status_emoji"]
-      )
+      user_lists << self.details(member)
     end
+    # p user_lists
     return user_lists
+  end
+
+  def self.details(member) #hash
+    return User.new(
+      slack_id = member["id"],
+      name = member["name"],
+      real_name = member["real_name"],
+      status_text = member["profile"]["status_text"], 
+      status_emoji = member["profile"]["status_emoji"]
+    )
   end
 end

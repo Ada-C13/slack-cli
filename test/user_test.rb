@@ -27,17 +27,32 @@ describe User do
   # from Devin's demo
   describe "self.get" do
     it "gets a list of users and returns than as an HTTParty response" do
-      result = {}
+      response = {}
       VCR.use_cassette("list_of_users") do
-        result = User.get("https://slack.com/api/users.list")
+        response = User.get("https://slack.com/api/users.list")
       end
-      expect(result).must_be_kind_of HTTParty::Response
-      expect(result["ok"]).must_equal true
+      expect(response).must_be_kind_of HTTParty::Response
+      expect(response["ok"]).must_equal true
     end
 
     it "raises an error when a call fails" do
       VCR.use_cassette("list_of_users") do
         expect{User.get("https://slack.com/api/whatever")}.must_raise SlackAPIError
+      end
+    end
+  end
+
+  describe "self.details(member) method" do
+    it "lists slack_id, name, real_name, status_text, and status_emoji from the API call" do
+      VCR.use_cassette("list_of_users") do
+        response = User.get("https://slack.com/api/users.list")
+        p response
+        user = User.details(response["members"][0])
+        expect(user.slack_id).must_equal "USLACKBOT"
+        expect(user.name).must_equal "slackbot"
+        expect(user.real_name).must_equal "Slackbot"
+        expect(user.status_text).must_equal ""
+        expect(user.status_emoji).must_equal ""
       end
     end
   end
