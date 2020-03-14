@@ -46,6 +46,32 @@ module SlackCLI
       return response
     end
 
+
+    def get_message_history(limit = 5)
+      history_uri = "https://slack.com/api/conversations.history"
+    
+      query_params = {
+        channel: @slack_id,
+        token: ENV["SLACK_TOKEN"],
+        limit: limit
+      }
+
+      response = HTTParty.get(history_uri, query: query_params)
+    
+      if response.code != 200 || response["ok"] != true
+        raise SlackAPIError.new "Error when retrieving message history, error: #{response["error"]}"
+      end
+    
+      puts "Listing the latest #{limit} messages from this conversation history...\n"
+      response["messages"].each do |message|
+        timestamp = message["ts"]
+        puts "Message: #{message["text"]}. Posted on #{DateTime.strptime(timestamp,'%s')}"
+      end
+    
+      return true
+    end
+    
+
     ### abstract methods below ###
     def get_details
       raise NotImplementedError, "TODO: Implement me in a subclass!"

@@ -30,6 +30,23 @@ describe "recipient" do
     end
   end
 
+  describe "#get_message_history" do
+    it "can retrieve conversations history of the recipient" do
+      VCR.use_cassette("conversations_history_endpoint") do
+        recipient01 = SlackCLI::Recipient.new("CV5S4LJPN")
+        response = recipient01.get_message_history
+        expect(response).must_equal true
+      end
+    end
+  
+    it "will raise an exception when the recipient name or id is invalid" do
+      VCR.use_cassette("conversations_history_endpoint") do
+        recipient01 = SlackCLI::Recipient.new("bogus")
+        expect {recipient01.get_message_history}.must_raise SlackCLI::SlackAPIError
+      end
+    end
+  end
+
   describe "#get_details" do
     it "is an abstract method that needs to be implemented by subclasses" do
       new_recipient = SlackCLI::Recipient.new("TESTID001", "test_recipient")
