@@ -24,4 +24,14 @@ describe "Workspace" do
       end
     end
   end
+  describe "select_user" do
+    it "selects a user" do
+      @workspace.select_user("thenora")
+      expect(@workspace.selected).must_be_kind_of Slack::User
+    end
+    it "does not assign invalid user" do
+      @workspace.select_user("bob")
+      expect(@workspace.selected).must_be_kind_of NilClass
+    end
+  end
 end

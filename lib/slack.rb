@@ -7,14 +7,13 @@ require_relative "user"
 require_relative "channel"
 
 # Tell dotenv to look for the .env file
-Dotenv.load # from root folder?
+Dotenv.load # must run from root folder: ruby lib/slack.rb
 
-# how to test?
 def main
   puts "Welcome to the Ada Slack CLI!"
   workspace = Slack::Workspace.new
 
-  options_message = "Please choose from the following options:\nlist users, list channels, or quit"
+  options_message = "Please choose from the following options:\nlist users, list channels, select user, or quit"
 
   puts options_message
   input = gets.chomp.downcase
@@ -25,6 +24,10 @@ def main
       tp workspace.users, "slack_id", "name", "real_name"
     when "list channels"
       tp workspace.channels, "slack_id", "name", "topic", "member_count"
+    when "select user"
+      puts "Please enter username or ID:"
+      search_term = gets.chomp
+      puts workspace.select_user(search_term)
     end
     puts options_message
     input = gets.chomp.downcase
@@ -36,28 +39,12 @@ end
 # Ruby uses __FILE__ to hold the current source file name. A prepended $ on a variable's name indicates a global variable.
 main if __FILE__ == $PROGRAM_NAME
 
-# Objective
-# We will write a complete command-line application that interacts with Slack. This application will be able to:
 
-# List users and channels
-# See details about a user or channel
-# Send a message to a user or channel
+#### Wave 2 - Selecting and Showing Details ####
 
-# All User-related information that slack.rb receives should be returned from calling a method defined in the Workspace class.
+# 3 additional options:
 
-# Wave 1 - Listing Channels and Users
-# As CLI user, $ ruby lib/slack.rb...
-
-# I should see how many channels and users were loaded
-# three options:
-# list users
-# list channels
-# quit
-
-# input prompt:
-
-# When I type list users, I should see a list of all the users in the Slack workspace. list should include username, real name, and Slack ID.
-# When I type list channels, I should see a list of all the channels for that workspace. list should include the channel's name, topic, member count, and Slack ID.
-# When I type quit, the program should exit.
-# After completing any command other than quit, the program should reprint the list of commands and ask for another input.
-# Hint: You may want to investigate the Table Print gem to handle formatting tables.
+    # "select user": select user as the current recipient, with username or Slack ID
+    # "select channel": select channel as the current recipient, with channel name or Slack ID
+           # For selecting both users and channels, if no user/channel has that name or ID, the program should let me know and return to the main command loop.
+    # "details": on the current recipient. information printed depends on whether channel or user. If no recipient currently selected, the program should let me know and return to main command prompt.
