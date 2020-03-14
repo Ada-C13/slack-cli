@@ -40,7 +40,7 @@ module SlackCLI
       response = HTTParty.get(url, query: params)
 
       if response.code != 200 || response["ok"] != true
-        raise SlackAPIError, "API call failed with code #{response.code} and reason '#{response["error"]}"
+        raise SlackAPIError, "Oops! API call failed: '#{response["error"]}"
       end
 
       return response

@@ -1,9 +1,8 @@
-require 'table_print'
-require 'httparty'
-require 'dotenv'
 require_relative 'recipient'
-
+require 'table_print'
+require 'dotenv'
 Dotenv.load
+
 
 module SlackCLI
   
@@ -19,7 +18,6 @@ module SlackCLI
       @status_text = status_text
       @status_emoji = status_emoji
     end
-
 
     def self.list_all
       response = User.get(USERS_URI,{token: SLACK_TOKEN})

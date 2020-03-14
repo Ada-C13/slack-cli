@@ -1,4 +1,6 @@
 require_relative 'test_helper'
+require_relative '../lib/workspace'
+
 
 describe "workspace" do
   describe "initialize" do
@@ -66,7 +68,7 @@ describe "workspace" do
       VCR.use_cassette("workspace_endpoint") do
         test_space = SlackCLI::Workspace.new
         user01 = test_space.users[0]
-        test_space.selected = user01
+        test_space.assign_selected(user01)
         response = test_space.show_details
         expect(response).must_equal true
       end

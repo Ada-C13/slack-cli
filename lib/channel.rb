@@ -1,9 +1,8 @@
-require 'table_print'
-require 'httparty'
-require 'dotenv'
 require_relative 'recipient'
-
+require 'table_print'
+require 'dotenv'
 Dotenv.load
+
 
 module SlackCLI
 
