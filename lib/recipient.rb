@@ -1,4 +1,7 @@
 require 'httparty'
+require 'dotenv'
+
+Dotenv.load
 
 BASE_URL = "https://slack.com/api/"
 QUERY = {
