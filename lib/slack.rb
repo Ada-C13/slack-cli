@@ -18,12 +18,12 @@ def main
 
     if ["1", "list users"].include?(choice)
       puts "*"
-      tp workspace.users
+      tp workspace.users, :name, :real_name, :slack_id
       puts "*"
 
     elsif ["2", "list channels"].include?(choice)
       puts "*"
-      tp workspace.channels
+      tp workspace.channels, :name, :topic, :member_count, :slack_id
       puts "*"
 
     elsif ["3", "select user"].include?(choice)
@@ -37,20 +37,20 @@ def main
     elsif ["4", "select channel"].include?(choice)
       puts "What CHANNEL would you like to select?"
       workspace.select_channel(gets.chomp)
-
+      
       if workspace.selected != nil
         puts "******\nSelected channel: #{ workspace.selected.name }\n******"
       end
 
     elsif ["5", "details"].include?(choice)
       puts "******"
-
-      if @selected != nil
-				tp workspace.show_details
+      if workspace.selected.class == SlackCLI::User
+        tp workspace.show_details, :name, :real_name, :slack_id
+      elsif workspace.selected.class == SlackCLI::Channel
+        tp workspace.show_details, :name, :topic, :member_count, :slack_id
 			else
 				puts "Nothing has been selected to show details."
       end
-      
       puts "******"
 
     elsif ["6", "send message", "message", "send"].include?(choice)

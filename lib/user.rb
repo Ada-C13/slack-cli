@@ -16,11 +16,11 @@ module SlackCLI
 			all_users = []
 
 			response["members"].each do |member|
-				username = member["name"]
+				name = member["name"]
 				real_name = member["profile"]["real_name"]
 				slack_id = member["id"]
 
-				all_users << SlackCLI::User.new(username, real_name, slack_id)
+				all_users << SlackCLI::User.new(name, real_name, slack_id)
 			end
 
 			return all_users
