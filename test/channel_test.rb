@@ -2,6 +2,17 @@ require_relative "test_helper"
 require_relative "../lib/channel"
 
 describe "Channel" do
+  describe "initialize" do
+    it "initialize Channel" do
+      @topic = ""
+      @member_count = 3
+      @name = "genernal"
+      @slack_id = ""
+      @channel = Channel.new(topic:@topic, member_count:@member_count, name:@name, slack_id: @slack_id)
+
+      expect(@channel).must_be_kind_of Channel
+    end
+  end
   describe "self.get" do
     it "can get a list of users" do
       result = {}

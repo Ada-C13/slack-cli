@@ -14,7 +14,7 @@ class User < Recipient
   def details
     tp self, "slack_id", "name", "real_name"
   end
-
+  
   #------ Class Methods ------
 
   #api endpoint documentation https://api.slack.com/methods/users.list

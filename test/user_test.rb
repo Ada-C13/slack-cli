@@ -2,6 +2,18 @@ require_relative "test_helper"
 require_relative "../lib/user"
 
 describe "User" do
+  describe "initialize" do
+    it "initialize the the user" do
+      @real_name = "Tithvorlak Mok"
+      @status_text = ""
+      @status_emoji = ""
+      @name = "Lak"
+      @slack_id = "BABDDKD12" 
+      @user = User.new(real_name: @real_name, status_text:@status_text, status_emoji:@status_emoji, name:@name, slack_id:@slack_id)
+
+      expect(@user).must_be_kind_of User
+    end 
+  end
   describe "self.get" do
     it "can get a list of users" do
       result = {}
