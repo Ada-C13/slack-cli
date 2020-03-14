@@ -40,15 +40,13 @@ describe Channel do
     end
   end
 
-  describe "self.details(channel) method" do
+  describe "details method" do
     it "lists slack_id, name, topic, and member_count from the API call" do
       VCR.use_cassette("list_of_channels") do
         response = Channel.get("https://slack.com/api/conversations.list")
-        channel = Channel.details(response["channels"][2])
-        expect(channel.slack_id).must_equal "CV63MEZTJ"
-        expect(channel.name).must_equal "random"
-        expect(channel.topic).must_be_kind_of Hash
-        expect(channel.member_count).must_equal 4
+        channel_lists = Channel.list_all
+        channel = channel_lists[2].details
+        expect(channel).must_equal "Slack ID: CV63MEZTJ\nName: random\nTopic: \{\"value\"=>\"Non-work banter and water cooler conversation\", \"creator\"=>\"UV5KNL1UL\", \"last_set\"=>1583868525\}\nMember Count: 4"
       end
     end
   end

@@ -17,21 +17,18 @@ class Channel < Recipient
   def self.list_all
     response = self.get(CHANNEL_LIST_URL)
 
-    channel_lists = []
-    response["channels"].each do |channel|
-       channel_lists << self.details(channel)
+    channel_lists = response["channels"].map do |channel|
+       Channel.new(
+        channel["id"], 
+        channel["name"], 
+        channel["topic"], 
+        channel["num_members"]
+       )
     end
     return channel_lists
   end
 
-  def self.details(channel) #hash
-    return Channel.new(
-      slack_id = channel["id"],
-      name = channel["name"],
-      topic = channel["topic"],
-      member_count = channel["num_members"]
-    )
+  def details
+    return "Slack ID: #{@slack_id}\nName: #{@name}\nTopic: #{@topic}\nMember Count: #{@member_count}"
   end
 end
-
-# ap Channel.list_all
