@@ -2,13 +2,6 @@ require_relative "test_helper"
 
 describe User do
   describe "self.list_all method" do
-    it "list out all the users info by calling self.list_all" do
-      VCR.use_cassette("list_of_users") do
-        response = User.list_all
-        expect(response.length).must_equal 11 
-      end
-    end
-
     # from Devin's demo
     it "return a valid list of the users" do
       response = []
@@ -31,6 +24,7 @@ describe User do
     end
   end
 
+  # from Devin's demo
   describe "self.get" do
     it "gets a list of users and returns than as an HTTParty response" do
       result = {}
