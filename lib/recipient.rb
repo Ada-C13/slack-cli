@@ -17,10 +17,22 @@ class Recipient
     @name = name
   end
 
+  # Method to send a message
   def send_message(message)
+    query_parameters = { token: TOKEN, channel: @id, text: message }
+    result = HTTParty.post(SLACK_URL + "chat.postMessage", query: query_parameters)
 
-  end
+    unless result.code == 200
+      raise RuntimeError, "Cannot talk to slack. HTTP code: #{result.code}"
+    end
+    
+    unless result["ok"]
+      raise RuntimeError, "Cannot talk to slack. Result is not ok."
+    end
+    return result
+  end # def send_message
 
+  # Method to get all recipients
   def self.get(method)
     query_parameters = { token: TOKEN }
     result = HTTParty.get(SLACK_URL + method, query: query_parameters)
@@ -34,7 +46,7 @@ class Recipient
     end
 
     return result
-  end
+  end # def self.get
 
   def details
     # No details here, define in sub-class

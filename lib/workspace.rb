@@ -31,8 +31,10 @@ class Workspace
     return @selected.details
   end
 
-  def send_message
-
+  def send_message(msg)
+    raise ArgumentError, "Nothing is selected" if @selected == nil
+    raise ArgumentError, "Message must be a string" unless msg.is_a?(String)
+    return @selected.send_message(msg)
   end
 
 end # Class

@@ -86,6 +86,23 @@ describe "class Workspace" do
   end # describe "show_details"
 
   describe "send_message" do
+    it "sends a message" do
+      @workspace.select_user("USLACKBOT")
+      VCR.use_cassette("send") do 
+        result = @workspace.send_message("test")
+        expect(result["message"]["text"]).must_equal "test"
+      end
+    end
+
+    it "raises an error if message is not a string" do
+      @workspace.select_user("USLACKBOT")
+      expect { @workspace.send_message(1) }.must_raise ArgumentError
+      expect { @workspace.send_message([]) }.must_raise ArgumentError
+    end
+
+    it "raises an error if nothing is selected" do
+      expect { @workspace.send_message("test") }.must_raise ArgumentError
+    end
 
   end # describe "send_message"
 
