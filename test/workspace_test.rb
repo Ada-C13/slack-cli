@@ -1,8 +1,6 @@
 require_relative "test_helper"
 require 'httparty'
 
-selected_recipient = nil
-
 describe "getting number of channels" do
 
   it "can get number of channels" do
@@ -29,15 +27,49 @@ describe "getting number of users" do
   end  
 end
 
-xdescribe "listing users" do  # look in to test the 2 listing functions do i need to break the functin apart?
+xdescribe "list_users" do  # look in to test the 2 listing functions do i need to break the functin apart?
 
   it "outputs list of users" do
-    VCR.use_cassette("users1") do
-      response = Workspace.new
+    result = {}
+      VCR.use_cassette("list_of_users") do
+        result = Workspace.get("https://slack.com/api/users.list")
+      end
 
-      expect(response.list_users).must_equal 
-    end
+      expect(result).must_be_kind_of HTTParty::Response
+      expect(result["ok"]).must_equal true
+    
   end 
+
+  it "raises an error when a call fails" do
+    VCR.use_cassette("list_of_users") do
+      expect {User.get("https://slack.com/api/bogus.call")}.must_raise SlackAPIError  #from Devins live code
+    end
+  end
 end
 
+# xdescribe "list user"
+#   xdescribe "self.get" do
+#    xit "get s a list of users " do
+#      result = {}
+#      VCR.use_cassette ("user-list-endpoint") do
+#       result = User.get("https://slack.com/api/users.list")
+#      end
+     
+#      expect(results).must_be_kind_of HTTParty::Response
+#      expect(result.("ok")).must_equal true
+#    end
+  
+#    xit "raises an error when a call fails" do
+#     VCR.use_cassette ("user-list-endpoint") do
+      
+#       expect{User.get(https://slack.com/api/bogus.endpoint)}.must_raise SlackAPIError
+#     end
+#    end
+#   end
+
+#   xderscribe "self.list" do
+#     it "return a valid list of the users"
+
+
+# end
 
