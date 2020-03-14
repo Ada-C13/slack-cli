@@ -9,8 +9,9 @@ class Channel < Recipient
     @member_count = member_count || []
   end
 
-  # def details 
-  # end
+  def details
+    tp self, "slack_id", "name", "topic", "member_count"
+  end
 
   def self.list_all
     response = Channel.get("https://slack.com/api/channels.list")
