@@ -13,15 +13,4 @@ describe "Recipient" do
       expect(@recipient).must_be_kind_of Recipient
     end
   end
-
-  describe "self.get" do
-    it "should get correct details" do
-      VCR.use_cassette("user-details") do
-        response = @user.details
-        expect(@user.real_name).must_equal "Slackbot"
-        expect(@user.name).must_equal "slackbot"
-      end
-    end
-  end
-
 end
