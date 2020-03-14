@@ -2,7 +2,6 @@ require_relative "test_helper"
 
 describe User do
   describe "self.list_all method" do
-    # from Devin's demo
     it "return a valid list of the users" do
       response = []
       VCR.use_cassette("list_of_users") do
@@ -24,7 +23,6 @@ describe User do
     end
   end
 
-  # from Devin's demo
   describe "self.get" do
     it "gets a list of users and returns than as an HTTParty response" do
       response = {}
@@ -42,16 +40,13 @@ describe User do
     end
   end
 
-  describe "self.details(member) method" do
-    it "lists slack_id, name, real_name, status_text, and status_emoji from the API call" do
+  describe "details method" do
+    it "lists slack_id, name, real_name, status_text, and status_emoji info of the user" do
       VCR.use_cassette("list_of_users") do
         response = User.get("https://slack.com/api/users.list")
-        user = User.details(response["members"][0])
-        expect(user.slack_id).must_equal "USLACKBOT"
-        expect(user.name).must_equal "slackbot"
-        expect(user.real_name).must_equal "Slackbot"
-        expect(user.status_text).must_equal ""
-        expect(user.status_emoji).must_equal ""
+        user_list = User.list_all
+        user = user_list[0].details
+        expect(user).must_equal "Slack ID: USLACKBOT\nName: slackbot\nReal Name: Slackbot\nStatus Text: \nStatus Emoji: "
       end
     end
   end
