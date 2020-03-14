@@ -3,7 +3,7 @@ require_relative "channel"
 
 class Workspace
   attr_reader :users, :channels
-  attr_writer :selected
+  attr_accessor :selected
   
   def initialize
     @users = User.list_all
@@ -13,14 +13,18 @@ class Workspace
 
   def select_channel(input)
     @channels.each do |channel|
-      if channel["id"].upcase == input || channel["name"].upcase == input
+      if channel.slack_id.upcase == input.upcase || channel.name.upcase == input.upcase
         @selected = channel
       end
     end
-
   end
 
-  def select_user
+  def select_user(input)
+    @users.each do |user|
+      if user.slack_id.upcase == input.upcase || user.name.upcase == input.upcase
+        @selected = user
+      end
+    end
   end
 
   def show_details
