@@ -46,7 +46,6 @@ describe User do
     it "lists slack_id, name, real_name, status_text, and status_emoji from the API call" do
       VCR.use_cassette("list_of_users") do
         response = User.get("https://slack.com/api/users.list")
-        p response
         user = User.details(response["members"][0])
         expect(user.slack_id).must_equal "USLACKBOT"
         expect(user.name).must_equal "slackbot"
