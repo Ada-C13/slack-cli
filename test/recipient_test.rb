@@ -1,38 +1,10 @@
-require_relative "test_helper"
+require_relative 'test_helper'
+require_relative '../lib/recipient'
+
 
 describe "recipient" do
   USERS_URI = "https://slack.com/api/users.list"
   SLACK_TOKEN = ENV["SLACK_TOKEN"]
-
-  describe "self.get" do
-    it "receives response from the API call" do
-      VCR.use_cassette("users_list_endpoint") do
-        response = SlackCLI::Recipient.get(USERS_URI, {token: SLACK_TOKEN})
-        expect(response["members"]).wont_be_nil
-        expect(response["members"]).must_be_instance_of Array
-        expect(response["members"][0]["name"]).must_equal "slackbot"
-        expect(response["members"][0]["id"]).must_equal "USLACKBOT"
-      end
-    end
-
-    it "will raise an exception if the search fails" do
-      VCR.use_cassette("users_list_endpoint") do
-        #use the wrong keyword key instead of token
-        expect{SlackCLI::Recipient.get(USERS_URI, {key: SLACK_TOKEN})}.must_raise SlackCLI::SlackAPIError
-      end
-    end
-  end
-
-  describe "initialize" do
-    it "instantiates a new Recipient class object" do
-      id = "TESTID001"
-      name = "test_recipient"
-      new_recipient = SlackCLI::Recipient.new(id, name)
-      expect(new_recipient).must_be_instance_of SlackCLI::Recipient
-      expect(new_recipient.slack_id).must_equal id
-      expect(new_recipient.name).must_equal name
-    end
-  end
 
   describe "#send_message" do
     it "can send a valid message" do
@@ -56,7 +28,6 @@ describe "recipient" do
         expect {recipient02.send_message()}.must_raise ArgumentError
       end
     end
-  
   end
 
   describe "#get_details" do
