@@ -44,7 +44,13 @@ def main
 
     elsif ["5", "details"].include?(choice)
       puts "******"
-      tp workspace.show_details
+
+      if @selected != nil
+				tp workspace.show_details
+			else
+				puts "Nothing has been selected to show details."
+      end
+      
       puts "******"
 
     elsif ["6", "send message", "message", "send"].include?(choice)
