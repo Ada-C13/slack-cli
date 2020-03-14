@@ -21,9 +21,15 @@ module Slack
       return "Sorry, user not found"
     end
 
-    # def select_channel()
-    #   # acts on instance var array
-    # end
+    def select_channel(search_term)
+      @channels.each do |channel|
+        if channel.name == search_term || channel.slack_id == search_term
+          @selected = channel
+          return "You've selected #{selected.name}"
+        end
+      end
+      return "Sorry, channel not found"
+    end
 
     # def show_details
     #   # acts on instance var array

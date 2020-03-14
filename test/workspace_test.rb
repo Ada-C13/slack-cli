@@ -34,4 +34,14 @@ describe "Workspace" do
       expect(@workspace.selected).must_be_kind_of NilClass
     end
   end
+  describe "select_channel" do
+    it "selects a channel" do
+      @workspace.select_channel("general")
+      expect(@workspace.selected).must_be_kind_of Slack::Channel
+    end
+    it "does not assign invalid channel" do
+      @workspace.select_channel("bob")
+      expect(@workspace.selected).must_be_kind_of NilClass
+    end
+  end
 end
