@@ -1,6 +1,12 @@
 #!/usr/bin/env ruby
 require_relative "workspace"
 
+require "table_print"
+require "dotenv"
+require "httparty"
+
+Dotenv.load
+
 # User: I should see information about how many channels and users were loaded
 
 # User: I should then be given three options for how to interact with the program: list users, list channels, quit
