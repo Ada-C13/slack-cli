@@ -4,28 +4,35 @@ require_relative "../lib/user"
 
 describe "User class" do
   describe 'User instantiation' do
-    before do
-      @user = User.new(real_name: "Slackbot", status_text: "", status_emoji: "", slack_id: "CV5KNMDKN", name: "slack-cli")
-    end
-    
-    it "is an instance of User" do
-      expect(@user).must_be_kind_of User
-    end
+    it "creates a user object" do
+        
+      VCR.use_cassette("list-user-endpoint") do
+        url = "https://slack.com/api/users.list"
+        response = User.get(url)
 
-    it "is set up for specific attributes and data     types" do
-      [:real_name, :status_text, :status_emoji, :slack_id, :name].each do |prop|
-        expect(@user).must_respond_to prop
+        users = []
+        response["members"].each do |member|
+          real_name = member["real_name"]
+          status_emoji = member["profile"]["status_emoji"]
+          status_text = member["profile"]["status_text"]
+          slack_id = member["id"]
+          name = member["name"]
+          users << User.new(real_name: real_name, status_text: status_text, status_emoji: status_emoji, slack_id: slack_id, name: name)
+        end
+
+        expect(users[0]).must_be_instance_of User
+
+        expect(users[0].real_name).must_equal "Slackbot"
+        expect(users[0].status_text).must_equal ""
+        expect(users[0].slack_id).must_equal "USLACKBOT"
+        expect(users[0].name).must_equal "slackbot"
+        expect(users[0].status_emoji).must_equal ""
+
       end
-      
-      expect(@user.real_name).must_be_kind_of String
-      expect(@user.name).must_be_kind_of String
-      expect(@user.status_text).must_be_kind_of String
-      expect(@user.slack_id).must_be_kind_of String
-      expect(@user.status_emoji).must_be_kind_of String
     end
   end
 
-  
+
   describe "self.get" do
     it "can get a list of users" do
       result = {}

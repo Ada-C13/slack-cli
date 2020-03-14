@@ -3,30 +3,36 @@ require_relative "../lib/channel"
 
 describe "Channel class" do
   describe 'Channel instantiation' do
-    before do
-      @channel = Channel.new(slack_id: "CV5KNMDKN", name: "slack-cli")
-    end
+    it "creates a channel object" do
+      VCR.use_cassette("list-channel-endpoint") do
+        url = "https://slack.com/api/channels.list"
+        response = User.get(url)
+        channels = []
+        response["channels"].each do |item|
+          topic = item["topic"]
+          member_count = item["members"]
+          slack_id = item["id"]
+          name = item["name"]
     
-    it "is an instance of Channel" do
-      expect(@channel).must_be_kind_of Channel
-    end
+          channels << Channel.new(topic: topic, member_count: member_count, slack_id: slack_id, slack_id: slack_id, name: name)
+        end
 
-    it "is set up for specific attributes and data     types" do
-      [:topic, :member_count, :slack_id, :name].each do |prop|
-        expect(@channel).must_respond_to prop
+        expect(channels[0]).must_be_instance_of Channel
+        
+        expected_topic = {"value" => "", "creator" => "", "last_set" => 0}
+
+        expect(channels[0].topic).must_equal expected_topic
+        expect(channels[0].member_count).must_equal ["UV5KWEASY", "UV5KNL1UL", "UV66MLLSH", "UV66H40LV"]
+        expect(channels[0].slack_id).must_equal "CV5KNMDKN"
+        expect(channels[0].name).must_equal "slack-cli"
       end
-      
-      expect(@channel.topic).must_be_kind_of Hash
-      expect(@channel.name).must_be_kind_of String
-      expect(@channel.member_count).must_be_kind_of Array
-      expect(@channel.slack_id).must_be_kind_of String
     end
   end
 
   describe "self.get" do
     it "can get a list of channels" do
       result = {}
-      VCR.use_cassette("list-chanel-endpoint") do
+      VCR.use_cassette("list-channel-endpoint") do
         result = Channel.get("https://slack.com/api/channels.list")
       end
 

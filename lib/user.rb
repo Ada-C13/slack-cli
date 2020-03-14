@@ -4,8 +4,6 @@ require 'dotenv'
 
 Dotenv.load
 
-BASE_URL = "https://slack.com/api/conversations.list"
-
 class User < Recipient
   attr_reader :real_name, :status_text, :status_emoji
 
@@ -16,13 +14,10 @@ class User < Recipient
     @status_emoji = status_emoji
   end
 
-
   # def details
   # end
 
-
   def self.list_all
- 
     response = User.get("https://slack.com/api/users.list")
     users = []
 

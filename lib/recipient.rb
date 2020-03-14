@@ -28,8 +28,8 @@ class Recipient
   end
 
   # def send_message(message)
-
   # end
+  
 end
 
 class SlackAPIError < Exception

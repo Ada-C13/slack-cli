@@ -1,6 +1,5 @@
 require_relative "recipient"
 
-
 class Channel < Recipient
   attr_reader :topic, :member_count
   
@@ -10,8 +9,8 @@ class Channel < Recipient
     @member_count = member_count || []
   end
 
-  def details
-  end
+  # def details 
+  # end
 
   def self.list_all
     response = Channel.get("https://slack.com/api/channels.list")
@@ -19,8 +18,8 @@ class Channel < Recipient
 
     response["channels"].each do |item|
       channels << Channel.new(
-        topic: item["topics"],
-        member_count: item["members"],
+        topic: item["topic"],
+        member_count: item["member_count"],
         slack_id: item["id"], 
         name: item["name"]
       )
