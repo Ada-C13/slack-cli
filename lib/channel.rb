@@ -35,3 +35,6 @@ class Channel < Recipient
 
 
 end
+
+
+
