@@ -2,6 +2,16 @@ require_relative 'test_helper'
 require "./lib/channel"
 
 describe "Channel" do
+  describe "initialize" do
+    it "creates a Channel object" do
+      channel = Channel.new("slack-channel", "123456", "slack cli", 5)
+      expect(channel).must_respond_to :slack_id
+      expect(channel).must_respond_to :name
+      expect(channel).must_respond_to :topic
+      expect(channel).must_respond_to :member_count
+    end
+  end
+
   describe "details" do
   end  
 
