@@ -19,7 +19,8 @@ class User < Recipient
   
   def self.list_all
 
-    response = User.get("https://slack.com/api/users.list")
+    url = "https://slack.com/api/users.list"
+    response = User.get(url)
 
     user_output_array = []
    

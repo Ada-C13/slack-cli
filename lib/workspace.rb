@@ -22,7 +22,7 @@ class Workspace
 
     channel_response["channels"].each do |channel|
       topic = channel["topic"]
-      member_count = channel["members"].count
+      member_count = channel["num_members"]
       new_channel = Channel.new(topic: topic, member_count: member_count)
       @channels << new_channel
     end

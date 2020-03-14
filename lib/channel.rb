@@ -5,7 +5,7 @@ require_relative 'recipient'
 
 class Channel < Recipient
   attr_reader :topic, :member_count
-  
+
   def initialize(topic:, member_count:)
     @topic = topic
     @member_count = member_count
@@ -25,7 +25,7 @@ class Channel < Recipient
       channel_output = {}
       channel_output["Channel Name"] = channel["name"]
       channel_output["Channel Topic"] = channel["topic"]
-      channel_output["Member Count"] = channel["members"].count
+      channel_output["Member Count"] = channel["num_members"]
       channel_output["Slack ID"] = channel["id"]
       channel_output_array << channel_output
     end
