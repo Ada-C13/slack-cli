@@ -29,12 +29,17 @@ def main
       when "select user"
         puts "Please supply a username of Slack ID for the user"
         user = gets.chomp.downcase
+        selected_user = workspace.select_user(user)
 
-        #write code that finds the specific user
-
-        # if user not found write code that lets the user know that there is no user (puts user not found) by that username or ID and return to the original request of list user etc.
-
-        # if the user is found...
+        if selected_user.is_a? User
+          puts "You have selected user: #{workspace.selected.name}"
+        elsif selected_user == "User not found!"
+          puts "#{selected_user} Please try again!"
+          puts "Please supply a username of Slack ID for the user"
+          user = gets.chomp.downcase
+          seleted_user = workspace.select_user(user)
+        end
+       
         puts "Would you like to see details about your selected user, send message to that user or quit?"
         puts "•Details \n•Send message \n•Return to Main Menu \n•Quit "
         choice = gets.chomp.downcase
@@ -47,6 +52,7 @@ def main
           # put in the code that will allow them to send a message to that recipient
         when "return to main menu"
           choice = init_user_options
+          puts "\n"
         when "quit"
           exit
         end
@@ -57,6 +63,7 @@ def main
 
       when "return to main menu"
         choice = init_user_options
+        puts "\n"
       when "quit"
         exit
       else
@@ -90,7 +97,7 @@ def main
           #If no recipient is currently selected, the program should let me know and return to the main command prompt.(channel = nil?)
         when "return to main menu"
           choice = init_user_options
-
+          puts "\n"
         when "quit"
           exit
         else
@@ -102,7 +109,8 @@ def main
         choice = gets.chomp.downcase
 
       when "return to main menu"
-        choice = init_user_options
+        selection = init_user_options
+        puts "\n"
       when "quit"
         exit
       else

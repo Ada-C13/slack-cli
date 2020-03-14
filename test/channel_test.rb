@@ -18,6 +18,7 @@ describe "Channel class" do
         end
         
         expect(new_channel).must_be_instance_of Channel
+        expect(new_channel.name).must_equal "general"
         expect(new_channel.member_count).must_equal 5
         
       end
