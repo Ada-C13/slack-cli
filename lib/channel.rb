@@ -10,6 +10,7 @@ class Channel < Recipient
   end
 
   def details
+    return tp self, :slack_id, :name, :topic, :member_count
   end
 
   def self.list_all

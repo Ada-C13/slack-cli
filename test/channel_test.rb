@@ -13,6 +13,10 @@ describe "Channel" do
   end
 
   describe "details" do
+    it "returns table of data" do
+      channel = Channel.new("123456", "bobberts-channel", "bob's stuff", 1)
+      expect(channel.details).must_be_kind_of TablePrint::Returnable
+    end
   end  
 
   describe "self.get" do

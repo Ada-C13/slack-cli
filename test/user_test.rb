@@ -3,6 +3,10 @@ require "./lib/user"
 
 describe "User" do
   describe "details" do
+    it "returns table of data" do
+      user = User.new("123456", "Bobbert", "Robert", "Hi", ":)")
+      expect(user.details).must_be_kind_of TablePrint::Returnable
+    end
   end  
 
   describe "self.get" do
