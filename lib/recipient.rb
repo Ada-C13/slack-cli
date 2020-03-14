@@ -20,7 +20,7 @@ class Recipient
       text: message,
     }
     request = HTTParty.post(url, query: query)
-    raise(Exception, "Encountered an error: #{request["error"]}") if request["true"] == false || request.code != 200
+    raise(Exception, "Encountered an error: #{request["error"]}") if request["okay"] == false || request.code != 200
     return request
   end
 

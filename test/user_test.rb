@@ -32,4 +32,5 @@ describe "User" do
       end
     end
   end
+  #TODO need to test for the details method
 end

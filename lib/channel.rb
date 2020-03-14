@@ -27,4 +27,5 @@ class Channel < Recipient
   def details
     return "Channel name: #{name}\nSlack ID: #{slack_id}\nChannel topic: #{topic}\nMember count: #{member_count}"
   end
+
 end

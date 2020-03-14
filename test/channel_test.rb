@@ -2,7 +2,7 @@ require_relative "test_helper"
 describe "channel" do
   describe "self.get" do
     before do
-      VCR.use_cassette("uses_get(url)") do
+      VCR.use_cassette("get_user") do
         @url = "https://slack.com/api/conversations.list"
         @response = Channel.get(@url)
       end
@@ -48,4 +48,5 @@ describe "channel" do
       end
     end
   end
+  #TODO needs to test for the details method 
 end
