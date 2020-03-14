@@ -1,79 +1,72 @@
 #!/usr/bin/env ruby
-# module SlackApi
-  require 'dotenv'
-  require 'httparty'
-  require_relative'workspace'
-  require 'table_print'
+require "dotenv"
+require "httparty"
+require "table_print"
 
-  Dotenv.load
+require_relative "workspace"
 
-  unless ENV['SLACK_TOKEN']
-    puts "Could not load API key, please store in the environment variable 'SLACK_API_TOKEN'"
-    exit
-  end
+Dotenv.load
 
-  def display_options 
-    i = 1
-      ["list users", "list channels", "quit"].each do |option|
-        puts "#{i}. #{option}" 
-        i +=1
-      end
-  end
+def main
+  workspace = Workspace.new 
+  puts "\n"
+  puts "Welcome to the Ada Slack CLI! This Slack workspace currently has #{workspace.users.count} users and #{workspace.channels.count} channels."
 
-  def main
-    puts "Welcome to the Ada Slack CLI!"
-  
-    workspace = SlackApi::Workspace.new #create a new workspace object
-    list_users = workspace.users
-    specific_keys_list_users = list_users.map do |user|
-      {
-        "id" => user["id"],
-        "real_name" => user["real_name"], 
-        "username" => user["name"]
-      }
-    end
+  user_input = prompt_for_input
 
-    list_channels = workspace.channels
-  
-    specific_keys_list_channels = list_channels.map do |channel|
-      {
-        "id" => channel["id"],
-        "name" => channel["name"],
-        "topic" => channel["topic"],
-        "members" => channel["members"]
-      }
-    end
-
-    should_countine = true 
-    while should_countine
-      puts "There are #{list_channels.count} channels and #{list_users.count} users"
-      puts "How would you like to interact with the program?"
-      display_options 
-      
-      # Get the user input 
-      user_input = gets.chomp
-      # Validate the user input
-      until ["list users", "list channels", "quit"].include?(user_input)
-        puts "You have provided an invalid option that is not listed, please try gain"  
-        user_input = gets.chomp
-      end
-
-      if user_input == "list users"
-        puts "Here is the list of users: #{specific_keys_list_users}" 
-      elsif user_input == "list channels"
-        puts "Here is the list of channels #{specific_keys_list_channels}"
-      elsif user_input == "quit"
-        break
-      end
-    end
-    puts "Thank you for using the Ada Slack CLI"
+  until user_input == "quit" || user_input == "exit"
     
-  end
+    case user_input
+    when "list users"
+      tp workspace.users, "slack_id", "name", "real_name" 
+      puts "\n"
+      
+    when "list channels"
+      tp workspace.channels, "name", "topic", "member_count", "slack_id"
+      puts "\n"
+      
+    when "select user"
+      print "Please enter the user name or ID: "
+      puts workspace.select_user
+      puts "\n"
+      
+    when "select channel"
+      print "Please enter the channel name or ID: "
+      puts workspace.select_channel
+      puts "\n"
+      
+    when "details"
+      if workspace.selected == nil
+        puts "Please select a user or channel."
+        puts "\n"
+      else
+        workspace.show_details
+        user_input = nil
+        puts "\n"
+      end 
+    when "send message"
+      if workspace.selected == nil
+        puts "Please select a user or channel."
+        puts "\n"
+      else
+        print "Please enter your message: "
+        workspace.send_message
+        puts "\n"
+      end
+    else
+      puts "Sorry, I didn't understand your request. Please try again."
+      puts "\n"
+    end
 
-# end
-  main if __FILE__ == $PROGRAM_NAME
+    user_input = prompt_for_input
+  end 
+  puts "Thank you for using the ADA Slack CLI!"
+  puts "\n"
+end
 
-# As a user of the CLI program, I can list users and channels | ✔️?
-# As a user of the CLI program, I can select users and channels | ✔️?
-# As a user of the CLI program, I can show the details of a selected user or channel | ✔️?
-# As a user of the CLI program, when I input something inappropriately, the program runs without crashing |
+def prompt_for_input
+  print "Please choose an option: list users, list channels, select user, select channel, details, send message, or quit: \n"
+  return gets.chomp.downcase
+end
+
+main if __FILE__ == $PROGRAM_NAME

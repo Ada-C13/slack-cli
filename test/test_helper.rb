@@ -8,6 +8,9 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
+require 'dotenv'
+
+Dotenv.load
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
@@ -15,6 +18,7 @@ require_relative '../lib/workspace.rb'
 require_relative '../lib/user.rb'
 require_relative '../lib/recipient.rb'
 require_relative '../lib/channel.rb'
+
 
 VCR.configure do |config|
   config.cassette_library_dir = "test/cassettes"
@@ -33,4 +37,8 @@ VCR.configure do |config|
   config.filter_sensitive_data("<SLACK_TOKEN>") do
     ENV["SLACK_TOKEN"]
   end
+
+  # config.filter_sensitive_data("<BOT_TOKEN>") do
+  #   ENV["BOT_TOKEN"]
+  # end
 end

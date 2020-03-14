@@ -132,4 +132,173 @@ http_interactions:
       string: '{"ok":false,"error":"not_authed"}'
     http_version: null
   recorded_at: Fri, 13 Mar 2020 04:29:15 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/users.list?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '2167'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Mar 2020 04:35:37 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 214ea983dfb3528309be5fcce8aa5f81
+      X-Oauth-Scopes:
+      - read,client,identify,post,apps
+      X-Accepted-Oauth-Scopes:
+      - users:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - r
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-ij90
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 e5147bed59b539c23be4f2e01cf6f6f5.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - I821nJJ3_m514COQxrauMIReUFhgIhsC4YKI8icpocv1uDdcRidEQg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"members":[{"id":"UUT9Z80AE","team_id":"TV63QKAAU","name":"thenora","deleted":false,"color":"9f69e7","real_name":"Nora","tz":"America\/Los_Angeles","tz_label":"Pacific
+        Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Nora","real_name_normalized":"Nora","display_name":"","display_name_normalized":"","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"gecfa8e6728a","email":"thenora@gmail.com","first_name":"Nora","last_name":"","image_24":"https:\/\/secure.gravatar.com\/avatar\/ecfa8e6728af18fdb2a467aed6cc4688.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0005-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/ecfa8e6728af18fdb2a467aed6cc4688.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0005-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/ecfa8e6728af18fdb2a467aed6cc4688.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0005-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/ecfa8e6728af18fdb2a467aed6cc4688.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0005-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/ecfa8e6728af18fdb2a467aed6cc4688.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0005-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/ecfa8e6728af18fdb2a467aed6cc4688.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0005-512.png","status_text_canonical":"","team":"TV63QKAAU"},"is_admin":true,"is_owner":true,"is_primary_owner":true,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1583868865},{"id":"UUTA3S16E","team_id":"TV63QKAAU","name":"nguyen_diana","deleted":false,"color":"3c989f","real_name":"Diana
+        Nguyen","tz":"America\/Los_Angeles","tz_label":"Pacific Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Diana
+        Nguyen","real_name_normalized":"Diana Nguyen","display_name":"Diana Nguyen","display_name_normalized":"Diana
+        Nguyen","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"g53546304cba","email":"nguyen_diana@outlook.com","image_24":"https:\/\/secure.gravatar.com\/avatar\/53546304cba703fdbcc3d6eadf959046.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0023-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/53546304cba703fdbcc3d6eadf959046.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0023-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/53546304cba703fdbcc3d6eadf959046.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0023-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/53546304cba703fdbcc3d6eadf959046.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0023-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/53546304cba703fdbcc3d6eadf959046.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0023-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/53546304cba703fdbcc3d6eadf959046.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0023-512.png","status_text_canonical":"","team":"TV63QKAAU"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1583876186},{"id":"UUTJAGAEN","team_id":"TV63QKAAU","name":"time_yolotzin_api_pro","deleted":false,"color":"e96699","real_name":"time_yolotzin_api_pro","tz":"America\/Los_Angeles","tz_label":"Pacific
+        Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"time_yolotzin_api_pro","real_name_normalized":"time_yolotzin_api_pro","display_name":"","display_name_normalized":"","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"g3ed47f067f5","api_app_id":"AV68RSJH3","always_active":false,"bot_id":"BV881SK2B","image_24":"https:\/\/secure.gravatar.com\/avatar\/3ed47f067f52bf041336c4087124e81a.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/3ed47f067f52bf041336c4087124e81a.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/3ed47f067f52bf041336c4087124e81a.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/3ed47f067f52bf041336c4087124e81a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/3ed47f067f52bf041336c4087124e81a.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/3ed47f067f52bf041336c4087124e81a.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-512.png","status_text_canonical":"","team":"TV63QKAAU"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":true,"is_app_user":false,"updated":1583877148},{"id":"UUUKJ03NX","team_id":"TV63QKAAU","name":"kate.d.mangubat","deleted":false,"color":"4bbe2e","real_name":"Kate
+        M","tz":"America\/Los_Angeles","tz_label":"Pacific Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Kate
+        M","real_name_normalized":"Kate M","display_name":"Kate","display_name_normalized":"Kate","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"g078604cbcfb","email":"kate.d.mangubat@gmail.com","first_name":"Kate","last_name":"M","image_24":"https:\/\/secure.gravatar.com\/avatar\/078604cbcfb8a676a713a3a870a026f9.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/078604cbcfb8a676a713a3a870a026f9.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/078604cbcfb8a676a713a3a870a026f9.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/078604cbcfb8a676a713a3a870a026f9.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/078604cbcfb8a676a713a3a870a026f9.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/078604cbcfb8a676a713a3a870a026f9.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-512.png","status_text_canonical":"","team":"TV63QKAAU"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1583997418},{"id":"UUW1CJZ41","team_id":"TV63QKAAU","name":"yltzndnbr","deleted":false,"color":"e7392d","real_name":"Yolotzin
+        Dunbar","tz":"America\/Los_Angeles","tz_label":"Pacific Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Yolotzin
+        Dunbar","real_name_normalized":"Yolotzin Dunbar","display_name":"Yoyo","display_name_normalized":"Yoyo","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"g574a1cc3875","email":"yltzndnbr@gmail.com","first_name":"Yolotzin","last_name":"Dunbar","image_24":"https:\/\/secure.gravatar.com\/avatar\/574a1cc387525e2e334bb718a551e3a7.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/574a1cc387525e2e334bb718a551e3a7.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/574a1cc387525e2e334bb718a551e3a7.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/574a1cc387525e2e334bb718a551e3a7.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/574a1cc387525e2e334bb718a551e3a7.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/574a1cc387525e2e334bb718a551e3a7.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-512.png","status_text_canonical":"","team":"TV63QKAAU"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1584083810},{"id":"UV63Y1672","team_id":"TV63QKAAU","name":"tithvorlakmok","deleted":false,"color":"674b1b","real_name":"Lak","tz":"America\/Los_Angeles","tz_label":"Pacific
+        Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Lak","real_name_normalized":"Lak","display_name":"Lak","display_name_normalized":"Lak","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"gfc5b2d94a48","email":"Tithvorlakmok@gmail.com","image_24":"https:\/\/secure.gravatar.com\/avatar\/fc5b2d94a48b155ada6a0aee8b0882a8.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/fc5b2d94a48b155ada6a0aee8b0882a8.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/fc5b2d94a48b155ada6a0aee8b0882a8.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/fc5b2d94a48b155ada6a0aee8b0882a8.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/fc5b2d94a48b155ada6a0aee8b0882a8.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/fc5b2d94a48b155ada6a0aee8b0882a8.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-512.png","status_text_canonical":"","team":"TV63QKAAU"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1583869256,"has_2fa":false},{"id":"UV66LJW5A","team_id":"TV63QKAAU","name":"noras_ada_slack_api","deleted":false,"color":"684b6c","real_name":"noras_ada_slack_api","tz":"America\/Los_Angeles","tz_label":"Pacific
+        Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"noras_ada_slack_api","real_name_normalized":"noras_ada_slack_api","display_name":"","display_name_normalized":"","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"9c3283af6dfc","api_app_id":"AV6LEP79B","always_active":false,"image_original":"https:\/\/avatars.slack-edge.com\/2020-03-11\/997105289911_9c3283af6dfce4953bc5_original.jpg","is_custom_image":true,"bot_id":"BV8FZCLK1","first_name":"noras_ada_slack_api","last_name":"","image_24":"https:\/\/avatars.slack-edge.com\/2020-03-11\/997105289911_9c3283af6dfce4953bc5_24.jpg","image_32":"https:\/\/avatars.slack-edge.com\/2020-03-11\/997105289911_9c3283af6dfce4953bc5_32.jpg","image_48":"https:\/\/avatars.slack-edge.com\/2020-03-11\/997105289911_9c3283af6dfce4953bc5_48.jpg","image_72":"https:\/\/avatars.slack-edge.com\/2020-03-11\/997105289911_9c3283af6dfce4953bc5_72.jpg","image_192":"https:\/\/avatars.slack-edge.com\/2020-03-11\/997105289911_9c3283af6dfce4953bc5_192.jpg","image_512":"https:\/\/avatars.slack-edge.com\/2020-03-11\/997105289911_9c3283af6dfce4953bc5_512.jpg","image_1024":"https:\/\/avatars.slack-edge.com\/2020-03-11\/997105289911_9c3283af6dfce4953bc5_1024.jpg","status_text_canonical":"","team":"TV63QKAAU"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":true,"is_app_user":false,"updated":1583985914},{"id":"UV8PJ6R0W","team_id":"TV63QKAAU","name":"diana_slack_cli","deleted":false,"color":"e0a729","real_name":"diana_slack_cli","tz":"America\/Los_Angeles","tz_label":"Pacific
+        Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"diana_slack_cli","real_name_normalized":"diana_slack_cli","display_name":"","display_name_normalized":"","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"c8e976fcbc63","api_app_id":"AUWEPCVDF","always_active":false,"image_original":"https:\/\/avatars.slack-edge.com\/2020-03-11\/983924921969_c8e976fcbc63dabe20be_original.jpg","is_custom_image":true,"bot_id":"BUTPL5J58","first_name":"diana_slack_cli","last_name":"","image_24":"https:\/\/avatars.slack-edge.com\/2020-03-11\/983924921969_c8e976fcbc63dabe20be_24.jpg","image_32":"https:\/\/avatars.slack-edge.com\/2020-03-11\/983924921969_c8e976fcbc63dabe20be_32.jpg","image_48":"https:\/\/avatars.slack-edge.com\/2020-03-11\/983924921969_c8e976fcbc63dabe20be_48.jpg","image_72":"https:\/\/avatars.slack-edge.com\/2020-03-11\/983924921969_c8e976fcbc63dabe20be_72.jpg","image_192":"https:\/\/avatars.slack-edge.com\/2020-03-11\/983924921969_c8e976fcbc63dabe20be_192.jpg","image_512":"https:\/\/avatars.slack-edge.com\/2020-03-11\/983924921969_c8e976fcbc63dabe20be_512.jpg","image_1024":"https:\/\/avatars.slack-edge.com\/2020-03-11\/983924921969_c8e976fcbc63dabe20be_1024.jpg","status_text_canonical":"","team":"TV63QKAAU"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":true,"is_app_user":false,"updated":1584029336},{"id":"UVAALE528","team_id":"TV63QKAAU","name":"github","deleted":false,"color":"2b6836","real_name":"GitHub","tz":"America\/Los_Angeles","tz_label":"Pacific
+        Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"GitHub","real_name_normalized":"GitHub","display_name":"","display_name_normalized":"","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"a384f3b8cb58","api_app_id":"A8GBNUWU8","always_active":true,"image_original":"https:\/\/avatars.slack-edge.com\/2020-03-12\/986735341441_a384f3b8cb58f2705e8a_original.png","is_custom_image":true,"bot_id":"BVAALE484","image_24":"https:\/\/avatars.slack-edge.com\/2020-03-12\/986735341441_a384f3b8cb58f2705e8a_24.png","image_32":"https:\/\/avatars.slack-edge.com\/2020-03-12\/986735341441_a384f3b8cb58f2705e8a_32.png","image_48":"https:\/\/avatars.slack-edge.com\/2020-03-12\/986735341441_a384f3b8cb58f2705e8a_48.png","image_72":"https:\/\/avatars.slack-edge.com\/2020-03-12\/986735341441_a384f3b8cb58f2705e8a_72.png","image_192":"https:\/\/avatars.slack-edge.com\/2020-03-12\/986735341441_a384f3b8cb58f2705e8a_192.png","image_512":"https:\/\/avatars.slack-edge.com\/2020-03-12\/986735341441_a384f3b8cb58f2705e8a_512.png","image_1024":"https:\/\/avatars.slack-edge.com\/2020-03-12\/986735341441_a384f3b8cb58f2705e8a_1024.png","status_text_canonical":"","team":"TV63QKAAU"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":true,"is_app_user":true,"updated":1584036089},{"id":"UVB4TQ89M","team_id":"TV63QKAAU","name":"lak_slackapi","deleted":false,"color":"5b89d5","real_name":"lak_slackapi","tz":"America\/Los_Angeles","tz_label":"Pacific
+        Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"lak_slackapi","real_name_normalized":"lak_slackapi","display_name":"","display_name_normalized":"","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"g6ea0fcda828","api_app_id":"AV998UM2R","always_active":false,"bot_id":"BV98UFAHE","image_24":"https:\/\/secure.gravatar.com\/avatar\/6ea0fcda82863d18be01442fb08dc35b.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/6ea0fcda82863d18be01442fb08dc35b.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/6ea0fcda82863d18be01442fb08dc35b.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/6ea0fcda82863d18be01442fb08dc35b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/6ea0fcda82863d18be01442fb08dc35b.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/6ea0fcda82863d18be01442fb08dc35b.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-512.png","status_text_canonical":"","team":"TV63QKAAU"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":true,"is_app_user":false,"updated":1583989948},{"id":"USLACKBOT","team_id":"TV63QKAAU","name":"slackbot","deleted":false,"color":"757575","real_name":"Slackbot","tz":null,"tz_label":"Pacific
+        Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Slackbot","real_name_normalized":"Slackbot","display_name":"Slackbot","display_name_normalized":"Slackbot","fields":null,"status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"sv41d8cd98f0","always_active":true,"first_name":"slackbot","last_name":"","image_24":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_24.png","image_32":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_32.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_72.png","image_192":"https:\/\/a.slack-edge.com\/80588\/marketing\/img\/avatars\/slackbot\/avatar-slackbot.png","image_512":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_512.png","status_text_canonical":"","team":"TV63QKAAU"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":0}],"cache_ts":1584160537}'
+    http_version: null
+  recorded_at: Sat, 14 Mar 2020 04:35:37 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/channels.list?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '669'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Mar 2020 04:35:38 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 6314d0a82f17c23b3b9b1a971e6a73f8
+      X-Oauth-Scopes:
+      - read,client,identify,post,apps
+      X-Accepted-Oauth-Scopes:
+      - channels:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-ws1c
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 995664ee945c06fc706b5cb8e0e650dc.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - L3jLwb3pGsC4XoajI_9Dk9pBmye6OK4qVUyUZNM_nHohdBFDbZMwpQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"CVBS8GW8M","name":"dianas_test_channel","is_channel":true,"created":1584078400,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UUTA3S16E","name_normalized":"dianas_test_channel","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UUTA3S16E"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":1},{"id":"CV5KRSHJQ","name":"general","is_channel":true,"created":1583868608,"is_archived":false,"is_general":true,"unlinked":0,"creator":"UUT9Z80AE","name_normalized":"general","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UUTA3S16E","UUT9Z80AE","UV63Y1672","UUUKJ03NX","UUW1CJZ41"],"topic":{"value":"Company-wide
+        announcements and work-based matters","creator":"UUT9Z80AE","last_set":1583868608},"purpose":{"value":"This
+        channel is for workspace-wide communication and announcements. All members
+        are in this channel.","creator":"UUT9Z80AE","last_set":1583868608},"previous_names":[],"num_members":5},{"id":"CV7V4KYLF","name":"random","is_channel":true,"created":1583868609,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UUT9Z80AE","name_normalized":"random","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UUTA3S16E","UUT9Z80AE","UV63Y1672","UUUKJ03NX","UUW1CJZ41"],"topic":{"value":"Non-work
+        banter and water cooler conversation","creator":"UUT9Z80AE","last_set":1583868609},"purpose":{"value":"A
+        place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
+        you''d prefer to keep out of more focused work-related channels.","creator":"UUT9Z80AE","last_set":1583868609},"previous_names":[],"num_members":5},{"id":"CV649DWUV","name":"slack-api","is_channel":true,"created":1583868609,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UUT9Z80AE","name_normalized":"slack-api","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UUTA3S16E","UUT9Z80AE","UUTJAGAEN","UV63Y1672","UUUKJ03NX","UUW1CJZ41"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":6},{"id":"CVASS4US0","name":"test","is_channel":true,"created":1584050770,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UUT9Z80AE","name_normalized":"test","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UUT9Z80AE","UV66LJW5A"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":2}]}'
+    http_version: null
+  recorded_at: Sat, 14 Mar 2020 04:35:38 GMT
 recorded_with: VCR 5.1.0
