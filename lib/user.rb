@@ -25,6 +25,7 @@ module Slack
     end
 
     def details
+      tp self, "slack_id", "name", "real_name"
     end
   end
 end

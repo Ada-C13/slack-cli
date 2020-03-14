@@ -31,9 +31,13 @@ module Slack
       return "Sorry, channel not found"
     end
 
-    # def show_details
-    #   # acts on instance var array
-    # end
+    def show_details
+      if @selected == nil
+        return "None selected – Please select a user or channel"
+      else
+        @selected.details
+      end
+    end
 
     # def send_message
     # end

@@ -44,4 +44,15 @@ describe "Workspace" do
       expect(@workspace.selected).must_be_kind_of NilClass
     end
   end
+  describe "show_details" do
+    it "shows user or channel details" do
+      @workspace.select_user("thenora")
+      expect(@workspace.show_details).must_be_kind_of TablePrint::Returnable
+      @workspace.select_channel("general")
+      expect(@workspace.show_details).must_be_kind_of TablePrint::Returnable
+    end
+    it "lets user know if none selected" do
+      expect(@workspace.show_details).must_equal "None selected – Please select a user or channel"
+    end
+  end
 end

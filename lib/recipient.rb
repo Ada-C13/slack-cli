@@ -8,8 +8,6 @@ module Slack
     end
 
     def self.get(url)
-        # token is provided here so I don't need to pass it in children.
-        # called in children's self.list
         response = HTTParty.get(url, query: {token: ENV['SLACK_TOKEN']})
         #check for errors
         if (response.code != 200) || (response["ok"] == false)
@@ -19,13 +17,12 @@ module Slack
     end
 
     def self.list
-        # How do I test this?
         raise NotImplementedError, "Define this method in a child class"
     end
 
-    # def details
-    #     raise NotImplementedError, "Define this method in a child class"
-    # end
+    def details
+        raise NotImplementedError, "Define this method in a child class"
+    end
 
     # def send_message(text)
     #     #using HTTParty

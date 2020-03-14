@@ -13,7 +13,7 @@ def main
   puts "Welcome to the Ada Slack CLI!"
   workspace = Slack::Workspace.new
 
-  options_message = "Please choose from the following options:\nlist users, list channels, select user, select channel, or quit"
+  options_message = "Please choose from the following options:\nlist users, list channels, select user, select channel, details, or quit"
 
   puts options_message
   input = gets.chomp.downcase
@@ -32,6 +32,8 @@ def main
       puts "Please enter channel name or ID:"
       search_term = gets.chomp
       puts workspace.select_channel(search_term)
+    when "details"
+      workspace.show_details
     end
     puts options_message
     input = gets.chomp.downcase
@@ -45,9 +47,4 @@ main if __FILE__ == $PROGRAM_NAME
 
 #### Wave 2 - Selecting and Showing Details ####
 
-# 3 additional options:
-
-# "select user": select user as the current recipient, with username or Slack ID
-# "select channel": select channel as the current recipient, with channel name or Slack ID
-# For selecting both users and channels, if no user/channel has that name or ID, the program should let me know and return to the main command loop.
 # "details": on the current recipient. information printed depends on whether channel or user. If no recipient currently selected, the program should let me know and return to main command prompt.
