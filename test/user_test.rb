@@ -8,18 +8,18 @@ describe "User class" do
         url = "https://slack.com/api/users.list"
         response = User.get(url)
 
-        new_user = ""
+        new_user_array = []
         response["members"].each do |member|
           real_name = member["real_name"]
           status_emoji = member["profile"]["status_emoji"]
           status_text = member["profile"]["status_text"]
           slack_id = member["id"]
           name = member["name"]
-          return new_user = User.new(real_name: real_name, status_text: status_text, status_emoji: status_emoji, slack_id: slack_id, name: name)
+          new_user_array << new_user = User.new(real_name: real_name, status_text: status_text, status_emoji: status_emoji, slack_id: slack_id, name: name)
         end
         
-        expect(new_user).must_be_instance_of User
-        expect(new_user.real_name).must_equal "Slackbot"
+        expect(new_user_array[0]).must_be_instance_of User
+        expect(new_user_array[0].real_name).must_equal "Slackbot"
         
       end
     end

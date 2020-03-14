@@ -14,7 +14,14 @@ class Workspace
     @selected = selected
   end
 
-  def select_channel
+  def select_channel(channel)
+    @channels.each do |channel_obj|
+      if channel_obj.name == channel || channel_obj.slack_id == channel
+        @selected = channel_obj
+        return channel_obj 
+      end
+    end
+    return "Channel not found!"
   end
 
   def select_user(user)

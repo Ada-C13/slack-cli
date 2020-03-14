@@ -27,7 +27,7 @@ def main
       selection = gets.chomp.downcase
       case selection
       when "select user"
-        puts "Please supply a username of Slack ID for the user"
+        puts "Please supply a username or Slack ID for the user"
         user = gets.chomp.downcase
         selected_user = workspace.select_user(user)
 
@@ -35,7 +35,7 @@ def main
           puts "You have selected user: #{workspace.selected.name}"
         elsif selected_user == "User not found!"
           puts "#{selected_user} Please try again!"
-          puts "Please supply a username of Slack ID for the user"
+          puts "Please supply a username or Slack ID for the user"
           user = gets.chomp.downcase
           seleted_user = workspace.select_user(user)
         end
@@ -57,9 +57,9 @@ def main
           exit
         end
 
-        puts "Would you like to see details about your selected user, send message to that user or quit?"
-        puts "•Details \n•Send message \n•Return to Main Menu \n•Quit "
-        choice = gets.chomp.downcase
+        # puts "Would you like to see details about your selected user, send message to that user or quit?"
+        # puts "•Details \n•Send message \n•Return to Main Menu \n•Quit "
+        # choice = gets.chomp.downcase
 
       when "return to main menu"
         choice = init_user_options
@@ -82,11 +82,17 @@ def main
         puts "Please supply a channel name of Slack ID for the channel"
         channel = gets.chomp.downcase
 
-        #write code that finds the specific user
+        selected_channel = workspace.select_channel(channel)
 
-        # if user not found write code that lets the user know that there is no channel (puts channel not found) by that channel name or ID and return to the original request of list user etc.
-
-        # if the user is found...
+        if selected_channel.is_a? Channel
+          puts "You have selected channel: #{workspace.selected.name}"
+        elsif selected_channel == "User not found!"
+          puts "#{selected_channel} Please try again!"
+          puts "Please supply a channel name or Slack ID for the channel"
+          channel = gets.chomp.downcase
+          seleted_channel = workspace.select_channel(channel)
+        end
+        
         puts "Would you like to see details about your selected channel, return to the main menu, or quit?"
         puts "•Details \n•Return to Main Menu \n•Quit "
         choice = gets.chomp.downcase

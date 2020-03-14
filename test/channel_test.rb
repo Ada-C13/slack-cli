@@ -8,18 +8,18 @@ describe "Channel class" do
         url = "https://slack.com/api/channels.list"
         response = Channel.get(url)
 
-        new_channel = ""
+        new_channel_array = []
         response["channels"].each do |channel|
           topic = channel["topic"]
           member_count = channel["num_members"]
           slack_id = channel["id"]
           name = channel["name"]
-          return new_channel = Channel.new(topic: topic, member_count: member_count, slack_id: slack_id, name: name)
+          new_channel_array << new_channel = Channel.new(topic: topic, member_count: member_count, slack_id: slack_id, name: name)
         end
         
-        expect(new_channel).must_be_instance_of Channel
-        expect(new_channel.name).must_equal "general"
-        expect(new_channel.member_count).must_equal 5
+        expect(new_channel_array[0]).must_be_instance_of Channel
+        expect(new_channel_array[0].name).must_equal "general"
+        expect(new_channel_array[0].member_count).must_equal 5
         
       end
     end
