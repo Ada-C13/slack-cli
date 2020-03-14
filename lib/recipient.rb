@@ -1,6 +1,6 @@
 require 'httparty'
-require "dotenv" # do I need this?
-Dotenv.load # do I need this?
+require "dotenv" # ? do I need this?
+Dotenv.load # ? do I need this?
 
 
 class Recipient

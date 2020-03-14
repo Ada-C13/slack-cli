@@ -1,29 +1,19 @@
-require "dotenv"
-require "httparty"
-
 require_relative "recipient"
+require "table_print" # do I need this here?
 
-Dotenv.load
-
-USER_BASE_URL = "https://slack.com/api/users.list"
-# SLACK_TOKEN = ENV["SLACK_TOKEN"]
-
-class User # < Recipient
+class User < Recipient
   attr_reader :real_name, :status_text, :status_emoji
 
   def initialize(name:, slack_id:, real_name:, status_text:, status_emoji:)
-    # super(name: name, slack_id: slack_id)
-    @name = name
-    @slack_id = slack_id
+    super(name: name, slack_id: slack_id)
     @real_name = real_name
     @status_text = status_text
     @status_emoji = status_emoji
   end
 
   def self.list_all
-    data = HTTParty.get("#{USER_BASE_URL}?token=#{SLACK_TOKEN}")
-    @user_data = data["members"]
-    output = @user_data.map do |user|
+    data = User.get("https://slack.com/api/users.list")
+    users = data["members"].map do |user|
       self.new(
         name: user["name"],
         slack_id: user["id"],
@@ -32,15 +22,30 @@ class User # < Recipient
         status_emoji: user["profile"]["status_emoji"],
       )
     end
-    return output
-  end
+  #   users = []
 
-  def details(each)
+  #   data["members"].each do |item|
+  #     users << User.new(
+  #               name: item["name"],
+  #               slack_id: item["id"],
+  #               real_name: item["real_name"],
+  #               status_text: item["profile"]["status_text"],
+  #               status_emoji: item["profile"]["status_emoji"]
+  #     )
+  #   end
+  #   return users
+  # end
+
+  # TODO change to table print
+  def details
     return "Username: #{name}, 
     Real name: #{real_name}, 
     Slack id: #{slack_id}"
   end
 end
+
+puts User.list_all
+print User.list_all
 
 # Sample output
 
