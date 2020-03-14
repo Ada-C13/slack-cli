@@ -4,6 +4,10 @@ require 'dotenv'
 Dotenv.load
 
 module SlackCLI
+	class SlackAPIError < NoMethodError
+
+	end
+
 	class Recipient
 
 		attr_reader :slack_id, :name
@@ -34,7 +38,11 @@ module SlackCLI
 					text: message
 				}
 			})
-			return response.code == 200 && response.parsed_response["ok"]
+			if (response.code == 200) && (response.parsed_response["ok"] == true)
+				return true
+			elsif (response.code == 200) && (response.parsed_response["ok"] == false)
+				raise SlackAPIError.new("Invalid request.")
+			end
 		end
 	end
 end

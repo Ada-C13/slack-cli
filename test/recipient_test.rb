@@ -25,4 +25,12 @@ describe "self#send_message" do
 		end
 	end
 
+	it "returns false if the request is invalid" do
+		VCR.use_cassette("recipient_create") do
+			workspace = SlackCLI::Workspace.new
+			fake_ch = SlackCLI::Channel.new("butt", "butt topics", 3, "C12993CCC")
+			expect{SlackCLI::Recipient.send_message("hello world", fake_ch)}.must_raise SlackCLI::SlackAPIError
+		end
+	end
+
 end

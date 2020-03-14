@@ -19,7 +19,7 @@ module SlackCLI
 		# Finds a user based on slack ID or username.
 		def select_user(search)
 			@users.each do |user|
-				if /^U[A-Z0-9]{8}$/.match(search.upcase) && user.slack_id.upcase == search.upcase
+				if user.slack_id.upcase == search.upcase
 					@selected = user
 				elsif user.name.upcase == search.upcase
 					@selected = user
@@ -28,13 +28,13 @@ module SlackCLI
 				end
 			end
 			
-			raise ArgumentError.new("No such user found based on ID.") if @selected == nil
+			raise ArgumentError.new("No such user found based on search.") if @selected == nil
 		end
 		
 		# Finds a channel based on channel ID or channel name.
 		def select_channel(search)
 			@channels.each do |channel|
-				if /^C[A-Z0-9]{8}$/.match(search.upcase) && channel.slack_id.upcase == search.upcase
+				if channel.slack_id.upcase == search.upcase
 					@selected = channel
 				elsif channel.name.upcase == search.upcase
 					@selected = channel
@@ -43,7 +43,7 @@ module SlackCLI
 				end
 			end
 			
-			raise ArgumentError.new("No such user found based on ID.") if @selected == nil
+			raise ArgumentError.new("No such channel found based on search.") if @selected == nil
 		end
 
 		# Finds details of the object currently selected.

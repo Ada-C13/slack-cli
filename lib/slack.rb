@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'dotenv'
 require 'httparty'
 require 'table_print'
 
@@ -19,12 +18,12 @@ def main
 
     if ["1", "list users"].include?(choice)
       puts "*"
-      tp workspace.users, :name
+      tp workspace.users
       puts "*"
 
     elsif ["2", "list channels"].include?(choice)
       puts "*"
-      tp workspace.channels, :name
+      tp workspace.channels
       puts "*"
 
     elsif ["3", "select user"].include?(choice)
