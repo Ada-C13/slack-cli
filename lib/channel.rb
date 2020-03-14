@@ -19,7 +19,7 @@ module Slack
         channels << self.new(
           slack_id: channel["id"],
           name: channel["name"],
-          topic: channel["topic"],
+          topic: channel["topic"]["value"],
           member_count: channel["num_members"],
         )
       end

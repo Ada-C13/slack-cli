@@ -9,18 +9,28 @@ require_relative "channel"
 # Tell dotenv to look for the .env file
 Dotenv.load # from root folder?
 
+# how to test?
 def main
   puts "Welcome to the Ada Slack CLI!"
   workspace = Slack::Workspace.new
 
-  # TODO project
-  # case loop for options, inside until loop to quit
-  # three options:
-  # list users
-  # list channels
-  # quit
+  options_message = "Please choose from the following options:\nlist users, list channels, or quit"
 
-  puts "Thank you for using the Ada Slack CLI"
+  puts options_message
+  input = gets.chomp.downcase
+
+  until input == "quit"
+    case input
+    when "list users"
+      tp workspace.users, "slack_id", "name", "real_name"
+    when "list channels"
+      tp workspace.channels, "slack_id", "name", "topic", "member_count"
+    end
+    puts options_message
+    input = gets.chomp.downcase
+  end
+
+  puts "Thank you for using the Ada Slack CLI!"
 end
 
 # Ruby uses __FILE__ to hold the current source file name. A prepended $ on a variable's name indicates a global variable.
