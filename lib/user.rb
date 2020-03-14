@@ -1,5 +1,5 @@
-require 'pry'
 require 'httparty'
+require 'colorized'
 
 module SlackCLI
   class User < Recipient
@@ -23,15 +23,17 @@ module SlackCLI
     end
 
     def self.list_all
-      response = self.get(BASE_URL, query: {token: ENV["SLACK_TOKEN"]})
-      unless response["ok"]
-        raise SlackAPIError.new("Slack API call failed with reason: #{response['error']}")
+      begin
+        response = self.get(BASE_URL, query: {token: ENV["SLACK_TOKEN"]})
+        users = []
+        response["members"].each do |member|
+          users << self.new(member)
+        end
+        return users  
+      rescue Recipient::SlackAPIError => error
+        puts "Sorry, #{error}\n".red
+        exit
       end
-      users = []
-      response["members"].each do |member|
-        users << self.new(member)
-      end
-      return users
     end
   end
 end

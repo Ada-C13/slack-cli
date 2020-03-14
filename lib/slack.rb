@@ -10,6 +10,27 @@ require_relative 'user'
 require_relative 'channel'
 Dotenv.load
 
+def check_selected(workspace)
+  selected_user = nil
+  select_channel = nil
+  while selected_user.nil? && select_channel.nil?
+    print "Please provide a name or Slack ID or hit Enter to exit => "
+    input = gets.chomp.downcase
+    if input == ''
+      break
+    end
+    
+    selected_user = workspace.select_user(input)
+    select_channel = workspace.select_channel(input)
+
+    if selected_user.nil? && select_channel.nil?
+      puts "\nInvalid name or Slack ID".red
+    else
+      puts "\nYou've selected '#{workspace.selected.name}'".blue
+    end
+  end
+end
+
 def main
   puts "\nWelcome to the Ada Slack CLI!".blue
   workspace = SlackCLI::Workspace.new
@@ -18,53 +39,33 @@ def main
   until user_command == 'quit' || user_command == '7' || user_command == '7.'
     puts "\nPlease choose one of the options: \n1. List users\n2. List channels\n3. Select user\n4. Select channel"
     puts "5. Details\n6. Send message\n7. Quit\n"
-    user_command = gets.chomp.downcase  
+    user_command = gets.chomp.downcase
+
     case user_command
     when 'list users', '1', '1.'
       puts
       tp workspace.users, :slack_id, :name, :real_name
       puts
+
     when 'list channels', '2', '2.'
       puts
       tp.set :max_width, 60
       tp workspace.channels, :slack_id, :name, :topic, :member_count
       puts
+
     when 'select user', '3', '3.'
-      selected_user = nil
-      while selected_user.nil?
-        print "Please provide a username or Slack ID or hit Enter to exit => "
-        user = gets.chomp.downcase
-        if user == ''
-          break
-        end
-        selected_user = workspace.select_user(user)
-        if selected_user.nil?
-          puts "\nInvalid username or Slack ID".red
-        else
-          puts "\nYou've selected a user with Slack ID #{workspace.selected.slack_id}".blue
-        end
-      end
+      check_selected(workspace)
+
     when 'select channel', '4', '4.'
-      selected_channel = nil
-      while selected_channel.nil?
-        print "Please provide a channel name or Slack ID or hit Enter to exit => "
-        channel = gets.chomp.downcase
-        if channel == ''
-          break
-        end
-        selected_channel = workspace.select_channel(channel)
-        if selected_channel.nil?
-          puts "\nInvalid channel name or Slack ID\n".red
-        else
-          puts "\nYou've selected a channel with Slack ID #{workspace.selected.slack_id}".blue
-        end
-      end
+      check_selected(workspace)
+
     when 'details', '5', '5.'
       if workspace.selected.nil?
         puts "\nYou need to select a user or a channel before choosing the Details option".red
       else
         puts workspace.show_details.blue
       end
+
     when 'send message', '6', '6.'
       if workspace.selected.nil?
         puts "\nYou need to select a user or a channel before sending a message".red
@@ -74,9 +75,9 @@ def main
         message = gets.chomp.downcase
         if message != ''
           if  workspace.selected.send_message(message)
-            puts "\nMessage sent!\n".blue
+            puts "\nMessage sent!".blue
           else
-            puts "\nMessage not sent\n".red
+            puts "\nMessage not sent".red
           end
         end       
       end
