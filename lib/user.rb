@@ -1,3 +1,5 @@
+require 'recipient'
+
 class User < Recipient
   attr_reader :real_name, :status_text, :status_emoji
 
@@ -8,11 +10,12 @@ class User < Recipient
   end
 
   def details
-
+    #print all of my details!
   end
 
   def self.list_all
-
+    #grab the list of all of the users in this workspace
+    
+    
   end
 end
-
