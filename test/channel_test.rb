@@ -17,4 +17,17 @@ describe "Channel" do
       end
     end
   end
+  describe "self.list" do
+    it "returns list of channels" do
+      result = []
+      VCR.use_cassette("list-channel-endpoint") do
+        result = Slack::Channel.list
+      end
+      expect(result).must_be_kind_of Array
+      expect(result.length).must_be :>, 0
+      result.each do |item|
+        expect(item).must_be_kind_of Slack::Channel
+      end
+    end
+  end
 end

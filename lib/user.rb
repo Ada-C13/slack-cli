@@ -7,7 +7,7 @@ module Slack
     attr_reader :real_name
 
     def initialize(slack_id:, name:, real_name:)
-      super(slack_id: id, name: name)
+      super(slack_id: slack_id, name: name)
       @real_name = real_name
     end
 

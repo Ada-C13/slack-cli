@@ -17,4 +17,17 @@ describe "User" do
       end
     end
   end
+  describe "self.list" do
+    it "returns list of users" do
+      result = []
+      VCR.use_cassette("list-user-endpoint") do
+        result = Slack::User.list
+      end
+      expect(result).must_be_kind_of Array
+      expect(result.length).must_be :>, 0
+      result.each do |item|
+        expect(item).must_be_kind_of Slack::User
+      end
+    end
+  end
 end

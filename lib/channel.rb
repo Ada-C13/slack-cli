@@ -7,7 +7,7 @@ module Slack
     attr_reader :topic, :member_count
 
     def initialize(slack_id:, name:, topic:, member_count:)
-      super(slack_id: id, name: name)
+      super(slack_id: slack_id, name: name)
       @topic = topic
       @member_count = member_count
     end
