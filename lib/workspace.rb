@@ -1,3 +1,5 @@
+# add formatting gems and requires'
+
 class Workspace
   attr_reader :users, :channels, :selected
   def initialize ()

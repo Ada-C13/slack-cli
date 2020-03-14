@@ -11,6 +11,8 @@ class Channel < Recipient
     
   end
   def self.list_all
+    # Use specific api endpoint
+    # error handling? 
     
   end
 end
