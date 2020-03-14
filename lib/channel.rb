@@ -10,6 +10,11 @@ class Channel < Recipient
     @member_count = member_count || []
   end
 
+  
+  response = Channel.get("https://slack.com/api/channels.list")
+  channels = []
+
+
 
 
 end
