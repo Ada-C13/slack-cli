@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'httparty'
-
+require 'table_print'
 require_relative 'workspace'
 
 def main
@@ -29,8 +29,7 @@ def options(workspace)
 
   case user_input
     when "list users"
-      # @TODO: why wont this work? tp workspace.users, 
-      #        "slack_id", "name", "real_name" 
+     # @TODO why does this not work     tp workspace.users, "slack_id", "name", "real_name" 
       workspace.list_users  
       options(workspace)
     when "list channels"
@@ -43,10 +42,23 @@ def options(workspace)
       channel_info = workspace.name_or_id("channel")
       options(workspace)
     when "details"
-      puts "TO BE IMPLEMENTED"
+      # if workspace.selected_recipient.class == User
+      #   puts workspace.selected_recipient.name
+      #   puts workspace.selected_recipient.real_name
+      #   puts workspace.selected_recipient.id
+      # elsif workspace.selected_recipient.class == Channel
+      #   puts selected_recipient.channel["topic"]["value"]
+      #   puts selected_recipient.channel["num_members"]
+      #   puts selected_recipient.channel["id"]
+      # end
+      
     when "quit"
       return
   end
 end
+
+
+
+
 
 main if __FILE__ == $PROGRAM_NAME

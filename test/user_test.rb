@@ -1,6 +1,24 @@
 require_relative "test_helper"
 
+describe "recipient user factory self.create" do
 
+  it "self.create works with user name" do
+    recipient = User.create("Ada", "user_name")
+  
+      expect(recipient).must_be_instance_of User
+      expect(recipient.name).must_equal "Ada"
+  end  
+    
+
+  it "self.create works with USER id" do
+    recipient = User.create("A100", "user_id")
+  
+      expect(recipient).must_be_instance_of User
+      expect(recipient.id).must_equal "A100"
+  end  
+
+   
+end
 # xdescribe "user"
 #   xdescribe "self.get" do
 #    it "get s a list of users " do

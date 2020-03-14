@@ -1,4 +1,4 @@
-require 'table_print'
+
 require 'dotenv'
 require 'httparty'
 
@@ -15,12 +15,12 @@ class Workspace
   attr_accessor :channels, :users, :selected_recipient
 
   def initialize
-    @users = get("https://slack.com/api/users.list")
-    @channels = get("https://slack.com/api/conversations.list")
+    @users = Workspace.get("https://slack.com/api/users.list")
+    @channels = Workspace.get("https://slack.com/api/conversations.list")
     @selected_recipient = nil
   end
 
-  def get(url)
+  def self.get(url)
     response = HTTParty.get(url, query: {token: ENV['SLACK_TOKEN']})
 
     if response.code != 200 || response["ok"] == false
@@ -42,6 +42,7 @@ class Workspace
       puts "Channel number #{i}'s name is #{channel["name"]}, their topic is '#{channel["topic"]["value"]}', it has #{channel["num_members"]} members and its id is #{channel["id"]}."
       i += 1
     end
+    
   end
 
   def num_of_users
@@ -57,6 +58,9 @@ class Workspace
       i += 1
     end
   end
+
+
+
 
   def name_or_id(type)
     puts "What information will you be providing? Please type 'name' or 'id'."
@@ -101,3 +105,5 @@ class Workspace
     end 
   end
 end
+
+class SlackAPIError < StandardError ; end

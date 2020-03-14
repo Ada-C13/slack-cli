@@ -27,7 +27,7 @@ describe "getting number of users" do
   end  
 end
 
-xdescribe "list_users" do  # look in to test the 2 listing functions do i need to break the functin apart?
+describe "list_users" do  # look in to test the 2 listing functions do i need to break the functin apart?
 
   it "outputs list of users" do
     result = {}
@@ -42,7 +42,7 @@ xdescribe "list_users" do  # look in to test the 2 listing functions do i need t
 
   it "raises an error when a call fails" do
     VCR.use_cassette("list_of_users") do
-      expect {User.get("https://slack.com/api/bogus.call")}.must_raise SlackAPIError  #from Devins live code
+      expect {Workspace.get("https://slack.com/api/bogus.call")}.must_raise SlackAPIError  #from Devins live code
     end
   end
 end
