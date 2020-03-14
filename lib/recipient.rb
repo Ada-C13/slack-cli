@@ -13,12 +13,11 @@ class Recipient
     @name = name  
   end
 
-  # to list all the users and channels
   def self.list_all
     raise NotImplementedError, 'Implement me in a child class!'
   end
 
-  def self.get(url)
+  def self.get(url) 
     response = HTTParty.get(url, query: {token: ENV["SLACK_TOKEN"]})
     if response.code != 200 || response["ok"] == false
       raise SlackAPIError.new("We encounter a problem (got #{response["error"]})")
@@ -27,11 +26,9 @@ class Recipient
     end
   end
 
-  
-
-  # def details
-
-  # end
+  def details
+    raise NotImplementedError, 'Implement me in a child class!'
+  end
 
 end
 
