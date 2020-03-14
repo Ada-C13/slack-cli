@@ -9,9 +9,6 @@ class Channel < Recipient
     @member_count = member_count
   end
 
-  # def self.get_all
-  # end
-
   def self.list_channels
     # instead of Recipient or Channel, can just say self so that in case it changed elsewhere it wouldn't matter.
     response = self.get_all("channels.list")
@@ -31,5 +28,9 @@ class Channel < Recipient
     end
 
     return channel_list
+  end
+
+  def details
+    # IMPLEMENT SHOW DETAILS IN CHANNEL CLASS
   end
 end

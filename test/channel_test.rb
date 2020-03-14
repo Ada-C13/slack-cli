@@ -61,73 +61,17 @@ describe "Channel" do
       channels = @workspace.channels
 
       expect(channels).must_be_kind_of Array
+      channels.each do |channel|
+        expect(channel).must_be_kind_of Channel
+      end
     end
 
-    it "finds the channels" do
+    it "finds the expected channels" do
       channels = @workspace.channels
-
       expect(channels).wont_be_nil
-      expect(channels.length).must_equal 3
-
-      # fix this so that it finds the first index value and last index value to spot check
-      # expect(channels["channels"]).must_equal ["general", "api-testing", "random"]
+      expect(channels.length).must_be :>, 0
+      expect(channels[0].name).must_equal "general"
+      expect(channels[2].name).must_equal "random"
     end
   end
 end
-
-#     # it "will raise an exception if the search fails" do
-#     #   VCR.use_cassette("location_find") do
-#     #     location = ""
-#     #     expect {
-#     #       response = get_location(location)
-#     #     }.must_raise SearchError
-#     #   end
-#     # end
-
-#   it "lists the correct number of channel instances" do
-
-#   end
-
-#   it "lists the expected channels in the workspace" do
-
-#   end
-
-# _____ FROM ZOOM with Devin
-
-#   describe "Channel" do
-#     describe "self.get" do
-#       it "gets a list of channels and returns them as an HTTParty Response" do
-#         result = {}
-#         VCR.use_cassette("channels-list-endpoint") do
-#           result = Channel.get("https://slack.com/api/channels.list")
-#         end
-
-#         expect(result).must_be_kind_of HTTParty::Response
-#         expect(result["ok"]).must_equal true
-#       end
-
-#       it "raises an error when a call fails" do
-#         VCR.use_cassette("channels-list-endpoint") do
-#           expect {Channel.get("https://slack.com/api/bogus.endpoint")}.must_raise SlackAPIError
-#         end
-#       end
-#     end
-
-#     describe "self.list" do
-#       it "returns a valid list of the channels" do
-#         result = []
-
-#         VCR.use_cassette("channels-list-endpoint") do
-#           result = Channel.list_all
-#         end
-
-#         expect(result).must_be_kind_of Array
-#         expect(result.length).must_be :>, 0
-#         result.each do |channel|
-#           expect(channel).must_be_kind_of Channel
-#         end
-
-#       end
-#     end
-#   end
-# end

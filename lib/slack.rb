@@ -13,9 +13,9 @@ def main
     puts "What would you like to do? 'list channels', 'list users', or 'quit'"
     answer = gets.chomp.downcase
     if answer == "list channels"
-      puts workspace.channels
+      tp workspace.channels
     elsif answer == "list users"
-      puts workspace.users
+      tp workspace.users, "slack_id", "name", "real_name", "status_text", "status_emoji"
     elsif answer == "quit"
       i = 1
     end

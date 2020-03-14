@@ -70,4 +70,10 @@ describe "User" do
       end
     end
   end
+
+  describe "self.details" do
+    it "shows details********" do
+      
+    end
+  end
 end

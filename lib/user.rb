@@ -10,22 +10,9 @@ class User < Recipient
     @status_emoji = status_emoji
   end
 
-  # ______ CLASS METHODS _____________
+  #______ CLASS METHODS _____________
 
   # Class method to get list of all Users
-
-  # ******Because this is inherited from Recipient and I tested
-  # its implementation in user_test, do I need to write the method again here?
-  # def self.get_all(url)
-  #   # send message using HTTParty
-  #   response = HTTParty.get(url, query: { token: ENV["SLACK_TOKEN"] })
- 
-  #   if response["ok"] != true
-  #     raise SlackAPIError, "An error has occurred: #{response["error"]}"
-  #   end
-
-  #   return response
-  # end
 
   def self.list_users
     retrieved_response = self.get_all("users.list")
@@ -45,5 +32,9 @@ class User < Recipient
     end
 
     return users_list
+  end
+
+  def details
+    # IMPLEMENT SHOW DETAILS IN USER CLASS
   end
 end

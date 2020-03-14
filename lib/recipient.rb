@@ -12,9 +12,9 @@ class Recipient
   # def send_message(text)
   # end
 
-  # def details
-  #   raise NotImplementedError, "Implement in child class??"
-  # end
+  def details
+    raise NotImplementedError, "Implement me in child class."
+  end
 
   private
 
