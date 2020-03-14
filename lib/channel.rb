@@ -9,8 +9,8 @@ class Channel < Recipient
     @member_count = member_count
   end
 
-  # what do we need to initialize a channel?
-  # where do we instantiate a Channel? - IN THE WORKSPACE is where we make the method call to instantiate channels
+  # def self.get_all
+  # end
 
   def self.list_channels
     # instead of Recipient or Channel, can just say self so that in case it changed elsewhere it wouldn't matter.
@@ -18,7 +18,7 @@ class Channel < Recipient
 
     channel_list = []
     if response["ok"] != true
-      raise SlackAPIError, "An error has occurred: #{response["error"]}"
+      raise SlackAPIError, "Oops! An error has occurred: #{response["error"]}"
     else
       response["channels"].each do |channel|
         @slack_id = channel["id"]

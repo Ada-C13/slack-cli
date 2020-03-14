@@ -32,6 +32,24 @@ describe "Channel" do
     end
   end
 
+  describe "self.get_all" do
+    it "gets a list of channels and returns them as an HTTParty Response" do
+      result = {}
+      VCR.use_cassette("channels-list-endpoint") do
+        result = Channel.get_all("channels.list")
+      end
+
+      expect(result).must_be_kind_of HTTParty::Response
+      expect(result["ok"]).must_equal true
+    end
+
+    it "raises an error when a call to users-list-endpoint fails" do
+      VCR.use_cassette("channels-list-endpoint") do
+        expect { Channel.get_all("https://slack.com/api/bogus.endpoint") }.must_raise SlackAPIError
+      end
+    end
+  end
+
   describe "list_channels" do
     before do
       VCR.use_cassette("workspace_initialize") do

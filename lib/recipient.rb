@@ -9,12 +9,12 @@ class Recipient
     @name = name
   end
 
-  def send_message(text)
-  end
+  # def send_message(text)
+  # end
 
-  def details
-    raise NotImplementedError, "Implement in child class??"
-  end
+  # def details
+  #   raise NotImplementedError, "Implement in child class??"
+  # end
 
   private
 
@@ -32,7 +32,6 @@ class Recipient
 
   # def self.select
   # end
-
 end
 
 # this will be common to other files in the program
