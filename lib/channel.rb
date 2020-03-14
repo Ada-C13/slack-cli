@@ -6,7 +6,8 @@ require_relative 'recipient'
 class Channel < Recipient
   attr_reader :topic, :member_count
 
-  def initialize(topic:, member_count:)
+  def initialize(topic:, member_count:, slack_id:, name:)
+    super(slack_id: slack_id, name: name)
     @topic = topic
     @member_count = member_count
   end
@@ -19,17 +20,18 @@ class Channel < Recipient
 
     response = Channel.get("https://slack.com/api/channels.list")
 
-    channel_output_array = []
+    all_channel_array = []
    
     response["channels"].each do |channel|
-      channel_output = {}
-      channel_output["Channel Name"] = channel["name"]
-      channel_output["Channel Topic"] = channel["topic"]
-      channel_output["Member Count"] = channel["num_members"]
-      channel_output["Slack ID"] = channel["id"]
-      channel_output_array << channel_output
+      topic = channel["topic"]
+      member_count = channel["num_members"]
+      slack_id = channel["id"]
+      name = channel["name"]
+      new_channel = Channel.new(topic: topic, member_count: member_count, slack_id: slack_id, name: name)
+      all_channel_array << new_channel
     end
-    return channel_output_array
+
+    return all_channel_array
    
   end
 

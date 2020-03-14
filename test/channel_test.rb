@@ -12,8 +12,9 @@ describe "Channel class" do
         response["channels"].each do |channel|
           topic = channel["topic"]
           member_count = channel["num_members"]
-          
-          return new_channel = Channel.new(topic: topic, member_count: member_count)
+          slack_id = channel["id"]
+          name = channel["name"]
+          return new_channel = Channel.new(topic: topic, member_count: member_count, slack_id: slack_id, name: name)
         end
         
         expect(new_channel).must_be_instance_of Channel
@@ -29,9 +30,9 @@ describe "Channel class" do
         all_channels = Channel.list_all
 
         expect(all_channels.count).must_equal 3
-        expect(all_channels[1]["Slack ID"]).must_equal "CUTE4MTD0"
-        expect(all_channels[1]["Channel Name"]).must_equal "api-testing"
-        expect(all_channels[1]["Member Count"]).must_equal 5
+        expect(all_channels[1].slack_id).must_equal "CUTE4MTD0"
+        expect(all_channels[1].name).must_equal "api-testing"
+        expect(all_channels[1].member_count).must_equal 5
         
       end
     end

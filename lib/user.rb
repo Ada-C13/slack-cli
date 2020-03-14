@@ -6,11 +6,13 @@ require_relative 'recipient'
 
 class User < Recipient
   attr_reader :real_name, :status_text, :status_emoji
-  def initialize(real_name:, status_text:, status_emoji:)
-
+  def initialize(real_name:, status_text:, status_emoji:, slack_id:, name:)
+    super(slack_id: slack_id, name: name )
+   
     @real_name = real_name
     @status_text = status_text
     @status_emoji = status_emoji
+    
   end
 
   def details
@@ -22,16 +24,17 @@ class User < Recipient
     url = "https://slack.com/api/users.list"
     response = User.get(url)
 
-    user_output_array = []
-   
+    all_user_array = []
     response["members"].each do |member|
-      user_output = {}
-      user_output["Real Name"] = member["real_name"]
-      user_output["Username"] = member["name"]
-      user_output["Slack ID"] = member["id"]
-      user_output_array << user_output
+      real_name = member["real_name"]
+      status_emoji = member["profile"]["status_emoji"]
+      status_text = member["profile"]["status_text"]
+      slack_id = member["id"]
+      name = member["name"]
+      new_user = User.new(real_name: real_name, status_text: status_text, status_emoji: status_emoji, slack_id: slack_id, name: name)
+      all_user_array << new_user
     end
-    return user_output_array
+    return all_user_array
   end
 
 

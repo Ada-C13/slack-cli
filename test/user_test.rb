@@ -13,7 +13,9 @@ describe "User class" do
           real_name = member["real_name"]
           status_emoji = member["profile"]["status_emoji"]
           status_text = member["profile"]["status_text"]
-          return new_user = User.new(real_name: real_name, status_text: status_text, status_emoji: status_emoji)
+          slack_id = member["id"]
+          name = member["name"]
+          return new_user = User.new(real_name: real_name, status_text: status_text, status_emoji: status_emoji, slack_id: slack_id, name: name)
         end
         
         expect(new_user).must_be_instance_of User
@@ -29,9 +31,9 @@ describe "User class" do
         all_users = User.list_all
 
         expect(all_users.count).must_equal 11
-        expect(all_users[1]["Slack ID"]).must_equal "UUTK13WE6"
-        expect(all_users[1]["Username"]).must_equal "yesentorres"
-        expect(all_users[1]["Real Name"]).must_equal "Yesenia Torres"
+        expect(all_users[1].slack_id).must_equal "UUTK13WE6"
+        expect(all_users[1].name).must_equal "yesentorres"
+        expect(all_users[1].real_name).must_equal "Yesenia Torres"
       end
     end
   end
