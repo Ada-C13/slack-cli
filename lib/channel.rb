@@ -12,26 +12,6 @@ class Channel < Recipient
 
 
 
-
-
-  # def details
-
-  # end
-
-  # def self.list_all
-  #   chanels = []
-  #   query_parameters = {token: KEY}
-
-  #   channels = HTTParty.get(CHANNAL_URL, query: query_parameters)
-
-  #   channels["channels"].each do |chanel|
-  #     chanels << chanel["name"]
-  #   end
-  #   return chanels
-  # end
-
-
-
 end
 
   

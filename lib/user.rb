@@ -17,19 +17,26 @@ class User < Recipient
   end
 
 
-
-
-
-
-end
-
   # def details
-
   # end
 
 
-  # def self.list_all
-  #   users = []
-  #   data = self.get("https://slack.com/api/users.list")
- #   data["members"].each do |user|
+  def self.list_all
+ 
+    response = User.get("https://slack.com/api/users.list")
+    users = []
+
+    response["members"].each do |item|
+      users << User.new(
+                name: item["name"],
+                slack_id: item["id"],
+                real_name: item["real_name"],
+                status_text: item["profile"]["status_text"],
+                status_emoji: item["profile"]["status_emoji"]
+      )
+    end
+    return users
+  end
+end
+
   

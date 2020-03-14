@@ -15,17 +15,17 @@ class Recipient
     raise NotImplementedError, 'Implement me in a child class'
   end
 
-  # def self.get(url)
-  #   response = HTTParty.get(CHANNAL_URL, query: {token: ENV["SLACK_TOKEN"]})
-  #   if response.code != 200 || response["ok"] == false
-  #     raise SlackAPIError, "We encaunterd a problem #{response["error"]}"
-  #   end
-  #   return response
-  # end
+  def self.get(url)
+    response = HTTParty.get(url , query: {token: ENV["SLACK_TOKEN"]})
+    if response.code != 200 || response["ok"] == false
+      raise SlackAPIError, "We encaunterd a problem #{response["error"]}"
+    end
+    return response
+  end
 
-  # def details
-  #   raise NotImplementedError, 'Implement me in a child class!'
-  # end
+  def details
+    raise NotImplementedError, 'Implement me in a child class!'
+  end
 
   # def send_message(message)
 

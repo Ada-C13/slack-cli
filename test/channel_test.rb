@@ -21,21 +21,5 @@ describe "Channel class" do
       expect(@channel.member_count).must_be_kind_of Array
       expect(@channel.slack_id).must_be_kind_of String
     end
-
-    # it 'Keep treck of topice' do
-    #   topice = {}
-    #   member_count = []
-    #   channel = Channel.new(topic, member_count, name, slack_id)
-    #   channel.must_respond_to :topice
-    #   expect(channel.topice).must_be_kind_of Hash
-    # end
-
-    # it 'Keep treck of slack member_count' do
-    #   topice = {}
-    #   member_count = []
-    #   channel = Channel.new((topic, member_count, name, slack_id)
-    #   channel.must_respond_to :member_count
-    #   expect(channel.member_count).must_be_kind_of Array
-    # end
   end
 end
