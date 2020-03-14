@@ -44,14 +44,23 @@ def main
         end
       end
     when 'select channel', '4', '4.'
-      print "Please provide a channel name or Slack ID => "
-      channel = gets.chomp.downcase
-      puts
-      selected = workspace.select_channel(channel)
-      puts "You've selected channel with Slack ID #{workspace.selected.slack_id}".blue
+      selected_channel = nil
+      while selected_channel.nil?
+        print "Please provide a channel name or Slack ID or hit Enter to exit => "
+        channel = gets.chomp.downcase
+        if channel == ''
+          break
+        end
+        selected_channel = workspace.select_channel(channel)
+        if selected_channel.nil?
+          puts "\nInvalid channel name or Slack ID".red
+        else
+          puts "\nYou've selected channel with Slack ID #{workspace.selected.slack_id}".blue
+        end
+      end
     when 'details', '5', '5.'
       if workspace.selected.nil?
-        puts "\nYou haven't selected a user or a channel".blue
+        puts "\nYou need to select a user or a channel before choosing the Details option".red
       else
         puts workspace.show_details.blue
       end

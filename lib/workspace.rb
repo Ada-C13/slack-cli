@@ -13,7 +13,7 @@ module SlackCLI
     def initialize
       @users = SlackCLI::User.list_all
       @channels = SlackCLI::Channel.list_all
-      @selected = selected
+      @selected = nil
     end
 
     def select_user(input)
@@ -28,12 +28,18 @@ module SlackCLI
 
     def select_channel(input)
       selected_array = @channels.select{|channel| channel.slack_id == input.upcase || channel.name == input}
-      @selected = selected_array[0]
+      if selected_array.empty?
+        @selected = nil
+      else
+        @selected = selected_array[0]
+      end
       return @selected
     end
 
     def show_details
-      @selected.details
+      selected_recipient = @selected
+      @selected = nil
+      return selected_recipient.details
     end
 
     def send_message
