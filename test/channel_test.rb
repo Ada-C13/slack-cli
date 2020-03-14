@@ -22,4 +22,22 @@ describe "Channel class" do
       expect(@channel.slack_id).must_be_kind_of String
     end
   end
+
+  describe "self.get" do
+    it "can get a list of channels" do
+      result = {}
+      VCR.use_cassette("list-chanel-endpoint") do
+        result = Channel.get("https://slack.com/api/channels.list")
+      end
+
+      expect(result).must_be_kind_of HTTParty::Response
+      expect(result["ok"]).must_equal true
+    end
+
+    it "raises an error when a call fails" do
+      VCR.use_cassette("list-user-endpoint") do
+        expect {User.get("https://slack.com/api/bogus.call")}.must_raise SlackAPIError
+      end
+    end
+  end
 end
