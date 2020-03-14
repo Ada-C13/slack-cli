@@ -1,6 +1,9 @@
-#!/usr/bin/env ruby
+require 'httparty'
+require 'dotenv'
 
+require_relative 'workspace'
 
+Dotenv.load
 
 def main
   puts "Welcome to the Ada Slack CLI!"

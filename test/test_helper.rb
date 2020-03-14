@@ -27,3 +27,8 @@ VCR.configure do |config|
   # Don't leave our token lying around in a cassette file.
 
 end
+
+require_relative 'channel_test'
+require_relative 'recipient_test'
+require_relative 'user_test'
+require_relative 'workspace_test'
