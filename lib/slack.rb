@@ -54,7 +54,7 @@ def main
         end
         selected_channel = workspace.select_channel(channel)
         if selected_channel.nil?
-          puts "\nInvalid channel name or Slack ID".red
+          puts "\nInvalid channel name or Slack ID\n".red
         else
           puts "\nYou've selected a channel with Slack ID #{workspace.selected.slack_id}".blue
         end
