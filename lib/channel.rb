@@ -2,7 +2,7 @@ require "httparty"
 require "awesome_print"
 require_relative "recipient"
 
-CHANNEL_LIST_URL = "https://slack.com/api/channels.list"
+CHANNEL_LIST_URL = "https://slack.com/api/conversations.list"
 
 class Channel < Recipient
   
