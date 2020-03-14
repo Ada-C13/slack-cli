@@ -6,9 +6,9 @@ require 'table_print'
 Dotenv.load
 
 def main
-  puts "Welcome to the Ada Slack CLI! \n There are #{User.list_all.count} users and #{Channel.list_all.count} channels."
   workspace = Workspace.new
-
+  puts "Welcome to the Ada Slack CLI! \n There are #{workspace.users.count} users and #{workspace.channels.count} channels."
+  
   # TODO project
   
   choice = init_user_options
