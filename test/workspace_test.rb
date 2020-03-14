@@ -15,8 +15,11 @@ describe "Workspace class" do
 
     it "properly fills in instance variables" do
       expect(@workspace.users.count).must_equal 11
+      expect(@workspace.users).must_be_instance_of Array
+      expect(@workspace.selected).must_be_nil
       expect(@workspace.users[0]).must_be_instance_of User  
       expect(@workspace.channels.count).must_equal 3
+      expect(@workspace.channels).must_be_instance_of Array
       expect(@workspace.channels[0]).must_be_instance_of Channel  
     end
   end

@@ -24,6 +24,8 @@ class User < Recipient
     url = "https://slack.com/api/users.list"
     response = User.get(url)
 
+    raise SlackApiError.new("Invalid response from API") if response.code != 200 || response["ok"] == false
+
     all_user_array = []
     response["members"].each do |member|
       real_name = member["real_name"]

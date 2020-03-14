@@ -18,6 +18,9 @@ class Recipient
     slack_token = ENV["SLACK_TOKEN"]
     params = {token: slack_token}
     response = HTTParty.get(url, query: params)
+    
+    raise SlackApiError.new("Invalid response from API") if response.code != 200 || response["ok"] == false
+
     return response
   end
 

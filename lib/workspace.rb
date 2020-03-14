@@ -40,3 +40,6 @@ class Workspace
   def send_message
   end
 end
+
+workspace = Workspace.new
+p workspace.channels[0].topic

@@ -8,7 +8,7 @@ class Channel < Recipient
 
   def initialize(topic:, member_count:, slack_id:, name:)
     super(slack_id: slack_id, name: name)
-    @topic = topic
+    @topic = topic || {}
     @member_count = member_count
   end
   
@@ -19,7 +19,7 @@ class Channel < Recipient
   def self.list_all
 
     response = Channel.get("https://slack.com/api/channels.list")
-
+    
     all_channel_array = []
    
     response["channels"].each do |channel|
