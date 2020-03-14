@@ -80,21 +80,26 @@ def main
       case selection
       when "select channel"
         puts "Please supply a channel name of Slack ID for the channel"
+        puts "\n"
         channel = gets.chomp.downcase
 
         selected_channel = workspace.select_channel(channel)
 
         if selected_channel.is_a? Channel
           puts "You have selected channel: #{workspace.selected.name}"
+          puts "\n"
         elsif selected_channel == "User not found!"
           puts "#{selected_channel} Please try again!"
+          puts "\n"
           puts "Please supply a channel name or Slack ID for the channel"
+          puts "\n"
           channel = gets.chomp.downcase
           seleted_channel = workspace.select_channel(channel)
         end
-        
+
         puts "Would you like to see details about your selected channel, return to the main menu, or quit?"
         puts "•Details \n•Return to Main Menu \n•Quit "
+        puts "\n"
         choice = gets.chomp.downcase
 
         case choice
