@@ -2,11 +2,21 @@ require_relative "test_helper"
 require_relative "../lib/user"
 
 describe "User" do
-  describe "initialize" do
+  before do
+    @real_name = "Real Name"
+    @status_text = "busy"
+    @slack_id = "RN123"
+    @user = User.new(real_name: @real_name, status_text: @status_text, status_emoji: @status_emoji, slack_id: @slack_id, name: @name)
+  end
+
+  describe "constructor" do
     it "instance of user class" do
-      expect(@real_name).must_be_kind_of User
-      expect(@status_text).must_be_kind_of User
-      expect(@status_emoji).must_be_kind_of User
+      expect (@user).must_be_instance_of User
+    end
+    it "can access attributes"do
+      expect(@real_name).must_equal @real_name
+      expect(@status_text).must_equal @status_text
+      expect(@slack_id).must_equal @slack_id
     end
   end
   describe "self.get" do
