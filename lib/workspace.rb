@@ -17,32 +17,30 @@ module SlackCLI
     end
 
     def select_user(input)
-      selected_array = @users.select{|user| user.slack_id == input.upcase || user.name == input}
-      if selected_array.empty?
-        @selected = nil
-      else
-        @selected = selected_array[0]
-      end
-      return @selected
+      select(@users, input)
     end
 
     def select_channel(input)
-      selected_array = @channels.select{|channel| channel.slack_id == input.upcase || channel.name == input}
-      if selected_array.empty?
-        @selected = nil
-      else
-        @selected = selected_array[0]
-      end
-      return @selected
+      select(@channels, input)
     end
 
     def show_details
-      selected_recipient = @selected
-      @selected = nil
-      return selected_recipient.details
+      return @selected.details
     end
 
-    def send_message
+    def send_message(message)
+      return @selected.send_message(message)
+    end
+
+    private
+
+    def select(recipients, input)
+      selected_array = recipients.select{|recipient| recipient.slack_id == input.upcase || recipient.name == input}
+      if selected_array.empty?
+        return nil
+      end
+        @selected = selected_array[0]
+      return @selected
     end
   end
 end

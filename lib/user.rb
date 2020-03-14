@@ -15,9 +15,9 @@ module SlackCLI
     end
 
     def details
-      details = "The slack user with username #{self.name} and Slack ID #{self.slack_id} is named #{self.real_name}."
+      details = "The slack user with username #{self.name} and Slack ID #{self.slack_id} is named #{self.real_name}. "
       unless self.status_text == '' && self.status_emoji == ''
-        details += "Their status text is '#{self.status_text}' and their status emoji is #{self.status_emoji}."
+        details += "Their status is '#{self.status_text}' and their status emoji is #{self.status_emoji}."
       end
       return details
     end

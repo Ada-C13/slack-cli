@@ -6,7 +6,7 @@ module SlackCLI
     attr_reader :slack_id, :name
 
     BASE_URL = "https://slack.com/api/"
-    SLACK_TOKEN = ENV["SLACK_TOKEN"]
+    
 
     def initialize(slack_id:, name:)
       @slack_id = slack_id
@@ -14,17 +14,17 @@ module SlackCLI
     end
 
     def send_message(message)
-      # resp = HTTParty.post("#{BASE_URL}chat.postMessage",
-      #   headers: {
-      #     'Content-Type' => 'application/x-www-form-urlencoded'
-      #   },
-      #   body: {
-      #     token: SLACK_TOKEN,
-      #     channel: channel,
-      #     text: message
-      #   }
-      # )
-      # return resp.code == 200 && resp.parsed_response["ok"]
+      resp = HTTParty.post("#{BASE_URL}chat.postMessage",
+        headers: {
+          'Content-Type' => 'application/x-www-form-urlencoded'
+        },
+        body: {
+          token: ENV["SLACK_TOKEN"],
+          channel: @slack_id,
+          text: message
+        }
+      )
+      return resp.code == 200 && resp.parsed_response["ok"]
     end
 
     def self.get(url, params)

@@ -13,11 +13,12 @@ Dotenv.load
 def main
   puts "Welcome to the Ada Slack CLI!"
   workspace = SlackCLI::Workspace.new
-  puts "Please choose one of the options: \n1. List users\n2. List channels\n3. Select user\n4. Select channel"
-  puts "5. Details.\n6. Quit"
+  user_command = nil
 
-  user_command = gets.chomp.downcase
-  until user_command == 'quit' || user_command == '6' || user_command == '6.'
+  until user_command == 'quit' || user_command == '7' || user_command == '7.'
+    puts "Please choose one of the options: \n1. List users\n2. List channels\n3. Select user\n4. Select channel"
+    puts "5. Details\n6. Send message\n7. Quit"
+    user_command = gets.chomp.downcase  
     case user_command
     when 'list users', '1', '1.'
       puts
@@ -40,7 +41,7 @@ def main
         if selected_user.nil?
           puts "\nInvalid username or Slack ID".red
         else
-          puts "\nYou've selected user with Slack ID #{workspace.selected.slack_id}".blue
+          puts "\nYou've selected a user with Slack ID #{workspace.selected.slack_id}".blue
         end
       end
     when 'select channel', '4', '4.'
@@ -55,7 +56,7 @@ def main
         if selected_channel.nil?
           puts "\nInvalid channel name or Slack ID".red
         else
-          puts "\nYou've selected channel with Slack ID #{workspace.selected.slack_id}".blue
+          puts "\nYou've selected a channel with Slack ID #{workspace.selected.slack_id}".blue
         end
       end
     when 'details', '5', '5.'
@@ -64,13 +65,25 @@ def main
       else
         puts workspace.show_details.blue
       end
+    when 'send message', '6', '6.'
+      if workspace.selected.nil?
+        puts "\nYou need to select a user or a channel before sending a message".red
+      else
+        puts "What message do you want to send to the selected user/channel?"
+        print "Type text or hit Enter to exit => "
+        message = gets.chomp.downcase
+        if message != ''
+          if  workspace.selected.send_message(message)
+            puts "\nMessage sent!\n".blue
+          else
+            puts "\nMessage not sent\n".red
+          end
+        end       
+      end
     end
-    puts "\nChoose your option:  \n1. List users\n2. List channels\n3. Select user\n4. Select channel"
-    puts "5. Details.\n6. Quit\n"
-    user_command = gets.chomp.downcase
   end
 
-  puts "Thank you for using the Ada Slack CLI"
+  puts "Thank you for using the Ada Slack CLI".blue
 end
 
 main if __FILE__ == $PROGRAM_NAME
