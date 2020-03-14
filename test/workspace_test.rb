@@ -54,21 +54,8 @@ describe "#show_details" do
     workspace = nil
     VCR.use_cassette("chanels.list") do
       workspace = SlackCLI::Workspace.new
-      channel = workspace.select_channel('random')
+      workspace.select_channel('random')
     end
     expect(workspace.show_details).must_be_instance_of String 
   end
 end
-
-describe "#send_message" do
-  it "returns true when message is sent" do
-    sending_message = nil
-    VCR.use_cassette("chat.postMessage") do
-      workspace = SlackCLI::Workspace.new
-      user = workspace.select_user('USLACKBOT')
-      sending_message = workspace.send_message('Test')
-    end
-    expect(sending_message).must_equal true 
-  end
-end
-

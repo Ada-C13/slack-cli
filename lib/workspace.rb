@@ -32,8 +32,6 @@ module SlackCLI
       return @selected.send_message(message)
     end
 
-    private
-
     def select(recipients, input)
       selected_array = recipients.select{|recipient| recipient.slack_id == input.upcase || recipient.name == input}
       if selected_array.empty?
