@@ -15,9 +15,9 @@ module SlackCLI
     end
 
     def details
-      details = "\nThe slack user with username #{self.name} and Slack ID #{self.slack_id} is named #{self.real_name}.\n"
+      details = "\nThe slack user with username #{self.name} and Slack ID #{self.slack_id} is named #{self.real_name}."
       unless self.status_text == '' || self.status_emoji == ''
-        details += "Their status is '#{self.status_text}' and their status emoji is #{self.status_emoji}.\n"
+        details += "Their status is '#{self.status_text}' and their status emoji is #{self.status_emoji}."
       end
       return details
     end
@@ -25,7 +25,7 @@ module SlackCLI
     def self.list_all
       response = self.get(BASE_URL, query: {token: ENV["SLACK_TOKEN"]})
       unless response["ok"]
-        raise Exception.new(response["error"])
+        raise SlackAPIError.new("Slack API call failed with reason: #{response['error']}")
       end
       users = []
       response["members"].each do |member|

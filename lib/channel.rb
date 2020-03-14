@@ -16,13 +16,13 @@ module SlackCLI
 
     def details
       details = "\nThe channel with name #{self.name.capitalize} and Slack ID #{self.slack_id} is described as '#{self.topic}'.\n"
-      details += "There are #{self.member_count} members in this channel.\n"
+      details += "There are #{self.member_count} members in this channel."
     end
 
     def self.list_all
       response = self.get(BASE_URL, query: {token: ENV["SLACK_TOKEN"]})
       unless response["ok"]
-        raise Exception.new(response["error"])
+        raise SlackAPIError.new("Slack API call failed with reason: #{response['error']}")
       end
       channels = []
       response["channels"].each do |channel|

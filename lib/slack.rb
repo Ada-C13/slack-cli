@@ -11,13 +11,13 @@ require_relative 'channel'
 Dotenv.load
 
 def main
-  puts "Welcome to the Ada Slack CLI!"
+  puts "\nWelcome to the Ada Slack CLI!".blue
   workspace = SlackCLI::Workspace.new
   user_command = nil
 
   until user_command == 'quit' || user_command == '7' || user_command == '7.'
-    puts "Please choose one of the options: \n1. List users\n2. List channels\n3. Select user\n4. Select channel"
-    puts "5. Details\n6. Send message\n7. Quit"
+    puts "\nPlease choose one of the options: \n1. List users\n2. List channels\n3. Select user\n4. Select channel"
+    puts "5. Details\n6. Send message\n7. Quit\n"
     user_command = gets.chomp.downcase  
     case user_command
     when 'list users', '1', '1.'
@@ -83,7 +83,7 @@ def main
     end
   end
 
-  puts "Thank you for using the Ada Slack CLI".blue
+  puts "\nThank you for using the Ada Slack CLI\n".blue
 end
 
 main if __FILE__ == $PROGRAM_NAME

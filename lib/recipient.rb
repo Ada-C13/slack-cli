@@ -3,14 +3,23 @@ require 'httparty'
 
 module SlackCLI
   class Recipient
-    attr_reader :slack_id, :name
 
     BASE_URL = "https://slack.com/api/"
-    
+    class SlackAPIError < StandardError; end
+
+    attr_reader :slack_id, :name
 
     def initialize(slack_id:, name:)
       @slack_id = slack_id
       @name = name
+    end
+
+    def self.get(url, params)
+      response = HTTParty.get(url, params)
+      unless response["ok"]
+        raise SlackAPIError.new("Slack API call failed with reason: #{response['error']}")
+      end
+      return response 
     end
 
     def send_message(message)
@@ -25,14 +34,6 @@ module SlackCLI
         }
       )
       return resp.code == 200 && resp.parsed_response["ok"]
-    end
-
-    def self.get(url, params)
-      response = HTTParty.get(url, params)
-      unless response["ok"]
-        raise Exception.new(response["error"])
-      end
-      return response 
     end
 
     def details
