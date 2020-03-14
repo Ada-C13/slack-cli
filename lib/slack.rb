@@ -61,7 +61,7 @@ def main
 				raise ArgumentError.new("No user or channel has been chosen to send a message.")
       end
       
-    elsif ["7", "quit", "q"].include?(choice)
+    elsif ["7", "quit", "exit", "q"].include?(choice)
       continue = false
 
     else
