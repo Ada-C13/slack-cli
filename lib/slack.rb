@@ -7,6 +7,7 @@ require_relative 'workspace'
 Dotenv.load
 
 def get_user_choice
+  puts "\n"
   puts "Welcome to the Ada Slack CLI!"
   print "Please select one of the options: 
   (1) list users
@@ -15,56 +16,35 @@ def get_user_choice
   \n Selection: "
 
 
-  action = gets.chomp
+  selection = gets.chomp
 
   puts ""
 
-  return action
+  return selection
 end
 
 def main
-  # main code layout inspired by instructor solar system implementation
+  # interface layout inspired by instructor solar system implementation
   program_running = true
 
-  
-
-  while (program_running)
+  while program_running
 
     user_choice = get_user_choice
 
     case user_choice.downcase
     when "list users", "1"
-      puts "list users not implemented yet"
-      #TODO list all users in Slack workspace
-      # has username, real name, and Slack ID
+      workspace = Workspace.new
+      tp workspace.users, "name", "real_name", "slack_id"
+      
     
     when "list channels", "2"
-      #TODO list all channels
-      # include channel name, topic, member count, and Slack ID
-      url = "https://slack.com/api/channels.list"
       workspace = Workspace.new
-    
-      query_parameters = {
-        token: ENV['SLACK_API_TOKEN']
-      }
-
-      response = HTTParty.get(url, query: query_parameters)
-
-           
-      # to do move this into recipient class
-      channels = response["channels"].map do |channel|
-        {:name => channel["name"],
-        :topic => channel["topic"]["value"],
-        :member_count => (channel["members"]).length,
-        :slack_id => channel["id"]}
-        # ["name"]
-      end
-      
-      tp channels
+      tp workspace.channels, "name", "topic", "member_count", "slack_id"
     
     when "quit", "3"
       program_running = false
-      puts "Thank you for using the Ada Slack CLI"
+      puts "Thank you for using the Ada Slack CLI!"
+      
     else
       puts "Invalid selection. Please provide a valid action."
     end
