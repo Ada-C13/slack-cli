@@ -2,28 +2,33 @@ require_relative "test_helper"
 
 describe "Workspace class" do 
 
-  # Question: I cannot use `before block` here?
-  # Because when I try to access @work_space inside of `VCR.use_cassette`, it gives me an error
-  # before do 
-  #   @workspace = Slack::Workspace.new()
-  # end 
-
-
   describe "#initialize" do
-    it "creates a `users` and `channels` array and return all their list" do 
+    it "creates a `users` array and returns users' list" do 
 
-      VCR.use_cassette("users-list-and-channels-list-endpoint") do 
-        users = Slack::Workspace.new().users
-        channels = Slack::Workspace.new().channels
+      VCR.use_cassette("users-list-endpoint") do 
+        users = Slack::Workspace.new.users
 
         expect(users).must_be_kind_of Array
-        expect(channels).must_be_kind_of Array
-
-        expect(users[0]).must_be_kind_of Slack::User 
-        expect(channels[0]).must_be_kind_of Slack::Channel
+        users.each do |user|
+          expect(user).must_be_kind_of Slack::User
+        end 
       end 
     end  
+
+    it "creates a `channels` array and return channels' list" do 
+
+      VCR.use_cassette("channels-list-endpoint") do 
+        channels = Slack::Workspace.new.channels
+
+        expect(channels).must_be_kind_of Array
+        channels.each do |channel|
+          expect(channel).must_be_kind_of Slack::Channel
+        end 
+        
+      end 
+    end 
   end 
+
 
   describe "#list_users & #list_channels" do 
     before do 
@@ -49,7 +54,7 @@ describe "Workspace class" do
       end 
     end 
 
-    it "returns a user as recipient if I supply a username" do 
+    it "selects a user as recipient if I supply a username" do 
       name = "slackbot" 
       user = @workspace.select_user(name)
 
@@ -57,7 +62,7 @@ describe "Workspace class" do
       expect(user.name).must_equal name
     end 
 
-    it "returns a user as recipient if I supply a slack_id" do 
+    it "selects a user as recipient if I supply a slack_id" do 
       id = "USLACKBOT" 
       user = @workspace.select_user(id)
 
@@ -65,18 +70,13 @@ describe "Workspace class" do
       expect(user.slack_id).must_equal id
     end 
 
-    it "returns a user as recipient if I supply a real_name" do 
+    it "selects user as recipient if I supply a real_name" do 
       real_name = "Slackbot" 
       user = @workspace.select_user(real_name)
 
       expect(user).must_be_kind_of Slack::User
       expect(user.real_name).must_equal real_name
     end 
-
-    # it "raises an ArgumentError if no user found" do 
-    #   name = "elephant"
-    #   expect{@workspace.select_user(name)}.must_raise ArgumentError
-    # end 
   end 
 
 
@@ -87,7 +87,7 @@ describe "Workspace class" do
       end 
     end 
 
-    it "returns a channel as recipient if I supply a channel name" do 
+    it "selects a channel as recipient if I supply a channel name" do 
       name = "random"
       channel = @workspace.select_channel(name)
 
@@ -95,18 +95,13 @@ describe "Workspace class" do
       expect(channel.name).must_equal name
     end 
 
-    it "returns a channel as recipient if I supply a slack_id" do 
+    it "selects a channel as recipient if I supply a slack_id" do 
       id = "CV86T0TPY"
       channel = @workspace.select_channel(id)
 
       expect(channel).must_be_kind_of Slack::Channel
       expect(channel.slack_id).must_equal id
     end 
-
-    # it "raises an ArgumentError if no channel found" do 
-    #   name = "my fur baby"
-    #   expect{@workspace.select_channel(name)}.must_raise ArgumentError
-    # end 
   end 
 
 
@@ -124,6 +119,49 @@ describe "Workspace class" do
       @workspace.select_user(id)
 
       expect(@workspace.show_details).must_be_kind_of TablePrint::Returnable
+    end 
+
+
+    it "returns the selected channel details" do
+      name = "hannah-j-test" 
+
+      @workspace.select_channel(name)
+
+      expect(@workspace.show_details).must_be_instance_of TablePrint::Returnable
+    end 
+
+    it "returns nil if no user or channel chosen" do 
+      expect(@workspace.show_details).must_be_nil
+    end 
+  end 
+
+
+  describe "#send_message" do 
+    it "sends a message to a selected user" do  
+      VCR.use_cassette("users-list-endpoint") do 
+        workspace = Slack::Workspace.new()
+        id = "USLACKBOT"
+        workspace.select_user(id)
+
+        expect(workspace.send_message("Hey!! I'm from test file!!")).must_equal true
+      end  
+    end 
+
+    it "sends a message to a selected channel" do 
+      VCR.use_cassette("channels-list-endpoint") do 
+        workspace = Slack::Workspace.new()
+        name = "hannah-j-test"
+        workspace.select_channel(name)
+
+        expect(workspace.send_message("Hey!! I'm from test file")).must_equal true
+      end    
+    end 
+
+    it "returns nil if there is no user or channel chosen" do 
+      VCR.use_cassette("users-list-and-channels-list-endpoint") do
+        workspace = Slack::Workspace.new()
+        expect(workspace.send_message("Good afternoon")).must_be_nil
+      end 
     end 
   end 
 end 

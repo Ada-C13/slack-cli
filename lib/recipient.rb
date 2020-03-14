@@ -35,8 +35,8 @@ module Slack
       )
 
       unless response.code == 200 && response.parsed_response["ok"]
-        raise SlackApiError, "Error when posting #{text} to #{selected.name}, error: #{response.parsed_response["error"]}"
-      end  
+        raise SlackApiError, "There is an error when posting #{text} to #{name}, error: #{response.parsed_response["error"]}"
+      end 
 
       return true  
     end 
@@ -53,7 +53,7 @@ module Slack
       })
 
       # TO DO
-      if response["ok"] == false || response.code != 200
+      unless response.code == 200 && response.parsed_response["ok"]
         raise SlackApiError, "We failed to get information from API"
       end 
 

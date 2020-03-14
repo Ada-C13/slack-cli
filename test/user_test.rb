@@ -1,8 +1,22 @@
 require_relative "test_helper"
 
 describe "User class" do
-  # describe "#initialize" do 
-  # end 
+  describe "#initialize" do 
+    it "responds to real_name, status_text and status_emoji" do 
+      VCR.use_cassette("users-list-endpoint") do 
+
+        profile = {
+          :slack_id => "USLACKBOT",
+          :name => "slackbot" 
+        }
+
+
+        expect(Slack::User.new(profile)).must_respond_to :real_name   
+        expect(Slack::User.new(profile)).must_respond_to :status_text
+        expect(Slack::User.new(profile)).must_respond_to :status_emoji
+      end 
+    end 
+  end 
 
   describe "self.get" do 
     it "returns a response of users list from API" do
@@ -16,7 +30,7 @@ describe "User class" do
       end  
     end  
     
-    it "raises SlackApiError when given a bogus URL" do 
+    it "raises SlackApiError when given a bogus token" do 
       VCR.use_cassette("users-list-endpoint") do 
         url = "https://slack.com/api/users.list"
         token = "bogussdfkljdsf123"
@@ -44,7 +58,7 @@ describe "User class" do
 
     it "raises SlackApiError when given a bogus user name" do
       VCR.use_cassette("users-list-endpoint") do
-        user = Slack::User.new(slack_id: "123456", name: "test-user")
+        user = Slack::User.new(slack_id: "123456", name: "goblin")
 
         expect{user.send_message("Hungry", user)}.must_raise SlackApiError
       end 
@@ -55,6 +69,7 @@ describe "User class" do
   describe "#details" do
     it "returns the user details" do 
       VCR.use_cassette("users-list-endpoint") do 
+        
         slack_id = "USLACKBOT"
         name = "slackbot"
         real_name = "Slack bot"

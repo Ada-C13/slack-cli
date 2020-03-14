@@ -1,8 +1,21 @@
 require_relative "test_helper"
 
 describe "Channel class" do 
-  # describe "#initialize" do 
-  # end 
+  describe "#initialize" do 
+    it "responds to topic and member_count" do 
+      VCR.use_cassette("channels-list-endpoint") do 
+
+        profile = {
+          :slack_id => "1234567",
+          :name => "random" 
+        }
+
+
+        expect(Slack::Channel.new(profile)).must_respond_to :topic   
+        expect(Slack::Channel.new(profile)).must_respond_to :member_count
+      end 
+    end 
+  end 
 
   describe "self.get" do 
     it "returns a response of channels list from API" do 
@@ -32,7 +45,7 @@ describe "Channel class" do
 
     it "raises SlackApiError when given a bogus channel name" do
       VCR.use_cassette("channels-list-endpoint") do
-        channel = Slack::Channel.new(slack_id: "123456", name: "test-channel")
+        channel = Slack::Channel.new(slack_id: "123456", name: "goblin-channel")
 
         expect{channel.send_message("Hungry", channel)}.must_raise SlackApiError
       end 
