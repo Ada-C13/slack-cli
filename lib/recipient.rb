@@ -5,6 +5,8 @@ Dotenv.load
 
 module Slack 
 
+  USER_URL = "https://slack.com/api/users.list"
+  CHANNEL_URL = "https://slack.com/api/channels.list"
   MESSAGE_URL = "https://slack.com/api/chat.postMessage"
   SLACK_TOKEN = ENV["SLACK_TOKEN"]
 
@@ -16,6 +18,7 @@ module Slack
       @slack_id = slack_id 
       @name = name 
     end 
+
 
     def send_message(text, selected)
       response = HTTParty.post(
@@ -31,9 +34,8 @@ module Slack
         }
       )
 
-
       unless response.code == 200 && response.parsed_response["ok"]
-        raise SlackApiError, "Error when posting #{text} to #{@name}, error: #{response.parsed_response["error"]}"
+        raise SlackApiError, "Error when posting #{text} to #{selected.name}, error: #{response.parsed_response["error"]}"
       end  
 
       return true  
@@ -44,9 +46,12 @@ module Slack
     end 
 
 
-    def self.get(url, params)
-      response = HTTParty.get(url, query: params)
+    def self.get(url)
+      response = HTTParty.get(url, query: {
+        token: SLACK_TOKEN
+      })
 
+      # TO DO
       if response["ok"] == false 
         raise SlackApiError, "We failed to get information from API"
       end 

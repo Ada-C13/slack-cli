@@ -26,7 +26,7 @@ module Slack
     end 
 
     def select_user(user_input) 
-      @selected = @users.find { |user| (user.name == user_input) || (user.slack_id == user_input) || () || (user.real_name == user_input)}
+      @selected = @users.find { |user| (user.name == user_input) || (user.slack_id == user_input) || (user.real_name == user_input)}
 
       return @selected
     end 
