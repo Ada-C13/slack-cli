@@ -1,6 +1,7 @@
 require "httparty"
 require "dotenv"
 require 'json'
+require_relative "recipient"
 
 Dotenv.load
 
@@ -10,28 +11,23 @@ class Channel < Recipient
   attr_reader :topic, :memeber_count
   
   def initialize(topic:, memeber_count:, name:, slack_id:)
+    super(slack_id: slack_id, name: name)
     @topic = topic
     @memeber_count = memeber_count
   end
 
-=begin
   def self.list_all
-    data = User.get("https://slack.com/api/users.list")
-    index = 0
+    data = Channel.get("https://slack.com/api/conversations.list")
 
-   users = []
+    channels = []
 
-    data["members"].each do |user|
-      users << User.new(
-        name: user["name"],
-        slack_id: user["id"],
-        real_name: user["real_name"],
-        status_text: user["profile"]["status_text"],
-        status_emoji: user["profile"]["status_emoji"])
+    data["channels"].each do |channel|
+      channels << Channel.new(
+        name: channel["name"],
+        slack_id: channel["id"],
+        topic: channel["topic"]["value"],
+        memeber_count: channel["num_members"])
     end
-    return users
+    return channels
   end
-=end 
-  end
-
 end

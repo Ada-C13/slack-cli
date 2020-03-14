@@ -34,32 +34,4 @@ class Workspace
   def send_message
   end
 
-=begin
-  def create_users
-    query = {
-      token: API_KEY
-    }
-    puts API_KEY
-    resp = HTTParty.get(USER_URL, query: query)
-    index = 0
-    resp.parsed_response["members"].each do |user|
-      @users[index] = User.new(user["profile"]["real_name"], user["profile"]["status_text"], user["profile"]["status_emoji"])
-      index += 1
-    end
-  end
-
-  def create_channels
-    query = {
-      token: API_KEY
-    }
-    puts API_KEY
-    resp = HTTParty.get(CHANNEL_URL, query: query)
-    index = 0
-    resp.parsed_response["channels"].each do |channel|
-      @channels[index] = User.new(channel["name"], channel["topic"]["value"], channel["num_members"])
-      index += 1
-    end
-  end
-=end
-
 end
