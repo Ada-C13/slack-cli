@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require_relative 'workspace'
+require 'table_print'
 
 
 def display_options
@@ -19,10 +20,14 @@ def pretty_line
   puts "*****************************************************************************"
 end
 
+def display_intro
+  puts "\u{1F49B}\u{2764}\u{1F49A}\u{1F499}  Welcome to the Ada Slack CLI  \u{1F499}\u{1F49A}\u{2764}\u{1F49B}"
+end
+
 
 def main
   pretty_line
-  puts "\u{1F49B}\u{2764}\u{1F49A}\u{1F499}  Welcome to the Ada Slack CLI  \u{1F499}\u{1F49A}\u{2764}\u{1F49B}"
+  display_intro
   
   begin
     workspace = SlackCLI::Workspace.new
@@ -44,14 +49,12 @@ def main
       when "2", "list channels"
         tp workspace.channels, :slack_id, :name, :topic, :member_count
       when "3", "select user"
-        # user_input = get_id_name("user")
         begin
           chosen = workspace.select_user
         rescue ArgumentError => exception
           puts "Oops! Encountered an error: #{exception}"
         end
       when "4", "select channel"
-        # user_input = get_id_name("channel")
         begin
           chosen = workspace.select_channel
         rescue ArgumentError => exception
