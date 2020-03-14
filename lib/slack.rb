@@ -5,15 +5,16 @@ require_relative "workspace"
 def main
   puts "Welcome to the Ada Slack CLI!"
   workspace = Workspace.new
+  puts "Your workspace has #{workspace.channels.length} channels and #{workspace.users.length} users."
 
   i = -1
   while i < 0
-    # puts "Your workspace has #{num_channels} channels and #{num_users} users."
-    puts "--------------------"
-    puts "What would you like to do? 'list channels', 'list users', or 'quit'"
+    puts "----------"
+    puts
+    puts "What would you like to do? ('list channels', 'list users', or 'quit')"
     answer = gets.chomp.downcase
     if answer == "list channels"
-      tp workspace.channels
+      tp workspace.channels, "slack_id", "name", "member_count", "topic"
     elsif answer == "list users"
       tp workspace.users, "slack_id", "name", "real_name", "status_text", "status_emoji"
     elsif answer == "quit"
