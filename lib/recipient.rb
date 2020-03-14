@@ -2,6 +2,7 @@ require 'httparty'
 require "dotenv"
 
 Dotenv.load 
+
 module SlackApp
   class Recipient
     
@@ -14,10 +15,18 @@ module SlackApp
     end 
     
     def send_message(message)
+      # response = HTTParty.post("https://slack.com/api", {
+      #   headers: {'Content-Type' => 'Application/Json'},
+      #   body: {
+      #     token: API_KEY,
+      #     channel: 
+      #     text: message 
+      #   }
+
+      # })
     end 
     
     def self.get(url)
-      puts "API KEY: #{API_KEY}"
       response = HTTParty.get(url, query: {token: API_KEY})
       
       if response.code != 200 || response["ok"] == false
