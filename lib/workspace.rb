@@ -22,30 +22,27 @@ class Workspace
     @selected = nil
   end
 
-  # instance method to set and return the current workspace's selected instance variable
-  def select
-    puts "Enter the slack id or name:"
-    user_selected = gets.chomp
-    self.selected = user_selected
-    return @selected
-  end
-
   # method to validate that selected matches a valid channel or user
-  def validate_selected(selected)
-    # loop through all channels
-      # if match is found, return true
+  def validate_selected(user_selected)
+    if user_selected.class != String || user_selected.class == NilClass
+      raise ArgumentError, "Provided input is not a string" 
+    end
+
     self.channels.each do |channel|
-      return true if selected == channel["slack_id"] || selected == channel["name"]
+      return true if user_selected == channel.slack_id || user_selected == channel.name
     end
 
-    # loop through all users
-      # if match is found, return true
     self.users.each do |user|
-      return true if selected == user["slack_id"] || selected == user["name"]
+      return true if user_selected == user.slack_id || user_selected == user.name
     end
 
-    # if no matches found, return false
     return false
   end 
+
+  # instance method to set and return the current workspace's selected instance variable
+  def update_select(selected)
+    self.selected = selected
+    return @selected
+  end
   
 end
