@@ -1,20 +1,18 @@
 require_relative "channel"
 require_relative "user"
-require_relative "recipiant"
-require 'httparty'
-require 'dotenv'
 
 Dotenv.load
 
 BASE_URL = "https://slack.com/api/conversations.list"
 
+
 class WorkSpace
-  attr_reader :users, :channels
+  attr_reader :users, :channels, :selected
   
   def initialize
     @users = []
     @channels = []
-  
+    @selected = nil
   end
 
   # def select_channels
@@ -24,6 +22,8 @@ class WorkSpace
   # end
 
   # def show_details
+  #   puts "I should see information about how many channels and users were loaded"
+  #   input = gets.chomp.downcase
   # end
 
   # def send_message

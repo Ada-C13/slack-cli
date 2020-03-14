@@ -16,7 +16,7 @@ Dotenv.load
 
 require_relative "../lib/channel"
 require_relative "../lib/user"
-require_relative "../lib/recipiant"
+require_relative "../lib/recipient"
 require_relative "../lib/slack"
 
 
@@ -39,4 +39,8 @@ VCR.configure do |config|
   config.filter_sensitive_data("<LOCATIONIQ_TOKEN>") do
     ENV["SLACK_TOKEN"]
   end
+
+  # config.filter_sensitive_data("<LOCATIONIQ_BOT_TOKEN>") do
+  #   ENV["BOT_TOKEN"]
+  # end
 end
