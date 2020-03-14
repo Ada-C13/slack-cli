@@ -34,6 +34,12 @@ describe "Workspace class" do
       expect(@workspace.select_channel(id).slack_id).must_equal id
       expect(@workspace.select_channel("afasdf")).must_equal "Channel not found!"
     end
+
+    it "updates the selected instance variable" do
+      name = "general"
+      @workspace.select_channel(name)
+      expect(@workspace.selected.name).must_equal name
+    end
   end
 
   describe "select_users" do
@@ -45,6 +51,12 @@ describe "Workspace class" do
       expect(selected_user.name).must_equal user
       expect(@workspace.select_user(id).slack_id).must_equal id
       expect(@workspace.select_user("afasdf")).must_equal "User not found!"
+    end
+
+    it "updates the selected instance variable" do
+      user = "slackbot"
+      @workspace.select_user(user)
+      expect(@workspace.selected.name).must_equal user
     end
   end
 end
