@@ -14,8 +14,9 @@ class User < Recipient
     @status_emoji = status_emoji
   end
 
-  # def details
-  # end
+  def details
+    tp self, "slack_id", "name", "real_name"
+  end
 
   def self.list_all
     response = User.get("https://slack.com/api/users.list")
