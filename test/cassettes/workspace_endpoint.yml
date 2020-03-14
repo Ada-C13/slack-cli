@@ -323,4 +323,157 @@ http_interactions:
         this is a test message","user":"UUTJ4SJ74","ts":"1583975775.004300","team":"TV6AN59D3","bot_profile":{"id":"BUUTK5P1R","deleted":false,"name":"coapp","updated":1583876936,"app_id":"AV872DJF9","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TV6AN59D3"}}}'
     http_version: null
   recorded_at: Thu, 12 Mar 2020 01:16:15 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.history?channel=USLACKBOT&limit=5&token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '60'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Mar 2020 06:31:24 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 4d03041bef01f2811c7516770b362c9d
+      X-Oauth-Scopes:
+      - users:read,channels:read,chat:write,chat:write.customize,chat:write.public,im:history,channels:history,mpim:history,groups:history
+      X-Accepted-Oauth-Scopes:
+      - channels:history,groups:history,mpim:history,im:history,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-nn9q
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 4c48e9fb20d53d40e9fe273dbdae1099.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - ziZ5WAfd_x4Uq-UfoZWSHN7mMJ8oYCDFngwwqhL0zp4ba8_Rbo5MHw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"channel_not_found"}'
+    http_version: null
+  recorded_at: Sat, 14 Mar 2020 06:31:24 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.history?channel=CV5S4LJPN&limit=5&token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '608'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Mar 2020 06:33:17 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 775721e8194fcd50b7bd0931bffc38ba
+      X-Oauth-Scopes:
+      - users:read,channels:read,chat:write,chat:write.customize,chat:write.public,im:history,channels:history,mpim:history,groups:history
+      X-Accepted-Oauth-Scopes:
+      - channels:history,groups:history,mpim:history,im:history,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-s23t
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 98aedae6661e3904540676966998ed89.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - m4nU-7PtbNd7nOSZNObCnvBiTHsfrIkJFkyT5I1QtjaxbhUR_uFskQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"messages":[{"type":"message","subtype":"channel_join","ts":"1584155533.000300","user":"UUTRYS550","text":"<@UUTRYS550>
+        has joined the channel","inviter":"UV6AV2NRW"},{"bot_id":"BUUTK5P1R","type":"message","text":"Lunch
+        greetings from Postman","user":"UUTJ4SJ74","ts":"1584144909.000100","team":"TV6AN59D3","bot_profile":{"id":"BUUTK5P1R","deleted":false,"name":"coapp","updated":1583876936,"app_id":"AV872DJF9","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TV6AN59D3"}},{"type":"message","subtype":"channel_join","ts":"1584062865.000400","user":"UV6B4M5LM","text":"<@UV6B4M5LM>
+        has joined the channel","inviter":"UUW7LV8TB"},{"bot_id":"BUUTK5P1R","type":"message","text":"more
+        love &lt;3","user":"UUTJ4SJ74","ts":"1584052305.000200","team":"TV6AN59D3","bot_profile":{"id":"BUUTK5P1R","deleted":false,"name":"coapp","updated":1583876936,"app_id":"AV872DJF9","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TV6AN59D3"}},{"bot_id":"BUY8R1AFK","type":"message","text":"Love
+        from slack","user":"UUW7LV8TB","ts":"1584050240.000100","team":"TV6AN59D3","bot_profile":{"id":"BUY8R1AFK","deleted":false,"name":"habenUp","updated":1583952259,"app_id":"AV5SEU92Q","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TV6AN59D3"}}],"has_more":true,"pin_count":0,"channel_actions_ts":null,"channel_actions_count":0,"response_metadata":{"next_cursor":"bmV4dF90czoxNTgzOTg4MDI0MDA0NzAw"}}'
+    http_version: null
+  recorded_at: Sat, 14 Mar 2020 06:33:17 GMT
 recorded_with: VCR 5.1.0

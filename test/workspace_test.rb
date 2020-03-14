@@ -82,6 +82,25 @@ describe "workspace" do
     end
   end
 
+  describe "#show_history" do
+    it "can show the conversations history of the selected recipient" do
+      VCR.use_cassette("workspace_endpoint") do
+        test_space = SlackCLI::Workspace.new
+        user01 = test_space.find_recipient("general")
+        test_space.assign_selected(user01)
+        response = test_space.show_history
+        expect(response).must_equal true
+      end
+    end
+
+    it "will raise an ArgumentError when there is no selected recipient" do
+      VCR.use_cassette("workspace_endpoint") do
+        test_space = SlackCLI::Workspace.new
+        expect{test_space.show_history}.must_raise ArgumentError
+      end
+    end
+  end
+
   describe "#assign_selected" do
     it "can assign a recipient instance to @selected" do
       VCR.use_cassette("workspace_endpoint") do

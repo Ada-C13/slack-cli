@@ -11,6 +11,7 @@ def display_options
   puts "4. select channel"
   puts "5. details"
   puts "6. send message"
+  puts "7. message history"
   puts "0. quit"
   puts "\n"
 end
@@ -75,6 +76,16 @@ def main
           begin
             workspace.send_message
           rescue StandardError => exception
+            puts "Oops! Encountered an error: #{exception}"
+          end
+        else
+          puts "There is no recipient selected. Please select a user or channel first."
+        end
+      when "7", "message history"
+        if workspace.selected != nil
+          begin
+            workspace.show_history
+          rescue Exception => exception
             puts "Oops! Encountered an error: #{exception}"
           end
         else

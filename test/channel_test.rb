@@ -4,7 +4,6 @@ require_relative '../lib/channel'
 
 describe "channel" do
   CHANNELS_URI = "https://slack.com/api/conversations.list"
-  SLACK_TOKEN = ENV["SLACK_TOKEN"]
 
   describe "self.get" do
     it "receives response from the API call" do

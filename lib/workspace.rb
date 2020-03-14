@@ -39,6 +39,12 @@ module SlackCLI
       return true
     end
 
+    def show_history
+      raise ArgumentError, "There is not yet a selected recipient" if @selected == nil
+      @selected.get_message_history
+      return true
+    end
+
     def find_recipient(id_name)
       channel_found = @channels.find{|channel|channel.slack_id == id_name || channel.name == id_name }
       user_found = @users.find{|user|user.slack_id == id_name || user.name == id_name}
