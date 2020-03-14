@@ -9,8 +9,8 @@ require "minitest/reporters"
 require "minitest/skip_dsl"
 require "vcr"
 # Do I keep this?
-require "dotenv"
-Dotenv.load
+# require "dotenv"
+# Dotenv.load
 
 require_relative "../lib/slack.rb"
 

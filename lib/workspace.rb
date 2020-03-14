@@ -1,13 +1,13 @@
-# initialize should not take in any parameters
-# Set @users and @channels to empty array. Eventually, these should be refactored so that they are arrays of users or arrays of channels
+require_relative 'user'
+require_relative 'channel'
 
 module Slack
   class Workspace
     attr_reader :users, :channels, :selected
 
     def initialize
-      @users = []
-      @channels = []
+      @users = User.list
+      @channels = Channel.list
       @selected = nil
     end
 

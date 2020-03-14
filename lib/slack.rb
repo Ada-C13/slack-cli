@@ -3,7 +3,6 @@ require "dotenv"
 require "table_print"
 
 require_relative "workspace"
-# require_relative "recipient" # do I need this?
 require_relative "user"
 require_relative "channel"
 
@@ -17,36 +16,12 @@ def main
   # TODO project
   # case loop for options, inside until loop to quit
   # three options:
-    # list users
-    # list channels
-    # quit
+  # list users
+  # list channels
+  # quit
 
   puts "Thank you for using the Ada Slack CLI"
 end
-
-# BASE_URL = ""
-# KEY = ENV["SLACK_TOKEN"]
-
-#### WAVE 0 TEST: Use HTTParty to send a GET request to the channels.list endpoint:
-# BASE_URL = "https://slack.com/api/"
-# GET_URL = "#{BASE_URL}conversations.list" # Returns a list of limited channel objects
-
-# def get_request
-#   response = HTTParty.get(
-#     GET_URL, {
-#       headers: { "Content-Type" => "application/x-www-form-urlencoded",
-#         "charset" => "utf-8" },
-#       query: {
-#         token: KEY,
-#         exclude_members: true #Exclude the members collection from each channel
-#       },
-#     }
-#   )
-#   return response.body
-#   # return response.code == 200 && response.parsed_response["ok"]
-# end
-# puts get_request
-### END OF WAVE 0 TEST
 
 # Ruby uses __FILE__ to hold the current source file name. A prepended $ on a variable's name indicates a global variable.
 main if __FILE__ == $PROGRAM_NAME

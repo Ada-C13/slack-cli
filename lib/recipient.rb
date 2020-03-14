@@ -1,5 +1,3 @@
-require "httparty" # do I need this here?
-
 module Slack
   class Recipient
     attr_reader :slack_id, :name
@@ -21,6 +19,7 @@ module Slack
     end
 
     def self.list
+        # How do I test this?
         raise NotImplementedError, "Define this method in a child class"
     end
 
