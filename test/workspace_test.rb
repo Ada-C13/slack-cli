@@ -32,6 +32,13 @@ describe "Workspace" do
       expect(@workspace.selected).must_be_kind_of Channel
       expect(@workspace.selected.name).must_equal "CV5KNMDKN"
     end
+
+    it "sets @selected to empty if no match is found" do
+      @workspace.select_channel("CV5KNMDKN")
+      @workspace.select_channel("abcdef")
+      
+      expect(@workspace.selected).must_equal ""
+    end
   end
   
   describe "select_user" do
@@ -47,6 +54,13 @@ describe "Workspace" do
       
       expect(@workspace.selected).must_be_kind_of User
       expect(@workspace.selected.name).must_equal "slackbot"
+    end
+
+    it "sets @selected to empty if no match is found" do
+      @workspace.select_user("slackbot")
+      @workspace.select_user("abcdef")
+      
+      expect(@workspace.selected).must_equal ""
     end
 
   end

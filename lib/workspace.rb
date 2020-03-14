@@ -15,6 +15,9 @@ class Workspace
     @channels.each do |channel|
       if channel.slack_id.upcase == input.upcase || channel.name.upcase == input.upcase
         @selected = channel
+        break
+      else 
+        @selected = ""
       end
     end
   end
@@ -23,6 +26,9 @@ class Workspace
     @users.each do |user|
       if user.slack_id.upcase == input.upcase || user.name.upcase == input.upcase
         @selected = user
+        break
+      else 
+        @selected = ""
       end
     end
   end
