@@ -34,6 +34,7 @@ class Workspace
   end
 
   def show_details
+    return nil if @selected == ""
     return @selected.details
   end
 

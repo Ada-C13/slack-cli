@@ -66,6 +66,15 @@ describe "Workspace" do
   end
 
   describe "show_details" do
-    
+    it "returns details for selected user or channel" do
+      @workspace.selected = @workspace.users[0]
+      selected = @workspace.show_details
+      expect(selected).must_be_kind_of TablePrint::Returnable
+    end
+
+    it "returns nil if @selected is empty" do
+      @workspace.selected = ""
+      expect(@workspace.show_details).must_equal nil
+    end
   end
 end
