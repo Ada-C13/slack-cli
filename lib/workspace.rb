@@ -1,5 +1,5 @@
-require 'httparty'
-
+require_relative "user"
+require_relative "channel"
 module SlackApp
   class Workspace
     
@@ -7,14 +7,20 @@ module SlackApp
     attr_writer :selected 
     
     def initialize
-      @users = nil #initalize_users()
-      @channels = initalize_channels()
-      @selected = nil #selected will hold the id or name of a channel or user, that way i can give the details about it 
+      @users = User.list_all
+      @channels = Channel.list_all
+      @selected = nil 
       
     end
     
-    def select_channel 
-      
+    def select_channel(choice)
+      find_choice = @channels.find { |c| c.name == choice || c.slack_id == choice }
+      @selected = find_choice
+      if @selected != nil 
+        return "#{selected.name} has been selected" 
+      else 
+        return "Sorry, I couldn't find that channel."
+      end   
     end 
     
     def select_user 
@@ -30,21 +36,7 @@ module SlackApp
     def send_message 
     end 
     
-    # def initalize_users
-    #   response = SlackApp::Recipient.get("users.list")
-    #   result = []
-    #   response["users"]
-    
-    # end 
-    def initalize_channels 
-      response = 
-      response = SlackApi.get_channels();
-      response["channels"].each do |channel|
-        @channels << SlackApp::Channel.new(channel["id"], channel["name"], channel["topic"]["value"], channel["num_members"])
-      end
-      puts response
-      return @channels
-    end
+
     
   end 
 end 

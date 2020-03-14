@@ -1,45 +1,48 @@
 # #!/usr/bin/env ruby
-# require 'table_print'
+require "dotenv"
+require "httparty"
+require "table_print"
 
+require_relative "workspace"
 
+Dotenv.load 
 
-# def list_options 
-#   puts "Choose an option: "
-#   puts "1 - list of users"
-#   puts "2 - list of channels"
-#   puts "3 - select user"
-#   puts "4 - select channel"
-#   puts "or enter quit"
-# end 
+ def main
+  workspace = SlackApp::Workspace.new
+  puts "Welcome to the Ada Slack CLI! We have #{workspace.users.size} and #{workspace.channels.size}"
 
-# def main
-#   puts "Welcome to the Ada Slack CLI!"
-#   workspace = SlackApp::Workspace.new
+  puts "Please choose an option: list users, list channels, select user, select channel, details, send message, or quit:"
+  user_input = gets.chomp.downcase 
 
-#   # TODO project
-   
-#   list_options()
+  until user_input == "quit"
 
+  case user_input
+  when "list users"
+    workspace.users 
 
-#   get_option = gets.chomp.downcase
-#   until  ["1", "2", "3", "4", "quit"].include?(get_option)
-#     puts "Please enter a valid option:"
-#     get_option = gets.chomp.downcase 
-#   end 
+  when "list channels"
+    workspace.channels
 
-#   case recipient
-#     when "1"
-#       workspace.users #will give them a list of users 
-#     when "2"
-#       workspace.channels #will give them a list of users 
-#     when "3"
-#       puts "Enter the user slack id or user name"
-#       user_id_name = gets.chomp.downcase 
-      
-#     when "4"
-#       puts
+  when "select user"
+    print "Please enter the user name or ID: "
+    puts workspace.select_user(gets.chomp)
 
-#   puts "Thank you for using the Ada Slack CLI"
-# end
+  when "select channel"
+    print "Please enter the channel name or ID: "
+    puts workspace.select_channel(gets.chomp)
 
-# main if __FILE__ == $PROGRAM_NAME
+  when "details"
+    if workspace.selected == nil
+      puts "Please select a user or channel."
+    else
+      workspace.show_details
+      #user_input = nil
+    end 
+  end 
+    user_input = gets.chomp.downcase 
+  
+
+  puts "Thank you for using the Ada Slack CLI"
+end
+
+main if __FILE__ == $PROGRAM_NAME

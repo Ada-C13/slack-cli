@@ -1,5 +1,3 @@
-require 'dotenv'
-Dotenv.load 
 
 require 'simplecov'
 SimpleCov.start do
@@ -15,6 +13,11 @@ require 'vcr'
 
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
+
+VCR.configure do |config|
+  config.cassette_library_dir = "test/cassettes"
+  config.hook_into :webmock
+end
 
 VCR.configure do |config|
   config.cassette_library_dir = "test/cassettes" # folder where casettes will be located
