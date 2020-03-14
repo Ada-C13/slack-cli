@@ -24,7 +24,7 @@ describe "User Class" do
   describe "Return an error" do
     it "Returns error if incorrect querty given" do
       VCR.use_cassette("bogus") do
-        expect{User.list_users.must_raise SlackAPI::SlackAPIError}
+        expect { User.list_users.must_raise SlackAPI::SlackAPIError }
       end
     end
   end

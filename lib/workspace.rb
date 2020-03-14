@@ -15,15 +15,15 @@ class Workspace
     @channels = Channel.list_channels
     @selected = []
   end
-end
 
-# def list_channels
-#   url = "https://slack.com/api/channels.list?token=#{SLACK_TOKEN}&pretty=1"
-#   response = HTTParty.get(url)
-#   channels_list = []
-#   # looking for channels in response
-#   response["channels"].each do |channel|
-#     channels_list << channel["name"]
-#   end
-#   return channels_list
-# end
+  def list_channels
+    url = "https://slack.com/api/channels.list?token=#{SLACK_TOKEN}&pretty=1"
+    response = HTTParty.get(url)
+    channels_list = []
+    # looking for channels in response
+    response["channels"].each do |channel|
+      channels_list << channel["name"]
+    end
+    return channels_list
+  end
+end
