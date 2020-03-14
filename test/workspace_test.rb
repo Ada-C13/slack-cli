@@ -1,7 +1,7 @@
 require_relative "test_helper"
-
 require 'httparty'
 
+selected_recipient = nil
 
 describe "getting number of channels" do
 

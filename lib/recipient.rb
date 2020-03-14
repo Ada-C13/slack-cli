@@ -1,10 +1,8 @@
-# module Slack 
+#module Slack 
   class Recipient
     attr_accessor :user_name, :user_id, :channel_name, :channel_id
 
-    selected_recipient = "n/a"
-    
-
+   
     def initialize(user_name = nil, user_id = nil, channel_name = nil, channel_id = nil )
       @user_name = user_name
       @user_id = user_id
@@ -16,10 +14,8 @@
       recipient = Recipient.new
       if type == "user"
         recipient.user_name = name
-        selected_recipient = recipient
       elsif type == "channel"
         recipient.channel_name = name 
-        selected_recipient = recipient
       end
       return recipient
     end
@@ -28,14 +24,24 @@
       recipient = Recipient.new
       if type == "user"
         recipient.user_id = id
-        selected_recipient = recipient
       elsif type == "channel"
         recipient.channel_id = id
-        selected_recipient = recipient
       end
       return recipient
     end
 
+  
+
+    # def self.get(url) #From Devins live code
+    #   data = HTTParty.get(url,query{tokem: EVN['SLACK_TOKEN']})
+    #   if data.code != 200 ||data["ok"] == false
+    #     raise SlackAPIError, "We encountered a problem #{data["error"]}"
+    #   end
+    #   return data
+    # end
+
+    # class SlackAPIError < Exception  #from Devins live sode
+    # end
 
     # def self.details(recipient)
       
@@ -83,5 +89,8 @@
     #     end
     #   end
     # end
+
+    class SlackAPIError < Exception
+    end
   end
-# end
+#end
