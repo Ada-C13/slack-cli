@@ -9,8 +9,10 @@ module SlackCli
     
     def initialize()
       Dotenv.load(__dir__ + "/" + "../.env") #https://github.com/bkeepers/dotenv
-      @users = SlackCli::User.load_all("#{ENV['BASE_URL'] + ENV['SUB_USER_URL'] + "token=#{ENV['SLACK_TOKEN']}"}")        
-      @channels = SlackCli::Channel.load_all("#{ENV['BASE_URL'] + ENV['SUB_CHANNEL_URL'] + "token=#{ENV['SLACK_TOKEN']}"}")
+      url = ENV['BASE_URL'] + ENV['SUB_USER_URL'] + "token=" + ENV['SLACK_TOKEN']
+      @users = SlackCli::User.load_all(url)        
+      url = ENV['BASE_URL'] + ENV['SUB_CHANNEL_URL'] + "token=" + ENV['SLACK_TOKEN']
+      @channels = SlackCli::Channel.load_all(url)
       @selected = nil
     end #initialize
 
