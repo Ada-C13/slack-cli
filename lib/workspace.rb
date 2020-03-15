@@ -3,8 +3,8 @@ require 'dotenv'
 require 'httparty'
 
 require_relative 'recipient'
-require_relative 'user'
-require_relative 'channel'
+# require_relative 'user'
+# require_relative 'channel'
 
 # @TODO: Load environment objects and key in an actual method
 Dotenv.load
@@ -61,6 +61,18 @@ class Workspace
   end
 
 
+
+  def send_message_if_selected
+    if selected_recipient != nil
+      puts "Lets send a message!"
+      puts "Please type the message you want to send."
+      message = gets.chomp
+      selected_recipient.send_message(message, selected_recipient)
+    else 
+      puts "You don't have any recipient selected"
+    end
+  end
+
   def name_or_id(type)  # TODO break this up into methods select channel and select user to better match given design
     puts "Please provide a user name or ID for your channel or user"
     answer = gets.chomp
@@ -68,12 +80,12 @@ class Workspace
     if type == "user"
       users["members"].each do |member|
         if member["name"] == answer
-          @selected_recipient = member
+          @selected_recipient = Recipient.new(member["name"],member["id"])
           @selected_type = "user"
           puts "Thank you, I have noted your selection"
           return
         elsif member["id"] == answer
-          @selected_recipient = member
+          @selected_recipient = Recipient.new(member["name"],member["id"])
           @selected_type = "user"
           puts "Thank you, I have noted your selection"
           return
@@ -84,12 +96,12 @@ class Workspace
     elsif type == "channel"
       channels["channels"].each do |channel|
         if channel["name"] == answer
-          @selected_recipient = channel
+          @selected_recipient = Recipient.new(channel["name"],channel["id"])
           @selected_type = "channel"
           puts "Thank you, I have noted your selection"
           return
         elsif channel["id"] == answer
-          @selected_recipient = channel
+          @selected_recipient = Recipient.new(channel["name"],channel["id"])
           @selected_type = "channel"
           puts "Thank you, I have noted your selection"
           return

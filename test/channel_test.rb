@@ -1,20 +1,20 @@
 require_relative "test_helper"
 
-describe "recipient channel factory self.create" do
+# describe "channel initializes" do
 
-  it "self.create works with CHANNEL name" do
-    recipient = Channel.create("general", "channel_name")
+#   it "initializes CHANNEL with name" do
+#     recipient = Channel.new(name = "general")
   
-      expect(recipient).must_be_instance_of Channel
-      expect(recipient.name).must_equal "general"
-  end  
+#       expect(recipient).must_be_instance_of Channel
+#       expect(recipient.name).must_equal "general"
+#   end  
     
 
-  it "self.create works with CHANNEL id" do
-    recipient = Channel.create("A100", "channel_id")
+#   it "initializes with CHANNEL id" do
+#     recipient = Channel.new(nil, "A100")
   
-      expect(recipient).must_be_instance_of Channel
-      expect(recipient.id).must_equal "A100"
-  end  
+#       expect(recipient).must_be_instance_of Channel
+#       expect(recipient.id).must_equal "A100"
+#   end  
   
-end
+# end

@@ -18,12 +18,12 @@ end
 # @TODO: Refactor to make this not recursive.  Nice to have,
 #        but not required. 
 def options(workspace)
-  puts "What would you like to do? Please type one of the following:\n- list users\n- list channels\n- select user\n- select channel\n- details\n- quit"
+  puts "What would you like to do? Please type one of the following:\n- list users\n- list channels\n- select user\n- select channel\n- details\n- send message\n- quit"
   user_input = gets.chomp.downcase
-  valid_inputs = ["list users", "list channels", "select user", "select channel", "details", "quit"]
+  valid_inputs = ["list users", "list channels", "select user", "select channel", "details", "send message", "quit"]
 
   until valid_inputs.include?(user_input)
-    puts "Please type a valid response :\n- list users\n- list channels\n- select user\n- select channel\n- details\n- quit"
+    puts "Please type a valid response :\n- list users\n- list channels\n- select user\n- select channel\n- details\n- send message\n- quit"
     user_input = gets.chomp.downcase
   end
 
@@ -42,7 +42,7 @@ def options(workspace)
       channel_info = workspace.name_or_id("channel")
       options(workspace)
     when "details"
-      if workspace.selected_type == "user"
+      if workspace.selected_type == "user"   # TODO I think this needs to be broken out in to user and channel
         puts "Username: #{workspace.selected_recipient["name"]}"
         puts "Name: #{workspace.selected_recipient["real_name"]}"
         puts "Id: #{workspace.selected_recipient["id"]}"
@@ -53,6 +53,9 @@ def options(workspace)
       else 
         "You have not selected a recipient."
       end
+      options(workspace)
+    when "send message"
+      workspace.send_message_if_selected
       options(workspace)
     when "quit"
       return
