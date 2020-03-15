@@ -1,6 +1,8 @@
 require_relative "user"
 require_relative "channel"
 require "table_print"
+require "terminal-table"
+require "json"
 
 module Slack 
   class Workspace 
@@ -47,5 +49,40 @@ module Slack
     def send_message(text) 
       @selected.send_message(text, @selected) if @selected
     end 
+
+
+    # Reference: http://blog.pingzhang.io/ruby/2016/07/25/ruby-json-operations/
+    def change_setting(username, emoji)
+      setting = {
+        :name => username,
+        :status_emoji => emoji
+      }
+
+      File.open("bot-settings.json", "w") do |f|
+        f.write(setting.to_json)
+      end  
+    end 
+
+
+    def message_history 
+      if @selected
+       rows = @selected.message_history
+
+       table = Terminal::Table.new :headings => ['username', 'text'], :rows => rows
+      end 
+
+      return table
+    end 
+
+    
+
+    def find_user_by_id(slack_id)
+      user = @users.find do |user|
+        user.slack_id == slack_id 
+      end 
+
+      return user
+    end 
+
   end 
 end 

@@ -55,7 +55,7 @@ describe "Workspace class" do
     end 
 
     it "selects a user as recipient if I supply a username" do 
-      name = "slackbot" 
+      name = "sea otter" 
       user = @workspace.select_user(name)
 
       expect(user).must_be_kind_of Slack::User
@@ -163,5 +163,35 @@ describe "Workspace class" do
         expect(workspace.send_message("Good afternoon")).must_be_nil
       end 
     end 
+  end 
+
+  describe "#change_setting" do 
+    it "changes profile settings" do 
+      VCR.use_cassette("users-list-endpoint") do 
+        workspace = Slack::Workspace.new()
+
+        workspace.change_setting("sea otter", "🦦")
+
+        expect(workspace.find_user_by_id("USLACKBOT").name).must_equal "sea otter"
+
+        expect(workspace.find_user_by_id("USLACKBOT").status_emoji).must_equal "🦦"
+      end 
+    end 
+  end 
+
+  describe "#message_history" do 
+    it "returns message history for a selected channel" do 
+      VCR.use_cassette("conversations-history-endpoint") do
+        workspace = Slack::Workspace.new()
+        name = "hannah-j-test"
+        workspace.select_channel(name)
+        workspace.selected
+
+        expect(workspace.message_history).must_be_instance_of Terminal::Table
+      end 
+    end 
+  end 
+
+  describe "#find_name_by_id" do 
   end 
 end 
