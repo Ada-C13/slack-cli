@@ -8,7 +8,7 @@ def main
   workspace = SlackCli::Workspace.new
   puts "Welcome to the Ada Slack CLI!"
   puts "Here are the options:"
-  options = ["list users", "list channels", "select user", "quit"]
+  options = ["list users", "list channels", "select user", "select channel", "details", "send message", "quit"]
   options.each do |option|
     puts option
   end
@@ -21,6 +21,9 @@ def main
     elsif user_input == options[1] #list channels
       #GET channel details- name, topic, member count, and Slack ID
       tp workspace.channels, :id, :name, :topic, :member_count
+    
+    
+    #----------------SELECT USER-------------------------------
     #userinput equals option--select user
     elsif user_input == options[2] #select user
       #prompt: "which user do you want to select"
@@ -30,24 +33,81 @@ def main
       #user input...gets chomp 
       user_input = gets.chomp
 
-      valid_inputs = workspace.valid_inputs_id_names
-    
+      valid_inputs = workspace.valid_inputs_id_names("user")
       #check is user's input includes anything in this valid_inputs[]
       while !valid_inputs.include?(user_input)
         #if not, ask to reenter
         puts "Invalid. Enter selection again. Try copy and pasting SlackID or username."
         user_input = gets.chomp
       end
-
       #find user
       found_user = workspace.find_user(user_input)
       #assign the user found to selected
       workspace.selected = found_user
-     
-      #prompt"enter "details" if you want more info"
 
+    #-------SELECT CHANNEL -------------------------------------
+    elsif user_input == options[3] 
+      #prompt: "which channel do you want to select"
+      puts "Which channel do you want to select?"
+      #present list of channels
+      tp workspace.channels, :id, :name, :topic, :member_count
+      #user input...gets chomp 
+      user_input = gets.chomp
+
+      valid_inputs = workspace.valid_inputs_id_names("channel")
+      #check is user's input includes anything in this valid_inputs[]
+      while !valid_inputs.include?(user_input)
+        #if not, ask to reenter
+        puts "Invalid. Enter selection again. Try copy and pasting SlackID or username."
+        user_input = gets.chomp
+      end
+      #find user
+      found_channel = workspace.find_channel(user_input)
+      #assign the user found to selected
+      workspace.selected = found_channel
+
+    #------------- DETAILS USER + CHANNEL--------------------------------
+    elsif user_input == options[4] #select details
+      #print the details of what the user selected
+      #check if selected is User Object
+      if workspace.selected.is_a? SlackCli::User
+        #if true, print user details : id, name, @real_name, @status_text, @status_emoji
+        tp workspace.selected, :id, :name, :real_name, :status_text, :status_emoji
+      #check if selected is Channel Object
+      elsif workspace.selected.is_a? SlackCli::Channel
+        #if true, print channel details: id, name, @topic, @member_count
+        tp workspace.selected, :id, :name, :topic, :member_count
+      elsif workspace.selected == nil
+        puts "No selection was made. Select user or select channel for details."
+      end 
+
+     #------------- SEND MESSAGE--------------------------------
+    elsif user_input == options[5] #send message
+      #check if a selected is not !=nil
+      if workspace.selected != nil
+       #if true, prompt user: "what's your message"
+        puts "What is your message?"
+        #get message
+        user_message = gets.chomp
+        #then send message to selected
+        payload = {
+          :channel => workspace.selected.id, 
+          :text => user_message, 
+          :token => ENV['SLACK_TOKEN']
+        }
+        payload_options = { 
+          :body => payload
+        }
+        url = ENV['BASE_URL'] + ENV['SUB_MESSAGE_URL']
+        HTTParty.post(url, payload_options)
+      #if it is nil, 
+      else 
+      #prompt user select before a message can be sent
+        puts "Select a user or channel before a message can be sent."
+      end
     end 
-    user_input = gets.chomp
+    puts "What is your next selection?"
+    user_input = gets.chomp #main prompt
   end
   
   # TODO project
