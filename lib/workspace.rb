@@ -12,20 +12,18 @@ class Workspace
   end
 
   def select_channel(input)
-    @channels.each do |channel|
-      if channel.slack_id.upcase == input.upcase || channel.name.upcase == input.upcase
-        @selected = channel
-        break
-      else 
-        @selected = ""
-      end
-    end
+    select("channel", input)
   end
 
   def select_user(input)
-    @users.each do |user|
-      if user.slack_id.upcase == input.upcase || user.name.upcase == input.upcase
-        @selected = user
+    select("user", input)
+  end
+
+  # helper method for select_channel and select_user
+  def select(type, input)
+    instance_variable_get("@#{type}s").each do |item|
+      if item.slack_id.upcase == input.upcase || item.name.upcase == input.upcase
+        @selected = item
         break
       else 
         @selected = ""
