@@ -1,11 +1,15 @@
-# add formatting gems and requires'
+#add formatting gems and requires'
+# why not just require_relative 'recipient'
+require_relative 'user'
+require_relative 'channel'
 
 class Workspace
   attr_reader :users, :channels, :selected
+
   def initialize ()
-    @users = []
-    @channels = []
-    @selected = selected
+    @users = User.list_all
+    @channels = Channel.list_all
+    @selected = nil
   end
 
   def details
