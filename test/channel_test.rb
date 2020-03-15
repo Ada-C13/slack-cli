@@ -4,18 +4,19 @@ require_relative "../lib/channel"
 describe "Channel" do
   before do
     @topic = "topic"
-    @member_count = "member_count"
+    @num_members = 3
     @slack_id = "RN123"
-    @channel = Channel.new(topic: @topic, member_count: @member_count, slack_id: @slack_id, name: @name) 
+    @name = 'name'
+    @channel = Channel.new(topic: @topic, num_members: @num_members, slack_id: @slack_id, name: @name) 
   end
 
   describe "constructor" do
-    it "instance of user class" do
+    it "instance of channel class" do
       expect (@channel).must_be_instance_of Channel
     end
     it "can access attributes"do
       expect(@topic).must_equal @topic
-      expect(@member_count).must_equal @member_count
+      expect(@num_members).must_equal @num_members
       expect(@slack_id).must_equal @slack_id
     end
   end
@@ -47,7 +48,7 @@ describe "Channel" do
       expect(result.length).must_be :>, 0
       
       result.each do |channel|
-        expect(channel).must_be_kind_of User
+        expect(channel).must_be_kind_of Channel
       end
     end
 
