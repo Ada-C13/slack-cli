@@ -37,10 +37,9 @@ describe "Channel" do
       result = {}
       VCR.use_cassette("channels-list-endpoint") do
         result = Channel.get_all("channels.list")
+        expect(result).must_be_kind_of HTTParty::Response
+        expect(result["ok"]).must_equal true
       end
-
-      expect(result).must_be_kind_of HTTParty::Response
-      expect(result["ok"]).must_equal true
     end
 
     it "raises an error when a call to users-list-endpoint fails" do
@@ -73,6 +72,27 @@ describe "Channel" do
       expect(channels.length).must_be :>, 0
       expect(channels[0].name).must_equal "general"
       expect(channels[2].name).must_equal "random"
+    end
+  end
+
+  describe "send_message" do
+    it "sends a message to the right channel" do
+      VCR.use_cassette("slack-posts") do
+        channel = Channel.list_channels[0]
+        response = channel.send_message("Posting a test message!")
+        expect(response).must_equal true
+        # Why does this not work?
+        # expect(response["channel"]).must_equal "CUTE4M96W"
+      end
+    end
+
+    it "raises a SlackAPIError when post request fails" do
+      # create an invalid channel
+      channel = Channel.new("bogusinfo", "invalid_channel_name", "BOGUS", 6)
+
+      VCR.use_cassette("slack-posts") do
+        expect{ channel.send_message("Posting a test message!") }.must_raise SlackAPIError
+      end
     end
   end
 end

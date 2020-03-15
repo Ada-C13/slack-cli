@@ -4,9 +4,23 @@ require "gemoji-parser"
 require_relative "workspace"
 
 def get_selected
-  puts "Enter the slack id or name of the channel/user:"
-  user_selected = gets.chomp
+  user_selected = ""
+  until user_selected != ""
+    puts "Enter the slack id or name of the channel/user:"
+    user_selected = gets.chomp
+  end
+
   return user_selected
+end
+
+def get_message_text
+  user_message = ""
+  until user_message != ""
+    puts "Enter your message:"
+    user_message = gets.chomp
+  end
+
+  return user_message
 end
 
 def main
@@ -16,11 +30,12 @@ def main
 
   i = -1
   while i < 0
+    puts
     puts "What would you like to do? (Enter the number.)\n"
-    puts " 1: list channels \n 2: list users \n 3: select a channel or user \n 4: show details of selected channel/user \n 5: quit"
+    puts " 1: list channels \n 2: list users \n 3: select a channel or user \n 4: show details of selected channel/user \n 5: send message \n 6: quit"
     puts "----------"
-    answer = gets.chomp.downcase
-    case answer
+    option_choice = gets.chomp.downcase
+    case option_choice
       when "1"
         # table_print all channels
         tp workspace.channels, "slack_id", "name", "member_count", "topic"
@@ -45,6 +60,16 @@ def main
           puts "No recipient selected."
         end
       when "5"
+        # send a message to selected recipient
+        if workspace.selected
+          text_to_send = get_message_text
+          puts workspace.selected.slack_id
+          workspace.selected.send_message(text_to_send)
+          puts "Message sent!"
+        else
+          puts "No recipient selected."
+        end
+      when "6"
         # quit
         i = 1
     end

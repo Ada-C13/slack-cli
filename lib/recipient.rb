@@ -9,11 +9,26 @@ class Recipient
     @name = name
   end
 
-  # def send_message(text)
-  # end
-
   def details
     raise NotImplementedError, "Implement me in child class."
+  end
+
+  def send_message(text_to_send)
+    response = HTTParty.post(
+      "https://slack.com/api/chat.postMessage",
+      body:  {
+        token: SLACK_TOKEN,
+        text: text_to_send,
+        channel: @slack_id
+      },
+      headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
+    )
+
+    if response.code == 200 && response.parsed_response["ok"]
+      return true
+    else
+      raise SlackAPIError
+    end
   end
 
   private
@@ -30,7 +45,6 @@ class Recipient
     return response
   end
 end
-
 
 # Create custom error class here for use in Recipient child classes
 class SlackAPIError < Exception
