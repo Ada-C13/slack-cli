@@ -34,7 +34,7 @@ end
 
 describe "#details" do
   it "returns details about a Channel" do
-    details = "\nThe channel with name Random and Slack ID CV5H594KE is described as 'Non-work banter and water cooler conversation'.\nThere are 8 members in this channel.\n"
+    details = "\nThe channel with name Random and Slack ID CV5H594KE is described as 'Non-work banter and water cooler conversation'. There are 8 members in this channel."
     selected = nil
     VCR.use_cassette("channels.list") do
       workspace = SlackCLI::Workspace.new

@@ -37,7 +37,7 @@ end
 
 describe "#details" do
   it "returns details about a User" do
-    details = "\nThe slack user with username slackbot and Slack ID USLACKBOT is named Slackbot.\n"
+    details = "\nThe slack user with username slackbot and Slack ID USLACKBOT is named Slackbot. "
     selected = nil
     VCR.use_cassette("users.list") do
       workspace = SlackCLI::Workspace.new
@@ -46,5 +46,20 @@ describe "#details" do
 
     expect(selected).must_be_instance_of SlackCLI::User
     expect(selected.details).must_equal details
+  end
+
+  it "outputs details with text status and emoji" do
+    details = "\nThe slack user with username bot and Slack ID 1234 is named testbot. Their status is 'test text' and their status emoji is :test:."
+    user = nil
+    VCR.use_cassette("users.list") do
+      data = {'id' => '1234',
+        'name' => 'bot',
+        'real_name' => 'testbot',
+        'profile' => {'status_text' => 'test text',
+        'status_emoji' => ':test:'}}
+      user = SlackCLI::User.new(data)
+      SlackCLI::Workspace.new
+    end
+    expect(user.details).must_equal details
   end 
 end

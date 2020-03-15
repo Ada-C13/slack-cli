@@ -32,58 +32,68 @@ def check_selected(workspace)
 end
 
 def main
-  puts "\nWelcome to the Ada Slack CLI!".blue
-  workspace = SlackCLI::Workspace.new
-  user_command = nil
+  begin
+    workspace = SlackCLI::Workspace.new
+  rescue SlackCLI::Recipient::SlackAPIError => error
+    puts "\nSorry, #{error}\n".red
+    exit
+  end
 
+  puts "\nWelcome to the Ada Slack CLI!".blue
+  user_command = nil
+  
   until user_command == 'quit' || user_command == '7' || user_command == '7.'
     puts "\nPlease choose one of the options: \n1. List users\n2. List channels\n3. Select user\n4. Select channel"
     puts "5. Details\n6. Send message\n7. Quit\n"
     user_command = gets.chomp.downcase
 
-    case user_command
-    when 'list users', '1', '1.'
-      puts
-      tp workspace.users, :slack_id, :name, :real_name
-      puts
+    begin
+      case user_command
+      when 'list users', '1', '1.'
+        puts
+        tp workspace.users, :slack_id, :name, :real_name
+        puts
 
-    when 'list channels', '2', '2.'
-      puts
-      tp.set :max_width, 60
-      tp workspace.channels, :slack_id, :name, :topic, :member_count
-      puts
+      when 'list channels', '2', '2.'
+        puts
+        tp.set :max_width, 60
+        tp workspace.channels, :slack_id, :name, :topic, :member_count
+        puts
 
-    when 'select user', '3', '3.'
-      check_selected(workspace)
+      when 'select user', '3', '3.'
+        check_selected(workspace)
 
-    when 'select channel', '4', '4.'
-      check_selected(workspace)
+      when 'select channel', '4', '4.'
+        check_selected(workspace)
 
-    when 'details', '5', '5.'
-      if workspace.selected.nil?
-        puts "\nYou need to select a user or a channel before choosing the Details option".red
-      else
-        puts workspace.show_details.blue
+      when 'details', '5', '5.'
+        if workspace.selected.nil?
+          puts "\nYou need to select a user or a channel before choosing the Details option".red
+        else
+          puts workspace.show_details.blue
+        end
+
+      when 'send message', '6', '6.'
+        if workspace.selected.nil?
+          puts "\nYou need to select a user or a channel before sending a message".red
+        else
+          puts "What message do you want to send to the selected user/channel?"
+          print "Type text or hit Enter to exit => "
+          message = gets.chomp.downcase
+          if message != ''
+            begin
+              workspace.selected.send_message(message)
+              puts "\nMessage sent!".blue
+            rescue SlackCLI::Recipient::SlackAPIError => error
+              puts "\nMessage not sent. Sorry, #{error}\n".red
+            end
+          end       
+        end
       end
-
-    when 'send message', '6', '6.'
-      if workspace.selected.nil?
-        puts "\nYou need to select a user or a channel before sending a message".red
-      else
-        puts "What message do you want to send to the selected user/channel?"
-        print "Type text or hit Enter to exit => "
-        message = gets.chomp.downcase
-        if message != ''
-          if  workspace.selected.send_message(message)
-            puts "\nMessage sent!".blue
-          else
-            puts "\nMessage not sent".red
-          end
-        end       
-      end
+    rescue SlackCLI::Recipient::SlackAPIError => error
+      puts "Sorry, #{error}\n".red
     end
   end
-
   puts "\nThank you for using the Ada Slack CLI\n".blue
 end
 
