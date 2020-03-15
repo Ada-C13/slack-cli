@@ -70,3 +70,12 @@ describe "Recipient class" do
     end 
   end 
 end 
+
+describe "ENV" do 
+  it "raises NoSlackTokenError if there is no token in .env" do 
+
+    token = ENV["BOGUS_TOKEN"]
+
+    expect{validate_env(token)}.must_raise NoSlackTokenError
+  end 
+end 

@@ -6,10 +6,9 @@ class NoSlackTokenError < StandardError; end
 
 Dotenv.load 
 
-def validate_env 
-  unless ENV["SLACK_TOKEN"]
+def validate_env(token) 
+  unless token
     raise NoSlackTokenError, "Could not load SLACK_TOKEN. Add `SLACK_TOKEN` in the environment variable."
-    exit 
   end 
 end 
 
@@ -23,12 +22,12 @@ module Slack
     MESSAGE_URL = "https://slack.com/api/chat.postMessage"
     HISTORY_URL = "https://slack.com/api/conversations.history"
 
-    validate_env 
-
 
     SLACK_TOKEN = {
       token: ENV["SLACK_TOKEN"]
     }
+
+    validate_env(SLACK_TOKEN[:token])
 
     attr_reader :slack_id, :name 
 
