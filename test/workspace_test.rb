@@ -31,7 +31,7 @@ describe "Workspace class" do
       id = "CUTE4M96W"
       expect(selected_channel).must_be_instance_of Channel
       expect(selected_channel.name).must_equal name
-      expect(@workspace.select_channel(id).slack_id).must_equal id
+      expect(@workspace.select_channel(id).name).must_equal name
       expect(@workspace.select_channel("afasdf")).must_equal "Channel not found!"
     end
 
@@ -49,7 +49,7 @@ describe "Workspace class" do
       id = "USLACKBOT"
       expect(selected_user).must_be_instance_of User
       expect(selected_user.name).must_equal user
-      expect(@workspace.select_user(id).slack_id).must_equal id
+      expect(@workspace.select_user(id).name).must_equal user
       expect(@workspace.select_user("afasdf")).must_equal "User not found!"
     end
 

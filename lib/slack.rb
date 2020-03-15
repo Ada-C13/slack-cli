@@ -28,7 +28,7 @@ def main
       case selection
       when "select user"
         puts "Please supply a username or Slack ID for the user"
-        user = gets.chomp.downcase
+        user = gets.downcase.chomp
         selected_user = workspace.select_user(user)
 
         if selected_user.is_a? User
@@ -73,43 +73,39 @@ def main
       when "select channel"
         puts "Please supply a channel name of Slack ID for the channel"
         puts "\n"
-        channel = gets.chomp.downcase
+        channel = gets.downcase.chomp
 
         selected_channel = workspace.select_channel(channel)
 
         if selected_channel.is_a? Channel
           puts "You have selected channel: #{workspace.selected.name}"
           puts "\n"
+
+          puts "Would you like to see details about your selected channel, return to the main menu, or quit?"
+          puts "•Details \n•Return to Main Menu \n•Quit "
+          puts "\n"
+          choice = gets.chomp.downcase
+
+          case choice
+          when "details"
+            tp workspace.show_details, "name", "slack_id", "member_count", "topic"
+          when "return to main menu"
+            choice = init_user_options
+            puts "\n"
+          when "quit"
+            exit
+          else
+            puts "That is not a valid response, please try again"
+          end
+
         elsif selected_channel == "User not found!"
           puts "#{selected_channel} Please try again!"
           puts "\n"
-          puts "Please supply a channel name or Slack ID for the channel"
-          puts "\n"
-          channel = gets.chomp.downcase
-          seleted_channel = workspace.select_channel(channel)
-        end
-
-        puts "Would you like to see details about your selected channel, return to the main menu, or quit?"
-        puts "•Details \n•Return to Main Menu \n•Quit "
-        puts "\n"
-        choice = gets.chomp.downcase
-
-        case choice
-        when "details"
-          #put in the code that will show the details of the current selected channel
-          #If no recipient is currently selected, the program should let me know and return to the main command prompt.(channel = nil?)
-        when "return to main menu"
-          choice = init_user_options
-          puts "\n"
-        when "quit"
-          exit
-        else
-          puts "That is not a valid response, please try again"
         end
         
-        puts "Would you like to see details about your selected channel, return to the main menu, or quit?"
-        puts "•Details \n•Return to Main Menu \n•Quit "
-        choice = gets.chomp.downcase
+        # puts "Would you like to see details about your selected channel, return to the main menu, or quit?"
+        # puts "•Details \n•Return to Main Menu \n•Quit "
+        # choice = gets.chomp.downcase
 
       when "return to main menu"
         selection = init_user_options

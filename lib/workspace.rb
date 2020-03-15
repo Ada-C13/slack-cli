@@ -16,7 +16,7 @@ class Workspace
 
   def select_channel(channel)
     @channels.each do |channel_obj|
-      if channel_obj.name == channel || channel_obj.slack_id == channel
+      if channel_obj.name == channel || channel_obj.slack_id.downcase == channel
         @selected = channel_obj
         return channel_obj 
       end
@@ -26,7 +26,7 @@ class Workspace
 
   def select_user(user)
     @users.each do |user_obj|
-      if user_obj.name == user || user_obj.slack_id == user
+      if user_obj.name == user || user_obj.slack_id.downcase == user
         @selected = user_obj
         return user_obj 
       end
@@ -45,3 +45,4 @@ class Workspace
   def send_message
   end
 end
+
