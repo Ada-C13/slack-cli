@@ -8,10 +8,14 @@ class User < Recipient
     @real_name = real_name
   end
 
+  def details
+    tp self, "name", "real_name", "slack_id"
+    return self
+  end
+
   def self.list_all
-    url = "https://slack.com/api/users.list"
-    response = Recipient.get(url)
-    users = response["members"].map do |member|
+    data = User.get("https://slack.com/api/users.list")
+    users = data["members"].map do |member|
       name = member["name"]
       real_name = member["real_name"] ||= name
       slack_id = member["id"]
@@ -19,11 +23,5 @@ class User < Recipient
     end
 
     return users
-  end
-
-  def details
-    info = "User name: #{name}, Real name: #{real_name}, Slack ID: #{slack_id}"
-    puts info
-    return info
   end
 end

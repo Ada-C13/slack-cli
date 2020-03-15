@@ -9,23 +9,22 @@ class Channel < Recipient
     @topic = topic
   end
 
+  def details
+    tp self, "name", "topic", "slack_id", "member_count"
+    return self
+  end
+
   def self.list_all
-    url = "https://slack.com/api/channels.list"
-    response = Recipient.get(url)
-    channels = response["channels"].map do |channel|
+    data = self.get("https://slack.com/api/conversations.list")
+    channels = data["channels"].map do |channel|
       name = channel["name"]
       slack_id = channel["id"]
-      member_count = channel["members"].length
+      member_count = channel["num_members"]
       topic = channel["topic"]["value"]
       Channel.new(slack_id: slack_id, name: name, member_count: member_count, topic: topic)
     end
-
+    
     return channels
   end
 
-  def details
-    info = "Channel name: #{name}, Slack ID: #{slack_id}, Topic: #{topic}, Member Count: #{member_count}"
-    puts info
-    return info
-  end
 end
