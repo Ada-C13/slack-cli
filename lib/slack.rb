@@ -48,6 +48,8 @@ def main
       else
         puts "User selected."
       end
+    when "details" 
+      puts workspace.selected == nil ? "Nothing selected." : workspace.selected.get_details
     when "quit"
       puts "Thank you for using the Ada Slack CLI"
       exit
