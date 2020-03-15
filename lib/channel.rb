@@ -12,7 +12,8 @@ class Channel < Recipient
   end
 
   def details
-    response = self.get(CHANNEL_URL, {token: SLACK_TOKEN})
+    #response = self.get(CHANNEL_URL, {token: SLACK_TOKEN})
+    tp self, "slack_id", "name", "topic", "member_count"
   end
 
   def self.list_all

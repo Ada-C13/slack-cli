@@ -13,11 +13,12 @@ class User < Recipient
   end
 
   def details
-    response = self.get(USER_URL, {token: SLACK_TOKEN})
+    #response = self.get(USER_URL, {token: SLACK_TOKEN})
+    tp self, "slack_id", "name", "real_name"
   end
   
   def self.list_all
-    response = self.get(USER_URL)
+    response = User.get(USER_URL)
     users = []
     response['members'].each do |user|
       users << self.new(

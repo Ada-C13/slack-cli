@@ -1,15 +1,16 @@
 require "dotenv"
 require "table_print"
 
-require_relative "recipient"
-require_relative "user"
-require_relative "channel"
+# require_relative "recipient"
+# require_relative "user"
+# require_relative "channel"
 require_relative "workspace"
 
 Dotenv.load
 
 def user_prompt
-  puts "\nSelect from the following options: \n* List Users \n* List Channels \n* Quit"
+  puts "\nSelect from the following options: \n* List Users \n* List Channels \n* Select User \
+  \n* Select Channel \n* Details \n* Send Message  \n* Quit"
   return gets.chomp.downcase
 end
 
