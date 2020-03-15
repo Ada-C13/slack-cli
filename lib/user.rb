@@ -15,7 +15,6 @@ class User < Recipient
     return tp self, :slack_id, :name, :real_name, :status_text, :status_emoji
   end
 
-  # When I type list users, I should see a list of all the users in the Slack workspace
   def self.list_all
     response = self.get("users.list")
     all = []

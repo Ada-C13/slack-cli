@@ -8,7 +8,6 @@ def main
 
   puts "This workspace has #{workspace.users.length} users and #{workspace.channels.length} channels"
 
-  # given three options for how to interact with the program:
   input = ""
   until input == "quit"
     puts "\nWhat would you like to do?"

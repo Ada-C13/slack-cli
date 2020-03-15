@@ -22,8 +22,6 @@ class Recipient
     # send a message
   end
 
-  # Recipient.get("conservations.list", QUERY)
-
   def self.get(endpoint)
     response = HTTParty.get(BASE_URL + endpoint, query: QUERY)
     if response.code != 200 || response["ok"] == false
@@ -33,22 +31,10 @@ class Recipient
     return response
   end
 
-
   def details
   end
 
   def self.list_all
-    # abstract method
-    # endpoint = ""
-    # if self == User
-    #   endpoint = "users.list"
-    # elsif self == Channel
-    #   endpoint = "conversations.list"
-    # end
-
-    # response = User.get(endpoint, QUERY)
-    # all = []
-
   end
 end
 
