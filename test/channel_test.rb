@@ -1,31 +1,51 @@
 require_relative "test_helper"
-# Any tests involving a Channel should use the #random channel
+require_relative "../lib/channel"
 
 describe 'Channel class' do
-  describe "self.list_all" do
-    it 'should list all channels' do
-      VCR.use_cassette("channels") do
-        response = Recipient.get("https://slack.com/api/channels.list")
-        all_channels = Channel.list_all
-        expect(response.code).must_equal 200
-        expect(all_channels[2].name).must_equal "random"
-        expect(all_channels[2].slack_id).must_equal "CV86RT7AS"
-        expect(all_channels[2].member_count).must_equal 5
-        expect(all_channels[2].topic).must_equal "Non-work banter and water cooler conversation"
+  describe 'self.get' do
+    it "gets a list of channels" do
+      result = {}
+      VCR.use_cassette("channels-list-endpoint") do
+        result = Channel.get("https://slack.com/api/conversations.list")
+      end
+
+      expect(result).must_be_kind_of HTTParty::Response
+      expect(result["ok"]).must_equal true
+    end
+
+    it 'raises an error when a call fails' do
+      VCR.use_cassette("channels-list-endpoint") do
+        expect{Channel.get("https://slack.com/api/bogus.endpoint")}.must_raise SlackAPIError
+      end 
+    end
+  end
+
+  describe 'self.list_all' do
+    it 'returns a valid list of channels' do
+      result = []
+      VCR.use_cassette("channels-list-endpoint") do
+        result = Channel.list_all
+      end
+
+      expect(result).must_be_kind_of Array
+      expect(result.length).must_be :>, 0
+      result.each do |channel|
+        expect(channel).must_be_kind_of Channel
       end
     end
   end
 
-  describe "details" do
-    it 'should get the details of a specified channel' do
-      VCR.use_cassette("channels") do
-        response = Recipient.get("https://slack.com/api/channels.list")
-        random = Channel.new(slack_id: "CV86RT7AS", name: "random", member_count: "5", topic: "Non-work banter and water cooler conversation")
-        expect(response.code).must_equal 200
-        expect(random.details).must_include random.name
-        expect(random.details).must_include random.member_count
-        expect(random.details).must_include random.topic
+  describe 'send_message' do
+    random = Channel.new(slack_id: "CV86RT7AS", name: "random", member_count: 5, topic: "Non-work banter and water cooler conversation")
+    result = {}
+    it 'sends a message to a channel' do
+      VCR.use_cassette("chat-postMessage-endpoint") do
+        result = random.send_message("This is random")
       end
+
+      expect(result).must_be_kind_of HTTParty::Response
+      expect(result["ok"]).must_equal true
+      expect(result["message"]["text"]).must_equal "This is random"
     end
   end
 end
