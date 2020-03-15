@@ -1,36 +1,38 @@
-require 'dotenv'
-require 'httparty'
-require 'awesome_print'
-require_relative 'recipient'
-  
-  
-Dotenv.load
-  
-class Users < Recipient
+require_relative "recipient"
+
+class User < Recipient
   attr_reader :real_name, :status_text, :status_emoji
 
-      
-  USERS_URL = "https://slack.com/api/users.list?"
-  SLACK_TOKEN = ENV["SLACK_TOKEN"]
+  def initialize( real_name:, status_text:, status_emoji:, name:, id:)
+    super(id: id, name: name)
 
-
-  def initialize(id, name, real_name, status_text, status_emoji)
-    super(id, name)
-
+    @real_name = real_name
+    @status_text = status_text
+    @status_emoji = status_emoji
   end
 
+  def details
+    tp self, "slack_id", "name", "real_name"
+  end
+
+
+  #api endpoint documentation https://api.slack.com/methods/users.list
   def self.list_all
+    #get the data
+    response = User.get("https://slack.com/api/users.list")
 
-  query = {
-    token: SLACK_TOKEN, 
-  }
+    #parse the data, instansiate an object
+    users = []
 
-    users = HTTParty.get(USERS_URL, query: query)
-    users["members"].each do |user|
-      ap user["name"]
-    end
-    
-  end    
+    response["members"].each do |item|
+      users << User.new(
+                name: item["name"],
+                id: item["id"],
+                real_name: item["real_name"],
+                status_text: item["profile"]["status_text"],
+                status_emoji: item["profile"]["status_emoji"]
+      )
+    end 
+    return users  #return the list of instansiated objects
+  end
 end
-
-puts Users.list_all
