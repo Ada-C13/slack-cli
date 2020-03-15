@@ -18,7 +18,7 @@ module Slack
     # reference: http://tableprintgem.com/
 
     # Question
-    # Is it good to put in "slack.rb" or "workspace.rb?
+    # Is it a good practice to use "tp" or "puts" in "workspace.rb" or "slack.rb"?
     def list_users 
       tp @users, :name, :real_name, :slack_id
     end 

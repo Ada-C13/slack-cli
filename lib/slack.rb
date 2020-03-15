@@ -4,7 +4,7 @@ require 'table_print'
 require 'colorize'
 require 'terminal-table'
 
-# Question: decide workspace or WORKSPACE
+# Question: Is it a good practice to use WORKSPACE as constant?
 WORKSPACE = Slack::Workspace.new
 
 OPTIONS = {
