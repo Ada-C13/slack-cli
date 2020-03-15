@@ -35,7 +35,7 @@ describe "recipient" do
       VCR.use_cassette("conversations_history_endpoint") do
         recipient01 = SlackCLI::Recipient.new("CV5S4LJPN")
         response = recipient01.get_message_history
-        expect(response).must_equal true
+        expect(response).must_be_instance_of Array
       end
     end
   

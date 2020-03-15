@@ -61,18 +61,21 @@ module SlackCLI
       if response.code != 200 || response["ok"] != true
         raise SlackAPIError.new "Error when retrieving message history, error: #{response["error"]}"
       end
-    
-      puts "Listing the latest #{limit} messages from this conversation history...\n"
+
+      history_array = []
       response["messages"].each do |message|
         timestamp = message["ts"]
-        puts "Message: #{message["text"]}. Posted on #{DateTime.strptime(timestamp,'%s')}"
+        history_array << {
+          :text => message["text"],
+          :timestamp => DateTime.strptime(timestamp,'%s')
+        }
       end
-    
-      return true
+      puts "Listing the latest #{limit} messages from this conversation history...\n"
+      return history_array
     end
     
 
-    ### abstract methods below ###
+    ### abstract methods ###
     def get_details
       raise NotImplementedError, "TODO: Implement me in a subclass!"
     end
