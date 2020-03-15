@@ -18,7 +18,7 @@ end
 describe "channel.get_everthing" do
   it 'loads channels' do
     VCR.use_cassette('load_channels') do 
-      all_channels = Channel.get_everything("channels.list") 
+      all_channels = Channel.get_api_data("channels.list") 
       expect(all_channels).must_be_kind_of HTTParty::Response
       expect(all_channels["channels"].length).must_be :>, 0
     end 
@@ -26,7 +26,7 @@ describe "channel.get_everthing" do
   
   it 'raises a Slack API Error if it receives an error code' do
     VCR.use_cassette('load_channels') do
-      expect{ Channel.get_everything("bad.sub.url") }.must_raise SlackAPIError
+      expect{ Channel.get_api_data("bad.sub.url") }.must_raise SlackAPIError
     end
   end
 end

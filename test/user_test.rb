@@ -17,10 +17,10 @@ describe 'instantiates a user' do
 end
 
 
-describe "User.get_everything" do
+describe "User.get_api_data" do
   it 'loads users' do
     VCR.use_cassette('load_users') do 
-      all_users = User.get_everything("users.list")
+      all_users = User.get_api_data("users.list")
       expect(all_users).must_be_kind_of HTTParty::Response
       expect(all_users["members"].length).must_be :>, 0
     end
@@ -43,7 +43,7 @@ describe 'User.list_users' do
   
   it 'raises an error when a call fails' do
     VCR.use_cassette('load_users') do
-      expect{ User.get_everything("bogus.endpoint") }.must_raise SlackAPIError
+      expect{ User.get_api_data("bogus.endpoint") }.must_raise SlackAPIError
     end
   end
   

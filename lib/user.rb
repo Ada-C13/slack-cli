@@ -13,7 +13,7 @@ class User < Recipient
   
   def self.list_users
     # response received from Recipient
-    response = Recipient.get_everything("users.list")
+    response = Recipient.get_api_data("users.list")
     
     all_users_list = []
     

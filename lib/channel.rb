@@ -12,7 +12,7 @@ class Channel < Recipient
   # Created in collaboration with Becca Roach, Shonda Warren, and Ari Bray!  Thanks for your brain power, y'all!
   def self.list_channels
     # response received from get_everthing method in Recipient
-    response = Recipient.get_everything("channels.list")
+    response = Recipient.get_api_data("channels.list")
     
     all_channels_list = []
 

@@ -30,7 +30,7 @@ class Recipient
   end
   
   
-  def self.get_everything(sub_url)
+  def self.get_api_data(sub_url)
     url = "https://slack.com/api/#{sub_url}?token=#{SLACK_TOKEN}"
     
     response = HTTParty.get(url)
