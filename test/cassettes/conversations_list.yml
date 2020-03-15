@@ -223,4 +223,79 @@ http_interactions:
       string: '{"ok":false,"error":"unknown_method","req_method":"wrong"}'
     http_version: null
   recorded_at: Fri, 13 Mar 2020 20:52:10 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_API_TOKEN>&channel=CUTE2BDA6&text=hi%20there%21&username=bug%20bot&icon_emoji=%3Abug
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '171'
+      Connection:
+      - keep-alive
+      Date:
+      - Sun, 15 Mar 2020 18:43:37 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 46d1291201a3ac8466ff5e2092a0f56e
+      X-Oauth-Scopes:
+      - chat:write,channels:read,usergroups:read,users:read,chat:write.customize,chat:write.public,users:write,channels:history,groups:history,im:history,mpim:history
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-3ofd
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 3cd7af07832481c336aa1c93c9b4a6fe.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - 0f3rbEHF0WWugBGx0TKA5O5nE7UFnummeebKFYHOLU7YJ9sLmatQug==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"CUTE2BDA6","ts":"1584297817.000200","message":{"type":"message","subtype":"bot_message","text":"hi
+        there!","ts":"1584297817.000200","username":"bug bot","icons":{"emoji":":bug"},"bot_id":"BV8EJ6QP8"}}'
+    http_version: null
+  recorded_at: Sun, 15 Mar 2020 18:43:37 GMT
 recorded_with: VCR 5.1.0

@@ -24,13 +24,13 @@ describe SlackCli::Channel do
     end
     
     it "can send fun message with message,emoji, name to show" do 
-      VCR.use_cassette("conversation_list") do 
+      VCR.use_cassette("conversations_list") do 
         data = SlackCli::Channel.list_all
         response = data[0].msg_emoji_name("hi there!",":bug","bug bot")
         expect(response).must_equal true 
       end 
     end 
-    
+
 
     it "raise SlackAPIError if incorrect url" do 
       VCR.use_cassette("conversations_list") do

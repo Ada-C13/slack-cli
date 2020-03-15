@@ -3,6 +3,7 @@ require 'dotenv'
 
 Dotenv.load 
 TOKEN = ENV["SLACK_API_TOKEN"]
+USER_TOKEN = ENV["USER_TOKEN"]
 BASE_URL = "https://slack.com/api/"
 POST_URL = "#{BASE_URL}chat.postMessage"
 
@@ -61,6 +62,18 @@ module SlackCli
 
     def show_details
       return self.inspect
+    end 
+
+    def show_history
+      data = HTTParty.get("https://slack.com/api/conversations.history",query:{
+        token:USER_TOKEN,
+        channel: self.slack_id
+        })
+      historys = []
+      data["messages"].each do |history|
+        historys << history["text"]
+      end 
+      return historys
     end 
 
 

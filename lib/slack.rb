@@ -15,6 +15,7 @@ def list_options
   puts "details"
   puts "send message"
   puts "fun message"
+  puts "channel historys"
   puts "quit"
   puts "===================================="
 end 
@@ -94,7 +95,13 @@ def main
         workspace.selected.msg_emoji_name(msg,emoji,name_to_show)
         puts "fun message sent!"
       end 
-
+    
+    elsif input == "channel historys"
+      if workspace.selected.is_a?(SlackCli::Channel)
+        puts workspace.selected.show_history
+      else   
+        puts "selected needs to be a channel"
+      end 
 
     elsif input == "quit"
       next 

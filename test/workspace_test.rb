@@ -47,6 +47,18 @@ describe SlackCli::Workspace do
       end 
     end 
 
+    it "can send show history of selected channel" do 
+      VCR.use_cassette("channel_history") do 
+        slack_start = SlackCli::Workspace.new
+        channel = slack_start.select_channel("cats")
+        response = channel.show_history 
+        expect(response).must_be_instance_of Array
+      end 
+    end 
+    
+
+
+
 
   end 
 end 
