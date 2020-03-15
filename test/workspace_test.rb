@@ -89,7 +89,7 @@ describe "workspace" do
         user01 = test_space.find_recipient("general")
         test_space.assign_selected(user01)
         response = test_space.show_history
-        expect(response).must_equal true
+        expect(response).must_be_instance_of Array
       end
     end
 
@@ -113,23 +113,3 @@ describe "workspace" do
     end
   end
 end
-
-
-# test for #select_user when taking in an argument
-# describe "#select_user" do
-#   it "returns the instance variable @selected" do
-#     VCR.use_cassette("workspace_endpoint") do
-#       test_space = Workspace.new
-#       expect(test_space.select_user("USLACKBOT")).must_equal test_space.selected
-#       expect(test_space.select_user("slackbot")).must_equal test_space.selected
-#     end
-#   end
-
-#   it "raises an ArgumentError if no or invalid Slack ID or name is passed in" do
-#     VCR.use_cassette("workspace_endpoint") do
-#       test_space = Workspace.new
-#       expect{test_space.select_user()}.must_raise ArgumentError
-#       expect{test_space.select_user("bogus")}.must_raise ArgumentError
-#     end
-#   end
-# end
