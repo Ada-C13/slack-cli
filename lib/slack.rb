@@ -42,8 +42,7 @@ def main
           when "send message"
             puts "Please enter the message you would like to send"
             message = gets.chomp
-            send_to = workspace.selected.slack_id
-            workspace.send_message(message: message, send_to: send_to)
+            workspace.send_message(message)
           when "return to main menu"
             next
           when "quit"
@@ -93,8 +92,7 @@ def main
           when "send message"
             puts "Please enter the message you would like to send"
             message = gets.chomp
-            send_to = workspace.selected.slack_id
-            workspace.send_message(message: message, send_to: send_to)
+            workspace.send_message(message)
           when "return to main menu"
             choice = init_user_options
             puts "\n"

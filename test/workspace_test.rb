@@ -64,12 +64,30 @@ describe "Workspace class" do
     it "returns the selected user/channel if one is selected" do
       user = "slackbot"
       @workspace.select_user(user)
-
       expect(@workspace.show_details.name).must_equal user
     end
 
     it "returns nil if no user was selected" do
       expect(@workspace.show_details).must_be_nil
+    end
+  end
+
+  describe "send_message" do
+    it "sends a message to a selected user or channel" do
+      VCR.use_cassette("send message") do
+        user = "slackbot"
+        selected_user = @workspace.select_user(user)
+        message = "Hello friend"
+        response = @workspace.send_message(message)
+        expect(response["ok"]).must_equal true
+        expect(response["message"]["text"]).must_equal message
+      end
+    end
+
+    it "does not send a message a user or channel is not selected" do
+      message = "Hello friend"
+      response = @workspace.send_message(message)
+      expect(response).must_be_nil
     end
   end
 end

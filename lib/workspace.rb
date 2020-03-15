@@ -39,12 +39,16 @@ class Workspace
     end
   end
 
-  def send_message(message:, send_to:)
+  def send_message(message)
    if @selected.class ==  User || @selected.class ==  Channel
-      @selected.send_message(message: message, send_to: send_to)
+      response = @selected.send_message(message: message, send_to: @selected.slack_id)
       puts "Message successfully sent to #{@selected.name}"
    else
       puts "Can not send message! Message recipient is invalid!"
    end
+   return response
   end
 end
+
+workapce = Workspace.new
+p workapce.send_message("is this working")
