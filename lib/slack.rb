@@ -29,6 +29,20 @@ def input_validation
   end 
   return input # implied?
 end
+def prompt_recipient
+  puts "What do you like to search for: name or id:"
+  
+  key = gets.chomp.downcase 
+  until VALID_SEARCH.include? key
+    puts "Invalid command \nWhat do you like to search for: name or id:"
+    key = gets.chomp.downcase 
+  end 
+  
+  puts "Please enter #{key}:"
+  input = gets.chomp
+  
+  key == 'name' ? {name: input} : {slack_id: input}
+end
 
 def search_selected
   puts "Do you want to search by name or id?"
@@ -55,12 +69,16 @@ def main
     user_input = user_prompt
     case user_input
       when "list users"
-        puts tp workspace.users, "slack_id", "name", "real_name"
+        tp workspace.users, "slack_id", "name", "real_name"
       when "list channels"
-        puts tp workspace.channels, "name", "topic", "num_members", "slack_id"
+        tp workspace.channels, "name", "topic", "num_members", "slack_id"
+      when "select user"
+        user_selected = prompt_recipient
+        workspace.select_user(user_selected)
+        workspace.selected ? workspace.show_selected : puts("User not found")  
       when "select channel"
-        channel_selected = search_selected
-        workspace.select_channel(channel_data)
+        channel_selected = prompt_recipient
+        workspace.select_channel(channel_selected)
         workspace.selected ? workspace.show_selected : puts("Channel not found")
       when "quit"
         puts "Okay you want to quit. Goodbye"

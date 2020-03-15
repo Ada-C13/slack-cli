@@ -12,20 +12,19 @@ class Workspace
     @selected = nil
   end
 
-  def details *recipients
-    recipients = [:channels, :users] if recipients.empty?
+  def self.list_all
+  end
+
+  def find_recipient(list_all:, name: nil, slack_id: nil)
+    raise ArgumentError unless name || slack_id
     
-    recipients.each do |recipient|
-      puts recipient.capitalize
-      puts self.send(recipient).map(&:details).join("\n")
-    end
+    return list_all.find do |recipient| 
+      name ? recipient.name == name : recipient.slack_id == slack_id  
+    end 
   end
 
   def select_user name: nil, slack_id: nil
     @selected = find_recipient list_all: users, name: name, slack_id: slack_id
-  end
-
-  def self.list_all
   end
 
   def select_channel name: nil, slack_id: nil
@@ -38,6 +37,7 @@ class Workspace
       name ? recipient.name == name : recipient.slack_id == slack_id  
     end 
   end
+
   def show_selected
     puts selected ? selected.details : "No recipient was selected"
   end
