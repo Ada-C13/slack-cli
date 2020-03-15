@@ -1,6 +1,4 @@
-# create, call, and use User stuff and Channel stuff from here
-# but User stuff and Channel stuff are defined in their own clases
-
+# require all the things (i'm the driver class)
 require "dotenv"
 require "httparty"
 require_relative "channel"
@@ -42,5 +40,4 @@ class Workspace
 
     return false
   end
-  
 end

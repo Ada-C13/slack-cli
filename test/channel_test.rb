@@ -45,19 +45,16 @@ describe "Channel" do
 
     it "raises an error when a call to users-list-endpoint fails" do
       VCR.use_cassette("channels-list-endpoint") do
-        expect { Channel.get_all("https://slack.com/api/bogus.endpoint") }.must_raise SlackAPIError
+        expect { Channel.get_all("bogussuburl") }.must_raise SlackAPIError
       end
     end
   end
 
   describe "list_channels" do
-    before do
+    it "returns an array of Channels" do
       VCR.use_cassette("workspace_initialize") do
         @workspace = Workspace.new
       end
-    end
-
-    it "returns an array of Channels" do
       channels = @workspace.channels
 
       expect(channels).must_be_kind_of Array
@@ -67,7 +64,11 @@ describe "Channel" do
     end
 
     it "finds the expected channels" do
+      VCR.use_cassette("workspace_initialize") do
+        @workspace = Workspace.new
+      end
       channels = @workspace.channels
+
       expect(channels).wont_be_nil
       expect(channels.length).must_be :>, 0
       expect(channels[0].name).must_equal "general"

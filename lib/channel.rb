@@ -9,28 +9,26 @@ class Channel < Recipient
     @member_count = member_count
   end
 
+  def details
+    puts "The '#{@name}' channel has a slack id of #{@slack_id} and has #{@member_count} members. \n Channel topic/purpose: #{@topic}"
+  end
+
+  # Class Methods ---------
+
   def self.list_channels
     # instead of Recipient or Channel, can just say self so that in case it changed elsewhere it wouldn't matter.
-    response = self.get_all("channels.list")
+    retrieved_response = self.get_all("channels.list")
 
     channel_list = []
-    if response["ok"] != true
-      raise SlackAPIError, "Oops! An error has occurred: #{response["error"]}"
-    else
-      response["channels"].each do |channel|
-        @slack_id = channel["id"]
-        @name = channel["name"]
-        @topic = channel["topic"]["value"]
-        @member_count = channel["num_members"]
+    retrieved_response["channels"].each do |channel|
+      @slack_id = channel["id"]
+      @name = channel["name"]
+      @topic = channel["topic"]["value"]
+      @member_count = channel["num_members"]
 
-        channel_list << Channel.new(@slack_id, @name, @topic, @member_count)
-      end
+      channel_list << Channel.new(@slack_id, @name, @topic, @member_count)
     end
 
     return channel_list
-  end
-
-  def details
-    # IMPLEMENT SHOW DETAILS IN CHANNEL CLASS
   end
 end

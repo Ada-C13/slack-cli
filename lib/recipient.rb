@@ -29,11 +29,9 @@ class Recipient
 
     return response
   end
-
-  # def self.select
-  # end
 end
 
-# this will be common to other files in the program
+
+# Create custom error class here for use in Recipient child classes
 class SlackAPIError < Exception
 end

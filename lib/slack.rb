@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
 require "table_print"
+require "gemoji-parser"
 require_relative "workspace"
 
 def get_selected
-  puts "Enter the slack id or name:"
+  puts "Enter the slack id or name of the channel/user:"
   user_selected = gets.chomp
   return user_selected
 end
@@ -15,38 +16,36 @@ def main
 
   i = -1
   while i < 0
-    puts
-    puts "What would you like to do? Enter the number of your choice.\n"
-    puts " 1: list channels \n 2: list users \n 3: select channel \n 4: select user \n 5: show selected recipient's details \n 6: quit"
+    puts "What would you like to do? (Enter the number.)\n"
+    puts " 1: list channels \n 2: list users \n 3: select a channel or user \n 4: show details of selected channel/user \n 5: quit"
     puts "----------"
     answer = gets.chomp.downcase
     case answer
       when "1"
+        # table_print all channels
         tp workspace.channels, "slack_id", "name", "member_count", "topic"
       when "2"
+        # table_print all users
         tp workspace.users, "slack_id", "name", "real_name", "status_text", "status_emoji"
-      when "3" || "4"
-        selected = get_selected
-        if workspace.validate_selected
-          workspace.update_select(selected)
-          puts "You selected #{selected}."
+      when "3"
+        # update @selected and confirm with message
+        user_input = get_selected
+        if workspace.select(user_input)
+          selected_recipient = workspace.select(user_input)
+          recipient_type = selected_recipient.class == Channel ? "channel" : "user"
+          puts "The #{recipient_type} named '#{selected_recipient.name}' is currently selected."
         else
-          # reprompt for valid input
-          puts "No results found."
-          selected = get_selected
+          puts "No matching slack credentials found."
+        end
+      when "4"
+        # show details of selected recipient
+        if workspace.selected
+            puts workspace.selected.details
+        else
+          puts "No recipient selected."
         end
       when "5"
-        # show details of selected recipient
-        selected = get_selected
-        if workspace.validate_selected
-          workspace.update_select(selected)
-          puts "Details: #{selected.details}"
-        else
-          # reprompt for valid input
-          puts "No results found."
-          selected = get_selected
-        end
-      when "6"
+        # quit
         i = 1
     end
   end
