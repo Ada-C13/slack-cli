@@ -38,7 +38,7 @@ end
 describe 'select channel' do
   
   it "selects the correct channel for slack names" do
-    VCR.use_cassette("load_workspace") do
+    VCR.use_cassette("select_channel") do
       @workspace = Workspace.new
       user_channel = "general"
       @workspace.select_channel(user_channel)
@@ -51,7 +51,7 @@ describe 'select channel' do
   end
   
   it "selects the correct channel for slack ids" do
-    VCR.use_cassette("load_workspace") do
+    VCR.use_cassette("select_channel") do
       @workspace = Workspace.new
       user_channel = "CUTE4M96W"
       @workspace.select_channel(user_channel)
@@ -64,7 +64,7 @@ describe 'select channel' do
   end
   
   
-  it 'returns iempty array if channel is not found' do
+  it 'returns empty array if channel is not found' do
     VCR.use_cassette("load_workspace") do
       @workspace = Workspace.new
       user_channel = "fake channel"
@@ -95,7 +95,7 @@ end
 describe 'select user' do
   
   it "selects the correct user for slack names" do
-    VCR.use_cassette("load_workspace") do
+    VCR.use_cassette("select_user") do
       @workspace = Workspace.new
       
       user = "slackbot"
@@ -109,7 +109,7 @@ describe 'select user' do
   end
   
   it "selects the correct user for slack ids" do
-    VCR.use_cassette("load_workspace") do
+    VCR.use_cassette("select_user") do
       @workspace = Workspace.new
       user = "USLACKBOT"
       @workspace.select_user(user)
@@ -122,7 +122,7 @@ describe 'select user' do
   end
   
   it 'returns empty array if user is not found' do
-    VCR.use_cassette("load_workspace") do
+    VCR.use_cassette("select_user") do
       @workspace = Workspace.new
       user = "fake user"
       selected_user = @workspace.select_user(user)
@@ -152,7 +152,7 @@ end
 describe 'show details' do
   
   it 'displays accurate details about a user' do
-    VCR.use_cassette("load_workspace") do
+    VCR.use_cassette("show_details") do
       @workspace = Workspace.new
       @workspace.select_user("slackbot")
       expect(@workspace.show_details).must_equal "Slack ID: USLACKBOT, Name: slackbot, Real Name: Slackbot, Status Text: , Status Emoji: "
@@ -160,15 +160,15 @@ describe 'show details' do
   end
   
   it 'displays accurate details about a channel' do
-    VCR.use_cassette("load_workspace") do
+    VCR.use_cassette("show_details") do
       @workspace = Workspace.new
       @workspace.select_channel("CUTE4M96W")
-      expect(@workspace.show_details).must_equal "Slack ID: CUTE4M96W, Name: general, Topic: Company-wide announcements and work-based matters, Member Count: 4"
+      expect(@workspace.show_details).must_equal "Slack ID: CUTE4M96W, Name: general, Topic: Company-wide announcements and work-based matters, Member Count: 6"
     end
   end
   
   it 'informs the user if there is no currently selected user or channel' do
-    VCR.use_cassette("load_workspace") do
+    VCR.use_cassette("show_details") do
       @workspace = Workspace.new
       expect(@workspace.show_details).must_be_empty
     end
@@ -179,23 +179,38 @@ end
 
 describe "send message" do
   
-  it "sends a message" do
-    expect(@selected.send_message).must_be_instance_of HTTParty::Response
-    
+  it "sends a message to a user" do 
+    VCR.use_cassette("send_message") do
+      @workspace = Workspace.new
+      @workspace.select_user("slackbot")
+      message = @workspace.send_message("Hi")
+      
+      expect(message).must_be_instance_of HTTParty::Response
+      expect(message["ok"]).must_equal true
+      expect(message["message"]["type"]).must_equal "message"
+      expect(message["message"]["text"]).must_equal "Hi"
+    end
   end
   
-  it "informs the user if the message was successfully sent" do
-    
+  it "sends a message to a channel" do 
+    VCR.use_cassette("send_message") do
+      @workspace = Workspace.new
+      @workspace.select_channel("random")
+      message = @workspace.send_message("Hi")
+      
+      expect(@workspace.send_message("Hi")).must_be_instance_of HTTParty::Response
+      expect(message["ok"]).must_equal true
+      expect(message["message"]["type"]).must_equal "message"
+      expect(message["message"]["text"]).must_equal "Hi"
+    end
   end
   
-  it "informs the user if no recipient is selected" do
-    
+  it "raises an error for an empty message" do
+    VCR.use_cassette("send_message") do
+      @workspace = Workspace.new
+      @workspace.select_channel("random")
+
+      expect { @workspace.send_message("") }.must_raise SlackAPIError
+    end
   end
-  
-  it "informs the user if the message was not sent" do
-    
-  end
-  
-  
-  
 end

@@ -16,6 +16,7 @@ describe 'instantiates a user' do
   
 end
 
+
 describe "User.get_everything" do
   it 'loads users' do
     VCR.use_cassette('load_users') do 

@@ -30,10 +30,6 @@ class Recipient
   end
   
   
-  # class method that builds a URL to send with GET HTTParty
-  # invoked in workspace initialize
-  # this is where API calls will happen in child classes  
-  # TODO:  Add test w/ bad sub_url
   def self.get_everything(sub_url)
     url = "https://slack.com/api/#{sub_url}?token=#{SLACK_TOKEN}"
     
