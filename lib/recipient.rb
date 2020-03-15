@@ -1,24 +1,34 @@
 require 'httparty'
 require 'dotenv'
 
+class SlackApiError < StandardError; end
+class NoSlackTokenError < StandardError; end
+
 Dotenv.load 
 
-unless ENV["SLACK_TOEKN"]
-  raise NoSlackTokenError, "Could not load SLACK_TOEKN. Add `SLACK_TOEKN` in the environment variable."
-  exit 
+def validate_env 
+  unless ENV["SLACK_TOKEN"]
+    raise NoSlackTokenError, "Could not load SLACK_TOKEN. Add `SLACK_TOKEN` in the environment variable."
+    exit 
+  end 
 end 
+
 
 module Slack 
 
-  USER_URL = "https://slack.com/api/users.list"
-  CHANNEL_URL = "https://slack.com/api/conversations.list"
-  MESSAGE_URL = "https://slack.com/api/chat.postMessage"
-  HISTORY_URL = "https://slack.com/api/conversations.history"
-  SLACK_TOKEN = {
-    token: ENV["SLACK_TOKEN"]
-  }
-
   class Recipient 
+
+    USER_URL = "https://slack.com/api/users.list"
+    CHANNEL_URL = "https://slack.com/api/conversations.list"
+    MESSAGE_URL = "https://slack.com/api/chat.postMessage"
+    HISTORY_URL = "https://slack.com/api/conversations.history"
+
+    validate_env 
+
+
+    SLACK_TOKEN = {
+      token: ENV["SLACK_TOKEN"]
+    }
 
     attr_reader :slack_id, :name 
 
@@ -79,7 +89,3 @@ module Slack
     # end 
   end 
 end 
-
-
-class SlackApiError < StandardError; end
-class NoSlackTokenError < StandardError; end

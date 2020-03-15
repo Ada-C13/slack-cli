@@ -185,7 +185,6 @@ describe "Workspace class" do
         workspace = Slack::Workspace.new()
         name = "hannah-j-test"
         workspace.select_channel(name)
-        workspace.selected
 
         expect(workspace.message_history).must_be_instance_of Terminal::Table
       end 

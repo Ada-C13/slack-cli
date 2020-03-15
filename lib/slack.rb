@@ -23,8 +23,6 @@ OPTIONS = {
 def display_options 
   puts "\nChoose one of the following options:"
 
-  sleep(1)
-
   OPTIONS.each do |number, option|
     puts "  #{number}. #{option[0].blue}" 
   end 
@@ -71,7 +69,7 @@ def validate_user_name(name)
     user = WORKSPACE.select_user(name) ##
   end 
 
-  puts "  ✅ You've selected the user name, #{user.name.bold}"
+  puts "  ✅ You've selected the user name, #{user.name.bold} - #{user.slack_id}"
   return name
 end 
 
@@ -80,9 +78,9 @@ def get_channel_name
   puts "Select a channel name or a slack id"
   print "> "
   name = gets.chomp
-  user = validate_channel_name(name) 
+  channel = validate_channel_name(name) 
 
-  puts "  ✅ You've selected the channel name, ##{user.name.bold}"
+  puts "  ✅ You've selected the channel name, ##{channel.name.bold} - #{channel.slack_id}"
 
   return name
 end 
@@ -182,8 +180,8 @@ def display_history
   message = validate_history
 
   if message 
-    puts "Here is message history below:"
-    rows = WORKSPACE.selected.message_history
+    puts "Here is #{get_recipient}'s message history below:"
+    rows = WORKSPACE.selected.message_history(WORKSPACE.selected)
     table = Terminal::Table.new :headings => ['username', 'text'], :rows => rows
     puts table 
   end 
