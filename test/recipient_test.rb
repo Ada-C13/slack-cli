@@ -20,7 +20,6 @@ describe "Recipient Class" do
   end
 
   describe "send_message" do
-    # search for id with username
     it "returns true in case of success (IM)" do
       response = nil
       recipient = Recipient.new(name: "slackbot", slack_id: "USLACKBOT")
@@ -43,13 +42,26 @@ describe "Recipient Class" do
       expect (response).must_equal true 
     end
 
-    it "returns false in case of failure" do
+    it "returns false in case of failure (invalid recipient)" do
       response = nil
       recipient = Recipient.new(name: "elf", slack_id: "QWERTY")
       VCR.use_cassette("postmessage_chat_endpoint") do
         response = recipient.send_message(message: "test-test!")
       end
       expect (response).must_equal false
+    end
+
+    it "returns false in case of failure (empty message)" do
+      workspace = nil
+      VCR.use_cassette("workspace_new") do
+        workspace = Workspace.new
+      end   
+      recipient = workspace.select_channel(query: "random")
+      response = nil
+      VCR.use_cassette("postmessage_chat_endpoint") do
+        response = recipient.send_message(message: "")
+      end
+      expect (response).must_equal false 
     end
   end
 
