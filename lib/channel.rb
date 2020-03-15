@@ -9,34 +9,31 @@ require_relative 'recipient'
 Dotenv.load
 
 # Recipient contains:
-#list
-#select
-#show_detail
-#send_message
+#self.list_all 
+#details
 
 class Channel < Recipient
 
-  attr_reader :topic, :member_count
+  attr_reader :topic, :member_count, :name, :slack_id
   def initialize(name:, slack_id:, topic:, member_count:)
-    super(slack_id, name)
+    super(name, slack_id)
     @topic = topic
     @member_count = member_count 
   end 
 
-  # get the data
-  data = self.get("https://slack.com/api/channels.list")
-
-  #parse the data, instantiate an object 
-  channels = []
-  data["channels"].each do |channel|
-    channels << self.new(
-              name: channel["name"],
-              slack_id: channel["id"],
-              topic: channel["topic"]["value"], 
-              member_count: channel["num_members"]       
-    )
-  end
-  return users
+  def self.list_all
+    data = self.get("https://slack.com/api/channels.list")
+    channels = []
+    data["channels"].each do |channel|
+      channels << self.new(
+                name: channel["name"],
+                slack_id: channel["id"],
+                topic: channel["topic"]["value"], 
+                member_count: channel["num_members"]       
+      )
+    end
+    return channels
+  end 
 
 end
 
