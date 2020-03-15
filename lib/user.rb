@@ -1,6 +1,6 @@
-require 'httparty'
 require_relative 'recipient'
-require "table_print"
+require "dotenv"
+Dotenv.load 
 
 
 
@@ -20,10 +20,10 @@ module SlackApp
     end 
     
     def self.list_all
-      #get the data
+     
       response = self.get("https://slack.com/api/users.list")
       
-      #parse the data, instansiate an object
+    
       users = []
       
       response["members"].each do |user|

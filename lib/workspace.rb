@@ -1,11 +1,12 @@
 require_relative "user"
 require_relative "channel"
 
+
 module SlackApp
   class Workspace
     
     attr_reader :users, :channels, :selected
-    attr_writer :selected 
+    attr_writer :selected
     
     def initialize
 
@@ -39,10 +40,10 @@ module SlackApp
       @selected.details 
     end 
     
-    # def send_message 
-    #   msg_text = gets.chomp
-    #   @selected.send_message(msg_text)
-    # end 
+    def send_message 
+      msg_text = gets.chomp
+      @selected.send_message(msg_text)
+    end 
   end 
 end 
 
