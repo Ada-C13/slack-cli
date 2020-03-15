@@ -4,7 +4,8 @@ require 'dotenv'
 
 module SlackCli
   class Workspace
-    attr_reader :users, :channels, :selected
+    attr_reader :users, :channels
+    attr_accessor :selected
     
     def initialize()
       Dotenv.load(__dir__ + "/" + "../.env") #https://github.com/bkeepers/dotenv
@@ -13,25 +14,43 @@ module SlackCli
       @selected = nil
     end #initialize
 
+  #--------------------------Class Methods ------------------------
 
-    def select_channel
+    #Returns all valid user id and name
+    # inputs: slack id's (:id), need list of name (:name)
+    def valid_inputs_id_names()
+    valid_inputs = []
+      self.users.each do |user|
+        valid_inputs << user.id
+        valid_inputs << user.name
+      end
+      return valid_inputs
     end
 
-    def select_user
+  #----------------------------------------------------------------
+
+    #finds a user
+    #input: aUser_input
+    #Returns a found user
+    def find_user(aUser_input)
+      found_user = nil
+      self.users.each do |user|
+        if (aUser_input == user.id) || (aUser_input == user.name)
+          return user
+        end
+      end
+      return found_user
     end
 
-    def show_details
-    end
-
-    def send_message
-    end
-
-
-    
+  #----------------------------------------------------------------
   end #class
 end #module
 
-# test_workspace = SlackCli::Workspace.new
+test_workspace = SlackCli::Workspace.new
 # test_workspace.users.each do |user|
 #   puts user.real_name  
 # end
+
+name = test_workspace.find_user("cheese")
+puts name
+
