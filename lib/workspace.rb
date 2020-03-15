@@ -11,7 +11,6 @@ class Workspace
   end
 
   def select_user(id)
-    # TODO: think about using reduce
     found = users.find do |user|
       user.name == id || user.slack_id == id
     end
@@ -20,14 +19,12 @@ class Workspace
       puts "\nUser not found"
       return nil
     else
+      puts "You've selected the user: #{found.name}"
       @selected = found
-      @selected.details
-      return @selected
     end
   end
 
   def select_channel(id)
-    # TODO: think about using reduce
     found = channels.find do |channel|
       channel.name == id || channel.slack_id == id
     end
@@ -36,18 +33,16 @@ class Workspace
       puts "\nChannel not found"
       return nil
     else
+      puts "\nYou've selected the channel: #{found.name}"
       @selected = found
-      @selected.details
-      return @selected
     end
   end
 
-  def message
-    # TODO move user input statement to slack.rb
-    # TODO test this method if it's returning sent string
-    puts "Please enter a message you would like to send to #{selected.name}"
-    print "=> "
-    sent_message = selected.send_message(gets.chomp)
-    return sent_message
+  def show_details
+    selected.details
+  end
+
+  def new_message(message)
+    return selected.send_message(message)
   end
 end
