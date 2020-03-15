@@ -4,6 +4,8 @@ require "awesome_print"
 
 Dotenv.load
 
+POST_URL = "https://slack.com/api/chat.postMessage"
+
 class Recipient
   
   attr_reader :slack_id, :name
@@ -30,7 +32,19 @@ class Recipient
     raise NotImplementedError, 'Implement me in a child class!'
   end
 
+  def send_message(message) #string
+    response = HTTParty.post(
+      POST_URL, 
+      query: {
+        token: ENV["SLACK_TOKEN"],
+        channel: @slack_id,
+        text: message,
+        as_user: true,
+        }
+       )
+  end
 end
+
 
 
 class SlackAPIError < Exception

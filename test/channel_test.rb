@@ -50,4 +50,15 @@ describe Channel do
       end
     end
   end
+
+  describe "send_message(message)" do
+    it "can send a valid message to a channel" do
+      VCR.use_cassette("slack_posts_to_channel") do
+        channel_list = Channel.list_all
+        channel = channel_list[2]
+        response = channel.send_message("Hey #random channel, hello from the API call :)")
+        expect(response["ok"]).must_equal true
+      end
+    end
+  end
 end

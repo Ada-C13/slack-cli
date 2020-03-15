@@ -3,6 +3,7 @@ require "awesome_print"
 require_relative "recipient"
 
 CHANNEL_LIST_URL = "https://slack.com/api/conversations.list"
+POST_URL = "https://slack.com/api/chat.postMessage"
 
 class Channel < Recipient
   

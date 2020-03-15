@@ -50,4 +50,15 @@ describe User do
       end
     end
   end
+
+  describe "send_message(message)" do
+    it "can send a valid message to a user" do
+      VCR.use_cassette("slack_posts_to_user") do
+        user_list = User.list_all
+        user = user_list[0]
+        response = user.send_message("Hello from the API call")
+        expect(response["ok"]).must_equal true
+      end
+    end
+  end
 end

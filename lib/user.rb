@@ -4,6 +4,7 @@ require_relative "recipient"
 
 
 USER_LIST_URL = "https://slack.com/api/users.list"
+POST_URL = "https://slack.com/api/chat.postMessage"
 
 class User < Recipient
 
