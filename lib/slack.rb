@@ -53,6 +53,7 @@ def main
         puts "\n"
       else
         print "Please enter your message: "
+        message = get.chomp.to_s
         workspace.send_message
         puts "\n"
       end

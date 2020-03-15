@@ -41,6 +41,7 @@ class Workspace
   end
 
   def send_message
+    HTTParty.post("https://slack.com/api/chat.postMessage", query: { token: ENV["SLACK_API_TOKEN"], channel: @selected  , text: "user_input" })
   end
 
 end
