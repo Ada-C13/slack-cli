@@ -21,7 +21,9 @@ describe "Channel class" do
     it "returns a response of channels list from API" do 
       VCR.use_cassette("channels-list-endpoint") do 
         url = "https://slack.com/api/channels.list"
-        token = ENV["SLACK_TOKEN"]
+        token = {
+          token: ENV["SLACK_TOKEN"] 
+        }
 
         response = Slack::Channel.get(url, token)
 
@@ -29,29 +31,7 @@ describe "Channel class" do
       end 
     end
   end 
-
-
-  describe "#send_message(text, selected)" do 
-    it "sends a message to a selected channel" do 
-      VCR.use_cassette("channels-list-endpoint") do 
-
-        workspace = Slack::Workspace.new
-
-        channel = workspace.select_channel("hannah-j-test")       
-
-        expect(channel.send_message("Good morning!", channel)).must_equal true 
-      end  
-    end 
-
-    it "raises SlackApiError when given a bogus channel name" do
-      VCR.use_cassette("channels-list-endpoint") do
-        channel = Slack::Channel.new(slack_id: "123456", name: "goblin-channel")
-
-        expect{channel.send_message("Hungry", channel)}.must_raise SlackApiError
-      end 
-    end 
-  end 
-
+  
 
   describe "#details" do
     it "returns the channel details" do 
@@ -93,4 +73,39 @@ describe "Channel class" do
       end 
     end 
   end 
+
+
+  describe "#load_message_history" do 
+    it "loads message history for a selected channel" do 
+      VCR.use_cassette("conversations-history-endpoint") do 
+
+        channel = Slack::Workspace.new.select_channel("hannah-j-test")
+
+        history = channel.load_message_history
+        expect(history).must_be_kind_of Array
+      end 
+    end 
+
+    it "raises SlackApiError when given a bogus channel" do 
+      VCR.use_cassette("conversations-history-endpoint") do 
+        channel = Slack::Channel.new(slack_id: "123456", name: "goblin test")
+
+        expect{channel.load_message_history}.must_raise SlackApiError
+      end 
+    end 
+  end 
+
+  describe "#show_message_history" do 
+    it "shows message history for a selected channel" do 
+      VCR.use_cassette("conversations-history-endpoint") do 
+
+        channel = Slack::Workspace.new.select_channel("hannah-j-test")
+
+        msg_history = channel.message_history
+        
+        expect(msg_history).must_be_kind_of Array
+      end 
+    end 
+  end 
+
 end 

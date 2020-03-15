@@ -3,8 +3,6 @@ require_relative 'recipient'
 module Slack 
   class Channel < Recipient
 
-    SLACK_TOKEN = ENV["SLACK_TOKEN"]
-
     attr_reader :slack_id, :name, :topic, :member_count 
 
     def initialize(topic: nil, member_count: nil, **args) 
@@ -38,5 +36,46 @@ module Slack
         })
       end 
     end 
+
+
+    def load_message_history 
+      params = {
+        token: ENV["SLACK_TOKEN"],
+        channel: self.slack_id, # Conversation ID 
+        limit: 20
+      }
+
+      response = HTTParty.get(HISTORY_URL, {
+        query: params
+      })
+
+      unless response.code == 200 && response.parsed_response["ok"]
+        raise SlackApiError, "We failed to get information from API"
+      end 
+
+      response_data = JSON.parse(response.body)
+      return response_data["messages"]
+    end  
+
+
+    def message_history
+
+      workspace = Slack::Workspace.new
+      messages = self.load_message_history 
+
+      list = []
+
+      messages.each do |message|
+        if message["subtype"] != "bot_add" && message["subtype"] != "channel_purpose" && message["subtype"] != "channel_join"
+
+          (message["username"]) ? name = message["username"] : name = workspace.find_user_by_id(message["user"]).name
+
+          list << [name, message["text"]]
+        end    
+      end 
+      
+      return list
+    end 
+
   end 
 end 
