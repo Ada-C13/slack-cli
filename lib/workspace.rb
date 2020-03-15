@@ -17,14 +17,21 @@ module SlackCli
   #--------------------------Class Methods ------------------------
 
     #Returns all valid user id and name
-    # inputs: slack id's (:id), need list of name (:name)
-    def valid_inputs_id_names()
-    valid_inputs = []
-      self.users.each do |user|
-        valid_inputs << user.id
-        valid_inputs << user.name
+    # inputs: aMode that's either "user" or "channel"
+    def valid_inputs_id_names(aMode)
+      valid_inputs = []
+      if aMode == "user"
+        self.users.each do |user|
+          valid_inputs << user.id
+          valid_inputs << user.name
+        end
+      elsif aMode == "channel"
+        self.channels.each do |channel|
+          valid_inputs << channel.id
+          valid_inputs << channel.name
+        end
       end
-      return valid_inputs
+    return valid_inputs
     end
 
   #----------------------------------------------------------------
@@ -43,6 +50,20 @@ module SlackCli
     end
 
   #----------------------------------------------------------------
+
+    #finds a channel
+    #input: aUser_input
+    #Returns a found channel
+    def find_channel(aUser_input)
+      found_channel = nil
+      self.channels.each do |channel|
+        if (aUser_input == channel.id) || (aUser_input == channel.name)
+          return channel
+        end
+      end
+      return found_channel
+    end
+    #----------------------------------------------------------------
   end #class
 end #module
 
