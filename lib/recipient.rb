@@ -1,58 +1,77 @@
 
+# require 'table_print'
 require 'httparty'
 require 'dotenv'
 Dotenv.load
 
-
 BASE_URL = 'https://slack.com/api/'
-PRAMS = {
+PARAMS = {
   token: ENV['SLACK_TOKEN'],
   pretty: 1
 }
 
 class Recipient
-
-  # add private attributes or methods if needed
-
-  attr_reader :slack_id, :name
-  def initialize(slack_id, name)
+  attr_reader :slack_id, :nickname
+  def initialize(slack_id:, nickname:)
     @slack_id = slack_id
-    @name = name
+    @nickname = nickname
   end
 
-  # # implemented
-
-  # def send_message(message)
-  # end
-
-  def self.get(url, params)
-    # Build and send the request
-    response = HTTParty.get(@url, query: @params)
-
-    # # Check for errors
-    # if response.code != 200 || response["OK"] == false
-    #   raise SlackApiError, "API call failed with code #{response.code} and reason '#{response['error']}"
-    # end
-
-    # # Turn the raw JSON data into instances of this class
-    
-    # # passes = response['response'].map do |pass|
-    #   self.new(pass['risetime'], pass['duration'])
-    # # end
-
-    # # return passes
-    # return self.new(response['id'], response['name'])
-
+  def details
+    return "here are the details for this #{self.class}:\nID: #{slack_id}\nnickname: #{nickname}" 
   end
 
-  # # abstract
+  def send_message(message)
+    response = HTTParty.post(
+      "#{BASE_URL}/chat.postMessage",
+      body:  {
+        token: ENV['SLACK_TOKEN'],
+        text: message,
+        # how can I specify that the channel is the selected from in workspace (can it be a user?)
+        channel: @slack_id
+      },
+      headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
+    )
 
-  # def details
-  #   return "ID: #{slack_id}, nickname: #{name}" 
-  # end
+    unless response.code == 200 && response.parsed_response["ok"]
+      raise SlackAPIError, "Error when posting #{message} to #{channel}, error: #{response.parsed_response["error"]}"
+    end
 
-  def self.list_all
-    # abstract method
+    return true
   end
 
+  def self.get(endpoint, params)
+    data = HTTParty.get(endpoint, query: params)
+
+    if data.code != 200 || data["ok"] == false
+      raise SlackAPIError, "We encountered a problem: #{data["error"]}"
+    end
+
+    return  data
+  end
+
+  class << self
+
+    def endpoint
+    end
+
+    def response_root
+    end
+
+    def make_from_record(record)
+    end
+
+    def list_all
+      response = self.get(BASE_URL + endpoint, PARAMS)
+      all = []
+      (response[response_root]).each do |record|
+        all << make_from_record(record)
+      end
+      return all
+    end
+  end
+
+end
+
+class SlackAPIError < Exception
 end
