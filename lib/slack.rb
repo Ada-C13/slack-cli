@@ -42,16 +42,18 @@ def options(workspace)
       channel_info = workspace.name_or_id("channel")
       options(workspace)
     when "details"
-      # if workspace.selected_recipient.class == User
-      #   puts workspace.selected_recipient.name
-      #   puts workspace.selected_recipient.real_name
-      #   puts workspace.selected_recipient.id
-      # elsif workspace.selected_recipient.class == Channel
-      #   puts selected_recipient.channel["topic"]["value"]
-      #   puts selected_recipient.channel["num_members"]
-      #   puts selected_recipient.channel["id"]
-      # end
-      
+      if workspace.selected_type == "user"
+        puts "Username: #{workspace.selected_recipient["name"]}"
+        puts "Name: #{workspace.selected_recipient["real_name"]}"
+        puts "Id: #{workspace.selected_recipient["id"]}"
+      elsif workspace.selected_type == "channel"
+        puts "Topic: #{workspace.selected_recipient["topic"]["value"]}"
+        puts "Number of Members: #{workspace.selected_recipient["num_members"]}"
+        puts "Channel ID: #{workspace.selected_recipient["id"]}"
+      else 
+        "You have not selected a recipient."
+      end
+      options(workspace)
     when "quit"
       return
   end

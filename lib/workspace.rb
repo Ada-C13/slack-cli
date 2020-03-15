@@ -12,12 +12,13 @@ Dotenv.load
 KEY = ENV["SLACK_TOKEN"]
 
 class Workspace
-  attr_accessor :channels, :users, :selected_recipient
+  attr_accessor :channels, :users, :selected_recipient, :selected_type
 
   def initialize
     @users = Workspace.get("https://slack.com/api/users.list")
     @channels = Workspace.get("https://slack.com/api/conversations.list")
     @selected_recipient = nil
+    @selected_type = nil
   end
 
   def self.get(url)
@@ -60,50 +61,83 @@ class Workspace
   end
 
 
+  def name_or_id(type)  # TODO break this up into methods select channel and select user to better match given design
+    puts "Please provide a user name or ID for your channel or user"
+    answer = gets.chomp
 
-
-  def name_or_id(type)
-    puts "What information will you be providing? Please type 'name' or 'id'."
-    answer = gets.chomp.downcase
-  
-    while answer != "name" && answer != "id"
-      puts "Try again? Please type 'name' or 'id'."
-      answer = gets.chomp.downcase
-    end 
-  
-    # @TODO:  Refactor this.  Stop using parameters as variable names, lots of other duplication.  Jesus this is bad.
     if type == "user"
-      if answer == "name"
-        puts "Please provide the name:"
-        provided_name = gets.chomp
-        recipient = User.create(provided_name, "user_#{answer}")
-        @selected_recipient = recipient
-        puts "Thank you, I have noted your selection"
-      elsif answer == "id"
-        puts "Please provide the id:"
-        provided_id = gets.chomp
-        recipient = User.create(provided_id, "user_#{answer}")
-        @selected_recipient = recipient
-        puts "Thank you, I have noted your selection"
+      users["members"].each do |member|
+        if member["name"] == answer
+          @selected_recipient = member
+          @selected_type = "user"
+          puts "Thank you, I have noted your selection"
+          return
+        elsif member["id"] == answer
+          @selected_recipient = member
+          @selected_type = "user"
+          puts "Thank you, I have noted your selection"
+          return
+        end
       end
-    end 
-
-    if type == "channel"
-      if answer == "name"
-        puts "Please provide the name:"
-        provided_name = gets.chomp
-        recipient = Channel.create(provided_name, "channel_#{answer}")
-        @selected_recipient = recipient
-        puts "Thank you, I have noted your selection"
-      elsif answer == "id"
-        puts "Please provide the id:"
-        provided_id = gets.chomp
-        recipient = Channel.create(provided_id, "channel_#{answer}")
-        @selected_recipient = recipient
-        puts "Thank you, I have noted your selection"
+      puts "You did not provide a vaild recipient"
+      return
+    elsif type == "channel"
+      channels["channels"].each do |channel|
+        if channel["name"] == answer
+          @selected_recipient = channel
+          @selected_type = "channel"
+          puts "Thank you, I have noted your selection"
+          return
+        elsif channel["id"] == answer
+          @selected_recipient = channel
+          @selected_type = "channel"
+          puts "Thank you, I have noted your selection"
+          return
+        end
       end
+      puts "You did not provide a vaild recipient"
+      return
     end 
   end
+  
+ # while answer != "name" && answer != "id"
+    #   puts "Try again? Please type 'name' or 'id'."
+    #   answer = gets.chomp.downcase
+    # end 
+
+    # @TODO:  Refactor this.  Stop using parameters as variable names, lots of other duplication.  Jesus this is bad.
+    # if type == "user"
+    #   if answer == "name"
+    #     puts "Please provide the name:"
+    #     provided_name = gets.chomp
+        # recipient = User.create(provided_name, "user_#{answer}")
+        # @selected_recipient = recipient
+      #   puts "Thank you, I have noted your selection"
+      # elsif answer == "id"
+      #   puts "Please provide the id:"
+      #   provided_id = gets.chomp
+        # recipient = User.create(provided_id, "user_#{answer}")
+        # @selected_recipient = recipient
+  #       puts "Thank you, I have noted your selection"
+  #     end
+  #   end 
+
+  #   if type == "channel"
+  #     if answer == "name"
+  #       puts "Please provide the name:"
+  #       provided_name = gets.chomp
+  #       recipient = Channel.create(provided_name, "channel_#{answer}")
+  #       @selected_recipient = recipient
+  #       puts "Thank you, I have noted your selection"
+  #     elsif answer == "id"
+  #       puts "Please provide the id:"
+  #       provided_id = gets.chomp
+  #       recipient = Channel.create(provided_id, "channel_#{answer}")
+  #       @selected_recipient = recipient
+  #       puts "Thank you, I have noted your selection"
+  #     end
+  #   end 
+  # end
 end
 
 class SlackAPIError < StandardError ; end

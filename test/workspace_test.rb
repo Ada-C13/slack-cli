@@ -27,6 +27,8 @@ describe "getting number of users" do
   end  
 end
 
+
+
 describe "list_users" do  # look in to test the 2 listing functions do i need to break the functin apart?
 
   it "outputs list of users" do
@@ -46,6 +48,20 @@ describe "list_users" do  # look in to test the 2 listing functions do i need to
     end
   end
 end
+
+# describe "name or id" do
+  
+#   it ""
+#   users = 
+#   VCR.use_cassette("list_of_users") do
+#     users = Workspace.get("https://slack.com/api/users.list")
+#   end
+
+#   name_or_id("user")
+
+
+  
+# end
 
 # xdescribe "list user"
 #   xdescribe "self.get" do
