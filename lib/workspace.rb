@@ -17,19 +17,27 @@ class Workspace
   end
 
   def select_user(user_id_or_username)
-    @selected = @users.find {|user| 
+    user_profile = @users.find {|user| 
       user.slack_id == user_id_or_username || 
       user.name == user_id_or_username
     }
-    return @selected
+    if user_profile == nil
+      return nil
+    else
+      return @selected = user_profile
+    end
   end
 
   def select_channel(channel_id_or_channelname)
-    @selected = @channels.find {|channel| 
+    channel_profile = @channels.find {|channel| 
       channel.slack_id == channel_id_or_channelname || 
       channel.name == channel_id_or_channelname
     }
-    return @selected 
+    if channel_profile == nil
+      return nil
+    else
+      return @selected = channel_profile
+    end 
   end
 
   def show_details
@@ -40,10 +48,6 @@ class Workspace
     end
   end
 
-  def prompt_options
-    puts "6 options: list users, list channels, select user, select channel, details, or quit:"
-    input = gets.chomp.downcase
-    return input
-  end
+  
 end
 
