@@ -11,19 +11,19 @@ class Workspace
   end
 
   def select_channel
-    input = gets.chomp
+    my_channel = gets.chomp
 
-    channels.each do |channel|
-      #search for the channel name or id
-    end
+    channel = @channels.find { |c| c.name == my_channel }
 
-    #accomodate for if it doesn't exist
+    channel ? return channel : (raise ArgumentError, "#{my_channel} does not exist")
   end
 
   def select_user
-    #get the keyword
-    input = gets.chomp
+    my_user = gets.chomp
 
+    user = @users.find { |u| u.real_name == my_user }
+
+    user ? return user : (raise ArgumentError, "#{my_user} does not exist")
   end
 
   def show_details
@@ -31,8 +31,8 @@ class Workspace
   end
   
   def send_message
-    message = gets.chomp
+    my_message = gets.chomp
 
-    @selected.send_message(message)
+    @selected.send_message(my_message)
   end
 end
