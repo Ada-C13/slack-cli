@@ -1,4 +1,4 @@
-require 'recipient'
+require_relative 'recipient'
 
 class Channel < Recipient
   attr_reader :topic, :member_count

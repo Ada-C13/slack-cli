@@ -1,5 +1,5 @@
-require 'channel'
-require 'user'
+require_relative 'channel'
+require_relative 'user'
 
 class Workspace
   attr_reader :users, :channels, :selected
