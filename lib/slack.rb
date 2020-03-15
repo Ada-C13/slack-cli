@@ -273,3 +273,242 @@ def main
 end
 
 main if __FILE__ == $PROGRAM_NAME
+
+
+
+# =============================================
+# output 
+# =============================================
+
+# Welcome to the Ada Slack CLI!💬
+# -------------------------
+# #12 users || #6 channels
+# -------------------------
+
+# Choose one of the following options:
+#   1. list users
+#   2. list channels
+#   3. select user
+#   4. select channel
+#   5. details
+#   6. send message
+#   7. change settings
+#   8. check message history
+#   9. quit
+
+#  > 1
+
+# NAME                  | REAL_NAME             | SLACK_ID   
+# ----------------------|-----------------------|------------
+# sea otter             | Slackbot              | USLACKBOT  
+# space_lee_api_project | space_lee_api_project | UUTG4NT6W  
+# faezeh.ashtiani       | Faezeh Ashtiani       | UUV26URFC  
+# hannahjoo24           | Hannah J              | UUVTM0ZJM  
+# time_hannah_j_api_pro | time_hannah_j_api_pro | UV6BLS99N  
+# acirizarry            | Antonia               | UV6BN9RTP  
+# space_faezeh_slackcli |                       | UV7EPA5EG  
+# sara.lee.higgins      | Lee Higgins           | UV7S06J4X  
+# hannahtekie           | Hannah Tekie          | UV8PPJX37  
+# time_hannaht_api_proj | time_hannaht_api_proj | UV8Q8T6S1  
+# space_antonia_slack_a | space_antonia_slack_a | UVDHLDG0N  
+# space_faezeh_slack_ap | space_faezeh_slack_ap | U0102NT1RE3
+
+# Choose one of the following options:
+#   1. list users
+#   2. list channels
+#   3. select user
+#   4. select channel
+#   5. details
+#   6. send message
+#   7. change settings
+#   8. check message history
+#   9. quit
+
+#  > 2
+
+# NAME              | TOPIC                          | MEMBER_COUNT | SLACK_ID 
+# ------------------|--------------------------------|--------------|----------
+# lees-test-channel | For having fun with the Sla... | 2            | CUT6YR3LJ
+# general           | Company-wide announcements ... | 5            | CV60LA20G
+# random            | Non-work banter and water c... | 5            | CV86T0TPY
+# hannah-j-test     |                                | 2            | CV8HLGW9L
+# hannahmary        |                                | 5            | CV8PR7M4M
+# fun               |                                | 5            | CVB8WV8BS
+
+# Choose one of the following options:
+#   1. list users
+#   2. list channels
+#   3. select user
+#   4. select channel
+#   5. details
+#   6. send message
+#   7. change settings
+#   8. check message history
+#   9. quit
+
+#  > 3
+
+# Select a user name, a real name, or a slack id
+# > sea otter
+#   ✅ You've selected the user name, sea otter - USLACKBOT
+
+# Choose one of the following options:
+#   1. list users
+#   2. list channels
+#   3. select user
+#   4. select channel
+#   5. details
+#   6. send message
+#   7. change settings
+#   8. check message history
+#   9. quit
+
+#  > 5
+
+# SLACK_ID  | NAME      | REAL_NAME | STATUS_TEXT | STATUS_EMOJI
+# ----------|-----------|-----------|-------------|-------------
+# USLACKBOT | sea otter | Slackbot  |             | 🦦           
+
+# Choose one of the following options:
+#   1. list users
+#   2. list channels
+#   3. select user
+#   4. select channel
+#   5. details
+#   6. send message
+#   7. change settings
+#   8. check message history
+#   9. quit
+
+#  > 6
+
+# Enter your message to sea otter > howdy!
+#   ✅ You've successfully sent a message to sea otter
+
+# Choose one of the following options:
+#   1. list users
+#   2. list channels
+#   3. select user
+#   4. select channel
+#   5. details
+#   6. send message
+#   7. change settings
+#   8. check message history
+#   9. quit
+
+#  > 8
+
+#  ⚠️  Checking message history for `users` are not available at the moment
+#     After selecting a channel, try again!
+
+# Choose one of the following options:
+#   1. list users
+#   2. list channels
+#   3. select user
+#   4. select channel
+#   5. details
+#   6. send message
+#   7. change settings
+#   8. check message history
+#   9. quit
+
+#  > 4
+
+# Select a channel name or a slack id
+# > random
+#   ✅ You've selected the channel name, #random - CV86T0TPY
+
+# Choose one of the following options:
+#   1. list users
+#   2. list channels
+#   3. select user
+#   4. select channel
+#   5. details
+#   6. send message
+#   7. change settings
+#   8. check message history
+#   9. quit
+
+#  > 5
+
+# SLACK_ID  | NAME   | TOPIC                          | MEMBER_COUNT
+# ----------|--------|--------------------------------|-------------
+# CV86T0TPY | random | Non-work banter and water c... | 5           
+
+# Choose one of the following options:
+#   1. list users
+#   2. list channels
+#   3. select user
+#   4. select channel
+#   5. details
+#   6. send message
+#   7. change settings
+#   8. check message history
+#   9. quit
+
+#  > 6
+
+# Enter your message to random > hey!
+#   ✅ You've successfully sent a message to random
+
+# Choose one of the following options:
+#   1. list users
+#   2. list channels
+#   3. select user
+#   4. select channel
+#   5. details
+#   6. send message
+#   7. change settings
+#   8. check message history
+#   9. quit
+
+#  > 8
+
+# Here is random's message history below:
+# +-----------------+----------------------------------------+
+# | username        | text                                   |
+# +-----------------+----------------------------------------+
+# | hannahjoo24     | hey!                                   |
+# | faezeh.ashtiani | Hello, I am a message in the test file |
+# | faezeh.ashtiani | ok, one more test - sorry everyone!    |
+# | faezeh.ashtiani | yeay!                                  |
+# | faezeh.ashtiani | are you gonna work his time?           |
+# | faezeh.ashtiani | blah blah test                         |
+# | My Bot          | test                                   |
+# | My Bot          | random                                 |
+# | My Bot          | Happy Friday y'all! &gt;_&lt;          |
+# +-----------------+----------------------------------------+
+
+# Choose one of the following options:
+#   1. list users
+#   2. list channels
+#   3. select user
+#   4. select channel
+#   5. details
+#   6. send message
+#   7. change settings
+#   8. check message history
+#   9. quit
+
+#  > 7
+
+# username > sea otter
+# emoji > 🦦  
+#   ✅ You've successfuly changed profile settings!
+
+# Choose one of the following options:
+#   1. list users
+#   2. list channels
+#   3. select user
+#   4. select channel
+#   5. details
+#   6. send message
+#   7. change settings
+#   8. check message history
+#   9. quit
+
+#  > 9
+
+# Bye 👋👋🏻👋🏼👋🏽👋🏾👋🏿
+
+# Thank you for using the Ada Slack CLI 😊
