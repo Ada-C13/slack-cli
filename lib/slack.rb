@@ -1,27 +1,19 @@
 #!/usr/bin/env ruby
+require "dotenv"
+require "table_print"
+
 require_relative 'workspace'
 
-def list_users(workspace)
-  workspace.users.each do |user|
-    user.details
-  end
-end
-
-def list_channels(workspace)
-  workspace.channels.each do |channel|
-    channel.details
-  end
-end
-
+Dotenv.load
 
 def main
-  puts "Welcome to the Ada Slack CLI!"
   workspace = Workspace.new
+  puts "Welcome to the Ada Slack CLI!"
 
   user_option = ""
 
   until user_option == "quit"
-    puts "Choose an option
+    puts "\nCHOOSE AN OPTION
     - list users
     - list channels
     - select user
@@ -34,29 +26,37 @@ def main
 
     case user_option
     when "list users"
-      list_users(workspace)
+      tp workspace.users, "name", "real_name", "slack_id"
+
     when "list channels"
-      list_channels(workspace)
+      tp workspace.channels, "name", "topic", "slack_id", "member_count"
+
     when "select user"
-      puts "Input user ID or Name"
+      puts "\nInput user ID or Name"
       print "=> "
-      workspace.select_user(gets.chomp)
+      user = workspace.select_user(gets.chomp)
+
     when "select channel"
-      puts "Input channel ID or Name"
+      puts "\nInput channel ID or Name"
       print "=> "
-      workspace.select_channel(gets.chomp)
+      channel = workspace.select_channel(gets.chomp)
+
     when "details"
       if workspace.selected.nil?
-        puts "Sorry, you have nothing selected"
+        puts "\nSorry, you have nothing selected"
       else
-        puts "Here are your for #{workspace.selected}"
-        workspace.selected.details
+        puts "\nHere are details for #{workspace.selected.name}"
+        workspace.show_details
       end
+
     when "send message"
       if workspace.selected.nil?
-        puts "Sorry, you have not selected a Channel or User to send a message to"
+        puts "\nSorry, you have not selected a Channel or User to send a message to"
       else
-        workspace.message
+        puts "Please enter a message you would like to send to #{workspace.selected.name}"
+        print "=> "
+        workspace.new_message(gets.chomp)
+        puts "The message was sent!"
       end
     end
   end
