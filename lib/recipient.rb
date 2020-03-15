@@ -10,7 +10,6 @@ class Recipient
 
   def send_message(message)
     HTTParty.post("https://slack.com/api/chat.postMessage", {
-
       headers: { 'Content-Type' => 'application/x-www-form-urlencoded' },
       body: {
         token: ENV["SLACK_TOKEN"],

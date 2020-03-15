@@ -18,8 +18,8 @@ def ask_for_action
   puts
 end
 
-def user_selected?(workspace)
-  puts "Enter a username or Slack ID:"
+def prompt_to_select_user(workspace)
+  puts "Enter a name or Slack ID:"
   identifier = gets.chomp
   user = workspace.select_user(identifier)
   if user
@@ -29,7 +29,7 @@ def user_selected?(workspace)
   end
 end
 
-def channel_selected?(workspace)
+def prompt_to_select_channel(workspace)
   puts "Enter a channel name or Slack ID:"
   identifier = gets.chomp
   channel = workspace.select_channel(identifier)
@@ -47,14 +47,15 @@ def perform_action(action, workspace)
   when "list channels"
     tp workspace.channels, "slack_id", "name", "topic", "member_count"
   when "select user"
-    user_selected?(workspace)
+    puts prompt_to_select_user(workspace)
   when "select channel"
-    channel_selected?(workspace)
+    puts prompt_to_select_channel(workspace)
   when "details"
-    workspace.show_details 
+    puts workspace.show_details
   when "send message"
-    workspace.send_message
+    puts workspace.send_message
   end
+  puts
 end
 
 def main
@@ -67,8 +68,7 @@ def main
   ask_for_action
   action = gets.chomp.downcase
   until action == "quit"
-    puts perform_action(action, workspace)
-    puts
+    perform_action(action, workspace)
     ask_for_action
     action = gets.chomp.downcase
   end

@@ -6,8 +6,10 @@ describe "User" do
       VCR.use_cassette("list_users") do
         users = User.list_all
         expect(users).wont_be_nil
-        expect(users.length > 0).must_equal true
+        expect(users).must_be_kind_of Array
+        expect(users.length).must_be :>, 0
         users.each do |user|
+          expect(user).must_be_kind_of User
           expect(user.slack_id).must_be_kind_of String
         end
       end

@@ -1,5 +1,5 @@
-require 'awesome_print'
-require_relative 'recipient'
+require "awesome_print"
+require_relative "recipient"
 
 class Channel < Recipient
   attr_reader :topic, :member_count
@@ -18,9 +18,13 @@ class Channel < Recipient
     response = Channel.get("https://slack.com/api/channels.list")
     channels = response["channels"]
 
-    return channels.map { |channel| Channel.new(channel["id"], 
-      channel["name"], channel["topic"]["value"], 
-      channel["num_members"]) }
-
+    return channels.map { |channel|
+             Channel.new(
+               channel["id"],
+               channel["name"],
+               channel["topic"]["value"],
+               channel["num_members"]
+             )
+           }
   end
 end

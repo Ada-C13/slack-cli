@@ -30,7 +30,7 @@ class Workspace
 
   def show_details
     if @selected != nil 
-      @selected.details 
+      @selected.details
     else
       "No recipient is selected"
     end

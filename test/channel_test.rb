@@ -7,7 +7,11 @@ describe "Channel" do
         channels = Channel.list_all
 
         expect(channels).wont_be_nil
+        expect(channels).must_be_kind_of Array
         expect(channels.length > 0).must_equal true
+        channels.each do |channel|
+          expect(channel).must_be_kind_of Channel
+        end
       end
     end
   end
