@@ -18,7 +18,7 @@ module Slack
           return "You've selected #{selected.name}".green
         end
       end
-      return "Sorry, user not found"
+      return "Sorry, user not found".red
     end
 
     def select_channel(search_term)
@@ -28,7 +28,7 @@ module Slack
           return "You've selected #{selected.name}".green
         end
       end
-      return "Sorry, channel not found"
+      return "Sorry, channel not found".red
     end
 
     def show_details
