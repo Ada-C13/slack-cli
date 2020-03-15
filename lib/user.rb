@@ -1,10 +1,8 @@
-require "httparty"
-require "dotenv"
 require "table_print"
 require_relative "recipient"
 
 class User < Recipient
-  attr_accessor :real_name, :status_text, :status_emoji
+  attr_accessor :real_name, :status_text, :status_emoji, :slack_id, :name
 
   # every time
   def initialize(slack_id, name, real_name, status_text = nil, status_emoji = nil)

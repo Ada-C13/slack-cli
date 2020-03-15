@@ -31,12 +31,12 @@ class Workspace
   end
 
   def list_users
-    url = "https://slack.com/api/channels.list?token=#{SLACK_TOKEN}&pretty=1"
+    url = "https://slack.com/api/users.list?token=#{SLACK_TOKEN}&pretty=1"
     response = HTTParty.get(url)
     users_list = []
     # looking for user in response
-    response["user"].each do |user|
-      users_list << user["name"]
+    response["members"].each do |user|
+      users_list << ([user["id"], user["profile"]["real_name"], user["name"]])
     end
     return users_list
   end
