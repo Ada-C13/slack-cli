@@ -1,9 +1,7 @@
 #!/usr/bin/env ruby
 require 'httparty'
-require 'dotenv'
 require_relative 'workspace'
 require 'table_print'
-Dotenv.load
 
 def main
   workspace = Workspace.new
@@ -42,7 +40,10 @@ def main
           when "details"
             tp workspace.show_details, "real_name", "slack_id", "status_text", "status_emoji"
           when "send message"
-            # put in the code that will allow them to send a message to that recipient
+            puts "Please enter the message you would like to send"
+            message = gets.chomp
+            send_to = workspace.selected.slack_id
+            workspace.send_message(message: message, send_to: send_to)
           when "return to main menu"
             next
           when "quit"
@@ -81,14 +82,19 @@ def main
           puts "You have selected channel: #{workspace.selected.name}"
           puts "\n"
 
-          puts "Would you like to see details about your selected channel, return to the main menu, or quit?"
-          puts "•Details \n•Return to Main Menu \n•Quit "
+          puts "Would you like to see details about your selected channel, send message to that channel or quit?"
+          puts "•Details \n•Send message \n•Return to Main Menu \n•Quit "
           puts "\n"
           choice = gets.chomp.downcase
 
           case choice
           when "details"
             tp workspace.show_details, "name", "slack_id", "member_count", "topic"
+          when "send message"
+            puts "Please enter the message you would like to send"
+            message = gets.chomp
+            send_to = workspace.selected.slack_id
+            workspace.send_message(message: message, send_to: send_to)
           when "return to main menu"
             choice = init_user_options
             puts "\n"
@@ -102,10 +108,6 @@ def main
           puts "#{selected_channel} Please try again!"
           puts "\n"
         end
-        
-        # puts "Would you like to see details about your selected channel, return to the main menu, or quit?"
-        # puts "•Details \n•Return to Main Menu \n•Quit "
-        # choice = gets.chomp.downcase
 
       when "return to main menu"
         selection = init_user_options
@@ -133,11 +135,3 @@ def init_user_options
 end
 
 main if __FILE__ == $PROGRAM_NAME
-
-
-BASE_URL = "https://slack.com/api/channels.list"
-SLACK_TOKEN = ENV["SLACK_TOKEN"]
-
-params = {token: SLACK_TOKEN}
-response = HTTParty.get(BASE_URL, query: params)
-

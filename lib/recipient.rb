@@ -10,7 +10,24 @@ class Recipient
     @name = name
   end
 
-  def send_message(message)
+  def send_message(message:, send_to: )
+    url = "https://slack.com/api/chat.postMessage"
+
+    slack_token = ENV["SLACK_TOKEN"]
+    header = { 
+      'Content-Type' => 'application/x-www-form-urlencoded',
+      'charset' => 'utf-8' 
+    }
+    body = {
+      token: slack_token, 
+      channel: send_to, 
+      text: message
+    }
+    response = HTTParty.post(url, body: body, headers: header)
+
+    raise SlackApiError.new("Invalid response from API") if response.code != 200 || response["ok"] == false
+    
+    return response
   end
 
   def self.get(url)
