@@ -27,13 +27,13 @@ module Slack
     end
 
     def send_message(text)
-      response = HTTParty.post(MESSAGE_URL, body:  {
-        token: ENV["SLACK_TOKEN"],
-        channel: self.slack_id,
-        text: text
-      },
-      headers: { "Content-Type" => "application/x-www-form-urlencoded" }
-    )
+        response = HTTParty.post(MESSAGE_URL, body: {
+            token: ENV["SLACK_TOKEN"],
+            channel: self.slack_id,
+            text: text
+            },
+        headers: { "Content-Type" => "application/x-www-form-urlencoded" }
+        )
       #check for errors
       if response.code != 200 || response["ok"] == false
         raise SlackAPIError, "Error: #{response["error"]}"

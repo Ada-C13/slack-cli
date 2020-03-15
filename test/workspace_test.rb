@@ -26,7 +26,7 @@ describe "Workspace" do
   end
   describe "select_user" do
     it "selects a user" do
-      @workspace.select_user("thenora")
+      @workspace.select_user("slackbot")
       expect(@workspace.selected).must_be_kind_of Slack::User
     end
     it "does not assign invalid user" do
@@ -36,7 +36,7 @@ describe "Workspace" do
   end
   describe "select_channel" do
     it "selects a channel" do
-      @workspace.select_channel("general")
+      @workspace.select_channel("random")
       expect(@workspace.selected).must_be_kind_of Slack::Channel
     end
     it "does not assign invalid channel" do
@@ -46,20 +46,20 @@ describe "Workspace" do
   end
   describe "show_details" do
     it "shows user or channel details" do
-      @workspace.select_user("thenora")
+      @workspace.select_user("slackbot")
       expect(@workspace.show_details).must_be_kind_of TablePrint::Returnable
-      @workspace.select_channel("general")
+      @workspace.select_channel("random")
       expect(@workspace.show_details).must_be_kind_of TablePrint::Returnable
     end
   end
-    # test not working; response returning nil
+    # test not working; response returning nil although it does actually send
     # describe "send_message" do
     #   it "sends a message to user or channel" do
     #     @workspace.select_user("slackbot")
     #     VCR.use_cassette("chat-postmessage-endpoint") do
     #       @response = @workspace.send_message("hello")
     #     end
-    #     expect(@response).must_equal true # => nil, although it does actually send
+    #     expect(@response).must_equal true # => nil, 
     #   end
     # end
 end
