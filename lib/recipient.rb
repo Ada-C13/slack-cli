@@ -6,9 +6,12 @@ Dotenv.load
 module Slack 
 
   USER_URL = "https://slack.com/api/users.list"
-  CHANNEL_URL = "https://slack.com/api/channels.list"
+  CHANNEL_URL = "https://slack.com/api/conversations.list"
   MESSAGE_URL = "https://slack.com/api/chat.postMessage"
-  SLACK_TOKEN = ENV["SLACK_TOKEN"]
+  HISTORY_URL = "https://slack.com/api/conversations.history"
+  SLACK_TOKEN = {
+    token: ENV["SLACK_TOKEN"]
+  }
 
   class Recipient 
 
@@ -27,7 +30,7 @@ module Slack
           'Content-Type' => 'application/x-www-form-urlencoded'
         },
         body: {
-          token: SLACK_TOKEN,
+          token: ENV["SLACK_TOKEN"],
           text: text,
           channel: selected.slack_id,
           username: "My Bot"
@@ -47,10 +50,8 @@ module Slack
     end 
 
 
-    def self.get(url, token)
-      response = HTTParty.get(url, query: {
-        token: token
-      })
+    def self.get(url, params)
+      response = HTTParty.get(url, query: params)
 
       # TO DO
       unless response.code == 200 && response.parsed_response["ok"]
@@ -66,6 +67,11 @@ module Slack
     def self.list_all 
       raise NotImplementedError, 'Implement me in a child class!'
     end 
+
+
+    # def load_message_history 
+    #   raise NotImplementedError, 'Implement me in a child class!'
+    # end 
   end 
 end 
 

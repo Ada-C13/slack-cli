@@ -22,7 +22,9 @@ describe "User class" do
     it "returns a response of users list from API" do
       VCR.use_cassette("users-list-endpoint") do
         url = "https://slack.com/api/users.list"
-        token = ENV["SLACK_TOKEN"]
+        token = {
+          token: ENV["SLACK_TOKEN"]
+        }
 
         response = Slack::User.get(url, token)
         
@@ -33,34 +35,13 @@ describe "User class" do
     it "raises SlackApiError when given a bogus token" do 
       VCR.use_cassette("users-list-endpoint") do 
         url = "https://slack.com/api/users.list"
-        token = "bogussdfkljdsf123"
+        token = {
+          token: "bogussdfkljdsf123"
+        }
 
         expect{
           Slack::User.get(url, token)
         }.must_raise SlackApiError
-      end 
-    end 
-  end 
-
-
-  describe "#send_message" do 
-    it "sends a message to a selected user" do 
-      VCR.use_cassette("users-list-endpoint") do 
-
-        workspace = Slack::Workspace.new
-
-        user = workspace.select_user("USLACKBOT")       
-
-        expect(user.send_message("Good morning SLACKBOT!", user)).must_equal true 
-      end  
-    end 
-
-
-    it "raises SlackApiError when given a bogus user name" do
-      VCR.use_cassette("users-list-endpoint") do
-        user = Slack::User.new(slack_id: "123456", name: "goblin")
-
-        expect{user.send_message("Hungry", user)}.must_raise SlackApiError
       end 
     end 
   end 
