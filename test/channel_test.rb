@@ -5,14 +5,14 @@ describe "Channel" do
   describe "Initialize" do
 
     before do
-      @channel = SlackCLI::Channel.new("poop", "poop", 4, "BUTHFRBNW")
+      @channel = SlackCLI::Channel.new("Steve", "steve", 4, "BUTHFRBNW")
     end
 
     it "can create an instance of Channel" do
       VCR.use_cassette("channel_class") do
         expect(@channel).must_be_kind_of SlackCLI::Channel
-        expect(@channel.name).must_equal "poop"
-        expect(@channel.topic).must_equal "poop"
+        expect(@channel.name).must_equal "Steve"
+        expect(@channel.topic).must_equal "steve"
         expect(@channel.member_count).must_equal 4
       end
     end

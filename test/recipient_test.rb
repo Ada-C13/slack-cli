@@ -11,7 +11,6 @@ describe "Recipient" do
     it "can create an instance of Recipient" do
       VCR.use_cassette("recipient_class") do
         expect(@recipient).must_be_kind_of SlackCLI::Recipient
-        #expect(@recipient).must_equal
       end
     end
 
@@ -25,13 +24,18 @@ describe "Recipient" do
     it "can pull information about users.list via get_response" do
       VCR.use_cassette("recipient_class") do
         expect(SlackCLI::Recipient.get_response("users.list")).must_be_kind_of HTTParty::Response
-        expect(SlackCLI::Recipient.get_response("users.list")["members"].length).must_equal 8
+        expect(SlackCLI::Recipient.get_response("users.list")["members"].length).must_equal 9
+      end
+    end
+
+    it "raises an error if an incorrect destination is given via get_response" do
+      VCR.use_cassette("recipient_class") do
+      expect {SlackCLI::Recipient.get_response("users.queue")}.must_raise SearchError
       end
     end
 
     it "can send a message via send_message" do
       VCR.use_cassette("recipient_class") do
-        #expect(SlackCLI::Recipient.get_response("users.list")).must_be_kind_of HTTParty::Response
         expect(SlackCLI::Recipient.send_message("i am a honeybucket.")).must_be_kind_of String  
       end
     end

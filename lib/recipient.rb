@@ -6,6 +6,8 @@ require 'table_print'
 
 Dotenv.load
 
+class SearchError < StandardError; end
+
 module SlackCLI
   class Recipient
     attr_reader :slack_id
@@ -19,15 +21,17 @@ module SlackCLI
     end
 
     def self.get_response(endpoint)
-      HTTParty.get(BASE_URL + endpoint, query: {token: SLACK_TOKEN})
+      response = HTTParty.get(BASE_URL + endpoint, query: {token: SLACK_TOKEN})
+
+      if !response["ok"] || response["ok"] == "ok"
+        raise SearchError, "Endpoint error: #{endpoint} is invalid"
+      end
+
+      return response
     end
 
     def self.send_message(message)
       return message
-    end
-
-    def details
-      
     end
   end
 end

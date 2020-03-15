@@ -4,7 +4,7 @@ require 'dotenv'
 
 require_relative 'recipient.rb'
 
-Dotenv.load
+#Dotenv.load
 
 module SlackCLI
   class User < Recipient

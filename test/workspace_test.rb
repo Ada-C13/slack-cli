@@ -4,114 +4,99 @@ describe "Workspace" do
   
   describe "Initialize" do
 
-    before do
-      @workspace = SlackCLI::Workspace.new
-    end
-
     it "can create an instance of Workspace" do
       VCR.use_cassette("workspace_class") do
-        expect(@workspace).must_be_kind_of SlackCLI::Workspace
-      end
-    end
-  end
-
-  describe "list_channels" do
-
-    before do
-      @workspace = SlackCLI::Workspace.new
-    end
-
-    it "can blahblah something channels" do
-      VCR.use_cassette("workspace_class") do
-        expect(@workspace.list_channels[0].name).must_equal "slackcli"
-        expect(@workspace.list_channels.length).must_equal 5
-        expect(@workspace.list_channels).must_be_kind_of Array
-      end
-    end
-  end
-
-  describe "list_users" do
-
-    it "can blahblah something users" do
-      VCR.use_cassette("workspace_class") do
         @workspace = SlackCLI::Workspace.new
-        expect(@workspace.list_users[0].name).must_equal "Slackbot"
-        expect(@workspace.list_users.length).must_equal 8
-        expect(@workspace.list_users).must_be_kind_of Array
+        expect(@workspace).must_be_kind_of SlackCLI::Workspace
       end
     end
   end
 
   describe "select_channel" do
 
-    before do
-      @workspace = SlackCLI::Workspace.new
+    it "can return a channel instance" do
+      VCR.use_cassette("workspace_class") do
+        @workspace = SlackCLI::Workspace.new
+        expect(@workspace.select_channel("random").slack_id).must_equal "CV85Q6S0P"
+        expect(@workspace.select_channel("general").slack_id).must_equal "CV8FWUH8W"
+        expect(@workspace.select_channel("honeybucket").slack_id).must_equal "CVAEAU1LN"
+      end
     end
 
-    it "can blahblah selecting channel stuff" do
+    it "returns a channel as a Channel instance" do
       VCR.use_cassette("workspace_class") do
-
-        expect(@workspace.select_channel("random").slack_id).must_equal "CV85Q6S0P"
-
-        expect(@workspace.select_channel("honeybucket").slack_id).must_equal "CVAEAU1LN"
+        @workspace = SlackCLI::Workspace.new
+        expect(@workspace.select_channel("random")).must_be_kind_of SlackCLI::Channel
+        expect(@workspace.select_channel("general")).must_be_kind_of SlackCLI::Channel
+        expect(@workspace.select_channel("honeybucket")).must_be_kind_of SlackCLI::Channel
       end
     end
   end
 
   describe "select_user" do
 
-    before do
-      @workspace = SlackCLI::Workspace.new
+    it "can return a user instance" do
+      VCR.use_cassette("workspace_class") do
+        @workspace = SlackCLI::Workspace.new
+        selected_user = @workspace.select_user("Slackbot")
+        expect(selected_user.username).must_equal "slackbot"
+        expect(selected_user.slack_id).must_equal "USLACKBOT"
+        expect(selected_user.name).must_equal "Slackbot"
+      end
     end
 
-    it "can blahblah selecting users stuff" do
+    it "returns a user as a User instance" do
       VCR.use_cassette("workspace_class") do
-
-        expect(@workspace.select_user("Slackbot").username).must_equal "slackbot"
-
-        expect(@workspace.select_user("Slackbot").name).must_equal "Slackbot"
-
-        expect(@workspace.select_user("time_jessica_slack_cli").name).must_equal "time_jessica_slack_cli"
-
-        expect(@workspace.select_user("time_jessica_slack_cli").name).must_equal "time_jessica_slack_cli"
+        @workspace = SlackCLI::Workspace.new
+        selected_user = @workspace.select_user("Slackbot")
+        expect(selected_user).must_be_kind_of SlackCLI::User
       end
     end
   end
 
-  describe "show_details" do
+  describe "message_to_outbox" do
 
-    it "can blahblah showing details" do
+    it "can send a message to a user and confirm the message has been sent" do
       VCR.use_cassette("workspace_class") do
         @workspace = SlackCLI::Workspace.new
         @workspace.select_user("Slackbot")
-        expect(@workspace.show_details.username).must_equal "slackbot"
-        expect(@workspace.show_details.slack_id).must_equal "USLACKBOT"
-        expect(@workspace.select_user("Slackbot")).must_be_kind_of SlackCLI::User
+        sent_message = @workspace.message_to_outbox("poop")
+        expect(sent_message).must_equal "Message delivered!"
+      end
+    end
+
+    it "can send a message to a user and confirm the message has been sent" do
+      VCR.use_cassette("workspace_class") do
+        @workspace = SlackCLI::Workspace.new
+        @workspace.select_channel("honeybucket")
+        sent_message = @workspace.message_to_outbox("poop")
+        expect(sent_message).must_equal "Message delivered!"
       end
     end
   end
 
-  describe "send_message" do
+  describe "show_history" do
 
-    it "can blahblah sending message stuff to users" do
-      VCR.use_cassette("workspace_class") do
-        @workspace = SlackCLI::Workspace.new
-        @workspace.select_user("time_jessica_slack_cli")
-        sent_message = @workspace.send_message
-        # expect(sent_message.parsed_response).must_equal 
-
-        #expect(@workspace.select_user("random")).must_be_kind_of Array
-      end
-    end
-
-    it "can blahblah sending message stuff to a channel" do
+    it "can list a chat history" do
       VCR.use_cassette("workspace_class") do
         @workspace = SlackCLI::Workspace.new
         @workspace.select_channel("honeybucket")
-        sent_message = @workspace.send_message
-        expect(sent_message.parsed_response["ok"]).must_equal true
+        history = @workspace.show_history
+        expect(history).must_be_kind_of Array
+        expect(history.empty?).must_equal false
+      end
+    end
+  end
 
-        #expect(@workspace.select_user("random")).must_be_kind_of Array
+  describe "set_reminder" do
+
+    it "can set a reminder for the current user" do
+      VCR.use_cassette("workspace_class") do
+        @workspace = SlackCLI::Workspace.new
+        reminder = @workspace.set_reminder("don't fall for it.", Time.utc(2020, 4, 1, 10))
+
+        expect(reminder.parsed_response["ok"]).must_equal true
+
       end
     end
   end
