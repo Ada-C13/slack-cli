@@ -2,8 +2,8 @@ require 'httparty'
 
 class Recipient
   attr_reader :slack_id, :name
-  #parent to channel and user classes
-  def initialize(slack_id, name)
+  
+  def initialize(slack_id:, name:)
     @slack_id = slack_id
     @name = name
   end
@@ -15,14 +15,13 @@ class Recipient
     response = HTTParty.get(url, query: q)
 
     if !response["ok"]
-      raise ArgumentError, "#{response["error"]}"
+      raise ArgumentError, "Error: #{response["error"]}"
     else
       return response
     end
   end
 
   def send_message(message)
-    #do some httparty posting shiz
     url = "https://slack.com/api/chat.postMessage"
     q = {
       token: ENV['TOKEN'],
