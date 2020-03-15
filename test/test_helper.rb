@@ -12,17 +12,20 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
-require "webmock/minitest"
+# require "webmock/minitest"
 require 'dotenv'
+require 'HTTParty'
 Dotenv.load 
 
-require_relative "../lib/workspace"
-require_relative "../lib/channel"
-require_relative "../lib/user"
-require_relative "../lib/recipient"
-require_relative "../lib/slack"
+require_relative "../lib/workspace.rb"
+require_relative "../lib/channel.rb"
+require_relative "../lib/user.rb"
+require_relative "../lib/recipient.rb"
+require_relative "../lib/slack.rb"
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
+
+
 
 VCR.configure do |config|
   config.cassette_library_dir = "test/cassettes"
