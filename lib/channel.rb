@@ -1,6 +1,4 @@
 require 'httparty'
-require 'dotenv'
-Dotenv.load(__dir__ + "/" + "../.env") #https://github.com/bkeepers/dotenv
 require_relative 'recipient'
 
 module SlackCli
@@ -13,14 +11,14 @@ module SlackCli
       @member_count = member_count
     end #initialize
 
+    #--------Channel Class Methods----------------------------
+
     #retrieves list of channels from Slack
     #input
     #returns list of channels [Channel]
-    def self.load_all()
+    def self.load_all(url)
       channels = []
       #send request to Slack API using users.list endpoint
-      #                               after?  param =    value
-      url = "https://slack.com/api/channels.list?token=#{ENV['SLACK_TOKEN']}" #https://github.com/bkeepers/dotenv
       response = HTTParty.get(url) #request that will return the response
       #parse response and get users
         response['channels'].each do |channel|
