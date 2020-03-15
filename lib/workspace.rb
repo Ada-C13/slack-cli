@@ -1,6 +1,5 @@
 require "httparty"
 require "dotenv"
-require 'json'
 require_relative "user"
 require_relative "channel"
 
