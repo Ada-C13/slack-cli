@@ -3,7 +3,6 @@ require "./lib/workspace"
 
 describe "Workspace" do
   before do
-    workspace = ''
     VCR.use_cassette("workspace-data") do
       @workspace = Workspace.new
     end
@@ -11,7 +10,6 @@ describe "Workspace" do
 
   describe "initialize" do
     it "initializes Workspace object with an array of users and channels" do
-
       expect(@workspace).must_be_kind_of Workspace
       expect(@workspace.users).must_be_kind_of Array
       expect(@workspace.channels).must_be_kind_of Array
@@ -74,7 +72,7 @@ describe "Workspace" do
 
     it "returns nil if @selected is empty" do
       @workspace.selected = ""
-      expect(@workspace.show_details).must_equal nil
+      expect(@workspace.show_details).must_be_nil
     end
   end
 end
