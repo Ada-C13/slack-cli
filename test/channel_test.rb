@@ -18,6 +18,7 @@ describe "Channel" do
       expect(@topic).must_equal @topic
       expect(@num_members).must_equal @num_members
       expect(@slack_id).must_equal @slack_id
+      expect(@name).must_equal @name
     end
   end
 
@@ -51,6 +52,5 @@ describe "Channel" do
         expect(channel).must_be_kind_of Channel
       end
     end
-
   end
 end

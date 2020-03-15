@@ -16,9 +16,6 @@ class Channel < Recipient
   end
 
   def self.list_all
-    # Use specific api endpoint
-    # error handling? 
-    #raise Exception.new(response['error']) unless response["ok"]
     response = self.get(CHANNEL_URL)
     channels = []
     response["channels"].each do |channel| # maybe do map here
