@@ -12,7 +12,7 @@ module Slack
     end
 
     def self.list
-      response = self.get(USER_URL) # only needs url
+      response = self.get(USER_URL)
       users = []
       response["members"].each do |user|
         users << self.new(

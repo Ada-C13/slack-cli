@@ -32,14 +32,11 @@ module Slack
     end
 
     def show_details
-      if @selected == nil
-        return "None selected – Please select a user or channel"
-      else
-        @selected.details
-      end
+      @selected.details
     end
 
-    # def send_message
-    # end
+    def send_message(text)
+      @selected.send_message(text)
+    end
   end
 end

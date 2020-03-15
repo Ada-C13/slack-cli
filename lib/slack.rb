@@ -13,7 +13,7 @@ def main
   puts "Welcome to the Ada Slack CLI!"
   workspace = Slack::Workspace.new
 
-  options_message = "Please choose from the following options:\nlist users, list channels, select user, select channel, details, or quit"
+  options_message = "Please choose from the following options:\nlist users, list channels, select user, select channel, details, send message, or quit"
 
   puts options_message
   input = gets.chomp.downcase
@@ -33,7 +33,20 @@ def main
       search_term = gets.chomp
       puts workspace.select_channel(search_term)
     when "details"
-      workspace.show_details
+      if workspace.selected == nil
+        puts "None selected. Please select user or channel"
+      else
+        workspace.show_details
+      end
+    when "send message"
+      if workspace.selected == nil
+        puts "None selected. Please select user or channel"
+      else
+        puts "Please enter message:"
+        text = gets.chomp
+        workspace.send_message(text)
+        puts "Message sent"
+      end
     end
     puts options_message
     input = gets.chomp.downcase
@@ -42,9 +55,5 @@ def main
   puts "Thank you for using the Ada Slack CLI!"
 end
 
-# Ruby uses __FILE__ to hold the current source file name. A prepended $ on a variable's name indicates a global variable.
+# Ruby uses __FILE__ to hold the current source file name
 main if __FILE__ == $PROGRAM_NAME
-
-#### Wave 2 - Selecting and Showing Details ####
-
-# "details": on the current recipient. information printed depends on whether channel or user. If no recipient currently selected, the program should let me know and return to main command prompt.
