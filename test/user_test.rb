@@ -72,8 +72,8 @@ describe "User" do
   end
 
   describe "self.details" do
-    it "shows details********" do
+    # it "shows details********" do
       
-    end
+    # end
   end
 end

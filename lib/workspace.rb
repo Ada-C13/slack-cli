@@ -17,32 +17,30 @@ class Workspace
   def initialize
     @users = User.list_users
     @channels = Channel.list_channels
-
-    # need to use Recipient class here???
     @selected = nil
   end
 
-  # method to validate that selected matches a valid channel or user
-  def validate_selected(user_selected)
-    if user_selected.class != String || user_selected.class == NilClass
+  # method to update @selected if given input matches a valid channel's or user's data
+  def select(recipient_data_string)
+    if recipient_data_string.class != String || recipient_data_string.class == NilClass
       raise ArgumentError, "Provided input is not a string" 
     end
 
     self.channels.each do |channel|
-      return true if user_selected == channel.slack_id || user_selected == channel.name
+      if recipient_data_string == channel.slack_id || recipient_data_string == channel.name
+        @selected = channel
+        return channel
+      end
     end
 
     self.users.each do |user|
-      return true if user_selected == user.slack_id || user_selected == user.name
+      if recipient_data_string == user.slack_id || recipient_data_string == user.name
+        @selected = user
+        return user
+      end
     end
 
     return false
-  end 
-
-  # instance method to set and return the current workspace's selected instance variable
-  def update_select(selected)
-    self.selected = selected
-    return @selected
   end
   
 end
