@@ -877,4 +877,169 @@ http_interactions:
         - Hannah J - API Project","updated":1583877084,"app_id":"AUTHSAF7U","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TV6151X8D"}}],"has_more":true,"pin_count":0,"channel_actions_ts":null,"channel_actions_count":0,"response_metadata":{"next_cursor":"bmV4dF90czoxNTgzOTE0NDY5MDAwMTAw"}}'
     http_version: null
   recorded_at: Sun, 15 Mar 2020 05:16:17 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.history?channel=CV8HLGW9L&limit=10&token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '718'
+      Connection:
+      - keep-alive
+      Date:
+      - Sun, 15 Mar 2020 17:37:59 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 6e74f6751d84bf52a14d7edcb12bb543
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:history,groups:history,mpim:history,im:history,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-a57w
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 adc2002956acc4d61bfbf3b973fdf247.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - de8ej1ZWwLk4nBsk_YfTrCHm3YwY1M0QrS9iF_EU2-AZPcdIJAY40Q==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"messages":[{"type":"message","subtype":"bot_message","text":"0","ts":"1584255020.001700","username":"My
+        Bot","bot_id":"BV6BLS7R6"},{"type":"message","subtype":"bot_message","text":"Is
+        there anybody alive down there??!","ts":"1584254420.001600","username":"My
+        Bot","bot_id":"BV6BLS7R6"},{"client_msg_id":"3a4f5ee8-5031-41b4-beba-bfb0cfbe2be4","type":"message","text":"What
+        up?","user":"UUVTM0ZJM","ts":"1584253008.001500","team":"TV6151X8D","blocks":[{"type":"rich_text","block_id":"ET4F","elements":[{"type":"rich_text_section","elements":[{"type":"text","text":"What
+        up?"}]}]}]},{"type":"message","subtype":"bot_message","text":"^-^","ts":"1584252991.001300","username":"My
+        Bot","bot_id":"BV6BLS7R6"},{"client_msg_id":"065ceec8-02f7-495f-bfe6-aa39fae62b43","type":"message","text":"Coding
+        is awesome","user":"UUVTM0ZJM","ts":"1584252923.001200","team":"TV6151X8D","blocks":[{"type":"rich_text","block_id":"P\/yHz","elements":[{"type":"rich_text_section","elements":[{"type":"text","text":"Coding
+        is awesome"}]}]}]},{"type":"message","subtype":"bot_message","text":"HELLO
+        SEATTLE!!","ts":"1584251829.001000","username":"My Bot","bot_id":"BV6BLS7R6"},{"type":"message","subtype":"bot_add","text":"added
+        an integration to this channel: <https:\/\/adacohort13group9.slack.com\/services\/B0100U0C8RE|Time
+        - Hannah J - API Project>","user":"UUVTM0ZJM","bot_id":"B0100U0C8RE","bot_link":"<https:\/\/adacohort13group9.slack.com\/services\/B0100U0C8RE|Time
+        - Hannah J - API Project>","ts":"1584250894.000900"},{"type":"message","subtype":"bot_message","text":"Hey!!
+        I''m from test file","ts":"1584248168.000800","username":"My Bot","bot_id":"BV6BLS7R6"},{"type":"message","subtype":"bot_message","text":"Good
+        morning!","ts":"1584248167.000700","username":"My Bot","bot_id":"BV6BLS7R6"},{"type":"message","subtype":"bot_add","text":"added
+        an integration to this channel: <https:\/\/adacohort13group9.slack.com\/services\/B0100C7R6KW|Time
+        - Hannah J - API Project>","user":"UUVTM0ZJM","bot_id":"B0100C7R6KW","bot_link":"<https:\/\/adacohort13group9.slack.com\/services\/B0100C7R6KW|Time
+        - Hannah J - API Project>","ts":"1584237312.000600"}],"has_more":true,"pin_count":0,"channel_actions_ts":null,"channel_actions_count":0,"response_metadata":{"next_cursor":"bmV4dF90czoxNTg0MjM2NDE1MDAwNTAw"}}'
+    http_version: null
+  recorded_at: Sun, 15 Mar 2020 17:37:59 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.history?channel=123456&limit=10&token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '60'
+      Connection:
+      - keep-alive
+      Date:
+      - Sun, 15 Mar 2020 17:37:59 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - dac60e7764b40ba76e59718600d08561
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:history,groups:history,mpim:history,im:history,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - r
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-2yq0
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 786d821259e050ebca76b8e357819f78.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - DobBQDCsIiAn3K6Wk61GYMxlecl1-CZ6eEdaIa2MoToBQ3HdqeBR8w==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"channel_not_found"}'
+    http_version: null
+  recorded_at: Sun, 15 Mar 2020 17:37:59 GMT
 recorded_with: VCR 5.1.0
