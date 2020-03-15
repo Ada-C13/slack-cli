@@ -3,11 +3,27 @@ SimpleCov.start do
   add_filter 'test/'
 end
 
+require "httparty"
+require "dotenv"
+Dotenv.load
+
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
+
+require_relative "../lib/workspace"
+require_relative "../lib/recipient"
+require_relative "../lib/user"
+require_relative "../lib/channel"
+
+BASE_URL = "https://slack.com/api/"
+USERS_URL = "#{BASE_URL}users.list"
+CHANNELS_URL = "#{BASE_URL}conversations.list"
+POST_URL = "#{BASE_URL}chat.postMessage"
+
+SLACK_TOKEN = ENV["SLACK_TOKEN"]
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
@@ -25,5 +41,7 @@ VCR.configure do |config|
   }
 
   # Don't leave our token lying around in a cassette file.
-
+  config.filter_sensitive_data("<SLACK_TOKEN>") do
+    ENV["SLACK_TOKEN"]
+  end
 end
