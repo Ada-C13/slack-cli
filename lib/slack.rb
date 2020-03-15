@@ -32,7 +32,13 @@ def main
         if !workspace.show_details
           puts "Please make a selection first"
         end
-      when "6", "quit"
+      when "6", "send message"
+        if workspace.selected == ""
+          puts "Please select a recipient before sending a message."
+          next
+        end
+        workspace.selected.send_message(get_message_input)
+      when "7", "quit"
         input = "quit"
       else
         puts "That's not a valid option, please try again."
@@ -43,11 +49,20 @@ def main
 end
 
 def list_options
-    options = ["list users", "list channels", "select user", "select channel", "details", "quit"]
+    options = ["list users", "list channels", "select user", "select channel", "details", "send message", "quit"]
 
     options.each_with_index do |option, i|
       puts "#{i + 1}. #{option}"
     end
+end
+
+def get_message_input
+  message = ""
+  until message != ""
+    puts "Enter the message you would like to send to the selected recipient: "
+    message = gets.chomp
+  end
+  return message
 end
 
 main if __FILE__ == $PROGRAM_NAME
