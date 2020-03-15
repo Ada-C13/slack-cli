@@ -14,6 +14,10 @@ class Recipient
         text: message
       }
     )
+    if response.code != 200 || response["ok"] == false
+      raise SlackAPIError, "Request processing error: #{response["error"]}"
+    end
+    
     return response.code == 200 && response.parsed_response["ok"]
   end
 
@@ -27,7 +31,6 @@ class Recipient
   def self.get_api_data(url:)
     response = HTTParty.get(url, query: {token: ENV['SLACK_TOKEN']})
     if response.code != 200 || response["ok"] == false
-      # rewrite (error while processing request?)
       raise SlackAPIError, "Request processing error: #{response["error"]}"
     end
     return response

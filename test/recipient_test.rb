@@ -42,13 +42,11 @@ describe "Recipient Class" do
       expect (response).must_equal true 
     end
 
-    it "returns false in case of failure (invalid recipient)" do
-      response = nil
+    it "raises an error in case of failure (invalid recipient)" do
       recipient = Recipient.new(name: "elf", slack_id: "QWERTY")
       VCR.use_cassette("postmessage_chat_endpoint") do
-        response = recipient.send_message(message: "test-test!")
+        expect {recipient.send_message(message: "test-test!")}.must_raise SlackAPIError
       end
-      expect (response).must_equal false
     end
 
     it "returns false in case of failure (empty message)" do
@@ -57,11 +55,9 @@ describe "Recipient Class" do
         workspace = Workspace.new
       end   
       recipient = workspace.select_channel(query: "random")
-      response = nil
       VCR.use_cassette("postmessage_chat_endpoint") do
-        response = recipient.send_message(message: "")
+        expect {recipient.send_message(message: "")}.must_raise SlackAPIError
       end
-      expect (response).must_equal false 
     end
   end
 
