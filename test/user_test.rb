@@ -1,4 +1,5 @@
 require_relative "test_helper"
+require_relative "../lib/user"
 
 describe "User class" do
   describe "initialize" do
