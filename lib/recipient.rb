@@ -49,7 +49,11 @@ class Recipient
   
 end
 
-
 class SlackAPIError < Exception
 end
 
+private
+
+def self.list
+  raise NotImplementedError, "Implement me in a child class!"
+end

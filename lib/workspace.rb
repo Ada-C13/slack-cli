@@ -17,9 +17,17 @@ class Workspace
     if channels.find { |channel| channel.name == user_channel } == nil && channels.find { |channel| channel.slack_id == user_channel } == nil
       return []
     elsif 
-      @selected = channels.find { |channel| channel.name == user_channel }
+      channels.find do |channel|
+        if channel.name.casecmp?(user_channel)
+          @selected = channel
+        end
+      end
     elsif
-      @selected = channels.find { |channel| channel.slack_id == user_channel } 
+      channels.find do |channel|
+        if channel.slack_id.casecmp?(user_channel)
+          @selected = channel
+        end
+      end
     end
   end
   
@@ -28,9 +36,17 @@ class Workspace
     if users.find { |user|  user.name == user_name } == nil && users.find { |user| user.slack_id == user_name } == nil
       return []
     elsif 
-      @selected = users.find { |user| user.name == user_name }
+      users.find do |user| user.name == user_name
+        if user.name.casecmp?(user_name)
+          @selected = user
+        end
+      end
     elsif
-      @selected = users.find { |user| user.slack_id == user_name } 
+      users.find do |user| user.name == user_name
+        if user.slack_id.casecmp?(user_name)
+          @selected = user
+        end
+      end
     end
   end
   
