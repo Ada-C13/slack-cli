@@ -1,9 +1,11 @@
 class Workspace
   attr_reader :users, :channels
+  attr_accessor :selected
 
   def initialize
     @users = User.load_all
     @channels = Channel.load_all
+    @selected = nil
   end
 
   def list_users
@@ -24,11 +26,8 @@ class Workspace
     return result.chop.chop
   end
 
+  def select_user(query: )
+    self.selected = users.select { |user| user.slack_id == query || user.name == query}.first
+  end
 
-  # def select_user(slack_id:)
-  #   selection = nil
-  #   users.each do |user|
-  #     if user.skack_id == slack_id
-  #       user = 
-  # end  
 end

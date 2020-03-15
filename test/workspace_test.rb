@@ -72,14 +72,32 @@ describe "Workspace Class" do
 
   describe "select_user" do
     it "returns an instanse of User" do
-      selection = @workspace.select_user(slack_id: "USLACKBOT")
+      selection = @workspace.select_user(query: "USLACKBOT")
       expect(selection).must_be_kind_of User
+      selection_2 = @workspace.select_user(query: "slackbot")
+      expect(selection_2).must_be_kind_of User
     end
 
     it "name should be equal to user input" do
+      selection = @workspace.select_user(query: "slackbot")
+      expect(selection.name).must_equal "slackbot"
     end
 
     it "Slack ID should be equal to user input" do
+      selection = @workspace.select_user(query: "USLACKBOT")
+      expect(selection.slack_id).must_equal "USLACKBOT"
     end
+
+    it "returns nil if no user found" do
+      selection = @workspace.select_user(query: "123")
+      assert_nil selection
+    end
+
+    it "updates selected variable" do
+      assert_nil @workspace.selected
+      @workspace.select_user(query: "USLACKBOT")
+      expect(@workspace.selected).must_be_kind_of User
+    end
+
   end
 end

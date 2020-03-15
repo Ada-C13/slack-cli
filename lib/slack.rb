@@ -19,6 +19,9 @@ def menu
   puts "(please, type your selection)"
   puts " >>> list users"
   puts " >>> list channels"
+  puts " >>> select user"
+  puts " >>> select channel"
+  puts " >>> details"
   puts " >>> quit"
 end
 
@@ -37,6 +40,14 @@ def main
       puts workspace.list_users
     when "list channels"
       puts workspace.list_channels
+    when "select user"
+      puts "Please, provide user name or Slack ID"
+      query = gets.chomp
+      if workspace.select_user(query: query) == nil
+        puts "No user found."
+      else
+        puts "User selected."
+      end
     when "quit"
       puts "Thank you for using the Ada Slack CLI"
       exit
