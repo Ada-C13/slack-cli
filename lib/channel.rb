@@ -28,7 +28,8 @@ module SlackApp
           channel["id"], 
           channel["name"], 
           channel["topic"]["value"], 
-          channel["num_members"])
+          channel["num_members"]
+        )
       end 
       return channels 
     end 
