@@ -1,6 +1,4 @@
 require 'httparty'
-require 'dotenv'
-Dotenv.load(__dir__ + "/" + "../.env") #https://github.com/bkeepers/dotenv
 require_relative 'recipient'
 
 
@@ -15,14 +13,13 @@ module SlackCli
       @status_emoji = status_emoji
     end #initialize
 
+    #--------User Class Methods----------------------------
     #retrieves list of users from Slack
     #input
     #returns list of users [User]
-    def self.load_all()
+    def self.load_all(url)
       users = []
       #send request to Slack API using users.list endpoint
-      #                               after?  param =    value
-      url = "https://slack.com/api/users.list?token=#{ENV['SLACK_TOKEN']}" #https://github.com/bkeepers/dotenv
       response = HTTParty.get(url) #request that will return the response
       #parse response and get users
         response['members'].each do |member|
@@ -61,4 +58,3 @@ end #module
 #   puts user.status_text
 #   puts user.status_emoji
 # end
-
