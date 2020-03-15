@@ -16,7 +16,7 @@ module SlackCLI
 
     def self.get(url, params)
       response = HTTParty.get(url, params)
-      unless response["ok"] && response.code == 200
+      unless response.code == 200 && response["ok"]
         raise SlackAPIError.new("Slack API call failed with reason: #{response['error']}")
       end
       return response 
@@ -33,7 +33,7 @@ module SlackCLI
           text: message
         }
       )
-      unless resp["ok"] && resp.code == 200
+      unless response.code == 200 && response["ok"]
         raise SlackAPIError.new("Slack API call failed with reason: #{resp['error']}")
       end
       return true
