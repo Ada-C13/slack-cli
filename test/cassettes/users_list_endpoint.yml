@@ -1,0 +1,480 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://slack.com/api/users.list?pretty=1&token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1027'
+      Connection:
+      - keep-alive
+      Date:
+      - Sun, 15 Mar 2020 01:51:54 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - '01781b0855d297ab0360fa0f548d4013'
+      X-Oauth-Scopes:
+      - chat:write,channels:read,users:read
+      X-Accepted-Oauth-Scopes:
+      - users:read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-o4r2
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 2bedbeaa49b4a77447d30097858cb81a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - 2IyHwkdL_8ukem8opK3U_6eJ-DZFVhGJALZYXz6a_lL3f72xGwu3kQ==
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+            "ok": true,
+            "members": [
+                {
+                    "id": "USLACKBOT",
+                    "team_id": "TUWQDQ9PV",
+                    "name": "slackbot",
+                    "deleted": false,
+                    "color": "757575",
+                    "real_name": "Slackbot",
+                    "tz": null,
+                    "tz_label": "Pacific Daylight Time",
+                    "tz_offset": -25200,
+                    "profile": {
+                        "title": "",
+                        "phone": "",
+                        "skype": "",
+                        "real_name": "Slackbot",
+                        "real_name_normalized": "Slackbot",
+                        "display_name": "Slackbot",
+                        "display_name_normalized": "Slackbot",
+                        "fields": null,
+                        "status_text": "",
+                        "status_emoji": "",
+                        "status_expiration": 0,
+                        "avatar_hash": "sv41d8cd98f0",
+                        "always_active": true,
+                        "first_name": "slackbot",
+                        "last_name": "",
+                        "image_24": "https:\/\/a.slack-edge.com\/80588\/img\/slackbot_24.png",
+                        "image_32": "https:\/\/a.slack-edge.com\/80588\/img\/slackbot_32.png",
+                        "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/slackbot_48.png",
+                        "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/slackbot_72.png",
+                        "image_192": "https:\/\/a.slack-edge.com\/80588\/marketing\/img\/avatars\/slackbot\/avatar-slackbot.png",
+                        "image_512": "https:\/\/a.slack-edge.com\/80588\/img\/slackbot_512.png",
+                        "status_text_canonical": "",
+                        "team": "TUWQDQ9PV"
+                    },
+                    "is_admin": false,
+                    "is_owner": false,
+                    "is_primary_owner": false,
+                    "is_restricted": false,
+                    "is_ultra_restricted": false,
+                    "is_bot": false,
+                    "is_app_user": false,
+                    "updated": 0
+                },
+                {
+                    "id": "UUVEZ4474",
+                    "team_id": "TUWQDQ9PV",
+                    "name": "faezeh.ashtiani",
+                    "deleted": false,
+                    "color": "9f69e7",
+                    "real_name": "faezeh.ashtiani",
+                    "tz": "America\/Los_Angeles",
+                    "tz_label": "Pacific Daylight Time",
+                    "tz_offset": -25200,
+                    "profile": {
+                        "title": "",
+                        "phone": "",
+                        "skype": "",
+                        "real_name": "faezeh.ashtiani",
+                        "real_name_normalized": "faezeh.ashtiani",
+                        "display_name": "",
+                        "display_name_normalized": "",
+                        "status_text": "",
+                        "status_emoji": "",
+                        "status_expiration": 0,
+                        "avatar_hash": "g49ca5a5b9f0",
+                        "image_24": "https:\/\/secure.gravatar.com\/avatar\/49ca5a5b9f0231ebc8b194de11a5c156.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0004-24.png",
+                        "image_32": "https:\/\/secure.gravatar.com\/avatar\/49ca5a5b9f0231ebc8b194de11a5c156.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0004-32.png",
+                        "image_48": "https:\/\/secure.gravatar.com\/avatar\/49ca5a5b9f0231ebc8b194de11a5c156.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0004-48.png",
+                        "image_72": "https:\/\/secure.gravatar.com\/avatar\/49ca5a5b9f0231ebc8b194de11a5c156.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0004-72.png",
+                        "image_192": "https:\/\/secure.gravatar.com\/avatar\/49ca5a5b9f0231ebc8b194de11a5c156.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0004-192.png",
+                        "image_512": "https:\/\/secure.gravatar.com\/avatar\/49ca5a5b9f0231ebc8b194de11a5c156.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0004-512.png",
+                        "status_text_canonical": "",
+                        "team": "TUWQDQ9PV"
+                    },
+                    "is_admin": true,
+                    "is_owner": true,
+                    "is_primary_owner": true,
+                    "is_restricted": false,
+                    "is_ultra_restricted": false,
+                    "is_bot": false,
+                    "is_app_user": false,
+                    "updated": 1584083213
+                },
+                {
+                    "id": "UUWQLKF7V",
+                    "team_id": "TUWQDQ9PV",
+                    "name": "space_faezeh_slackcli",
+                    "deleted": false,
+                    "color": "4bbe2e",
+                    "real_name": "space_faezeh_slackcli",
+                    "tz": "America\/Los_Angeles",
+                    "tz_label": "Pacific Daylight Time",
+                    "tz_offset": -25200,
+                    "profile": {
+                        "title": "",
+                        "phone": "",
+                        "skype": "",
+                        "real_name": "space_faezeh_slackcli",
+                        "real_name_normalized": "space_faezeh_slackcli",
+                        "display_name": "",
+                        "display_name_normalized": "",
+                        "status_text": "",
+                        "status_emoji": "",
+                        "status_expiration": 0,
+                        "avatar_hash": "gde544104668",
+                        "api_app_id": "AV7QVRWS0",
+                        "always_active": false,
+                        "bot_id": "BVAF419QW",
+                        "image_24": "https:\/\/secure.gravatar.com\/avatar\/de54410466800658a2aa5492ba311699.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-24.png",
+                        "image_32": "https:\/\/secure.gravatar.com\/avatar\/de54410466800658a2aa5492ba311699.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-32.png",
+                        "image_48": "https:\/\/secure.gravatar.com\/avatar\/de54410466800658a2aa5492ba311699.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-48.png",
+                        "image_72": "https:\/\/secure.gravatar.com\/avatar\/de54410466800658a2aa5492ba311699.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-72.png",
+                        "image_192": "https:\/\/secure.gravatar.com\/avatar\/de54410466800658a2aa5492ba311699.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-192.png",
+                        "image_512": "https:\/\/secure.gravatar.com\/avatar\/de54410466800658a2aa5492ba311699.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-512.png",
+                        "status_text_canonical": "",
+                        "team": "TUWQDQ9PV"
+                    },
+                    "is_admin": false,
+                    "is_owner": false,
+                    "is_primary_owner": false,
+                    "is_restricted": false,
+                    "is_ultra_restricted": false,
+                    "is_bot": true,
+                    "is_app_user": false,
+                    "updated": 1583950344
+                }
+            ],
+            "cache_ts": 1584237114,
+            "response_metadata": {
+                "next_cursor": ""
+            }
+        }
+    http_version: null
+  recorded_at: Sun, 15 Mar 2020 01:51:52 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/bogus.endpoint?pretty=1&token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '88'
+      Connection:
+      - keep-alive
+      Date:
+      - Sun, 15 Mar 2020 01:51:55 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Referrer-Policy:
+      - no-referrer
+      X-Slack-Backend:
+      - h
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 27bec2fec3bcd580722488a46e031840
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-7q06
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 556b99c6be8d7078b9f067347c62df6b.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - XhkVQB37H0rd0rJsyywLH-FwWNLVqft30Fu26VmgBqBjQz-UXmveKQ==
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+            "ok": false,
+            "error": "unknown_method",
+            "req_method": "bogus.endpoint"
+        }
+    http_version: null
+  recorded_at: Sun, 15 Mar 2020 01:51:53 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/bogus.endpoint?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '80'
+      Connection:
+      - keep-alive
+      Date:
+      - Sun, 15 Mar 2020 02:04:12 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Referrer-Policy:
+      - no-referrer
+      X-Slack-Backend:
+      - h
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 0ddd2ecee45d705904cd3829279e303a
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-zesd
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 f9d716a351f14a0ac1fac2449734849b.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - HZfcpEu_so1Hmd7EBPih0Erdb1cIg0_Xg2OR7uStp0Odnne-9ZPMmA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"unknown_method","req_method":"bogus.endpoint"}'
+    http_version: null
+  recorded_at: Sun, 15 Mar 2020 02:04:10 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/users.list?token=blah%20blah%20blah
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '55'
+      Connection:
+      - keep-alive
+      Date:
+      - Sun, 15 Mar 2020 02:04:12 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Referrer-Policy:
+      - no-referrer
+      X-Slack-Backend:
+      - h
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 5143c9dfe39675d1b857f084decf6c8d
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-8ijn
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 2bedbeaa49b4a77447d30097858cb81a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - oYoCBJeO8TmlOJsaBuiA49CTgnQF5d3Su0yLV-23ItWYKdFsRg5Qlw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"invalid_auth"}'
+    http_version: null
+  recorded_at: Sun, 15 Mar 2020 02:04:10 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/users.list?pretty=1&token=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '60'
+      Connection:
+      - keep-alive
+      Date:
+      - Sun, 15 Mar 2020 03:24:29 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 37e9311c3b00d788f9a549b540e48317
+      Referrer-Policy:
+      - no-referrer
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Vary:
+      - Accept-Encoding
+      X-Accepted-Oauth-Scopes:
+      - users:read
+      X-Slack-Backend:
+      - h
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-2nvs
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 4f3feb5c4393987d42d1971d404d7cea.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - fvMYTofGS19Yyvg-mrLYEtmeFKo1ep_2IP0OVWMjGR5jc16kW9FhBA==
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+            "ok": false,
+            "error": "not_authed"
+        }
+    http_version: null
+  recorded_at: Sun, 15 Mar 2020 03:24:28 GMT
+recorded_with: VCR 5.1.0
