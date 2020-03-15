@@ -14,20 +14,34 @@ class Recipient
     }
     response = HTTParty.get(url, query: q)
 
-    #check for errors
-    if response.code == "ok"
+    if !response["ok"]
       raise ArgumentError, "#{response["error"]}"
+    else
+      return response
     end
   end
 
   def send_message(message)
     #do some httparty posting shiz
+    url = "https://slack.com/api/chat.postMessage"
+    q = {
+      token: ENV['TOKEN'],
+      channel: self.slack_id,
+      text: message
+    }
+    response = HTTParty.post(url, q)
+
+    if !response["ok"]
+      raise ArgumentError, "Unable to post: #{response["error"]}"
+    end
   end
 
   def details
+    #see child classes
   end
 
   def self.list_all
+    #see child classes
   end
 end
 

@@ -14,8 +14,13 @@ class Workspace
     my_channel = gets.chomp
 
     channel = @channels.find { |c| c.name == my_channel }
-
-    channel ? (return channel) : (raise ArgumentError, "#{my_channel} does not exist")
+    
+    if channel
+      @selected = channel
+      return "#{channel} is now selected."
+    else
+      raise ArgumentError, "#{my_channel} does not exist"
+    end
   end
 
   def select_user
@@ -23,7 +28,12 @@ class Workspace
 
     user = @users.find { |u| u.real_name == my_user }
 
-    user ? (return user) : (raise ArgumentError, "#{my_user} does not exist")
+    if user
+      @selected = user
+      return "#{user} is now selected."
+    else
+      raise ArgumentError, "#{my_user} does not exist"
+    end
   end
 
   def show_details
