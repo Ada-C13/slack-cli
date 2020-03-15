@@ -32,14 +32,14 @@ def main
       puts "\n"
       
     when "select channel"
-      print "Please enter the channel name or ID: "
+      print "\n Please enter the channel name or ID: "
       channel_name = gets.chomp.to_s
       workspace.select_channel(channel_name)
       puts "\n"
       
     when "details"
-      if workspace.selected == nil
-        puts "Please select a user or channel."
+      if workspace.selected == ""
+        puts "\nYou haven't selected a user or channel!!! Try again!"
         puts "\n"
       else
         puts workspace.show_details
@@ -48,7 +48,7 @@ def main
       end 
 
     when "send message"
-      if workspace.selected == nil
+      if workspace.selected == ""
         puts "Please select a user or channel."
         puts "\n"
       else
@@ -69,7 +69,7 @@ def main
 end
 
 def prompt_for_input
-  print "Please choose an option: list users, list channels, select user, select channel, details, send message, or quit: \n"
+  print "Please choose an option: \n list users, \n list channels, \n select user, \n select channel, \n details, \n send message, \n or quit: \n"
   return gets.chomp.downcase
 end
 
