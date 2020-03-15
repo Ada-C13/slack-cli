@@ -15,7 +15,7 @@ class Workspace
 
     channel = @channels.find { |c| c.name == my_channel }
 
-    channel ? return channel : (raise ArgumentError, "#{my_channel} does not exist")
+    channel ? (return channel) : (raise ArgumentError, "#{my_channel} does not exist")
   end
 
   def select_user
@@ -23,7 +23,7 @@ class Workspace
 
     user = @users.find { |u| u.real_name == my_user }
 
-    user ? return user : (raise ArgumentError, "#{my_user} does not exist")
+    user ? (return user) : (raise ArgumentError, "#{my_user} does not exist")
   end
 
   def show_details
