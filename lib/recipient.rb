@@ -15,17 +15,19 @@ class Recipient
     @name = name
   end
   
-  def valid_name
+  
+  def send_message(message)
+    url = "https://slack.com/api/chat.postMessage?token=#{SLACK_TOKEN}&channel=#{@slack_id}&text=#{message}"
     
-  end
-  
-  def valid_slack_id
+    response = HTTParty.post(url)
     
+    if response["ok"] != true || response.code != 200
+      raise SlackAPIError.new(("There was an error posting this message: #{response["error"]}"))
+    else puts "Your message was sent successfully!"
+    end
+    
+    return response
   end
-  
-  # def send_message(message)
-  
-  # end
   
   
   # class method that builds a URL to send with GET HTTParty
@@ -36,15 +38,15 @@ class Recipient
     url = "https://slack.com/api/#{sub_url}?token=#{SLACK_TOKEN}"
     
     response = HTTParty.get(url)
-
+    
     if response["ok"] != true || response.code != 200
       raise SlackAPIError.new("There was an error retrieving information from the Slack API: #{response["error"]}")
     end
-
+    
     return response
   end
   
-
+  
   def details
     return "Slack ID: #{slack_id}, Name: #{name},"
   end

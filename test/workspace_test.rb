@@ -177,5 +177,25 @@ describe 'show details' do
 end
 
 
-
-
+describe "send message" do
+  
+  it "sends a message" do
+    expect(@selected.send_message).must_be_instance_of HTTParty::Response
+    
+  end
+  
+  it "informs the user if the message was successfully sent" do
+    
+  end
+  
+  it "informs the user if no recipient is selected" do
+    
+  end
+  
+  it "informs the user if the message was not sent" do
+    
+  end
+  
+  
+  
+end

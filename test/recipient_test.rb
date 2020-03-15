@@ -8,3 +8,4 @@ describe 'initialize' do
     expect(recipient.name).must_equal "SlackBot"
   end
 end
+

@@ -12,7 +12,7 @@ class Workspace
     @selected = nil 
   end
   
-
+  
   def select_channel(user_channel)
     if channels.find { |channel| channel.name == user_channel } == nil && channels.find { |channel| channel.slack_id == user_channel } == nil
       return []
@@ -44,8 +44,8 @@ class Workspace
   end
   
   
-  def send_message
-  
+  def send_message(message)
+    @selected.send_message(message)
   end
   
 end

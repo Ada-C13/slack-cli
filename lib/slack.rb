@@ -33,7 +33,7 @@ def display_and_get_choice
   puts "\n***************************"
   puts "What would you like to do?"
   puts "***************************"
-  print "Options: List Users, List Channels, Select User, Select Channel, Display Details, Quit ==> "
+  print "Options: List Users, List Channels, Select User, Select Channel, Display Details, Send Message, Quit ==> "
   user_choice = gets.chomp.downcase
   
   return valid_choice?(user_choice)
@@ -44,7 +44,7 @@ def valid_choice?(user_choice)
   valid_choice = ["channels", "details", "display", "display details", "exit", "lc", "list channels", "list users", "lu", "message", "quit", "q", "select channel", "select user", "send message", "users"]
   until valid_choice.include? user_choice
     puts "#{user_choice.capitalize} is not a command I can execute..."
-    puts "You can enter: List Users, List Channels, Select User, Select Channel, Display Details, Quit."
+    puts "You can enter: List Users, List Channels, Select User, Select Channel, Display Details, Send Message, Quit."
     print "So what'll it be? ==> "
     user_choice = gets.chomp.downcase
   end
@@ -89,7 +89,7 @@ def execute_choice(user_choice)
     if @workspace.select_user(user_for_details) == []
       puts "\n(!) There is no user with the name or slack ID #{user_for_details}."
     else 
-      puts "You got it!  #{user_for_details} is now selected"
+      puts "You got it!  #{@workspace.selected.name} is now selected"
     end
     
   elsif user_choice == "select channel"
@@ -98,7 +98,7 @@ def execute_choice(user_choice)
     if @workspace.select_channel(channel_for_details) == []
       puts "\n(!) There is no channel with the name or slack ID #{channel_for_details}."
     else 
-      puts "You got it!  #{channel_for_details} is now selected"
+      puts "You got it!  #{@workspace.selected.name} is now selected"
     end
     
   elsif user_choice == "details"
@@ -109,7 +109,14 @@ def execute_choice(user_choice)
     end
     
   elsif user_choice == "message"
-    p "you can sure send a message to #{user_choice}"
+    if @workspace == nil
+      puts "\n(!) There is not a currently selected user or channel to send a message to!  \n(!) Please first select the user or channel you would like to send a message to by typing 'select user' or 'select channel'."
+    else 
+      puts "Enter the message you would like to send to #{@workspace.selected.name} ==> "
+      user_message = gets.chomp
+      @workspace.send_message(user_message)
+    end
+    
   end
 end
 
