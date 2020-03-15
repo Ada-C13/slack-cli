@@ -39,9 +39,9 @@ end
 
 def user_input(user_selection)  
   if user_selection == "list users"
-    tp User.list_all
+    tp @workspace.users
   elsif user_selection == "list channels"
-    tp Channel.list_all
+    tp @workspace.channels
   elsif user_selection == "select user"
     puts "Enter the user name or ID"
     input = gets.chomp
