@@ -6,10 +6,6 @@ class Recipient
     @slack_id = slack_id
   end
 
-  def get_details
-    raise NotImplementedError, 'Implement me in a child class!'
-  end
-
   def send_message(message:)
     response = HTTParty.post(POST_URL,
       query: {
@@ -19,6 +15,10 @@ class Recipient
       }
     )
     return response.code == 200 && response.parsed_response["ok"]
+  end
+
+  def get_details
+    raise NotImplementedError, 'Implement me in a child class!'
   end
 
   ###############

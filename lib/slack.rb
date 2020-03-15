@@ -40,8 +40,10 @@ def main
     case input
     when "list users"
       puts workspace.list_users
+
     when "list channels"
       puts workspace.list_channels
+
     when "select user"
       puts "Please, provide user name or Slack ID"
       query = gets.chomp
@@ -50,6 +52,7 @@ def main
       else
         puts "User selected."
       end
+
     when "select channel"
       puts "Please, provide channel name or Slack ID"
       query = gets.chomp
@@ -58,8 +61,10 @@ def main
       else
         puts "Channel selected."
       end
+
     when "details" 
       puts workspace.selected ? workspace.selected.get_details : "Nothing selected."
+
     when "send message"
       if workspace.selected
         puts "Please, type your message."
@@ -73,16 +78,18 @@ def main
       else
         puts "No recipient selected."
       end
-    when "quit"
-      puts "Thank you for using the Ada Slack CLI"
-      exit
+
     else 
-      puts "\nUnknown command."
+      puts "Unknown command."
     end
 
     menu
     input = gets.chomp
   end
+
+  puts "Thank you for using the Ada Slack CLI"
+  puts "Bye-bye!"
+  exit
 end
 
 main if __FILE__ == $PROGRAM_NAME

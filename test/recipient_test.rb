@@ -65,6 +65,12 @@ describe "Recipient Class" do
     end
   end
 
+  describe "get_details" do
+    it "raises NotImplementedError" do
+      expect{@recipient.get_details}.must_raise NotImplementedError
+    end
+  end
+
   describe "self.get_api_data" do
     it "receives data from Slack API" do
       response = nil
@@ -87,28 +93,15 @@ describe "Recipient Class" do
     end
 
     it "raises an error when response has 'ok' set to false" do
-      # invalid url path
-      # wron cassete?
       VCR.use_cassette("list_users_endpoint") do
         expect {Recipient.get_api_data(url: "https://slack.com/api/use.call")}.must_raise SlackAPIError
       end
-
-      # invalid token?
     end
-
-    # it "raises an error when response status is not 200" do
-    # end
   end
 
   describe "self.load_all" do
     it "raises NotImplementedError" do
       expect{Recipient.load_all}.must_raise NotImplementedError
-    end
-  end
-
-  describe "get_details" do
-    it "raises NotImplementedError" do
-      expect{@recipient.get_details}.must_raise NotImplementedError
     end
   end
 end

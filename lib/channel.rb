@@ -8,7 +8,7 @@ class Channel < Recipient
   end
 
   def get_details
-    return "#{name} => topic: #{topic}, members #: #{member_count}, Slack ID: #{slack_id}"
+    return "#{name} => topic: #{topic}, members: #{member_count}, Slack ID: #{slack_id}"
   end
 
   ###############
