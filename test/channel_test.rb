@@ -3,7 +3,7 @@ require_relative "test_helper"
 describe "Channel class" do 
   describe "#initialize" do 
     it "responds to topic and member_count" do 
-      VCR.use_cassette("channels-list-endpoint") do 
+      VCR.use_cassette("conversations-list-endpoint") do 
 
         profile = {
           :slack_id => "1234567",
@@ -19,8 +19,8 @@ describe "Channel class" do
 
   describe "self.get" do 
     it "returns a response of channels list from API" do 
-      VCR.use_cassette("channels-list-endpoint") do 
-        url = "https://slack.com/api/channels.list"
+      VCR.use_cassette("conversations-list-endpoint") do 
+        url = "https://slack.com/api/conversations.list"
         token = {
           token: ENV["SLACK_TOKEN"] 
         }
@@ -35,7 +35,7 @@ describe "Channel class" do
 
   describe "#details" do
     it "returns the channel details" do 
-      VCR.use_cassette("channels-list-endpoint") do 
+      VCR.use_cassette("conversations-list-endpoint") do 
         slack_id = "CV60LA20G"
         name = "general"
         topic = "Hot pot"
@@ -62,7 +62,7 @@ describe "Channel class" do
 
   describe "self.list_all" do 
     it "creates and returns instances of channels" do 
-      VCR.use_cassette("channels-list-endpoint") do 
+      VCR.use_cassette("conversations-list-endpoint") do 
         channel_list = Slack::Channel.list_all
 
         expect(channel_list).must_be_kind_of Array

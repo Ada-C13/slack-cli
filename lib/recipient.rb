@@ -67,8 +67,8 @@ module Slack
     def self.list_all 
       raise NotImplementedError, 'Implement me in a child class!'
     end 
-
-
+    
+    # TO DO (refactor): I was going to implement #load_message_history in Recipient so that I could use it in 2 sub classes (User, Channel). However, I was not able to find a channel ID for each user. So, instead, I did not give an end user an option (check message history) 
     # def load_message_history 
     #   raise NotImplementedError, 'Implement me in a child class!'
     # end 

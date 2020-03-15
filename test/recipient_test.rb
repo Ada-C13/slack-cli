@@ -37,7 +37,7 @@ describe "Recipient class" do
 
 
     it "sends a message to a selected channel" do 
-      VCR.use_cassette("channels-list-endpoint") do 
+      VCR.use_cassette("conversations-list-endpoint") do 
 
         workspace = Slack::Workspace.new
 
@@ -48,7 +48,7 @@ describe "Recipient class" do
     end 
 
     it "raises SlackApiError when given a bogus channel name" do
-      VCR.use_cassette("channels-list-endpoint") do
+      VCR.use_cassette("conversations-list-endpoint") do
         recipient = Slack::Recipient.new(slack_id: "123456", name: "goblin-channel")
 
         expect{recipient.send_message("Hungry", recipient)}.must_raise SlackApiError

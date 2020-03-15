@@ -35,7 +35,7 @@ module Slack
 
 
     def select_channel(user_input) 
-      @selected = @channels.find { |channel| (channel.name == user_input) || channel.slack_id == user_input}
+      @selected = @channels.find { |channel| (channel.name == user_input) || (channel.slack_id == user_input) }
 
       return @selected
     end 
@@ -65,17 +65,19 @@ module Slack
 
 
     def message_history 
-      if @selected
-       rows = @selected.message_history
+      return nil if !@selected 
+      return "User selected" if @selected.class == Slack::User
 
-       table = Terminal::Table.new :headings => ['username', 'text'], :rows => rows
+      if @selected 
+        rows = @selected.message_history
+
+        table = Terminal::Table.new :headings => ['username', 'text'], :rows => rows
       end 
-
+      
       return table
     end 
 
     
-
     def find_user_by_id(slack_id)
       user = @users.find do |user|
         user.slack_id == slack_id 

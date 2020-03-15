@@ -15,6 +15,7 @@ OPTIONS = {
   "5" => ["details", "detail", "show details"],
   "6" => ["send message", "send", "message"],
   "7" => ["change settings", "change setting", "setting"],
+  "8" => ["check message history", "message history", "message list", "list message"],
   "9" => ["quit", "exit", "q", "bye"]
 }
 
@@ -22,8 +23,10 @@ OPTIONS = {
 def display_options 
   puts "\nChoose one of the following options:"
 
+  sleep(1)
+
   OPTIONS.each do |number, option|
-    puts "  #{number}. #{option[0].green}" 
+    puts "  #{number}. #{option[0].blue}" 
   end 
 end 
 
@@ -117,11 +120,11 @@ def get_recipient
   WORKSPACE.selected.name if WORKSPACE.selected
 end 
 
+
 def get_message 
-  
   recipient = "to #{get_recipient}"
   print "Enter your message #{recipient}"
-  print "> "
+  print " > "
   gets.chomp
 end 
 
@@ -131,18 +134,59 @@ def validate_message(message)
   if !send_message
     error_message
   else 
-    puts "You've successfully sent a message to #{get_recipient}"
+    puts "  ✅ You've successfully sent a message to #{get_recipient}"
   end 
 end 
 
 
-def validate_setting(input)
-  while input.empty?
-    puts "  ⚠️ Invalid input. 😅 Try again"
-    input = gets.chomp
-  end
+def get_username 
+  print "username > "
+  gets.chomp
+end 
 
+def get_emoji 
+  print "emoji > "
+  gets.chomp
+end 
+
+
+def validate_setting(input, target)
+  while input.empty?
+    puts "  ⚠️  Invalid input. 😅 Try again"
+
+    target == "username" ? input = get_username : input = get_emoji
+  end
   return input
+end 
+
+
+def validate_history 
+  message = WORKSPACE.message_history
+
+  if !message 
+    puts " #{"⚠️  No channel selected".light_black}"
+    puts "    #{"After selecting a channel, try again!".light_black}"
+    return false
+
+  elsif message == "User selected"
+    puts " #{"⚠️  Checking message history for `users` are not available at the moment".light_black}"
+    puts "    #{"After selecting a channel, try again!".light_black}"
+    return false
+  end 
+
+  return message
+end 
+
+
+def display_history 
+  message = validate_history
+
+  if message 
+    puts "Here is message history below:"
+    rows = WORKSPACE.selected.message_history
+    table = Terminal::Table.new :headings => ['username', 'text'], :rows => rows
+    puts table 
+  end 
 end 
 
 
@@ -202,17 +246,20 @@ def main
       option = get_option
 
     when "7", *OPTIONS["7"] # change settings
-      print "username > "
-      username = gets.chomp
-      username = validate_setting(username)
+      username = get_username 
+      username = validate_setting(username, "username")
 
-      print "emoji > "
-      emoji = gets.chomp
-      emoji = validate_setting(emoji)
+      emoji = get_emoji
+      emoji = validate_setting(emoji, "emoji")
 
       WORKSPACE.change_setting(username, emoji)
+      puts "  ✅ You've successfuly changed profile settings!"
 
-      puts "✅You've successfuly changed profile settings!"
+      display_options
+      option = get_option
+
+    when "8", *OPTIONS["8"] # check message history
+      display_history
 
       display_options
       option = get_option

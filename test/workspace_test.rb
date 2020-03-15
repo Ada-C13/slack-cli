@@ -17,7 +17,7 @@ describe "Workspace class" do
 
     it "creates a `channels` array and return channels' list" do 
 
-      VCR.use_cassette("channels-list-endpoint") do 
+      VCR.use_cassette("conversations-list-endpoint") do 
         channels = Slack::Workspace.new.channels
 
         expect(channels).must_be_kind_of Array
@@ -32,7 +32,7 @@ describe "Workspace class" do
 
   describe "#list_users & #list_channels" do 
     before do 
-      VCR.use_cassette("users-list-and-channels-list-endpoint") do 
+      VCR.use_cassette("users-list-and-conversations-list-endpoint") do 
         @workspace = Slack::Workspace.new() 
       end 
     end 
@@ -82,7 +82,7 @@ describe "Workspace class" do
 
   describe "#select_channel(user_input)" do 
     before do 
-      VCR.use_cassette("channels-list-endpoint") do 
+      VCR.use_cassette("conversations-list-endpoint") do 
         @workspace = Slack::Workspace.new()
       end 
     end 
@@ -107,7 +107,7 @@ describe "Workspace class" do
 
   describe "#show_details" do 
     before do 
-      VCR.use_cassette("users-list-and-channels-list-endpoint") do 
+      VCR.use_cassette("users-list-and-conversations-list-endpoint") do 
         @workspace = Slack::Workspace.new()
       end 
     end 
@@ -148,7 +148,7 @@ describe "Workspace class" do
     end 
 
     it "sends a message to a selected channel" do 
-      VCR.use_cassette("channels-list-endpoint") do 
+      VCR.use_cassette("conversations-list-endpoint") do 
         workspace = Slack::Workspace.new()
         name = "hannah-j-test"
         workspace.select_channel(name)
@@ -158,7 +158,7 @@ describe "Workspace class" do
     end 
 
     it "returns nil if there is no user or channel chosen" do 
-      VCR.use_cassette("users-list-and-channels-list-endpoint") do
+      VCR.use_cassette("users-list-and-conversations-list-endpoint") do
         workspace = Slack::Workspace.new()
         expect(workspace.send_message("Good afternoon")).must_be_nil
       end 
