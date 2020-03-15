@@ -44,6 +44,15 @@ describe "Workspace" do
       message = "here are the details for this User:\nID: USLACKBOT\nnickname: slackbot\nreal name: Slackbot\nstatus: \nemoji:"
       expect(@workspace.show_details).must_equal message
     end
+  end
 
+  describe "send message" do
+    it "can send a message to a channel or user" do
+      @workspace.select_channel("CV86T0TPY")
+      message = "Hello, I am a message in the test file"
+      VCR.use_cassette("workspace_class") do
+        expect(@workspace.send_message(message)).must_equal true
+      end
+    end
   end
 end

@@ -23,18 +23,17 @@ class Recipient
 
   def send_message(message)
     response = HTTParty.post(
-      "#{BASE_URL}/chat.postMessage",
+      "#{BASE_URL}chat.postMessage",
       body:  {
         token: ENV['SLACK_TOKEN'],
-        text: message,
-        # how can I specify that the channel is the selected from in workspace (can it be a user?)
-        channel: @slack_id
+        channel: self.slack_id,
+        text: message
       },
       headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
     )
-
+    # I am using the user token, if you use bot token, you need to add the bot to the channel.
     unless response.code == 200 && response.parsed_response["ok"]
-      raise SlackAPIError, "Error when posting #{message} to #{channel}, error: #{response.parsed_response["error"]}"
+      raise SlackAPIError, "Error when posting #{message} to #{@nickname}, error: #{response.parsed_response["error"]}"
     end
 
     return true
