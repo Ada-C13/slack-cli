@@ -48,13 +48,13 @@ def main
       current_recipient = workspace.select_channel(gets.chomp)
       ok_recipient?(current_recipient)
     elsif user_input == 5
-      if workspace.selected.empty? == false
+      if workspace.selected != []
         tp workspace.selected
       else
         puts "No channel or user is currently selected."
       end
     elsif user_input == 6
-      if workspace.selected.empty? == false
+      if workspace.selected != [] 
         puts "A message - lovely! What would you like to say?"
         sent_message = workspace.message_to_outbox(gets.chomp)
         p "Consider it done. Confirmation: #{sent_message}"
