@@ -3,6 +3,11 @@ require 'dotenv'
 
 Dotenv.load 
 
+unless ENV["SLACK_TOEKN"]
+  raise NoSlackTokenError, "Could not load SLACK_TOEKN. Add `SLACK_TOEKN` in the environment variable."
+  exit 
+end 
+
 module Slack 
 
   USER_URL = "https://slack.com/api/users.list"
@@ -77,3 +82,4 @@ end
 
 
 class SlackApiError < StandardError; end
+class NoSlackTokenError < StandardError; end
