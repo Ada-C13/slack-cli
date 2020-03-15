@@ -24,6 +24,7 @@ def menu
   puts " >>> details"
   puts " >>> send message"
   puts " >>> quit"
+  print " >>> "
 end
 
 def main
