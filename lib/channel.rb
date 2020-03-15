@@ -9,35 +9,32 @@ Dotenv.load
 class Channel < Recipient
   attr_reader :topic, :members
 
-  BASE_URL = "https://slack.com/api/channels.list?"
-  SLACK_TOKEN = ENV["SLACK_TOKEN"]
-
-
-  def initialize(id, name, topic, members)
-    super(id, name)
+  def initialize(id:, name:, topic:, members:)
+    super(id: id, name: name)
     @topic = topic
     @members = members
-    
   end
 
-  def self.list_all
+  def details
+    tp self, "id", "name", "topic", "members"
+  end
 
-    query = {
-     token: SLACK_TOKEN, 
-   }
+
+  BASE_URL = "https://slack.com/api/channels.list?"
+  SLACK_TOKEN = ENV["SLACK_TOKEN"]
   
-    response = HTTParty.get(BASE_URL, query: query)
+  def self.list_all
     channel_list = []
+    response = get(BASE_URL)
   
     response["channels"].each do |channel|
-      name = channel["name"]
-      id = channel["id"]
-      topic = channel["topic"]["value"]
-      members = channel["members"].length
-      channel_list << Channel.new(id, name, topic, members)
+      channel_list << new(
+      name: channel["name"],
+      id: channel["id"],
+      topic: channel["topic"]["value"],
+      members: channel["members"].length)
     end
     return channel_list
   end
- 
 end
 
