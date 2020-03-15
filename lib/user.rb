@@ -17,10 +17,8 @@ class User < Recipient
 
   def self.list_all
     response = self.get("users.list")
-    all = []
-
-    response["members"].each do |member|
-      all << User.new(
+    all = response["members"].map do |member|
+      User.new(
         member["id"],
         member["name"],
         member["real_name"],
@@ -28,7 +26,6 @@ class User < Recipient
         member["profile"]["status_emoji"]
       )
     end
-    
     return all
   end
 

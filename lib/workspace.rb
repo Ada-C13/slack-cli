@@ -32,8 +32,7 @@ class Workspace
   end
 
   def show_details
-    return nil if @selected == ""
-    return @selected.details
+    return @selected == "" ? nil : @selected.details
   end
 
   def send_message

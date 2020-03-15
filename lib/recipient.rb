@@ -41,15 +41,17 @@ class Recipient
     response = HTTParty.get(BASE_URL + endpoint, query: QUERY)
     if response.code != 200 || response["ok"] == false
       raise SlackApiError, "We encountered a problem: #{response["error"]}"
+    else
+      return response
     end
-
-    return response
   end
 
   def details
+    # implement in child class
   end
 
   def self.list_all
+    # implement in child class
   end
 end
 

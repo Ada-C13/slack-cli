@@ -10,22 +10,20 @@ class Channel < Recipient
   end
 
   def details
+    # return details formatted with table_print gem
     return tp self, :slack_id, :name, :topic, :member_count
   end
 
   def self.list_all
     response = Channel.get("conversations.list")
-    all = []
-
-    response["channels"].each do |channel|
-      all << Channel.new(
+    all = response["channels"].map do |channel|
+      Channel.new(
         channel["name"],
         channel["id"],
         channel["topic"]["value"],
         channel["num_members"]
       )
     end
-    
     return all
   end
 
