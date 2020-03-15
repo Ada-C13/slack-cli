@@ -15,7 +15,7 @@ VALID_SEARCH = ['name', 'id']
 
 def user_prompt
   puts "\nSelect from the following options: \n* List Users \n* List Channels \n* Select User \
-  \n* Select Channel \n* Details \n* Send Message  \n* Quit"
+  \n* Select Channel \n** Details \n** Send Message  \n* Quit"
   return gets.chomp.downcase
 end
 
@@ -23,22 +23,23 @@ def input_validation
   input = gets.chomp.downcase 
   until VALID_COMMANDS.include? input
     puts "I didn't understand your gibberish."
-    puts "Please enter a valid command"
+    puts "Please enter a valid option"
     user_prompt
     input = gets.chomp.downcase
   end 
   return input # implied?
 end
+
 def prompt_recipient
-  puts "What do you like to search for: name or id:"
-  
+  puts "Do you want to continue using -name- or -id- ?"
   key = gets.chomp.downcase 
+
   until VALID_SEARCH.include? key
-    puts "Invalid command \nWhat do you like to search for: name or id:"
+    puts "Invalid command- Please input name or id to continue."
     key = gets.chomp.downcase 
   end 
   
-  puts "Please enter #{key}:"
+  puts "Please enter #{key} to continue"
   input = gets.chomp
   
   key == 'name' ? {name: input} : {slack_id: input}
@@ -70,19 +71,30 @@ def main
     case user_input
       when "list users"
         tp workspace.users, "slack_id", "name", "real_name"
+
       when "list channels"
         tp workspace.channels, "name", "topic", "num_members", "slack_id"
+
       when "select user"
         user_selected = prompt_recipient
         workspace.select_user(user_selected)
-        workspace.selected ? workspace.show_selected : puts("User not found")  
+        workspace.selected ? workspace.show_selected : puts("User not found") 
+
       when "select channel"
         channel_selected = prompt_recipient
         workspace.select_channel(channel_selected)
         workspace.selected ? workspace.show_selected : puts("Channel not found")
+      
+      when "details"
+        workspace.show_selected
+
+      when "send message"
+        workspace.send_message
+
       when "quit"
         puts "Okay you want to quit. Goodbye"
         break
+
       else  
         user_prompt
       end
