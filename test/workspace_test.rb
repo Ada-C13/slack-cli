@@ -100,4 +100,34 @@ describe "Workspace Class" do
     end
 
   end
+
+  describe "select_channel" do
+    it "returns an instanse of Channel" do
+      selection = @workspace.select_channel(query: "random")
+      expect(selection).must_be_kind_of Channel
+      selection_2 = @workspace.select_channel(query: "CV5H594KE")
+      expect(selection_2).must_be_kind_of Channel
+    end
+
+    it "name should be equal to user input" do
+      selection = @workspace.select_channel(query: "random")
+      expect(selection.name).must_equal "random"
+    end
+
+    it "Slack ID should be equal to user input" do
+      selection = @workspace.select_channel(query: "CV5H594KE")
+      expect(selection.slack_id).must_equal "CV5H594KE"
+    end
+
+    it "returns nil if no channel found" do
+      selection = @workspace.select_channel(query: "123")
+      assert_nil selection
+    end
+
+    it "updates selected variable" do
+      assert_nil @workspace.selected
+      @workspace.select_channel(query: "random")
+      expect(@workspace.selected).must_be_kind_of Channel
+    end
+  end
 end

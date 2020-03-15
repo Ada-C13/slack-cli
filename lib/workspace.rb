@@ -29,5 +29,8 @@ class Workspace
   def select_user(query: )
     self.selected = users.select { |user| user.slack_id == query || user.name == query}.first
   end
-
+  
+  def select_channel(query: )
+    self.selected = channels.select { |channel| channel.slack_id == query || channel.name == query}.first
+  end
 end

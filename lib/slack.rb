@@ -48,6 +48,14 @@ def main
       else
         puts "User selected."
       end
+    when "select channel"
+      puts "Please, provide channel name or Slack ID"
+      query = gets.chomp
+      if workspace.select_channel(query: query) == nil
+        puts "No channel found."
+      else
+        puts "Channel selected."
+      end
     when "details" 
       puts workspace.selected == nil ? "Nothing selected." : workspace.selected.get_details
     when "quit"
