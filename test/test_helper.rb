@@ -21,7 +21,7 @@ require_relative "../lib/channel"
 BASE_URL = "https://slack.com/api/"
 USERS_URL = "#{BASE_URL}users.list"
 CHANNELS_URL = "#{BASE_URL}conversations.list"
-# POST_URL = "#{BASE_URL}chat.postMessage"
+POST_URL = "#{BASE_URL}chat.postMessage"
 
 SLACK_TOKEN = ENV["SLACK_TOKEN"]
 

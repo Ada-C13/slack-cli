@@ -10,6 +10,17 @@ class Recipient
     raise NotImplementedError, 'Implement me in a child class!'
   end
 
+  def send_message(message:)
+    response = HTTParty.post(POST_URL,
+      query: {
+        token: ENV['SLACK_TOKEN'],
+        channel: slack_id,
+        text: message
+      }
+    )
+    return response.code == 200 && response.parsed_response["ok"]
+  end
+
   ###############
   # ClASS METHODS
 
