@@ -9,63 +9,51 @@ require_relative 'recipient'
 Dotenv.load
 
 module Slack
-class Workspace 
+  class Workspace 
 
-  attr_reader :users, :channels, :selected
+    attr_reader :users, :channels, :selected
 
-  def initialize 
-    @users = [] # User.list_all
-    @channels = [] #Channel.list_all
-    @selected = nil
+    def initialize 
+      @users = User.list_all
+      @channels = Channel.list_all
+      @selected = nil
+    end
+
+
+    def select_channel(input)
+      @channels.each do |channel|
+        if input == channel.name || input == channel.slack_id
+          @selected = channel 
+          puts "You selected #{input}"
+        end
+      end
+      if @selected == nil 
+        puts "*** Channel name or ID not found. ***"
+      end
+    end
+
+    def select_user(input)
+      @users.each do |user|
+        if input == user.name || input == user.slack_id
+          @selected = user 
+          puts "You selected #{input}"
+        end 
+      end
+      if @selected == nil
+        puts "*** User name or ID not found. ***"
+      end   
+    end
+
+    def show_details(selection)
+      if @selected == nil 
+        puts "Please select a user or channel before requesting details."
+      else
+        tp @selected
+      end
+    end
+
+    # def send_message 
+    # end
+
   end
-
-
-#   def select_channel
-#   end
-
-  # def select_user
-  # end
-
-  # def show_details 
-  # end
-
-  # def send_message 
-  # end
-
-
-  # def list_users
-  #   query = {
-  #     token: ENV["SLACK_API_TOKEN"]
-  #   }
-
-  #   url = "https://slack.com/api/users.list"
-  #   response = HTTParty.get(url, query: query)
-  #   #  puts response 
-  #   response["members"].each do |user|
-  #     puts "User info:
-  #       username: #{user["name"]}, 
-  #       real name: #{user["real_name"]}, 
-  #       id: #{user["id"]}"
-  #   end 
-  # end
-
-  # def list_channels
-  #   query = {
-  #     token: ENV["SLACK_API_TOKEN"]
-  #   }
-    
-  #   url = "https://slack.com/api/channels.list"
-  #   response = HTTParty.get(url, query: query)
-    
-  #   response["channels"].each do |channel|
-  #     puts "Channel info:
-  #       name: #{channel["name"]},
-  #       topic: #{channel["topic"]["value"]},
-  #       member count: #{channel["num_members"]},
-  #       id: #{channel["id"]},
-  #       "
-  #   end 
-  # end
-
-end
 end

@@ -8,9 +8,6 @@ require_relative 'recipient'
 
 Dotenv.load
 
-# Recipient contains:
-#self.list_all 
-#details
 
 class Channel < Recipient
 

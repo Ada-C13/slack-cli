@@ -11,79 +11,58 @@ Dotenv.load
 
 
 def main
-  puts "Welcome to the Ada Slack CLI!"
-  workspace = Slack::Workspace.new
-
-
-  def options 
-    puts "Would you like to:
-    list users
-    list channels
-    quit"
-    return gets.chomp
-  end
+  puts "-------------------------------------
+  Welcome to the Ada Slack CLI!"
+  @workspace = Slack::Workspace.new
   
+  user_selection = "" # saves the gets.chomp of their options 
 
-  user_selection = options # saves the gets.chomp of their options 
-
-  
-  def user_input(user_selection)  
-    if user_selection == "list users"
-      tp User.list_all
-    elsif user_selection == "list channels"
-      tp Channel.list_all
-    elsif user_selection == "quit" || user_selection == "exit"
-      closing
-    end 
-  end
-
-  def closing
-    puts "Thank you for using the Ada Slack CLI"
-    exit
+  until user_selection == "quit" || user_selection == "exit"
+    user_selection = options 
+    user_input(user_selection)
   end 
 
-  user_input(user_selection) # will give direction on what methods to call 
-
-  
-#   def list_users
-#     query = {
-#       token: ENV["SLACK_API_TOKEN"]
-#     }
-
-#     url = "https://slack.com/api/users.list"
-#     response = HTTParty.get(url, query: query)
-#     #  puts response 
-#     response["members"].each do |user|
-#       puts "User info:
-#         username: #{user["name"]}, 
-#         real name: #{user["real_name"]}, 
-#         id: #{user["id"]}"
-#     end 
-#   end
-
-#   def list_channels
-#     query = {
-#       token: ENV["SLACK_API_TOKEN"]
-#     }
-    
-#     url = "https://slack.com/api/channels.list"
-#     response = HTTParty.get(url, query: query)
-    
-#     response["channels"].each do |channel|
-#       puts "Channel info:
-#         name: #{channel["name"]},
-#         topic: #{channel["topic"]["value"]},
-#         member count: #{channel["num_members"]},
-#         id: #{channel["id"]},
-#         "
-#     end 
-#   end
-
-  
-
-  # def closing
-  #   puts "Thank you for using the Ada Slack CLI"
-  # end 
+  closing 
 end
+
+def options 
+  puts "-------------------------------------
+  Would you like to:
+  list users
+  list channels
+  select user
+  select channel
+  details
+  quit"
+  return gets.chomp
+end
+
+def user_input(user_selection)  
+  if user_selection == "list users"
+    tp User.list_all
+  elsif user_selection == "list channels"
+    tp Channel.list_all
+  elsif user_selection == "select user"
+    puts "Enter the user name or ID"
+    input = gets.chomp
+    @workspace.select_user(input)
+    selection = @workspace.selected
+  elsif user_selection == "select channel"
+    puts "Enter the channel name or ID"
+    input = gets.chomp
+    @workspace.select_channel(input)
+    selection = @workspace.selected
+  elsif user_selection == "details"
+    tp @workspace.show_details(selection)
+  elsif user_selection == "quit"
+  else
+    puts "*** Invalid selection, please try again. ***" 
+  end 
+end
+
+def closing
+  puts "Thank you for using the Ada Slack CLI"
+  exit
+end 
 
 main if __FILE__ == $PROGRAM_NAME
