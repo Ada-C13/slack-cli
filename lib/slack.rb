@@ -10,27 +10,6 @@ require_relative 'user'
 require_relative 'channel'
 Dotenv.load
 
-def check_selected(workspace)
-  selected_user = nil
-  select_channel = nil
-  while selected_user.nil? && select_channel.nil?
-    print "Please provide a name or Slack ID or hit Enter to exit => "
-    input = gets.chomp.downcase
-    if input == ''
-      break
-    end
-    
-    selected_user = workspace.select_user(input)
-    select_channel = workspace.select_channel(input)
-
-    if selected_user.nil? && select_channel.nil?
-      puts "\nInvalid name or Slack ID".red
-    else
-      puts "\nYou've selected '#{workspace.selected.name}'".blue
-    end
-  end
-end
-
 def main
   begin
     workspace = SlackCLI::Workspace.new
@@ -61,10 +40,36 @@ def main
         puts
 
       when 'select user', '3', '3.'
-        check_selected(workspace)
+        selected_user = nil
+        while selected_user.nil?
+          print "Please provide a username or Slack ID or hit Enter to exit => "
+          input = gets.chomp.downcase
+          if input == ''
+            break
+          end
+          selected_user = workspace.select_user(input)
+          if selected_user.nil?
+            puts "\nInvalid name or Slack ID".red
+          else
+            puts "\nYou've selected user '#{workspace.selected.name}'".blue
+          end
+        end
 
       when 'select channel', '4', '4.'
-        check_selected(workspace)
+        select_channel = nil
+        while select_channel.nil?
+          print "Please provide a channel name or Slack ID or hit Enter to exit => "
+          input = gets.chomp.downcase
+          if input == ''
+            break
+          end
+          select_channel = workspace.select_channel(input)
+          if select_channel.nil?
+            puts "\nInvalid name or Slack ID".red
+          else
+            puts "\nYou've selected a channel '#{workspace.selected.name}'".blue
+          end
+        end
 
       when 'details', '5', '5.'
         if workspace.selected.nil?

@@ -18,4 +18,14 @@ describe "#send_message" do
     end
     expect(sending_message).must_equal true 
   end
+
+  # edited the post_message cassette request: token=<SLACK_TOKEN>&channel=USLACKBOT&text=BadMessage
+  # and changed response to "ok":false,"error":"Error"
+  it "throws an error when message is not sent" do
+    VCR.use_cassette("chat.postMessage") do
+      workspace = SlackCLI::Workspace.new
+      workspace.select_user('USLACKBOT')
+      expect{workspace.send_message('BadMessage')}.must_raise SlackCLI::Recipient::SlackAPIError 
+    end
+  end
 end
