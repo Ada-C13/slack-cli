@@ -2,42 +2,32 @@
 require_relative 'workspace'
 require 'table_print'
 
+WORKSPACE = Workspace.new
+
 def main
   puts "Welcome to the Ada Slack CLI!"
-  workspace = Workspace.new
 
-  puts "This workspace has #{workspace.users.length} users and #{workspace.channels.length} channels"
+  puts "This workspace has #{WORKSPACE.users.length} users and #{WORKSPACE.channels.length} channels"
 
   input = ""
   until input == "quit"
     puts "\nWhat would you like to do?"
     list_options
-
     input = gets.chomp.downcase
 
     case input
       when "1", "list users"
-        tp workspace.users, :slack_id, :name, :real_name
+        list_users
       when "2", "list channels"
-        tp workspace.channels, :slack_id, :name, :topic, :member_count
+        list_channels
       when "3", "select user"
-        print "\nProvide the name or Slack ID of the user you want to select: "
-        workspace.select_user(gets.chomp.upcase)
-        puts "No match found." if workspace.selected == ""
+        select_user
       when "4", "select channel"
-        print "\nProvide the name or Slack ID of the channel you want to select: "
-        workspace.select_channel(gets.chomp.upcase)
-        puts "No match found." if workspace.selected == ""
+        select_channel
       when "5", "details"
-        if !workspace.show_details
-          puts "Please make a selection first"
-        end
+        show_details
       when "6", "send message"
-        if workspace.selected == ""
-          puts "Please select a recipient before sending a message."
-          next
-        end
-        workspace.selected.send_message(get_message_input)
+        send_message
       when "7", "quit"
         input = "quit"
       else
@@ -49,20 +39,48 @@ def main
 end
 
 def list_options
-    options = ["list users", "list channels", "select user", "select channel", "details", "send message", "quit"]
-
-    options.each_with_index do |option, i|
-      puts "#{i + 1}. #{option}"
-    end
+  options = ["list users", "list channels", "select user", "select channel", "details", "send message", "quit"]
+  options.each_with_index do |option, i|
+    puts "#{i + 1}. #{option}"
+  end
 end
 
-def get_message_input
+def send_message
+  if WORKSPACE.selected == ""
+    puts "Please select a recipient before sending a message."
+    return
+  end
+
   message = ""
   until message != ""
     puts "Enter the message you would like to send to the selected recipient: "
     message = gets.chomp
   end
-  return message
+  WORKSPACE.selected.send_message(message)
+end
+
+def list_users
+  tp WORKSPACE.users, :slack_id, :name, :real_name
+end
+
+def list_channels
+  tp WORKSPACE.channels, :slack_id, :name, :topic, :member_count
+end
+
+def select_user
+  print "\nProvide the name or Slack ID of the user you want to select: "
+  WORKSPACE.select_user(gets.chomp.upcase)
+  puts "No match found." if WORKSPACE.selected == ""
+end
+
+def select_channel
+  print "\nProvide the name or Slack ID of the channel you want to select: "
+  WORKSPACE.select_channel(gets.chomp.upcase)
+  puts "No match found." if WORKSPACE.selected == ""
+end
+
+def show_details
+  puts "Please make a selection first" if !WORKSPACE.show_details
 end
 
 main if __FILE__ == $PROGRAM_NAME
