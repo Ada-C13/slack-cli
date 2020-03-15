@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require_relative 'workspace'
+require 'table_print'
 
 def main
   workspace = Workspace.new 

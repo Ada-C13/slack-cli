@@ -6,19 +6,13 @@ require_relative "channel"
 
 Dotenv.load
 
-BASE_URL = "https://slack.com/api/"
-API_KEY = ENV["SLACK_API_TOKEN"]
-USER_URL = "#{BASE_URL}/users.list"
-CHANNEL_URL = "#{BASE_URL}/conversations.list"
-
-
 class Workspace
 
   attr_reader :channels, :users, :selected
 
   def initialize
-    @channels = []
-    @users = []
+    @channels = Channel.list_all
+    @users = User.list_all
     @selected = ""
   end
 
