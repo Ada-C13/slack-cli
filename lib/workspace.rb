@@ -15,7 +15,7 @@ module Slack
       @users.each do |user|
         if user.name == search_term || user.slack_id == search_term
           @selected = user
-          return "You've selected #{selected.name}"
+          return "You've selected #{selected.name}".green
         end
       end
       return "Sorry, user not found"
@@ -25,7 +25,7 @@ module Slack
       @channels.each do |channel|
         if channel.name == search_term || channel.slack_id == search_term
           @selected = channel
-          return "You've selected #{selected.name}"
+          return "You've selected #{selected.name}".green
         end
       end
       return "Sorry, channel not found"

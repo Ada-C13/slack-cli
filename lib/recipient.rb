@@ -13,7 +13,7 @@ module Slack
       response = HTTParty.get(url, query: { token: ENV["SLACK_TOKEN"] })
       #check for errors
       if (response.code != 200) || (response["ok"] == false)
-        raise SlackAPIError, "Error: #{response["error"]}"
+        raise SlackAPIError, "Error: #{response["error"]}".red
       end
       return response
     end
@@ -36,7 +36,7 @@ module Slack
         )
       #check for errors
       if response.code != 200 || response["ok"] == false
-        raise SlackAPIError, "Error: #{response["error"]}"
+        raise SlackAPIError, "Error: #{response["error"]}".red
       end
     end
   end
