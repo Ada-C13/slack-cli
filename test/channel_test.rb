@@ -16,6 +16,36 @@ describe "Channel" do
 
   end
 
+  describe "self.get" do
+    it "self.get api call works" do
+      response = nil
+
+      VCR.use_cassette("self.get") do
+        params = {
+          token: ENV['SLACK_TOKEN'],
+        }
+        response = Channel.get("https://slack.com/api/channels.list",params)
+      end
+
+      expect(response).must_be_kind_of HTTParty::Response
+      expect(response["ok"]).must_equal true
+    end
+
+    it "bad URL returns correct error" do
+      response = nil
+
+      VCR.use_cassette("bad_api_call") do
+        params = {
+          token: ENV['SLACK_TOKEN'],
+        }
+        response = Channel.get("https://slack.com/api/bad.endpoint",params)
+      end
+
+      expect(response["ok"]).must_equal false
+      expect(response).must_be_kind_of HTTParty::Response
+    end
+  end
+
   it "can list all channels" do
     VCR.use_cassette("self.list_all") do
 
