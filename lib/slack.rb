@@ -10,7 +10,7 @@ require_relative "channel"
 BASE_URL = "https://slack.com/api/"
 USERS_URL = "#{BASE_URL}users.list"
 CHANNELS_URL = "#{BASE_URL}conversations.list"
-# POST_URL = "#{BASE_URL}chat.postMessage"
+POST_URL = "#{BASE_URL}chat.postMessage"
 
 SLACK_TOKEN = ENV["SLACK_TOKEN"]
 
@@ -22,6 +22,7 @@ def menu
   puts " >>> select user"
   puts " >>> select channel"
   puts " >>> details"
+  puts " >>> send message"
   puts " >>> quit"
 end
 
@@ -57,7 +58,20 @@ def main
         puts "Channel selected."
       end
     when "details" 
-      puts workspace.selected == nil ? "Nothing selected." : workspace.selected.get_details
+      puts workspace.selected ? workspace.selected.get_details : "Nothing selected."
+    when "send message"
+      if workspace.selected
+        puts "Please, type your message."
+        message = gets.chomp
+        if message != ""
+          workspace.selected.send_message(message: message)
+          puts "Message sent."
+        else
+          puts "Your message was empty. Boring!"
+        end
+      else
+        puts "No recipient selected."
+      end
     when "quit"
       puts "Thank you for using the Ada Slack CLI"
       exit
