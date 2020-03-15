@@ -38,4 +38,3 @@ module SlackCLI
     end
   end
 end
-
