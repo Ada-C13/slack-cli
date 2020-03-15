@@ -84,7 +84,7 @@ def main
       when "7", "message history"
         if workspace.selected != nil
           begin
-            workspace.show_history
+            tp workspace.show_history, :text, :timestamp
           rescue Exception => exception
             puts "Oops! Encountered an error: #{exception}"
           end
