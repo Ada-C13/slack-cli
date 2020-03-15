@@ -38,11 +38,11 @@ module Slack
     end 
 
 
-    def load_message_history 
+    def load_message_history(selected) 
       params = {
         token: ENV["SLACK_TOKEN"],
-        channel: self.slack_id, # Conversation ID 
-        limit: 20
+        channel: selected.slack_id, # Conversation ID 
+        limit: 10
       }
 
       response = HTTParty.get(HISTORY_URL, {
@@ -58,10 +58,10 @@ module Slack
     end  
 
 
-    def message_history
+    def message_history(selected)
 
       workspace = Slack::Workspace.new
-      messages = self.load_message_history 
+      messages = selected.load_message_history(selected) 
 
       list = []
 

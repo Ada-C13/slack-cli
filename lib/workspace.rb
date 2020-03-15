@@ -69,7 +69,7 @@ module Slack
       return "User selected" if @selected.class == Slack::User
 
       if @selected 
-        rows = @selected.message_history
+        rows = @selected.message_history(@selected)
 
         table = Terminal::Table.new :headings => ['username', 'text'], :rows => rows
       end 
