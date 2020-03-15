@@ -4,8 +4,9 @@ require 'dotenv'
 Dotenv.load
 
 BASE_URL = "https://slack.com/api/"
+TOKEN = ENV["SLACK_TOKEN"]
 QUERY = {
-  token: ENV["SLACK_TOKEN"],
+  token: TOKEN,
   pretty: 1
 }
 
@@ -18,8 +19,22 @@ class Recipient
   end
 
   def send_message(message)
-    # response
-    # send a message
+    response = HTTParty.post(BASE_URL + "chat.postMessage", {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      query: {
+        token: TOKEN,
+        channel: @slack_id,
+        text: message
+      }
+    })
+        
+    if response.code == 200 && response.parsed_response["ok"]
+      return true
+    else
+      raise SlackApiError, "We encountered a problem: #{response["error"]}"
+    end
   end
 
   def self.get(endpoint)
