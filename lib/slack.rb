@@ -38,15 +38,14 @@ def main
       puts "\n"
       
     when "details"
-      puts workspace.show_details
-      #if workspace.selected == nil
-      #  puts "Please select a user or channel."
-      #  puts "\n"
-      #else
-      #  puts workspace.show_details
-      #  user_input = nil
-      #  puts "\n"
-      #end 
+      if workspace.selected == nil
+        puts "Please select a user or channel."
+        puts "\n"
+      else
+        puts workspace.show_details
+        user_input = nil
+        puts "\n"
+      end 
 
     when "send message"
       if workspace.selected == nil
