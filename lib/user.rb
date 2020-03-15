@@ -20,12 +20,8 @@ module SlackApp
     end 
     
     def self.list_all
-     
       response = self.get("https://slack.com/api/users.list")
-      
-    
       users = []
-      
       response["members"].each do |user|
         users << self.new(
           name: user["name"],
@@ -36,9 +32,7 @@ module SlackApp
         )
       end
       return users
-    end
-    
-    
+    end 
   end 
 end 
 
