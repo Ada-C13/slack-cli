@@ -29,9 +29,6 @@ describe "Workspace Class" do
       end
       expect(count).must_equal 1
     end
-
-    # it "raises an error when a call fails" do
-    # end
   end
 
   describe "channels" do
@@ -56,18 +53,20 @@ describe "Workspace Class" do
     it "return a string" do
       expect(@workspace.list_users).must_be_kind_of String
     end
-    # it "this string is a concat of strings - one per user" do
-      
-    # end
+    it "this string is a concat of strings - one per user" do
+      count = @workspace.users.count
+      expect(@workspace.list_users.scan(/real name/).length).must_equal count
+    end
   end
 
   describe "list_channels" do
     it "returns a string" do
       expect(@workspace.list_channels).must_be_kind_of String
     end
-    # it "this string is a concat of strings - one per channel" do
-      
-    # end
+    it "this string is a concat of strings - one per channel" do
+    count = @workspace.channels.count
+    expect(@workspace.list_channels.scan(/topic/).length).must_equal count
+    end
   end
 
   describe "select_user" do
