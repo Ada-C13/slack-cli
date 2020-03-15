@@ -78,10 +78,9 @@ describe "Channel class" do
   describe "#load_message_history" do 
     it "loads message history for a selected channel" do 
       VCR.use_cassette("conversations-history-endpoint") do 
-
-        channel = Slack::Workspace.new.select_channel("hannah-j-test")
-
-        history = channel.load_message_history
+        workspace = Slack::Workspace.new
+        channel =  workspace.select_channel("hannah-j-test")
+        history = channel.load_message_history(channel)
         expect(history).must_be_kind_of Array
       end 
     end 
@@ -90,18 +89,18 @@ describe "Channel class" do
       VCR.use_cassette("conversations-history-endpoint") do 
         channel = Slack::Channel.new(slack_id: "123456", name: "goblin test")
 
-        expect{channel.load_message_history}.must_raise SlackApiError
+        expect{channel.load_message_history(channel)}.must_raise SlackApiError
       end 
     end 
   end 
 
-  describe "#show_message_history" do 
+  describe "#message_history" do 
     it "shows message history for a selected channel" do 
       VCR.use_cassette("conversations-history-endpoint") do 
 
         channel = Slack::Workspace.new.select_channel("hannah-j-test")
 
-        msg_history = channel.message_history
+        msg_history = channel.message_history(channel)
         
         expect(msg_history).must_be_kind_of Array
       end 
