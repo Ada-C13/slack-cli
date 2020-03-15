@@ -31,5 +31,3 @@ VCR.configure do |config|
     ENV["SLACK_TOKEN"]
   end
 end
-
-

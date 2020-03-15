@@ -43,11 +43,11 @@ describe "Workspace" do
       end
     end
 
-    it "leaves 'selected' variable empty if user is not found" do
+    it "leaves 'selected' variable set to nil if user is not found" do
       VCR.use_cassette("list_users") do
         workspace = Workspace.new
         workspace.select_user("7ESHPU")
-        expect(workspace.selected).must_equal ""
+        expect(workspace.selected).must_be_nil 
       end
     end
   end
@@ -61,11 +61,11 @@ describe "Workspace" do
       end
     end
 
-    it "leaves 'selected' variable empty if channel is not found" do
+    it "leaves 'selected' variable set to nil if channel is not found" do
       VCR.use_cassette("list_channels") do
         workspace = Workspace.new
         workspace.select_channel("nono")
-        expect(workspace.selected).must_equal ""
+        expect(workspace.selected).must_be_nil
       end
     end
   end
@@ -92,6 +92,27 @@ describe "Workspace" do
       VCR.use_cassette("list_users") do
         workspace = Workspace.new
         expect(workspace.show_details).must_equal "No recipient is selected"
+      end
+    end
+  end
+
+  describe "#send_message" do
+    it "sends a message if recipient is selected" do
+      VCR.use_cassette("post_message") do
+        workspace = Workspace.new
+        workspace.select_user("USLACKBOT")
+        response = workspace.selected.send_message("Hello, Slackbot")
+        
+        expect(response["ok"]).must_equal true 
+        expect(response["message"]["text"]).must_equal "Hello, Slackbot"
+
+      end
+    end
+
+    it "does not send a message if recipient is not selected" do
+      VCR.use_cassette("post_message") do 
+        workspace = Workspace.new 
+        expect(workspace.send_message).must_equal "No recipient is selected"
       end
     end
   end

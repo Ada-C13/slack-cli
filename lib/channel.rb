@@ -1,5 +1,4 @@
 require 'awesome_print'
-
 require_relative 'recipient'
 
 class Channel < Recipient

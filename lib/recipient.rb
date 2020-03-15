@@ -9,6 +9,15 @@ class Recipient
   end
 
   def send_message(message)
+    HTTParty.post("https://slack.com/api/chat.postMessage", {
+
+      headers: { 'Content-Type' => 'application/x-www-form-urlencoded' },
+      body: {
+        token: ENV["SLACK_TOKEN"],
+        channel: @slack_id,
+        text: message
+      }
+    })
   end
 
   def self.get(url)

@@ -13,6 +13,7 @@ def ask_for_action
   puts "* select user"
   puts "* select channel"
   puts "* details"
+  puts "* send message"
   puts "* quit" 
   puts
 end
@@ -51,6 +52,8 @@ def perform_action(action, workspace)
     channel_selected?(workspace)
   when "details"
     workspace.show_details 
+  when "send message"
+    workspace.send_message
   end
 end
 

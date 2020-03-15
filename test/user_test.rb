@@ -32,6 +32,5 @@ describe "User" do
         }.must_raise SlackApiError
       end
     end
-    
   end
 end

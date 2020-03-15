@@ -7,7 +7,7 @@ class Workspace
   def initialize
     @users = User.list_all
     @channels = Channel.list_all
-    @selected = ""
+    @selected = nil 
   end
 
   def select_user(identifier)
@@ -29,8 +29,18 @@ class Workspace
   end
 
   def show_details
-    if @selected != ""
+    if @selected != nil 
       @selected.details 
+    else
+      "No recipient is selected"
+    end
+  end
+
+  def send_message
+    if @selected != nil 
+      puts "Enter a message here:"
+      message = gets.chomp
+      @selected.send_message(message)
     else
       "No recipient is selected"
     end

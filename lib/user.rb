@@ -23,5 +23,4 @@ class User < Recipient
       user["profile"]["display_name"], user["profile"]["status_text"],
       user["profile"]["status_emoji"]) }
   end
-
 end
