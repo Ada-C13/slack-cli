@@ -1,6 +1,11 @@
 #!/usr/bin/env ruby
-require_relative 'workspace'
 require 'table_print'
+require "dotenv"
+require "httparty"
+
+require_relative 'workspace'
+
+Dotenv.load
 
 def main
   workspace = Workspace.new 
@@ -22,23 +27,27 @@ def main
       
     when "select user"
       print "Please enter the user name or ID: "
-      puts workspace.select_user
+      user_name = gets.chomp.to_s
+      workspace.select_user(user_name)
       puts "\n"
       
     when "select channel"
       print "Please enter the channel name or ID: "
-      puts workspace.select_channel
+      channel_name = gets.chomp.to_s
+      workspace.select_channel(channel_name)
       puts "\n"
       
     when "details"
-      if workspace.selected == nil
-        puts "Please select a user or channel."
-        puts "\n"
-      else
-        workspace.show_details
-        user_input = nil
-        puts "\n"
-      end 
+      puts workspace.show_details
+      #if workspace.selected == nil
+      #  puts "Please select a user or channel."
+      #  puts "\n"
+      #else
+      #  puts workspace.show_details
+      #  user_input = nil
+      #  puts "\n"
+      #end 
+
     when "send message"
       if workspace.selected == nil
         puts "Please select a user or channel."
