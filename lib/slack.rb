@@ -24,7 +24,7 @@ def main
 end
 
 def list_options
-  puts "Please enter one of the following options: list users, list channels, select user, select channel, details, send message, or quit"
+  print "Please enter one of the following options: list users, list channels, select user, select channel, details, send message, or quit: "
 end
 
 def get_user_input
@@ -53,10 +53,14 @@ def loop_through_choices(workspace, choice)
       tp workspace.users, "slack_id", "name", "real_name" 
       puts "\n"
     when "select user"
-      chosen_user = select_user(workspace)
+      print "Please enter the username or Slack ID of the user you want to select: "
+      inputted_user_info = gets.chomp
+      chosen_user = workspace.select_user(inputted_user_info)
       chosen_channel = nil
     when "select channel"
-      chosen_channel = select_channel(workspace)
+      print "Please enter the name or Slack ID of the channel you want to select: "
+      inputted_channel_info = gets.chomp
+      chosen_channel = workspace.select_channel(inputted_channel_info)
       chosen_user = nil
     when "details"
       if chosen_user != nil
@@ -68,7 +72,7 @@ def loop_through_choices(workspace, choice)
       end
     when "send message"
       break if chosen_channel == nil && chosen_user == nil
-      puts "What's the message?"
+      print "What's the message? "
       message = gets.chomp
       send_msg_to = chosen_user ? chosen_user : chosen_channel
       send_msg_to.send_message(message)
@@ -80,40 +84,6 @@ def loop_through_choices(workspace, choice)
   end
 end
 
-
-def select_user(workspace)
-  puts "Please enter the username or Slack ID of the user you want to select"
-  inputted_user_info = gets.chomp
-  chosen_user = ""
-  search_by_username = workspace.users.find{ |user| user.name == inputted_user_info}
-  search_by_id = workspace.users.find{ |user| user.slack_id == inputted_user_info}
-  if search_by_username != nil
-    chosen_user = search_by_username
-  elsif search_by_id != nil
-    chosen_user = search_by_id
-  else
-    puts "Sorry, that's not a valid username or slack ID"
-  end
-
-  return chosen_user
-end
-
-def select_channel(workspace)
-  puts "Please enter the name or Slack ID of the channel you want to select"
-  inputted_channel_info = gets.chomp
-  chosen_channel = ""
-  search_by_name = workspace.channels.find{ |channel| channel.name == inputted_channel_info}
-  search_by_id = workspace.channels.find{ |channel| channel.slack_id == inputted_channel_info}
-  if search_by_name != nil
-    chosen_channel = search_by_name
-  elsif search_by_id != nil
-    chosen_channel = search_by_id
-  else
-    puts "Sorry, that's not a valid channel name or slack ID"
-  end
-
-  return chosen_channel
-end
 
 main if __FILE__ == $PROGRAM_NAME
 
