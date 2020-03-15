@@ -38,4 +38,21 @@ describe "User" do
       end
     end  
   end
+
+  describe "send_message" do
+    it "sends a message to the correct user" do
+      VCR.use_cassette("send-message") do
+        user = User.list_all[0]
+        response = user.send_message("the test message")
+        expect(response).must_equal true
+      end
+    end
+
+    it "raises SlackApiError if post request fails" do
+      VCR.use_cassette("send-message") do
+        user = User.new("bogus", "bogus_info", "bogus", "bogus", "bogus")
+        expect{user.send_message("the test message")}.must_raise SlackApiError
+      end
+    end
+  end
 end

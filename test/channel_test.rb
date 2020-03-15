@@ -48,4 +48,21 @@ describe "Channel" do
       end
     end  
   end
+
+  describe "send_message" do
+    it "sends a message to the correct channel" do
+      VCR.use_cassette("send-message") do
+        channel = Channel.list_all[0]
+        response = channel.send_message("the test message")
+        expect(response).must_equal true
+      end
+    end
+
+    it "raises SlackApiError if post request fails" do
+      VCR.use_cassette("send-message") do
+        channel = Channel.new("bogus", "bogus_info", "bogus", 5)
+        expect{channel.send_message("the test message")}.must_raise SlackApiError
+      end
+    end
+  end
 end
