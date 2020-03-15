@@ -15,7 +15,6 @@ module SlackApp
     end 
     
     def send_message(message)
-      # puts "SLACKID: #{self.slack_id}"
       response = HTTParty.post("https://slack.com/api/chat.postMessage", {
         query: {'Content-Type' => 'application/json'},
         body: {

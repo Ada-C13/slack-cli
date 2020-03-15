@@ -74,4 +74,5 @@ describe "Workspace" do
       expect(@new_workspace.selected.slack_id).must_equal "UUUSFT2AX"
     end 
   end 
+  
 end 

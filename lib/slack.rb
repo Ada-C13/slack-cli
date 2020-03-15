@@ -1,4 +1,3 @@
-# #!/usr/bin/env ruby
 require "httparty"
 require "table_print"
 require_relative "workspace"
