@@ -1,5 +1,5 @@
 #coded along with Devin for Wave 1
-
+require 'httparty'
 require_relative 'recipient'
 
 class User < Recipient
@@ -35,7 +35,7 @@ class User < Recipient
                   status_emoji: user["profile"]["status_emoji"], 
                   status_text: user["profile"]["status_text"] 
       )
-
+    end
       return users
   end
 end

@@ -2,6 +2,8 @@
 
 require_relative 'user'
 require_relative 'channel'
+require 'dotenv'
+Dotenv.load
 
 class Workspace
   attr_reader :users, :channels, :selected
@@ -14,6 +16,7 @@ class Workspace
 
   def select_user
 
+
   end
 
   def select_channel
@@ -22,6 +25,9 @@ class Workspace
   def show_details
   end
 
+  def send_message(message)
+    Recipient.send_message(message, @selected)
+  end
   
 end
 

@@ -1,10 +1,8 @@
 #coded along with Devin for Wave 1
 
-require_relative 'recipient'
 require 'httparty'
-require 'dotenv'
+require_relative 'recipient'
 
-Dotenv.load
 
 class Channel < Recipient
   attr_reader :topic, :member_count
@@ -32,7 +30,7 @@ class Channel < Recipient
       channels << Channel.new(
                  name: item["name"],
                  slack_id: item["id"],
-                 topic: item["topic"]["value"]
+                 topic: item["topic"]["value"],
                  member_count: item["num_members"]
       )
     end

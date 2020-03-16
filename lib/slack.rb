@@ -3,11 +3,10 @@
 
 require 'httparty'
 require 'dotenv'
+Dotenv.load
 require 'table_print'
-
 require_relative 'workspace'
 
-Dotenv.load
 
 def main
   workspace = Workspace.new 
@@ -49,7 +48,7 @@ def main
         user_input = nil
         puts "\n"
       end 
-    when "send message"
+    when "Send message"
       if workspace.selected == nil
         puts "Please select a user or channel."
         puts "\n"
