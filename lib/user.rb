@@ -13,14 +13,17 @@ module Slack_cli
       @status_emoji = status_emoji
     end
 
+    def details
+      tp self, "id", "name", "real_name", "status_text", "status_emoji"
+    end
+
     private
 
     # Get all the users from Slack API.
-    # For each list_all creates an intance of channel.
+    # For each list_all creates an intance of user.
     def self.list_all
 
       users = []
-      
       base_url = "https://slack.com/api/"
       post_url = "#{base_url}users.list"
       params = { token: ENV["SLACK_API_TOKEN"] }
