@@ -22,11 +22,9 @@ end
 VCR.configure do |config|
   config.cassette_library_dir = "test/cassettes" # folder where casettes will be located
   config.hook_into :webmock # tie into this other tool called webmock
-  #config.debug_logger = File.open(ARGV.first, 'w')
   config.default_cassette_options = {
     :record => :new_episodes,    # record new data when we don't have it yet
     :match_requests_on => [:method, :uri, :body], # The http method, URI and body of a request all need to match
-   # :allow_http_connections_when_no_cassette => true,
   }
 
   # Don't leave our token lying around in a cassette file.
