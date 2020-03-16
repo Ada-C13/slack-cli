@@ -1,6 +1,6 @@
 require "httparty"
 
-class Recipient # abstract class 
+class Recipient 
 
   attr_reader :slack_id, :name
 
@@ -38,6 +38,6 @@ class Recipient # abstract class
 
 end
 
-# created here so that it is accessible by all other classes in this project
+# custom exception created here so that it is accessible by all other classes in this project
 class SlackAPIError < Exception
 end

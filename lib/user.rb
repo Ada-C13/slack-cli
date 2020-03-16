@@ -11,11 +11,10 @@ class User < Recipient
     @status_emoji = status_emoji
   end
 
-  # displays user info to command line
+  # displays user details to command line
   def details
+    tp self, "slack_id", "name", "real_name"
   end 
-
-  # ----- CLASS METHODS -----
 
   # gathers relevant information about users in this workspace
   def self.list_all

@@ -9,11 +9,10 @@ class Channel < Recipient
     @member_count = member_count
   end
 
-  # displays channels info to command line
+  # displays channels details to command line
   def details
+    tp self, "slack_id", "name", "topic", "member_count"
   end
-
-  # ----- CLASS METHODS -----
 
   # gathers relevant information about channels in this workspace
   def self.list_all
