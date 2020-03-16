@@ -9,18 +9,9 @@ class Recipient # abstract class
     @name = name
   end
 
+  # ----- IMPLEMENTED METHODS -----
 
-  def send_message(msg_text)
-
-  end
-
-  def details
-    raise NotImplementedError, "Implement me in a child class!"
-  end
-
-  # ----- CLASS METHODS -----
-
-  # gets desired data from API 
+  # gets desired data from Slack API 
   def self.get(url)
     requested_data = HTTParty.get(url, query: {token: ENV["BOT_TOKEN"]})
 
@@ -31,13 +22,22 @@ class Recipient # abstract class
     return requested_data
   end
 
+  def send_message(message)
+
+  end
+
+  # ----- ABSTRACT METHODS -----
 
   def self.list_all
     raise NotImplementedError, "Implement me in a child class!"
   end
 
+  def details
+    raise NotImplementedError, "Implement me in a child class!"
+  end
+
 end
 
-# create here so that it is accessible by all other classes in this project
+# created here so that it is accessible by all other classes in this project
 class SlackAPIError < Exception
 end

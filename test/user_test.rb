@@ -21,6 +21,22 @@ describe "User" do
         expect{ User.get("https://slack.com/api/bogus.endpoint") }.must_raise SlackAPIError
       end 
     end 
+  end 
+
+  describe "self.list" do 
+    it "returns a valid list of users" do 
+      result = []
+
+      VCR.use_cassette("users-list-endpoint") do 
+        result = User.list_all
+      end 
+
+      expect(result).must_be_kind_of Array 
+      expect(result.length).must_be :>, 0
+      result.each do |user| 
+        expect(user).must_be_kind_of User 
+      end 
+    end 
 
   end 
 
