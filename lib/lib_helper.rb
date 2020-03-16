@@ -1,4 +1,5 @@
 require 'table_print'
+require 'ap'
 require 'HTTParty'
 require 'dotenv'
 Dotenv.load
