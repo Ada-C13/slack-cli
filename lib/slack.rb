@@ -15,7 +15,8 @@ def get_user_choice
   (3) select user
   (4) select channel
   (5) details
-  (6) quit
+  (6) send message
+  (7) quit
   \n Selection: "
 
 
@@ -29,9 +30,10 @@ end
 def main
   # interface layout inspired by instructor solar system implementation
   program_running = true
+  workspace = Workspace.new
+    
 
   while program_running
-    workspace = Workspace.new
     user_choice = get_user_choice
 
     case user_choice.downcase
@@ -50,9 +52,21 @@ def main
       puts workspace.select_channel
 
     when "details", "5"
-      # TODO
+      if workspace.selected == nil
+        puts "No channel or user selected."
+      else
+        workspace.show_details
+      end
 
-    when "quit", "6"
+    when "send message", "6"
+      if workspace.selected == nil
+        puts "No channel or user selected."
+      else
+        print "Enter your message: "
+        workspace.send_message
+      end
+
+    when "quit", "7"
       program_running = false
       puts "Thank you for using the Ada Slack CLI!"
 
