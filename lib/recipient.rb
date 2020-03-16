@@ -21,7 +21,7 @@ module Slack_cli
         end
         raise SlackAPIError, "We encountered a problem: #{resp["error"]}" 
       end
-
+      # Takes channel as a parameter and text from the user. 
       def send_message(channel)
         message = gets.chomp
         base_url = "https://slack.com/api/"

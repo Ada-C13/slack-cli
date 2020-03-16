@@ -13,6 +13,7 @@ module Slack_cli
       @status_emoji = status_emoji
     end
 
+    # Table print the details. 
     def details
       tp self, "id", "name", "real_name", "status_text", "status_emoji"
     end
@@ -43,5 +44,3 @@ module Slack_cli
     end
   end 
 end
-
-# p Slack_cli::User.list_all

@@ -3,6 +3,8 @@
 require "tty-prompt"
 @prompt = TTY::Prompt.new
 
+require 'colorize'
+
 require "dotenv"
 require "httparty"
 require "awesome_print"
@@ -25,45 +27,60 @@ def get_user_input
   end
   return user_input
 end
-# To handle the user_input and display the tables.
+
+# To handle the user_input, display the tables,show_details and send messages.
 def selector(user_input)
   case user_input
     when "List of users"
       # tp = To print the intances in a table.
+      puts "\n"
       tp @workspace.users, :name, :real_name, :id
+      puts "\n"
     when "List of channels"
+      puts "\n"
       tp @workspace.channels, :name, :topic, :member_count, :id
+      puts "\n"
     when "Select Channel"
       print "Please enter the channel name or ID: "
       user_selection = @workspace.select_channel
       if user_selection == nil 
-        puts "Invalid"
+        puts "Invalid entry - the channel does not exist.".red
       else
-        puts "#{user_selection} Has been chose"
+        puts "#{user_selection} Has been chose".blue
       end
+      puts "\n"
     when "Select User"
       print "Please enter the channel name or ID: "
       user_selection = @workspace.select_user
       if user_selection == nil 
-        puts "Invalid"
+        puts "Invalid entry - the user does not exist.".red
       else
-        puts "#{user_selection} Has been chose"
+        puts "#{user_selection} Has been chose".blue
       end
+      puts "\n"
     when "Details"
+    
       if @workspace.selected == nil
-        puts "Invalid entry"
+        puts "\n"
+        puts "Invalid entry - You selected an invalid channel or User."
       else
+        puts "\n"
         @workspace.show_details
         user_input = nil
       end
+   
     when "Send message"
       if @workspace.selected == nil
+        puts "\n"
         puts "Invalid entry"
       else
+        puts "\n"
         @workspace.selected.send_message(@workspace.selected.name)
+        puts "Your message has been sent".blue
         user_input = nil
       end
     when "Exit"
+      puts "Bye!! Thank you for using Ada slack CLI".yellow
       exit
   end
 end

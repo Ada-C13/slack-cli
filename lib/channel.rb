@@ -41,6 +41,3 @@ module Slack_cli
     end
   end
 end
-#  p Slack_cli::Channel.list_all
-# # a = Channel.new(id: 1, name: "name", topic: "s", member_count: 1)
-# # p a

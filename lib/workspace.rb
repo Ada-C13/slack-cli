@@ -40,7 +40,7 @@ module Slack_cli
     def show_details
       @selected.details      
     end
-
+    # Based on the channel selected.
     def send_message
       @selected.send_message(channel)
     end

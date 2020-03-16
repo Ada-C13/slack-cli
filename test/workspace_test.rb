@@ -70,7 +70,7 @@ describe "Workspace class" do
     end
     
     it "show_details - Based on the selected User/Channel" do
-      VCR.use_cassette("workspace-select-channel") do
+      VCR.use_cassette("workspace-showdetails-channel") do
         @workspace = Slack_cli::Workspace.new
       end
       # Takes general but it work with user names too.
@@ -83,7 +83,7 @@ describe "Workspace class" do
     end
 
     it "send message - Based on the selected Channel" do
-      VCR.use_cassette("workspace-select-channel") do
+      VCR.use_cassette("workspace-sendmessage-channel") do
         @workspace = Slack_cli::Workspace.new
 
         def @workspace.gets
