@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 require_relative "workspace"
 
 require "table_print"
@@ -7,27 +6,13 @@ require "httparty"
 
 Dotenv.load
 
-# User: I should see information about how many channels and users were loaded
-
-# User: I should then be given three options for how to interact with the program: list users, list channels, quit
-
-# User: As a user who is at the program's input prompt...
-
-# User: When I type list users, I should see a list of all the users in the Slack workspace. This list should include username, real name, and Slack ID.
-
-# User: When I type list channels, I should see a list of all the channels for that workspace. This list should include the channel's name, topic, member count, and Slack ID.
-
-# User: When I type quit, the program should exit.
-
-# User: After completing any command other than quit, the program should reprint the list of commands and ask for another input.
-
 def main
   workspace = Workspace.new
 
   puts "\nWelcome to Nora's Slack API CLI. \nThis Slack workspace currently has #{workspace.users.length} users and #{workspace.channels.length} channels."
   action = menu_choice
 
-  until action == "quit" || action == "3" || action == "exit" || action == "3) quit"
+  until action == "quit" || action == "6" || action == "exit" || action == "6) quit"
     case action
     when "list users", "users", "1", "1) list users"
       tp workspace.users, "name", "real_name", "slack_id"
@@ -35,6 +20,24 @@ def main
     when "list channels", "channels", "2", "2) list channels"
       tp workspace.channels, "name", "topic", "member_count", "slack_id"
       puts "\n"
+    when "select user", "user", "3", "3) select user"
+      print "Please enter the user's name or ID: "
+      user_input = gets.chomp
+      puts workspace.select_user(user_input)
+      puts "\n"
+    when "select channel", "channel", "4", "4) select channel"
+      print "Please enter the channel name or ID: "
+      user_input = gets.chomp
+      puts workspace.select_channel(user_input)
+      puts "\n"
+    when "details", "5", "5) details"
+      if workspace.selected == nil
+        puts "Oops! Please select a user or channel first."
+        puts "\n"
+      else
+        workspace.show_details
+        puts "\n"
+      end
     else
       puts "Oops! I didn't understand you. Try again?"
       puts "\n"
@@ -47,7 +50,7 @@ def main
 end
 
 def menu_choice
-  print "Your options include: \n1) list users \n2) list channels \n3) quit \n\n"
+  print "Your options include: \n1) list users \n2) list channels \n3) select user \n4) select channel \n5) details \n6) quit \n\n"
   print "What would you like to do? "
   return gets.chomp.downcase
 end
