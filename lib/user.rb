@@ -1,37 +1,46 @@
-require "httpparty"
-require "table_print"
+require 'httparty'
+require 'table_print'
 
-class user<receiver
-
-  attr_reader :legal_name, :status_text, :status_emoji
-
-  def initialize( legal_name:, status_text:, status_emoji:, name:, username:)
-    super(username: username, name: name)
-
-    @legal_name = legal_name
-    @status_text = status_text #TODO come back to these variables after it's clear what they're there for
-    @status_emoji = status_emoji
-  end 
-
-  #TODO check and see if tp needs any additional instantiation, or if this'll work as-is
-  def summary
-    tp self, "username", "name", "legal_name"
-  end 
+require_relative 'workspace.rb'
+require_relative 'receiver.rb'
+require_relative 'workspace.rb'
 
 
-  def self.show_all
-    response = User.get() #come back and fill this out with relevant url
+module SlackCLI
+  class User < Receiver
 
-    users = []
+    attr_reader :legal_name, :status_text, :status_emoji
 
-    response["headcount"].each do |spec|
-      users << User.new(
-        name: spec["name"]
-        username: spec["username"]
-        status_text: spec["profile"]["status_text"]
-        status_emoji: spec["profile"]["status_emoji"]
-      )
-    end
-    return users 
-  end 
-end
+    def initialize( legal_name:, status_text:, status_emoji:, name:, id:)
+      super(id: username, name: name)
+
+      @legal_name = legal_name
+      @status_text = status_text #TODO come back to these variables after it's clear what they're there for
+      @status_emoji = status_emoji
+    end 
+
+    def summary
+      tp self, "id", "name", "legal_name"
+    end 
+
+    def self.show_all
+      clap_back = SlackCLI::User.get_url("https://slack.com/api/users.list") 
+      puts "Ralph"
+      users = []
+      puts clap_back
+      clap_back["headcount"].each do |spec|
+        puts "Ralph 3"
+        users << SlackCLI::User.new(
+          name: spec["name"],
+          id: spec["username"],
+          status_text: spec["profile"]["status_text"],
+          status_emoji: spec["profile"]["status_emoji"]
+        )
+        puts "Ralph 4"
+      end
+      puts "Ralph 5"
+      return users 
+      puts "Ralph 6"
+    end 
+  end
+end 

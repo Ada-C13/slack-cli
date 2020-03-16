@@ -1,27 +1,38 @@
-require 'httpparty'
+require 'httparty'
 
-class Receiver 
+require_relative 'workspace.rb'
 
-  attr_reader :username, :name
+module SlackCLI
+  class Receiver 
 
-  def initialize(username:, name:)
-    @username = username
-    @name = name
-  end 
+    attr_reader :id, :name
 
-  def give_slack(body_talk)
-    response = HTTParty.post("", query: {token: ENV ['BOT_TOKEN'], channel: self.username, text: body_talk})
+    def initialize(id:, name:)
+      @id = id
+      @name = name
+    end 
 
-    unless response.code == 200 || response["ok"] != false
-      raise ArgumentError.new("Whoops. We dropped the butter on the cat toy: #{clap_back["error"]}"
+    # https://api.slack.com/methods/chat.postMessage
+    def give_slack(body_talk)
+      clap_back = HTTParty.post("https://slack.com/api/chat.postMessage", query: {token: ENV['BOT_TOKEN'], channel: self.id, text: body_talk})
+
+      unless response.code == 200 || response["ok"] != false
+        raise ArgumentError.new("Whoops. Someone dropped the butter on the cat toy: #{clap_back["error"]}")
+      end
+      return clap_back
     end
-    return clap_back
-  end
 
-  
-  def self.show_all 
-  end
+    def self.get_url(url)
+      clap_back = HTTParty.get(url, query: {token: ENV['BOT_TOKEN']})
 
-end 
+      unless clap_back.code == 200 || clap_back["ok"] != false
+        raise ArgumentError.new("Whoops. Someone dropped the butter on the cat toy: #{clap_back["error"]}")
+      end
+      return clap_back
+    end
 
-# If you customize the error handling, revisit this line and add necessary syntax 
+    def self.show_all 
+      # Just hanging out until my children need me
+    end
+  end 
+end
