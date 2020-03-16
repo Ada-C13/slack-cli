@@ -12,22 +12,39 @@ class Workspace
   def initialize
     @channels = Channel.list_all
     @users = User.list_all
-    @selected = ""
+    @selected = nil
   end
 
   def select_channel(channel_name)
     @channels.each do |channel|
       if (channel.name) == channel_name
         @selected = channel
+        break
+      elsif (channel.slack_id) == channel_name
+        @selected = channel
+      else
+        @selected = nil
       end
+    end
+    if @selected == nil
+      puts "The channel you just entered is not valid!!"
     end
   end
 
   def select_user(user_name)
     @users.each do |user|
-      if (user.real_name) == user_name
+      if user.real_name == user_name
         @selected = user
+        break
+      elsif user.slack_id == user_name
+        @selected = user
+      else
+        @selected = nil
       end
+    end
+    
+    if @selected == nil
+      puts "The user you just entered is not valid!!!"
     end
   end
 

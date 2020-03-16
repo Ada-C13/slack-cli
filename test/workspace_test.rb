@@ -31,6 +31,12 @@ describe "Workspace" do
       expect(@workspace.selected).must_be_instance_of Channel
       expect(@workspace.selected.name).must_equal "random"
     end
+    
+    it "will return nil if a channel provided isn't valid" do
+      @workspace.select_channel("nothing found here")
+      expect(@workspace.selected).must_be_nil
+    end
+
   end
 
   describe "select_channel(channel_name)" do
@@ -55,9 +61,15 @@ describe "Workspace" do
     end
   
     it "will return an instance of User based on the user input" do
-      @workspace.select_user("Joseph")
+      @workspace.select_user("Sharon Cheung")
+      puts @workspace.selected
       expect(@workspace.selected).must_be_instance_of User
-      expect(@workspace.selected.real_name).must_equal "Joseph"
+      expect(@workspace.selected.real_name).must_equal "Sharon Cheung"
+    end
+
+    it "will return nil if an user provided isn't valid" do
+      @workspace.select_user("nothing found here")
+      expect(@workspace.selected).must_be_nil
     end
   end
 end  

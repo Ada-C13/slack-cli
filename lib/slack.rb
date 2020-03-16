@@ -49,7 +49,7 @@ def main
 
     when "send message"
       if workspace.selected == ""
-        puts "Please select a user or channel."
+        puts "\nYou haven't selected a user or channel!!! Try again!"
         puts "\n"
       else
         print "Please enter your message: "
