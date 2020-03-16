@@ -30,12 +30,30 @@ describe "class User < Recipient" do
     end
   end # describe "details"
 
+  describe "self.get" do
+    it "takes a method and returns HTTParty results" do
+      VCR.use_cassette("list") do 
+        result   = Recipient.get("users.list")
+        expect(result).must_be_kind_of HTTParty::Response
+        expect(result.code).must_equal 200
+        expect(result["ok"]).must_equal true
+      end
+    end
+
+    it "raises an error if the call fails" do
+      VCR.use_cassette("fail") do 
+        expect{ Recipient.get("fail.list") }.must_raise RuntimeError
+      end
+    end
+  end # describe "self.get"
+
   # Get users from slack
   describe "self.list_all" do
     it "returns an array of users" do 
       VCR.use_cassette("list") do 
         users = User.list_all
         expect(users).must_be_kind_of Array
+        expect(users.size).must_be :>, 0
         users.each do |user|
           expect(user).must_be_kind_of User
         end

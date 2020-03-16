@@ -90,6 +90,9 @@ describe "class Workspace" do
       @workspace.select_user("USLACKBOT")
       VCR.use_cassette("send") do 
         result = @workspace.send_message("test")
+        expect(result).must_be_kind_of HTTParty::Response
+        expect(result.code).must_equal 200
+        expect(result["ok"]).must_equal true
         expect(result["message"]["text"]).must_equal "test"
       end
     end

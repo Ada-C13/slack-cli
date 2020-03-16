@@ -28,12 +28,30 @@ describe "class Channel < Recipient" do
     end
   end # describe "details"
 
+  describe "self.get" do
+    it "takes a method and returns HTTParty results" do
+      VCR.use_cassette("list") do 
+        result   = Recipient.get("conversations.list")
+        expect(result).must_be_kind_of HTTParty::Response
+        expect(result.code).must_equal 200
+        expect(result["ok"]).must_equal true
+      end
+    end
+
+    it "raises an error if the call fails" do
+      VCR.use_cassette("fail") do 
+        expect{ Recipient.get("fail.list") }.must_raise RuntimeError
+      end
+    end
+  end # describe "self.get"
+
   # Get channels from slack
   describe "self.list_all" do
     it "returns an array of channels" do 
       VCR.use_cassette("list") do 
         channels = Channel.list_all
         expect(channels).must_be_kind_of Array
+        expect(channels.size).must_be :>, 0
         channels.each do |channel|
           expect(channel).must_be_kind_of Channel
         end

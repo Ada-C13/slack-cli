@@ -36,7 +36,7 @@ class Recipient
     return result
   end # def send_message
 
-  # Method to get all recipients
+  # Method to get all recipients (users or channels)
   def self.get(method)
     query_parameters = { token: TOKEN }
     result = HTTParty.get(SLACK_URL + method, query: query_parameters)
