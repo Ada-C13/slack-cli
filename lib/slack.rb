@@ -9,12 +9,12 @@ OPTIONS = [
 
 def main
   puts "Welcome to the Ada Slack CLI!"
-  #workspace = Slack::Workspace.new
+  workspace = Slack::Workspace.new
 
   choice = prompt_and_retrieve
 
   until OPTIONS.any? { |option| option.include? choice } do 
-    puts "Invalid option, try again."
+    print "'#{choice}' is an invalid option, try again. > "
     choice = gets.strip.downcase
   end 
 
@@ -26,8 +26,6 @@ def main
   when *OPTIONS[2]
     puts "chose option 3"
   end
-
-  
 
   puts "Thank you for using the Ada Slack CLI"
 end

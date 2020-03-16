@@ -1,6 +1,6 @@
 require "dotenv"
 require "httparty"
-require_relative "conversation"
+require_relative "channel"
 require_relative "user"
 
 Dotenv.load
@@ -14,7 +14,7 @@ module Slack
     
     def initialize
       @users = User.get_all
-      @channels = Channels.get_all # TO-DO: replace this variable with CONVERSATIONS and create methods to list by type of conversation
+      @channels = Channel.get_all # TO-DO: replace this variable with CONVERSATIONS and create methods to list by type of conversation
       @selected = nil
     end
 

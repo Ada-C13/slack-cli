@@ -1,6 +1,3 @@
-
-
-
 module Slack
   class Conversation
     attr_reader :id
