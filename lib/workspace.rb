@@ -16,7 +16,7 @@ class Workspace
     user_input = get_user_input
 
     users.each do |user|
-      if user.name == user_input
+      if user.name == user_input || user.slack_id == user_input
         @selected = user
         return "#{@selected.name} has been selected"
       end
@@ -34,7 +34,7 @@ class Workspace
     user_input = get_user_input
 
     channels.each do |channel|
-      if channel.name == user_input
+      if channel.name == user_input || channel.slack_id == user_input
         @selected = channel
         return "#{@selected.name} has been selected"
       end

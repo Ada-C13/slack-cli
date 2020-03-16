@@ -8,9 +8,13 @@ describe "Workspace" do
   end
 
   describe "select_user" do
-
-    it "selects a user within the slack user list" do
+    it "correctly selects a user by username" do
       def @workspace.get_user_input; "slackbot" end
+      expect(@workspace.select_user).must_equal "slackbot has been selected"
+    end
+
+    it "correctly selects a user by slack_id" do
+      def @workspace.get_user_input; "USLACKBOT" end
       expect(@workspace.select_user).must_equal "slackbot has been selected"
     end
 
@@ -21,8 +25,13 @@ describe "Workspace" do
   end
 
   describe "select_channel" do
-    it "selects a channel within the channel list" do
+    it "correctly selects a channel by channel name" do
       def @workspace.get_user_input; "random" end
+      expect(@workspace.select_channel).must_equal "random has been selected"
+    end
+    
+    it "correctly selects a channel by slack_id" do
+      def @workspace.get_user_input; "CV7V4KYLF" end
       expect(@workspace.select_channel).must_equal "random has been selected"
     end
 
