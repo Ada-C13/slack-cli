@@ -11,11 +11,11 @@ module SlackApi
     attr_reader :users, :channels
 
     def initialize(
-
+    
     )
-
-      get_channels_from_api
-      get_users_from_api
+  
+      @channels = get_channels_from_api
+      @users = get_users_from_api
 
       # @selected = selected
 
@@ -30,13 +30,9 @@ module SlackApi
       }
        endpoint = BASE_URL + "users.list"
        response = HTTParty.get(endpoint, query: query_parameters)
-       @users = response["members"].map do |member|
-
+        @users = response["members"].map do |member|
         User.new(slack_id: member["id"], name: member["name"], real_name: member["real_name"])
-       end
-
-
-
+        end
     end
 
 # ###################################################################
@@ -46,13 +42,16 @@ module SlackApi
       query_parameters = {
         token: ENV["SLACK_TOKEN"]
       }
-
       endpoint = BASE_URL + "channels.list"
       response = HTTParty.get(endpoint, query: query_parameters)
         @channels = response["channels"].map do |channel|
         Channel.new(slack_id: channel["id"], name: channel["name"],
         member_count: channel["members"].length, topic: channel["topic"]["value"])
         end
+
+        # unless response.code == 200
+        #   raise SlackAPIError, "Cannot find #{search_term}"
+        # end
     end
 
 # #############################################################################
