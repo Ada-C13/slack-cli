@@ -177,8 +177,11 @@ def display_history
   if message 
     puts "Here is #{get_recipient}'s message history below:"
     rows = WORKSPACE.selected.message_history
-    table = Terminal::Table.new :headings => ['username', 'text'], :rows => rows
-    puts table 
+    if rows.empty? 
+      puts "  ☹️  Sorry! No message history found :("
+    else 
+      puts WORKSPACE.message_history
+    end 
   end 
 end 
 
@@ -377,7 +380,7 @@ main if __FILE__ == $PROGRAM_NAME
 
 #  > 6
 
-# Enter your message to sea otter > howdy!
+# Enter your message to sea otter > I love flower!
 #   ✅ You've successfully sent a message to sea otter
 
 # Choose one of the following options:
@@ -393,8 +396,21 @@ main if __FILE__ == $PROGRAM_NAME
 
 #  > 8
 
-#  ⚠️  Checking message history for `users` are not available at the moment
-#     After selecting a channel, try again!
+# Here is sea otter's message history below:
+# +-------------+----------------------------+---------------------------+
+# | username    | text                       | timestamp                 |
+# +-------------+----------------------------+---------------------------+
+# | hannahjoo24 | I love flower!             | 2020-03-16 01:44:17 -0700 |
+# | hannahjoo24 | Winter is coming           | 2020-03-16 01:39:44 -0700 |
+# | My Bot      | any body alive down there? | 2020-03-16 01:00:48 -0700 |
+# | hannahjoo24 | im still awake!            | 2020-03-16 00:56:40 -0700 |
+# | hannahjoo24 | howdy!                     | 2020-03-15 10:39:14 -0700 |
+# | My Bot      | sea otter is cute          | 2020-03-14 23:58:49 -0700 |
+# | My Bot      | yum yum                    | 2020-03-14 23:48:39 -0700 |
+# | hannahjoo24 | Hey                        | 2020-03-14 23:38:32 -0700 |
+# | My Bot      | ^-^                        | 2020-03-14 23:16:16 -0700 |
+# | My Bot      | hell yeah                  | 2020-03-14 21:44:01 -0700 |
+# +-------------+----------------------------+---------------------------+
 
 # Choose one of the following options:
 #   1. list users
@@ -410,8 +426,8 @@ main if __FILE__ == $PROGRAM_NAME
 #  > 4
 
 # Select a channel name or a slack id
-# > random
-#   ✅ You've selected the channel name, #random - CV86T0TPY
+# > hannah-j-test
+#   ✅ You've selected the channel name, #hannah-j-test - CV8HLGW9L
 
 # Choose one of the following options:
 #   1. list users
@@ -426,9 +442,9 @@ main if __FILE__ == $PROGRAM_NAME
 
 #  > 5
 
-# SLACK_ID  | NAME   | TOPIC                          | MEMBER_COUNT
-# ----------|--------|--------------------------------|-------------
-# CV86T0TPY | random | Non-work banter and water c... | 5           
+# SLACK_ID  | NAME          | TOPIC | MEMBER_COUNT
+# ----------|---------------|-------|-------------
+# CV8HLGW9L | hannah-j-test |       | 2           
 
 # Choose one of the following options:
 #   1. list users
@@ -443,8 +459,8 @@ main if __FILE__ == $PROGRAM_NAME
 
 #  > 6
 
-# Enter your message to random > hey!
-#   ✅ You've successfully sent a message to random
+# Enter your message to hannah-j-test > im hungryyyy!
+#   ✅ You've successfully sent a message to hannah-j-test
 
 # Choose one of the following options:
 #   1. list users
@@ -459,20 +475,21 @@ main if __FILE__ == $PROGRAM_NAME
 
 #  > 8
 
-# Here is random's message history below:
-# +-----------------+----------------------------------------+
-# | username        | text                                   |
-# +-----------------+----------------------------------------+
-# | hannahjoo24     | hey!                                   |
-# | faezeh.ashtiani | Hello, I am a message in the test file |
-# | faezeh.ashtiani | ok, one more test - sorry everyone!    |
-# | faezeh.ashtiani | yeay!                                  |
-# | faezeh.ashtiani | are you gonna work his time?           |
-# | faezeh.ashtiani | blah blah test                         |
-# | My Bot          | test                                   |
-# | My Bot          | random                                 |
-# | My Bot          | Happy Friday y'all! &gt;_&lt;          |
-# +-----------------+----------------------------------------+
+# Here is hannah-j-test's message history below:
+# +-------------+--------------------------------------+---------------------------+
+# | username    | text                                 | timestamp                 |
+# +-------------+--------------------------------------+---------------------------+
+# | hannahjoo24 | im hungryyyy!                        | 2020-03-16 01:45:20 -0700 |
+# | hannahjoo24 | hihi                                 | 2020-03-16 01:13:31 -0700 |
+# | My Bot      | nooooooice!                          | 2020-03-16 01:01:35 -0700 |
+# | hannahjoo24 | gooooood morning!                    | 2020-03-15 10:50:51 -0700 |
+# | My Bot      | 0                                    | 2020-03-14 23:50:20 -0700 |
+# | My Bot      | Is there anybody alive down there??! | 2020-03-14 23:40:20 -0700 |
+# | hannahjoo24 | What up?                             | 2020-03-14 23:16:48 -0700 |
+# | My Bot      | ^-^                                  | 2020-03-14 23:16:31 -0700 |
+# | hannahjoo24 | Coding is awesome                    | 2020-03-14 23:15:23 -0700 |
+# | My Bot      | HELLO SEATTLE!!                      | 2020-03-14 22:57:09 -0700 |
+# +-------------+--------------------------------------+---------------------------+
 
 # Choose one of the following options:
 #   1. list users
@@ -488,7 +505,7 @@ main if __FILE__ == $PROGRAM_NAME
 #  > 7
 
 # username > sea otter
-# emoji > 🦦  
+# emoji > 🦦
 #   ✅ You've successfuly changed profile settings!
 
 # Choose one of the following options:
