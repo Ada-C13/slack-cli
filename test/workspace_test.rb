@@ -5,7 +5,7 @@ require 'table_print'
 describe "Workspace class" do
   describe "Workspace instantiation" do
     it "creates an instance of Workspace" do
-      VCR.use_cassette("Workspace initialized") do
+      VCR.use_cassette("workspace-initialized") do
         expect(Slack_cli::Workspace.new).must_be_instance_of Slack_cli::Workspace
       end
     end
@@ -13,7 +13,7 @@ describe "Workspace class" do
 
   describe "Select an specific user" do
     it "select_user" do
-      VCR.use_cassette("workspace-select-User") do
+      VCR.use_cassette("workspace-select-user") do
         @workspace = Slack_cli::Workspace.new
       end
       # Override the gets method to test with a hard code user, insted of asking the user.
@@ -27,7 +27,7 @@ describe "Workspace class" do
     end
 
     it "selected equals to nil when user does not exist" do
-      VCR.use_cassette("workspace-select-User") do
+      VCR.use_cassette("workspace-select-user") do
         @workspace = Slack_cli::Workspace.new
       end
       # Override the gets method to test with a hard code user, insted of asking the user.
@@ -81,16 +81,22 @@ describe "Workspace class" do
       expect(@workspace.show_details).must_be_kind_of TablePrint::Returnable
       expect(@workspace.selected.name).must_equal "general"
     end
-  end
 
-  describe "Show details" do
-    it "show_details - Based on the selected User/Channel" do
-      VCR.use_cassette("workspace-select-User") do
+    it "send message - Based on the selected Channel" do
+      VCR.use_cassette("workspace-select-channel") do
         @workspace = Slack_cli::Workspace.new
-      end
 
-      
+        def @workspace.gets
+          "general"
+        end
+        
+        @selected = @workspace.select_channel
+        
+        expect(@workspace.selected.send_message(@selected)).must_equal true
+      end
+   
     end
+
   end
 end
 
