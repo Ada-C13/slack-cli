@@ -14,8 +14,7 @@ class Workspace
     @selected = nil
   end
 
-  def select_user
-    user_input = gets.chomp.upcase
+  def select_user(user_input)
     @users.each do |user|
       if (user.name.upcase || user.slack_id.upcase) == user_input
         @selected = user
@@ -23,23 +22,14 @@ class Workspace
       end
     end
 
-    if @selected == nil
-      raise SelectionError.new "The username or user id you entered is incorrect."
-    end
-
   end
 
-  def select_channel
-    user_input = gets.chomp.upcase
+  def select_channel(user_input)
     @channels.each do |channel|
       if (channel.name.upcase || channel.slack_id.upcase) == user_input
         @selected = channel
         return @selected
       end
-    end
-
-    if @selected == nil
-      raise SelectionError.new "The channel name or user id you entered is incorrect."
     end
   end
 

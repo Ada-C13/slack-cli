@@ -6,7 +6,7 @@ describe "Recipient" do
     @new_recipient = Recipient.new(slack_id: "C01050CDZC6", name: "name")
   end
 
-  it "initializes recipient with name and slack_id" do
+  it "initializes recipient" do
     expect(@new_recipient).must_be_kind_of Recipient
     expect(@new_recipient.name).must_equal "name"
     expect(@new_recipient.slack_id).must_equal "C01050CDZC6"
