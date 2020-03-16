@@ -28,7 +28,9 @@ def main
         show_details
       when "6", "send message"
         send_message
-      when "7", "quit"
+      when "7", "customize bot"
+        customize_bot
+      when "8", "quit"
         input = "quit"
       else
         puts "That's not a valid option, please try again."
@@ -39,7 +41,7 @@ def main
 end
 
 def list_options
-  options = ["list users", "list channels", "select user", "select channel", "details", "send message", "quit"]
+  options = ["list users", "list channels", "select user", "select channel", "details", "send message", "customize bot", "quit"]
   options.each_with_index do |option, i|
     puts "#{i + 1}. #{option}"
   end
@@ -81,6 +83,14 @@ end
 
 def show_details
   puts "Please make a selection first" if !WORKSPACE.show_details
+end
+
+def customize_bot
+  print "Enter a new name for the bot: "
+  new_bot_name = gets.chomp
+  print "Enter a new status emoji for the bot (:emoji_name: format): "
+  new_status_emoji = gets.chomp
+  WORKSPACE.customize_bot(new_bot_name, new_status_emoji)
 end
 
 main if __FILE__ == $PROGRAM_NAME
