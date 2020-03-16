@@ -21,11 +21,16 @@ describe "User Class" do
     end
   end
 
-  describe "Return an error" do
-    it "Returns error if incorrect querty given" do
-      VCR.use_cassette("bogus") do
-        expect { User.list_users.must_raise SlackError }
-      end
+  it "can make collect details of User" do
+    @user = User.new("UUW5E7SF3", "norshonda.warren", "SW", status_text = nil, status_emoji = nil)
+    expect(@user.details[2].split(":")[1]).must_equal("SW")
+  end
+end
+
+describe "Return an error" do
+  it "Returns error if incorrect querty given" do
+    VCR.use_cassette("bogus") do
+      expect { User.list_users.must_raise SlackError }
     end
   end
 end
