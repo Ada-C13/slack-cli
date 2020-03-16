@@ -12,12 +12,12 @@ describe "Recipient" do
     )
   end
 
-  it "is an instance of Channel" do
+  it "is an instance of Recipient" do
     expect(@recipient).must_be_kind_of Slack_cli::Recipient
   end
 
   it "can get a valid information from the API" do
-    VCR.use_cassette("recipient-recipients") do
+    VCR.use_cassette("recipient-recipients-endpoint") do
 
       base_url = "https://slack.com/api/"
       post_url = "#{base_url}channels.list"
@@ -35,5 +35,19 @@ describe "Recipient" do
 
   it "raises an error if invoked details directly (without subclassing)" do
     expect { @recipient.details }.must_raise NotImplementedError
+  end
+
+
+  it "can send a valid message" do
+    
+    VCR.use_cassette("recipient-recipients-endpoint") do
+      @recipient = Slack_cli::Recipient.new(id: "CV5GLCW12", name: "general")
+      def @recipient.gets
+        "Test"
+      end
+      response = @recipient.send_message("general")
+      expect(response).must_equal true
+    end
+   
   end
 end
