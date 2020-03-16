@@ -10,9 +10,9 @@ class Recipient
     @name = name
   end
 
-  def send_message(msg_text)
+  def send(message)
     response = HTTParty.post(
-      "https://api.slack.com/methods/chat.postMessage",
+      "https://api.slack.com/api/chat.postMessage",
       body:  {
         token: ENV['SLACK_TOKEN'],
         text: message,

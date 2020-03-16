@@ -12,7 +12,7 @@ def main
   workspace = Workspace.new 
 
   puts "\n"
-  puts "Welcome to the Ada Slack CLI! This Slack workspace currently has #{workspace.users.count} users and #{workspace.channels.count} channels."
+  puts "Welcome to the Ada Slack CLI! This Slack workspace currently has #{workspace.users.length} users and #{workspace.channels.length} channels."
 
   user_input = input_prompt
 
@@ -40,23 +40,11 @@ def main
       puts "\n"
       
     when "Details"
-      if workspace.selected == nil
-        puts "Please select a user or channel."
-        puts "\n"
-      else
-        workspace.show_details
-        user_input = nil
-        puts "\n"
-      end 
+      workspace.show_details
+
     when "Send message"
-      if workspace.selected == nil
-        puts "Please select a user or channel."
-        puts "\n"
-      else
-        print "Please enter your message: "
-        workspace.send_message
-        puts "\n"
-      end
+      workspace.send_message
+      
     else
       puts "Sorry, I didn't understand your request. Please try again."
     end
