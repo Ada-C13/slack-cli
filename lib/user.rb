@@ -1,9 +1,11 @@
 require_relative "recipient"
 
+USER_URL = 	"https://slack.com/api/users.list"
+
 class User < Recipient
   attr_reader :real_name, :status_text, :status_emoji
 
-  USER_URL = 	"https://slack.com/api/users.list"
+  
 
   def initialize(real_name:, status_text:, status_emoji:, slack_id:, name:)
     super(slack_id: slack_id, name: name)
@@ -13,7 +15,6 @@ class User < Recipient
   end
 
   def details
-    #response = self.get(USER_URL, {token: SLACK_TOKEN})
     tp self, "slack_id", "name", "real_name"
   end
   

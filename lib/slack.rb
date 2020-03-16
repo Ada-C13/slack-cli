@@ -95,7 +95,9 @@ def main
         puts "Okay you want to quit. Goodbye"
         break
 
-      else  
+      else
+        puts "\nI didn't understand your gibberish."
+        puts "Please enter a valid option"  
         user_prompt
       end
     end

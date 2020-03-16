@@ -1,5 +1,3 @@
-#add formatting gems and requires'
-# why not just require_relative 'recipient'
 require_relative 'user'
 require_relative 'channel'
 
@@ -10,9 +8,6 @@ class Workspace
     @users = User.list_all
     @channels = Channel.list_all
     @selected = nil
-  end
-
-  def self.list_all
   end
 
   def find_recipient(list_all:, name: nil, slack_id: nil)
@@ -32,7 +27,6 @@ class Workspace
 
   def show_selected
     puts selected ? selected.details : "To view the details of a user or channel please make that selection."
-    user_prompt
   end
 
   def send_message

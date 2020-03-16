@@ -14,7 +14,7 @@ describe "Channel" do
     it "instance of channel class" do
       expect (@channel).must_be_instance_of Channel
     end
-    it "can access attributes"do
+    it "can access attributes" do
       expect(@topic).must_equal @topic
       expect(@num_members).must_equal @num_members
       expect(@slack_id).must_equal @slack_id

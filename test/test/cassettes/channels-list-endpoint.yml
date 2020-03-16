@@ -1,0 +1,133 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://slack.com/api/channels.list?token=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '53'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 04:36:29 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 3da27879e27aed13f4383b4032ed150d
+      Referrer-Policy:
+      - no-referrer
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Vary:
+      - Accept-Encoding
+      X-Accepted-Oauth-Scopes:
+      - channels:read
+      X-Slack-Backend:
+      - h
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-tkiz
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 e4d3d5aafc7d7d582423c073065ab563.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - rM4TPJaVjnabpqqCXH5VqJF_xng8L0wNFnPIQ8KAUviJD8mjJxeY3A==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"not_authed"}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 04:36:29 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/bogus.endpoint?token=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '80'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 04:36:29 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Referrer-Policy:
+      - no-referrer
+      X-Slack-Backend:
+      - h
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - f817604313a6b505ee493ef88ba6817c
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-qgdw
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 ee8246c5442dace7525c74f6a799bb47.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - COUlqTiOm5DBSUbUrIww-JyZgPnwOOM4PScTsk8Pe_vtY2G52iNW8g==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"unknown_method","req_method":"bogus.endpoint"}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 04:36:29 GMT
+recorded_with: VCR 5.1.0

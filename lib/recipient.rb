@@ -1,6 +1,8 @@
-# require gems
 require "httparty"
+require "dotenv"
+
 RECIPIENT_URL = "https://slack.com/api/chat.postMessage"
+
 class Recipient
   attr_reader :slack_id, :name
 
@@ -17,16 +19,14 @@ class Recipient
       }
     })
     if response.code != 200 || response["ok"] == false
-      raise SlackAPIError, "We encountered a problem: #{response["error"]}" 
+      raise SlackAPIError, "We encountered a problem -#{response["error"]}" 
     else
       puts "Your message was sent!"
     end
+    return response
   end
 
   def self.get(url)
-    # how to get(api lecture)/ what will it return
-    # error handling
-    #send message using HTTParty
     response = HTTParty.get(url, query: {token: ENV['SLACK_TOKEN']})
       raise SlackAPIError, "We encountered a problem: #{response["error"]}" if response.code != 200 || response["ok"] == false
   return response
@@ -36,7 +36,6 @@ class Recipient
     raise NotImplementedError, "Template method"
   end
   def self.list_all
-    # error handling
     raise NotImplementedError, "Template method"
   end
 end
