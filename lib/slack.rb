@@ -7,7 +7,7 @@ Dotenv.load
 
 # prompts user for their input and records it
 def prompt_action 
-  puts "You have six options: list users, list channels, select user, select channel, details or quit."
+  puts "You have six options: list users, list channels, select user, select channel, display details, or quit."
   puts "\n"
   print "Please enter your choice: "
   return gets.chomp.downcase
@@ -46,6 +46,16 @@ def main
       requested_channel = gets.chomp
       puts workspace.select_channel(requested_channel)
       puts "\n"
+    
+    when "display details"
+      if workspace.selected == nil
+        puts "You must \"select user\" or \"select channel\" first."
+        puts "\n"
+      else
+        workspace.display_details
+        user_input = nil
+        puts "\n"
+      end
 
     else 
       puts "\n"

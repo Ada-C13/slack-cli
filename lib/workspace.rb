@@ -34,7 +34,8 @@ require_relative "channel"
     end
 
     # displays workspace info to command line based on selected recipient
-    def show_details
+    def display_details
+      return @selected.details
     end 
 
     def send_message

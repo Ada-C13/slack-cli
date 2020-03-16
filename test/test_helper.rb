@@ -30,5 +30,4 @@ VCR.configure do |config|
   config.filter_sensitive_data("<SLACK_BOT_TOKEN>") do
     ENV['BOT_TOKEN']
   end  
-   
 end

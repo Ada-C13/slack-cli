@@ -46,7 +46,5 @@ describe "User" do
         expect(user).must_be_kind_of User 
       end 
     end 
-
   end 
-
 end

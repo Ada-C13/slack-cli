@@ -80,9 +80,10 @@ describe "Workspace" do
     end 
   end 
 
-
-
-  xdescribe "show_details" do 
+  
+  xdescribe "display_details" do 
+    # TODO: write tests for this method
+    # i was unsure how to verify command line output
   end 
 
   xdescribe "send_message" do 

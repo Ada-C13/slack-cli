@@ -46,7 +46,5 @@ describe "Channel" do
         expect(channel).must_be_kind_of Channel
       end 
     end 
-
   end 
-
 end
