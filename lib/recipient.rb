@@ -33,7 +33,7 @@ module SlackCLI
           text: message
         }
       )
-      unless response.code == 200 && response["ok"]
+      unless resp.code == 200 && resp["ok"]
         raise SlackAPIError.new("Slack API call failed with reason: #{resp['error']}")
       end
       return true
