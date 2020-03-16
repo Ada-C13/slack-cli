@@ -7,5 +7,16 @@ class Workspace
     @channels = Channel.get_list("channel")
   end
 
+  def print_list(recipient)
+    case recipient
+    when "users"
+      tp users, {:name => {:display_name => "Username"}}, :slack_id, :real_name
+    when "channels"
+      tp channels, :name, :slack_id, :topic, :member_count
+    else
+      raise ArgumentError.new("Invalid recipient")
+    end
+  end
+
  
 end
