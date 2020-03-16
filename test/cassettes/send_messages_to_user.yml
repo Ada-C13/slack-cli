@@ -1,0 +1,306 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=UV868PVCP&text=hi!&token=xoxb-992362179445-982329093825-PGF52jV1bH7r3zAuaqP8EXUK
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '329'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 17:31:16 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 4e39d84338b2d6053015ec2d6180d6a3
+      X-Oauth-Scopes:
+      - chat:write,channels:read,users:read,channels:manage
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-57iu
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 d042f60a962591f741406f28a8170c5a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - ySQ6Ix8LzQX1RGM9fqz-kQiKaMO3Xy7YNYq_a_eeHnwxheAIn9B_Jw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"DV5U6KN7N","ts":"1584379876.001000","message":{"bot_id":"BV8JC2PSA","type":"message","text":"hi!","user":"UUW9P2RQ9","ts":"1584379876.001000","team":"TV6AN59D3","bot_profile":{"id":"BV8JC2PSA","deleted":false,"name":"Space
+        - Hala - API Project","updated":1583877279,"app_id":"AV872A207","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TV6AN59D3"}}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 17:31:14 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=UV868PVCP&text=if%20you%20can%20see%20this&token=xoxb-992362179445-982329093825-PGF52jV1bH7r3zAuaqP8EXUK
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '340'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 17:38:43 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 9beb2db2ce2dac56416e7c2c46671c8e
+      X-Oauth-Scopes:
+      - chat:write,channels:read,users:read,channels:manage
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-d8e3
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 112d82578d402a38d8d02e8b857617e1.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - rpY4jICmppV5n0XFyhJJyx88SLmzAxj0bkkifSnpFzR5P9YieU4wuQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"DV5U6KN7N","ts":"1584380323.002700","message":{"bot_id":"BV8JC2PSA","type":"message","text":"if
+        you can see this","user":"UUW9P2RQ9","ts":"1584380323.002700","team":"TV6AN59D3","bot_profile":{"id":"BV8JC2PSA","deleted":false,"name":"Space
+        - Hala - API Project","updated":1583877279,"app_id":"AV872A207","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TV6AN59D3"}}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 17:38:41 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=UV868PVCP&text=it%20means%20my%20user.send%20method%20is%20working&token=xoxb-992362179445-982329093825-PGF52jV1bH7r3zAuaqP8EXUK
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '350'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 17:38:50 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - fe938785476bffacb1b1a95115b65ae2
+      X-Oauth-Scopes:
+      - chat:write,channels:read,users:read,channels:manage
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-wg3h
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 981753271eb5b6d11bc29d52f173a5da.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - nz3VLF7K2qX-EO7LM8MsLqs6DA_24fu05_o9rtcmiRxMEwXupLCqPg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"DV5U6KN7N","ts":"1584380330.002800","message":{"bot_id":"BV8JC2PSA","type":"message","text":"it
+        means my user.send method is working","user":"UUW9P2RQ9","ts":"1584380330.002800","team":"TV6AN59D3","bot_profile":{"id":"BV8JC2PSA","deleted":false,"name":"Space
+        - Hala - API Project","updated":1583877279,"app_id":"AV872A207","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TV6AN59D3"}}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 17:38:48 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=UV868PVCP&text=hi%20five!&token=xoxb-992362179445-982329093825-PGF52jV1bH7r3zAuaqP8EXUK
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '332'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 17:38:54 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 1fe333a4735a327e92166f7dbf41b88e
+      X-Oauth-Scopes:
+      - chat:write,channels:read,users:read,channels:manage
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-cexh
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 5565a51537c689d1d16f6b4d41f40082.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - FKmCCeMTm8os9GURHYTShFL5__bxRobccMjPBRTwNuq6m1WLdVScyw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"DV5U6KN7N","ts":"1584380334.002900","message":{"bot_id":"BV8JC2PSA","type":"message","text":"hi
+        five!","user":"UUW9P2RQ9","ts":"1584380334.002900","team":"TV6AN59D3","bot_profile":{"id":"BV8JC2PSA","deleted":false,"name":"Space
+        - Hala - API Project","updated":1583877279,"app_id":"AV872A207","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TV6AN59D3"}}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 17:38:52 GMT
+recorded_with: VCR 5.1.0
