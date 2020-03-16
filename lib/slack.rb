@@ -35,6 +35,12 @@ def main
       tp workspace.channels, "name", "topic", "member_count", "slack_id"
       puts "\n"
 
+    when "select channel"
+      print "Please enter the channel name or ID: "
+      requested_channel = gets.chomp
+      puts workspace.select_channel(requested_channel)
+      puts "\n"
+
     else 
       puts "\n"
       puts "I cannot perform \"#{user_input}\". Please try again ->"

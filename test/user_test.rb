@@ -3,6 +3,15 @@ require_relative "../lib/user"
 
 describe "User" do
   describe "initialize" do 
+    before do 
+      VCR.use_cassette("users-list-endpoint") do 
+        @test_user = User.new(real_name: "Hugo", status_text: "WFH", status_emoji: "", name: "hugo95", slack_id:"1234HUGO")
+      end 
+    end
+
+    it "creates an instance of a User object with all string keywords" do 
+      expect(@test_user).must_be_kind_of User
+    end 
   end
 
   describe "self.get" do # inherited from recipient 

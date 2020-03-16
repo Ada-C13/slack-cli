@@ -3,6 +3,15 @@ require_relative "../lib/channel"
 
 describe "Channel" do
   describe "initialize" do 
+    before do 
+      VCR.use_cassette("channels-list-endpoint") do 
+        @test_channel = Channel.new(topic: "talk about stuffs", member_count: 2, name: "meaningless-chatter", slack_id:"CHAT1234")
+      end 
+    end
+
+    it "creates an instance of a Channel object with string & int keywords" do 
+      expect(@test_channel).must_be_kind_of Channel
+    end 
   end
   
   describe "self.get" do # inherited from recipient 

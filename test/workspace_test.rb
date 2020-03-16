@@ -25,13 +25,38 @@ describe "Workspace" do
     end 
   end
 
-  xdescribe "select_channel" do 
-    xit "" do 
-    end 
-  end 
-
   xdescribe "select_user" do 
   end 
+
+  describe "select_channel(requested_channel)" do 
+    before do 
+      VCR.use_cassette("workspace-test") do 
+        @test_workspace = Workspace.new()
+      end 
+    end 
+
+    it "returns channel name that matches requested channel name" do 
+      requested_channel = "general"
+      output = @test_workspace.select_channel(requested_channel)
+      expect(output).must_equal "Channel titled \"#{requested_channel}\" has been selected."
+    end
+
+    it "returns channel name associated with requested channel slack id" do 
+      requested_channel = "CUTE4M96W"
+      associated_channel = @test_workspace.channels.find { |channel| channel.slack_id == requested_channel }
+      output = @test_workspace.select_channel(requested_channel)
+      expect(output).must_equal "Channel titled \"#{associated_channel.name}\" has been selected."
+    end
+
+    it "returns a message if no channel name is found" do
+      requested_channel = "doesnotexist"
+      output = @test_workspace.select_channel(requested_channel)
+      expect(output).must_equal "Sorry, channel \"#{requested_channel}\" does not exist in this workspace."
+    end 
+
+  end 
+
+
 
   xdescribe "show_details" do 
   end 

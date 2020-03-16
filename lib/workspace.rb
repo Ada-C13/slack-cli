@@ -11,7 +11,15 @@ require_relative "channel"
       @selected = nil
     end 
 
-    def select_channel
+    def select_channel(requested_channel)
+      channels.each do |channel|
+        if channel.name == requested_channel || channel.slack_id == requested_channel
+          @selected = channel
+          return "Channel titled \"#{selected.name}\" has been selected."
+        end
+      end 
+
+      return "Sorry, channel \"#{requested_channel}\" does not exist in this workspace."
     end
 
     def select_user
