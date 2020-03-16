@@ -27,9 +27,19 @@ class Recipient
     raise NotImplementedError, 'Implement me in a child class!'
   end
 
-  # def send_message(message)
-  # end
-  
+
+  def send_message(msg)
+    url = "https://slack.com/api/chat.postMessage"
+    query = {token: ENV["BOT_TOKEN"], channel: self.slack_id, text: msg}
+
+    response = HTTParty.post(url, query: query)
+
+    if response.code != 200 || response["ok"] == false
+      raise SlackAPIError, "We encountered a problem: #{response["error"]}"
+    else
+      return true
+    end
+  end
 end
 
 class SlackAPIError < Exception

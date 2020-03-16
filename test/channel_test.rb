@@ -1,12 +1,13 @@
 require_relative "test_helper"
-require_relative "../lib/channel"
 
 describe "Channel class" do
   describe 'Channel instantiation' do
     it "creates a channel object" do
       VCR.use_cassette("list-channel-endpoint") do
+        
         url = "https://slack.com/api/channels.list"
-        response = User.get(url)
+        response = Channel.get(url)
+        
         channels = []
         response["channels"].each do |item|
           topic = item["topic"]
@@ -20,9 +21,8 @@ describe "Channel class" do
         expect(channels[0]).must_be_instance_of Channel
         
         expected_topic = {"value" => "", "creator" => "", "last_set" => 0}
-
         expect(channels[0].topic).must_equal expected_topic
-        expect(channels[0].member_count).must_equal ["UV5KWEASY", "UV5KNL1UL", "UV66MLLSH", "UV66H40LV"]
+        expect(channels[0].member_count.length).must_equal 5
         expect(channels[0].slack_id).must_equal "CV5KNMDKN"
         expect(channels[0].name).must_equal "slack-cli"
       end

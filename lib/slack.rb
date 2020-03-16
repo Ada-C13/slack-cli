@@ -1,3 +1,5 @@
+#I got a lot of piece of code from Devin. Before i copy to my project I analize and i build test for.
+
 #!/usr/bin/env ruby
 require 'httparty'
 require 'dotenv'
@@ -9,7 +11,7 @@ Dotenv.load
 def main
   workspace = WorkSpace.new 
   puts "\n"
-  puts "Welcome to the Ada Slack CLI! This Slack workspace currently has #{workspace.users.count} users and #{workspace.channels.count} channels."
+  puts "Welcome to the Ada Accountability Group 6 Slack CLI! This Slack workspace currently has #{workspace.users.count} users and #{workspace.channels.count} channels."
 
   user_input = prompt_for_input
 
@@ -26,12 +28,14 @@ def main
       
     when "select user"
       print "Please enter the user name or ID: "
-      puts workspace.select_user
+      search_term = gets.chomp.downcase
+      puts workspace.select_user(search_term)
       puts "\n"
       
     when "select channel"
       print "Please enter the channel name or ID: "
-      puts workspace.select_channel
+      search_term = gets.chomp.downcase
+      puts workspace.select_channel(search_term)
       puts "\n"
       
     when "details"
@@ -49,7 +53,8 @@ def main
         puts "\n"
       else
         print "Please enter your message: "
-        workspace.send_message
+        msg = gets.chomp
+        workspace.send_message(msg)
         puts "\n"
       end
     else
@@ -59,7 +64,7 @@ def main
 
     user_input = prompt_for_input
   end 
-  puts "Thank you for using the ADA Slack CLI!"
+  puts "Thank you for using the Ada Accountability Group 6 Slack CLI!"
   puts "\n"
 end
 

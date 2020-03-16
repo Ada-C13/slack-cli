@@ -34,11 +34,11 @@ VCR.configure do |config|
   }
 
   # Don't leave our token lying around in a cassette file.
-  config.filter_sensitive_data("<LOCATIONIQ_TOKEN>") do
+  config.filter_sensitive_data("<SLACK_TOKEN>") do
     ENV["SLACK_TOKEN"]
   end
 
-  config.filter_sensitive_data("<LOCATIONIQ_BOT_TOKEN>") do
+  config.filter_sensitive_data("<BOT_TOKEN>") do
     ENV["BOT_TOKEN"]
   end
 end

@@ -3,10 +3,10 @@ require_relative "recipient"
 class Channel < Recipient
   attr_reader :topic, :member_count
   
-  def initialize(topic: nil, member_count: nil, slack_id:, name:)
+  def initialize(topic:, member_count:, slack_id:, name:)
     super(slack_id: slack_id, name: name)
-    @topic = topic || {}
-    @member_count = member_count || []
+    @topic = topic
+    @member_count = member_count 
   end
 
   def details
@@ -19,14 +19,13 @@ class Channel < Recipient
 
     response["channels"].each do |item|
       channels << Channel.new(
-        topic: item["topic"],
-        member_count: item["member_count"],
-        slack_id: item["id"], 
-        name: item["name"]
+                name: item["name"],
+                slack_id: item["id"],
+                topic: item["topic"]["value"],
+                member_count: item["num_members"]
       )
     end
     return channels
   end
 end
 
-  
