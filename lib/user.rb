@@ -5,8 +5,6 @@ USER_URL = 	"https://slack.com/api/users.list"
 class User < Recipient
   attr_reader :real_name, :status_text, :status_emoji
 
-  
-
   def initialize(real_name:, status_text:, status_emoji:, slack_id:, name:)
     super(slack_id: slack_id, name: name)
     @real_name = real_name
@@ -17,7 +15,8 @@ class User < Recipient
   def details
     tp self, "slack_id", "name", "real_name"
   end
-  
+
+  # Get all users and their data
   def self.list_all
     response = User.get(USER_URL)
     users = []

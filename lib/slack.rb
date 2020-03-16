@@ -27,9 +27,10 @@ def input_validation
     user_prompt
     input = gets.chomp.downcase
   end 
-  return input # implied?
+  return input
 end
 
+# Prompt option for user to continue with name or id
 def prompt_recipient
   puts "Do you want to continue using -name- or -id- ?"
   key = gets.chomp.downcase 
@@ -42,20 +43,6 @@ def prompt_recipient
   puts "Please enter #{key} to continue"
   input = gets.chomp
   
-  key == 'name' ? {name: input} : {slack_id: input}
-end
-
-def search_selected
-  puts "Do you want to search by name or id?"
-  key = gets.chomp.downcase 
-
-  until VALID_SEARCH.include? key
-    puts "Invalid command - Do you want to search for name or id"
-    key = gets.chomp.downcase 
-  end 
-  
-  puts "Please enter #{key}:"
-  input = gets.chomp
   key == 'name' ? {name: input} : {slack_id: input}
 end
 

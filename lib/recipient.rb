@@ -11,6 +11,7 @@ class Recipient
     @name = name
   end
 
+  # Send message to recipient
   def send_message(message)
     response = HTTParty.post("#{RECIPIENT_URL}?token=#{ENV['SLACK_TOKEN']}", {
       body: {

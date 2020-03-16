@@ -15,6 +15,7 @@ class Channel < Recipient
     tp self, "slack_id", "name", "topic", "member_count"
   end
 
+  # Get all channel and their data
   def self.list_all
     response = self.get(CHANNEL_URL)
     channels = []

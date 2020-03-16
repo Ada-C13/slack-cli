@@ -17,11 +17,11 @@ class Workspace
     end 
   end
 
-  def select_user name: nil, slack_id: nil
+  def select_user (name: nil, slack_id: nil)
     @selected = find_recipient list_all: users, name: name, slack_id: slack_id
   end
 
-  def select_channel name: nil, slack_id: nil
+  def select_channel (name: nil, slack_id: nil)
     @selected = find_recipient list_all: channels, name: name, slack_id: slack_id
   end
 
@@ -39,5 +39,4 @@ class Workspace
       puts "\nNo recipient selected"
     end
   end
-
 end
