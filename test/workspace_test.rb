@@ -25,7 +25,32 @@ describe "Workspace" do
     end 
   end
 
-  xdescribe "select_user" do 
+  describe "select_user(requested_user)" do 
+    before do 
+      VCR.use_cassette("workspace-test") do 
+        @test_workspace = Workspace.new()
+      end 
+    end 
+
+    it "returns user's name associated with requested username" do 
+      requested_user = "yesentorres"
+      associated_user = @test_workspace.users.find { |user| user.name == requested_user }
+      output = @test_workspace.select_user(requested_user)
+      expect(output).must_equal "User \"#{associated_user.real_name}\" has been selected."
+    end
+
+    it "returns user's name associated with requested user slack id" do 
+      requested_user= "UUTK13WE6"
+      associated_user = @test_workspace.users.find { |user| user.slack_id == requested_user }
+      output = @test_workspace.select_user(requested_user)
+      expect(output).must_equal "User \"#{associated_user.real_name}\" has been selected."
+    end
+
+    it "returns a message if no user is found" do
+      requested_user = "doesnotexist"
+      output = @test_workspace.select_user(requested_user)
+      expect(output).must_equal "Sorry, user \"#{requested_user}\" does not exist in this workspace."
+    end 
   end 
 
   describe "select_channel(requested_channel)" do 
@@ -53,7 +78,6 @@ describe "Workspace" do
       output = @test_workspace.select_channel(requested_channel)
       expect(output).must_equal "Sorry, channel \"#{requested_channel}\" does not exist in this workspace."
     end 
-
   end 
 
 
