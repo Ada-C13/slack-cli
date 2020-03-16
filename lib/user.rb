@@ -22,7 +22,6 @@ class User < Recipient
         status_emoji: user["profile"]["status_emoji"],
       )
     end
-
     return users
   end
 

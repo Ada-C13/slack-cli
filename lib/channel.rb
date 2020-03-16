@@ -1,7 +1,5 @@
 require_relative "recipient"
 
-# BASE_URL = "https://slack.com/api/conversations.list"
-
 class Channel < Recipient
   attr_reader :topic, :member_count
 
@@ -12,6 +10,7 @@ class Channel < Recipient
   end
 
   def details
+    tp self, "slack_id", "name", "topic", "member_count"
   end
 
   def self.list_all
@@ -24,5 +23,6 @@ class Channel < Recipient
         member_count: channel["num_members"]
       )
     end
+    return channels
   end
 end
