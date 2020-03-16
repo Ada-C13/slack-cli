@@ -1,7 +1,5 @@
 require_relative "test_helper"
-require_relative '../lib/workspace.rb'
-require_relative '../lib/channel.rb'
-require_relative '../lib/user.rb'
+
 
 
 

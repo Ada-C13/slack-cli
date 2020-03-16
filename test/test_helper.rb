@@ -10,6 +10,10 @@ require 'minitest/skip_dsl'
 require 'vcr'
 require "dotenv"
 
+require_relative '../lib/workspace.rb'
+require_relative '../lib/channel.rb'
+require_relative '../lib/user.rb'
+
 
 Dotenv.load
 
