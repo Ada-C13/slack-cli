@@ -11,8 +11,8 @@ class User < Recipient
   end
 
 
-
   def details
+    tp self, "name", "real_name", "slack_id"
   end
 
   # =====Class methods=====

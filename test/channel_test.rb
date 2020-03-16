@@ -3,11 +3,11 @@ require_relative '../lib/channel'
 
 describe "Channel" do
   describe "self.get" do
-    it "gets a list of users" do
+    it "gets a list of channels" do
       result = {}
 
       # make an API call
-      VCR.use_cassette("users-list-endpoint") do
+      VCR.use_cassette("channels-list-endpoint") do
           # call method you intend to use
           result = Channel.get("https://slack.com/api/channels.list")
       end
@@ -18,7 +18,7 @@ describe "Channel" do
     end
 
     it "raises an error when a call fails" do
-      VCR.use_cassette("users-list-endpoint") do
+      VCR.use_cassette("channels-list-endpoint") do
         # call method you intend to use
         expect {Channel.get("https://slack.com/api/bogus.endpoint")}.must_raise SlackAPIError
       end

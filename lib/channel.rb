@@ -12,6 +12,7 @@ class Channel < Recipient
   end
 
   def details
+    tp self,  "name", "topic", "member_count", "slack_id"
   end
 
   # =====Class methods=====

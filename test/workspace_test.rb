@@ -1,5 +1,6 @@
 require_relative 'test_helper'
 require_relative '../lib/workspace.rb'
+require 'table_print'
 
 describe "Workspace" do
   before do
@@ -57,9 +58,5 @@ describe "Workspace" do
       def @workspace.get_user_input; "notachannel" end
       expect(@workspace.select_channel).must_equal "Channel could not be found."
     end
-  end
-
-  describe "show_details" do
-    
   end
 end

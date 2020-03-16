@@ -26,7 +26,7 @@ describe "User" do
   end
 
   describe "self.list_all" do
-    it "returns a valid list of {{users" do
+    it "returns a valid list of users" do
       result = []
 
       VCR.use_cassette("users-list-endpoint") do
