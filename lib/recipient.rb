@@ -9,20 +9,20 @@ class Recipient
     @name = name
   end
 
-  # def send_message
-  #   # how to send message/ what will it return
-  #   # error handling
-  #   response = HTTParty.post("https://slack.com/api/chat.postMessage", query: {token: ENV['BOT_TOKEN'], channel: self.slack_id, text: msg_text})
-  #     raise SlackAPIError, "We encountered a problem: #{response["error"]}" if response.code != 200 || response["ok"] == false
-  # end
   def send_message(message)
-    HTTParty.post("#{RECIPIENT_URL}?token=#{ENV['SLACK_TOKEN']}", {
+    response = HTTParty.post("#{RECIPIENT_URL}?token=#{ENV['SLACK_TOKEN']}", {
       body: {
         text: message,
         channel: slack_id
       }
     })
+    if response.code != 200 || response["ok"] == false
+      raise SlackAPIError, "We encountered a problem: #{response["error"]}" 
+    else
+      puts "Your message was sent!"
     end
+  end
+
   def self.get(url)
     # how to get(api lecture)/ what will it return
     # error handling
