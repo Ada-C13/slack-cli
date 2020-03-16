@@ -35,4 +35,4 @@ describe SlackCli::User do
       end  
     end
   end #class
-end #modeul
+end #module
