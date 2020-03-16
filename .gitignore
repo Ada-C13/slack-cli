@@ -7,3 +7,5 @@
 
 # ignore practice sheet
 lib/practice.rb
+
+/test/cassettes/
