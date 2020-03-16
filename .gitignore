@@ -1,4 +1,5 @@
-/coverage/
+/coverage/ 
+#ask: are we adding a coverage or is this already there just hidden?
 
 .DS_Store
 
