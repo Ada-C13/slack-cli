@@ -1,6 +1,7 @@
-/coverage/
+coverage/
 
 .DS_Store
 
 # Ignore environemnt variables
 .env
+
