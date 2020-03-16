@@ -1,5 +1,6 @@
 require_relative 'user'
 require_relative 'channel'
+require 'colorize'
 
 class Workspace
   attr_reader :users, :channels
@@ -42,13 +43,10 @@ class Workspace
   def send_message(message)
    if @selected.class ==  User || @selected.class ==  Channel
       response = @selected.send_message(message: message, send_to: @selected.slack_id)
-      puts "Message successfully sent to #{@selected.name}"
+      puts "Message successfully sent to #{@selected.name}".colorize(:magenta).bold
    else
-      puts "Can not send message! Message recipient is invalid!"
+      puts "Can not send message! Message recipient is invalid!".colorize(:red).bold
    end
    return response
   end
 end
-
-workapce = Workspace.new
-p workapce.send_message("is this working")
