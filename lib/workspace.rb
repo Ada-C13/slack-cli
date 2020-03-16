@@ -18,7 +18,7 @@ module SlackCli
 
   #--------------------------Class Methods ------------------------
 
-    #Returns all valid user id and name
+    #Returns all valid user id and name [Strings]
     # inputs: aMode that's either "user" or "channel"
     def valid_inputs_id_names(aMode)
       valid_inputs = []
@@ -39,8 +39,8 @@ module SlackCli
   #----------------------------------------------------------------
 
     #finds a user
-    #input: aUser_input
-    #Returns a found user
+    #input: aUser_input (String)
+    #Returns a found user (User Oject)
     def find_user(aUser_input)
       found_user = nil
       self.users.each do |user|
@@ -54,8 +54,8 @@ module SlackCli
   #----------------------------------------------------------------
 
     #finds a channel
-    #input: aUser_input
-    #Returns a found channel
+    #input: aUser_input (String)
+    #Returns a found channel (Channel Object)
     def find_channel(aUser_input)
       found_channel = nil
       self.channels.each do |channel|
@@ -68,8 +68,8 @@ module SlackCli
     #----------------------------------------------------------------
     
     #sends message
-    #input: aUser_message
-    #return:response code (int)
+    #input: aUser_message (String)
+    #return:response code (int) = 200 means "ok"
 
     def send_message(aUser_message)
       response_code = nil
@@ -97,12 +97,4 @@ module SlackCli
     end 
   end #class
 end #module
-
-#test_workspace = SlackCli::Workspace.new
-# test_workspace.users.each do |user|
-#   puts user.real_name  
-# end
-
-#name = test_workspace.find_user("cheese")
-#puts name
 
