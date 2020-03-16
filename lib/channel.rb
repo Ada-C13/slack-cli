@@ -12,8 +12,8 @@ class Channel < Recipient
     @member_count = member_count
   end
 
- def details
-    return "Name:#{@name}" , "Slack_ID:#{@slack_id}", "Topic #{@topic}","Member Count: #{@member_count}"
+  def details
+    return "Name:#{@name}", "Slack_ID:#{@slack_id}", "Topic #{@topic}", "Member Count: #{@member_count}"
   end
 
   # called in the workspace
