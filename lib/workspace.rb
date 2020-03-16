@@ -4,13 +4,12 @@ require_relative 'user'
 require_relative 'channel'
 
 class Workspace
-  attr_reader :users, :selected_user, :channels, :selected_channel
+  attr_reader :users, :channels, :selected
 
-  def initialize()
+  def initialize
     @users = User.list_all
-    @selected_user = nil
     @channels = Channel.list_all
-    @selected_channel = nil
+    @selected = nil
   end
 
   def select_user
@@ -23,8 +22,6 @@ class Workspace
   def show_details
   end
 
-  def send_message
-  end
   
 end
 
