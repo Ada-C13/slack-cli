@@ -1,5 +1,6 @@
 # channel_test.rb
 require_relative 'test_helper'
+require_relative "../lib/channel"
 
 describe "Channel" do
 
@@ -18,24 +19,18 @@ describe "Channel" do
 
 
   it "can get the list of channels" do
-    VCR.use_cassette("channel-channels") do
+    response = []
 
-      base_url = "https://slack.com/api/"
-      post_url = "#{base_url}channels.list"
-      params = { token: ENV["SLACK_API_TOKEN"] }
-
-      response = Slack_cli::Channel.get(post_url, params)
-
-      count = response["channels"].select do |channel|
-        channel["name"]
-      end
-      
-      channels = Slack_cli::Channel.list_all
-      general = channels[0].name
-
-      expect(channels).must_be_kind_of Array
-      expect(channels.length).must_equal count.length
-      expect(general).must_equal count[0]["name"]
+    VCR.use_cassette("channels-list-endpoint") do
+      response = Slack_cli::Channel.list_all
     end
+
+    expect(response).must_be_kind_of Array
+    expect(response.length).must_be :>, 0
+
+    response.each do |resp|
+      expect(resp).must_be_kind_of Slack_cli::Channel
+    end
+
   end
 end
