@@ -1,5 +1,6 @@
 require 'httparty'
 require 'dotenv'
+require 'time'
 
 class SlackApiError < StandardError; end
 class NoSlackTokenError < StandardError; end
