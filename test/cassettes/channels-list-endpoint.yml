@@ -80,4 +80,68 @@ http_interactions:
         you''d prefer to keep out of more focused work-related channels.","creator":"UUT9Z80AE","last_set":1583868609},"previous_names":[],"num_members":5},{"id":"CVASS4US0","name":"test","is_channel":true,"created":1584050770,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UUT9Z80AE","name_normalized":"test","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UV66LJW5A","UUT9Z80AE"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":2},{"id":"CVBS8GW8M","name":"dianas_test_channel","is_channel":true,"created":1584078400,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UUTA3S16E","name_normalized":"dianas_test_channel","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UUTA3S16E"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":1}],"response_metadata":{"next_cursor":""}}'
     http_version: null
   recorded_at: Sat, 14 Mar 2020 23:30:20 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/bogus.endpoint?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '80'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 00:38:49 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Referrer-Policy:
+      - no-referrer
+      X-Slack-Backend:
+      - h
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 4db145759d443b4fc88cc6c1833cee89
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-9hkc
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 4f3feb5c4393987d42d1971d404d7cea.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - USomVbnSnzW9I6ZFPEb26JkEUraOAz4Vdymk1YyCIiUIpqz1CHb4GA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"unknown_method","req_method":"bogus.endpoint"}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 00:38:49 GMT
 recorded_with: VCR 5.1.0
