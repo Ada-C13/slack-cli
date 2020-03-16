@@ -33,7 +33,20 @@ describe "Workspace" do
     end
   end
 
-=begin
+  describe "select_channel(channel_name)" do
+    before do 
+      VCR.use_cassette("create_workspace")do
+      @workspace = Workspace.new
+    end
+    end
+  
+    it "will return a Channel based on the user input" do
+      @workspace.select_channel("random")
+      expect(@workspace.selected).must_be_instance_of Channel
+      expect(@workspace.selected.name).must_equal "random"
+    end
+  end
+
   describe "select_user(user_name)" do
     before do 
       VCR.use_cassette("create_workspace")do
@@ -42,12 +55,10 @@ describe "Workspace" do
     end
   
     it "will return an instance of User based on the user input" do
-      @workspace.select_user("random")
-      expect(@workspace.selected).must_be_instance_of Channel
-      expect(@workspace.selected.name).must_equal "random"
+      @workspace.select_user("Joseph")
+      expect(@workspace.selected).must_be_instance_of User
+      expect(@workspace.selected.real_name).must_equal "Joseph"
     end
   end
-=end
-
 end  
 
