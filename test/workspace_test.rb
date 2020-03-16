@@ -28,11 +28,42 @@ describe "Workspace class" do
 
   describe "select_channel" do
     it "selects a channel from a slack_id" do
-      user_input = "CV7V4KYLF"
+      user_input = "CV7V4KYLF" # random channel slack_id
       @workspace_inst.select_channel(user_input)
 
       expect(@workspace_inst.selected.name).must_equal "random"
       expect(@workspace_inst.selected).must_be_kind_of Channel
+    end
+
+    it "selects a channel from a slack_id even if entered in lowercase" do
+      user_input = "cv7v4kylf" # random channel slack_id
+      @workspace_inst.select_channel(user_input)
+
+      expect(@workspace_inst.selected.name).must_equal "random"
+      expect(@workspace_inst.selected).must_be_kind_of Channel
+    end
+
+    it "selects a channel from a name" do
+      user_input = "random"
+      @workspace_inst.select_channel(user_input)
+
+      expect(@workspace_inst.selected.slack_id).must_equal "CV7V4KYLF"
+      expect(@workspace_inst.selected).must_be_kind_of Channel
+    end
+
+    it "selects a channel from a name, regardless of case" do
+      user_input = "RanDoM"
+      @workspace_inst.select_channel(user_input)
+
+      expect(@workspace_inst.selected.slack_id).must_equal "CV7V4KYLF"
+      expect(@workspace_inst.selected).must_be_kind_of Channel
+    end
+
+    it "sets selected to nil if no match for slack_id or name" do
+      user_input = "adaisreallyawesome"
+      @workspace_inst.select_channel(user_input)
+      
+      expect(@workspace_inst.selected).must_be_nil
     end
   end
 

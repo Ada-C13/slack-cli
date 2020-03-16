@@ -21,9 +21,5 @@ class Workspace
   end
 
   def select_user
-
   end
-
-  
-
 end
