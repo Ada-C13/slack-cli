@@ -1031,4 +1031,818 @@ http_interactions:
       string: '{"ok":false,"error":"invalid_array_arg"}'
     http_version: null
   recorded_at: Sun, 15 Mar 2020 02:41:58 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:07 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 6fd5cd69e45d210e246db027596161b6
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-dr0n
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 57a21088b36c69a83578b5a5579df58f.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - g-ps_SX3t1NpbSLXavSaySMRgtkdGL52-Zxyv9KT6nHql7ERLcKsqw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:07 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:07 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 4d73e5b5a886b7ead3784bc93b2bfe4f
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-huvv
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 a847181d425b7fc57e81eb3c800bfdf2.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - 0R8X4nj2yl8dCgywL08-kYl5JBZ-_diAewGeIi1o5DYCqz36oW2cDg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:07 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:07 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 06b58107b69a8787e8da1765b6ae3a2d
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-ee90
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 2bedbeaa49b4a77447d30097858cb81a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - oljivbU9rS0ZBsfq4AsyDIjfE7rxR5pIEaWxSLdvnpvD8S4OHoxvdQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:07 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:07 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - b0e042909e39bd80baaec6e7f29f5d8b
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-9k48
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 4f3feb5c4393987d42d1971d404d7cea.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - gdEp-4nS-LphQ2goE46vBjVKYEY2S7Kbs5Zfwt6cD0D1RIhd9tgvAA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:07 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:07 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 2a1687db45d000844258720f234e924c
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-suv8
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 98aedae6661e3904540676966998ed89.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - 7gK6FAjBIqw7sV3t-SXCKe4LqP4q0z1bbzdUKqiDRIWw94UQXheL6Q==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:07 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:08 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 8f1e857a34a67dc08d0c3af79e10839e
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-erl2
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 7022a5bbf9872d4a09d63e6cdb457dfe.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - zNSflBPtu6kzbQLImWlhVonw5omBog90Bnt3NgLPpgzMfhxiighKlQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:08 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:08 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - af7cc40db4967eb856470b08f9c7ee69
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-tkiz
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 7eb3b782ab09047ce0d11ee03763894c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - eO0F9Om0IxmfTpu2I4dGRShvscbJz5G3l1sEzZ3Mu1kvwINq6iArfA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:08 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:08 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - cad59c2713d23c1d83e0af0090a9fe31
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-57iu
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 981753271eb5b6d11bc29d52f173a5da.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - yOhRwSH59bUHecoOJXe8b80d3tGtten2fPgJfdFn0LTssyS6W22uKw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:08 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:08 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 3e1c6a9a6e538bd934faa008bf221eb8
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-kirk
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 ee8246c5442dace7525c74f6a799bb47.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - DsL-vPAAWtJufcSng1_hPeCrtVuVcLroCdbjTLWbZPv0uUDLy20Y-g==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:08 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:08 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - da852e751932d7b6c237ab07afb5336b
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-2nvs
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 112d82578d402a38d8d02e8b857617e1.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - ooj5AMsQdbYp4YUaPceJJFHaTCglxiT7b9oPLR4o0WZ33xpaZodR_g==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:08 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:08 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 4aa77c2abc925e5f5fef2fb34d736246
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-nv5l
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 e4d3d5aafc7d7d582423c073065ab563.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - lSDrS21YYmEn3JbXCKJ7kcd0_ylBukX_2UpcNgm1hhgpww90DMVAYw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:08 GMT
 recorded_with: VCR 5.1.0
