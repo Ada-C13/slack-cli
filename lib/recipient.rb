@@ -1,6 +1,6 @@
 require 'httparty'
 require 'awesome_print'
-#require 'dotenv'
+require 'dotenv'
 
 class Recipient
   attr_reader :id, :name
@@ -10,6 +10,7 @@ class Recipient
     @name = name
   end
 
+  
   # fetcher method based on the API's docs
   def self.get(url)
     #send message using HTTParty
@@ -22,13 +23,37 @@ class Recipient
     return response
   end
 
+
+  # template method 
   def self.list_all
     raise NotImplementedError, "Define this method in a child class"
   end
 
+  
+  def send_message(message, selected)
+    url = "https://slack.com/api/chat.postMessage"
+
+    response = HTTParty.post(
+      url, 
+      headers: { 
+        'Content-Type'=> 'application/x-www-form-urlencoded',
+        'charset' => 'utf-8' 
+      },
+      body:{
+        token: ENV["SLACK_TOKEN"],
+        channel: selected.id,
+        text: message
+      }
+    )
+    
+    # if we can't get the right response from API call, then raise argument
+    unless response.code == 200 && response.parsed_response["ok"] 
+      raise SlackAPIError, "Message cannot be sent"
+    end
+
+    return true
+  end
 end
 
-# This will be common to all the other files in the program
-# so I'm including it here, where it will be accessible to each other class.
 class SlackAPIError < Exception
 end

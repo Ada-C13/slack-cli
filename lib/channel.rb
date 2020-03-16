@@ -9,11 +9,12 @@ Dotenv.load
 class Channel < Recipient
   attr_reader :topic, :members
 
-  def initialize(id:, name:, topic:, members:)
+  def initialize(id:, name:, topic: nil, members: nil)
     super(id: id, name: name)
     @topic = topic
     @members = members
   end
+
 
   def details
     tp self, "id", "name", "topic", "members"
@@ -22,6 +23,7 @@ class Channel < Recipient
 
   BASE_URL = "https://slack.com/api/channels.list?"
   SLACK_TOKEN = ENV["SLACK_TOKEN"]
+  
   
   def self.list_all
     channel_list = []
