@@ -39,6 +39,7 @@ require_relative "channel"
     end 
 
     def send_message
+      # TODO: implement send_message
     end 
 
   end 

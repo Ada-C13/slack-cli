@@ -57,6 +57,8 @@ def main
         puts "\n"
       end
 
+    #TODO: integrate send message functionality
+
     else 
       puts "\n"
       puts "I cannot perform \"#{user_input}\". Please try again ->"

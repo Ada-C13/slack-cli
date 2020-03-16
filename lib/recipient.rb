@@ -23,7 +23,7 @@ class Recipient
   end
 
   def send_message(message)
-
+    #TODO: implement send_message
   end
 
   # ----- ABSTRACT METHODS -----

@@ -87,6 +87,8 @@ describe "Workspace" do
   end 
 
   xdescribe "send_message" do 
+    # TODO: write tests for this method
+    # i could not get my bot to post messages 
   end 
   
 end
