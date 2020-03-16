@@ -1,5 +1,7 @@
 require 'httparty'
 require 'dotenv'
+require 'table_print'
+
 
 require_relative 'workspace'
 
@@ -25,26 +27,9 @@ def main
     choice = gets.chomp
 
     if choice == "users"
-      puts "\n#{workspace.users.map do |c|
-          {
-            username: c.name,
-            real_name: c.real_name,
-            slack_id: c.slack_id
-          }
-        end
-        }
-        "
+      tp workspace.users, "slack_id", "username", "real_name"
     elsif choice == "channels"
-      puts "\n#{workspace.channels.map do |c|
-          {
-            name: c.name,
-            topic: c.topic,
-            member_count: c.member_count,
-            slack_id: c.slack_id
-          }
-        end
-        }
-        "
+      tp workspace.channels, "name", "topic", "member_count", "slack_id"
     else
       puts "\n\nI'm sorry, #{choice} is not a recognized option."
     end

@@ -21,7 +21,7 @@ VCR.configure do |config|
   config.hook_into :webmock # tie into this other tool called webmock
   config.default_cassette_options = {
     :record => :new_episodes,    # record new data when we don't have it yet
-    :match_requests_on => [:method, :uri, :body], # The http method, URI and body of a request all need to match
+    :match_requests_on => [:method, :uri, :body] # The http method, URI and body of a request all need to match
   }
 
   config.filter_sensitive_data("<TOKEN>") do
@@ -30,6 +30,5 @@ VCR.configure do |config|
 end
 
 require_relative 'channel_test'
-require_relative 'recipient_test'
 require_relative 'user_test'
 require_relative 'workspace_test'

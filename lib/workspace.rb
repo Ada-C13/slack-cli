@@ -13,26 +13,26 @@ class Workspace
   def select_channel
     my_channel = gets.chomp
 
-    channel = @channels.find { |c| c.name == my_channel }
+    channel = @channels.find { |c| (c.name == my_channel) || (c.slack_id == my_channel) }
     
     if channel
       @selected = channel
       return "#{channel} is now selected."
     else
-      raise ArgumentError, "#{my_channel} does not exist"
+      return "#{my_channel} does not exist"
     end
   end
 
   def select_user
     my_user = gets.chomp
 
-    user = @users.find { |u| u.real_name == my_user }
+    user = @users.find { |u| (u.username == my_user) || (u.real_name == my_user) }
 
     if user
       @selected = user
       return "#{user} is now selected."
     else
-      raise ArgumentError, "#{my_user} does not exist"
+      return "#{my_user} does not exist"
     end
   end
 

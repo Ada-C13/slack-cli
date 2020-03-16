@@ -10,12 +10,12 @@ class Channel < Recipient
   end
 
   def details
-    #print details of this channel
+    tp self, "slack_id", "name", "topic", "member_count"
   end
 
   def self.list_all
     #list all of the channels in this workspace
-    url = "https://slack.com/api/channels.list"
+    url = "https://slack.com/api/conversations.list"
 
     response = Channel.get(url)
 

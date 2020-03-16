@@ -12,6 +12,7 @@ class Recipient
     q = {
       token: ENV['TOKEN']
     }
+    
     response = HTTParty.get(url, query: q)
 
     if !response["ok"]
