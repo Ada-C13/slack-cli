@@ -63,12 +63,48 @@ describe "Recipient class" do
     end 
   end 
 
+
+  # optional
+  describe "#load_message_history" do
+    it "raises NotImplementedError" do 
+      recipient = Slack::Recipient.new(slack_id: "123456", name: "bogus")
+      expect{recipient.load_message_history}.must_raise NotImplementedError
+    end 
+  end 
+
+
+  # optional
+  describe "#message_history" do 
+    it "shows message history for a selected user" do 
+      VCR.use_cassette("conversations-history-endpoint") do 
+
+        user = Slack::Workspace.new.select_user("sea otter")
+
+        msg_history = user.message_history
+        
+        expect(msg_history).must_be_kind_of Array
+      end 
+    end 
+
+    it "shows message history for a selected channel" do 
+      VCR.use_cassette("conversations-history-endpoint") do 
+
+        channel = Slack::Workspace.new.select_channel("hannah-j-test")
+
+        msg_history = channel.message_history
+        
+        expect(msg_history).must_be_kind_of Array
+      end 
+    end 
+  end 
+
   
   describe "self.list_all" do 
     it "raises NotImplementedError" do 
       expect{Slack::Recipient.list_all}.must_raise NotImplementedError
     end 
   end 
+
 end 
 
 describe "ENV" do 

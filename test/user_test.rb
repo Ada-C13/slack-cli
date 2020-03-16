@@ -71,6 +71,42 @@ describe "User class" do
   end 
 
 
+  # optional
+  describe "#find_conversation_id_for_im(slack_id)" do 
+    it "returns a conversation id depending on slack_id" do 
+      VCR.use_cassette("conversations-list-endpoint") do
+         user = Slack::User.new(slack_id: "UV6BLS99N", name: "time_hannah_j_api_pro")
+
+         conversation_id = user.find_conversation_id_for_im
+
+         expect(conversation_id).must_be_kind_of String
+         expect(conversation_id).must_include "D" # "DUUT9MNBV"
+      end 
+    end 
+  end 
+
+
+  # optional 
+  describe "#load_message_history" do 
+    it "loads message history for a selected user" do 
+      VCR.use_cassette("conversations-history-endpoint") do 
+        workspace = Slack::Workspace.new
+        user =  workspace.select_user("sea otter")
+        history = user.load_message_history 
+        expect(history).must_be_kind_of Array
+      end 
+    end 
+
+    it "raises SlackApiError when given a bogus user" do 
+      VCR.use_cassette("conversations-history-endpoint") do 
+        user = Slack::User.new(slack_id: "123456", name: "goblin test")
+
+        expect{user.load_message_history}.must_raise SlackApiError
+      end 
+    end 
+  end 
+
+
   describe "self.list_all" do 
     it "creates and returns instances of users" do 
       VCR.use_cassette("users-list-endpoint") do 
@@ -86,6 +122,7 @@ describe "User class" do
   end 
 
 
+  # optional
   describe "self.load_conversation_ids_for_im" do 
 
     it "returns converstaion_id and slack_id list" do 
@@ -100,20 +137,5 @@ describe "User class" do
       end
     end 
   end 
-
-
-  describe "#find_conversation_id_for_im(slack_id)" do 
-    it "returns a conversation id depending on slack_id" do 
-      VCR.use_cassette("conversations-list-endpoint") do
-         user = Slack::User.new(slack_id: "UV6BLS99N", name: "time_hannah_j_api_pro")
-
-         conversation_id = user.find_conversation_id_for_im
-
-         expect(conversation_id).must_be_kind_of String
-         expect(conversation_id).must_include "D" # "DUUT9MNBV"
-      end 
-    end 
-  end 
-
 
 end

@@ -94,17 +94,4 @@ describe "Channel class" do
     end 
   end 
 
-  describe "#message_history" do 
-    it "shows message history for a selected channel" do 
-      VCR.use_cassette("conversations-history-endpoint") do 
-
-        channel = Slack::Workspace.new.select_channel("hannah-j-test")
-
-        msg_history = channel.message_history
-        
-        expect(msg_history).must_be_kind_of Array
-      end 
-    end 
-  end 
-
 end 

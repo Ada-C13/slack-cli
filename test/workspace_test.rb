@@ -191,6 +191,15 @@ describe "Workspace class" do
     end 
   end 
 
-  describe "#find_name_by_id" do 
+  describe "#find_user_by_id" do 
+    it "returns a user based on slack_id" do 
+      VCR.use_cassette("users-list-endpoint") do
+        
+        workspace = Slack::Workspace.new() 
+        bot = workspace.find_user_by_id("USLACKBOT")
+
+        expect(bot).must_be_instance_of Slack::User
+      end
+    end
   end 
 end 

@@ -65,32 +65,13 @@ module Slack
     end 
 
 
-    def self.get(url, params)
-      response = HTTParty.get(url, query: params)
-
-      # TO DO
-      unless response.code == 200 && response.parsed_response["ok"]
-        raise SlackApiError, "We failed to get information from API"
-      end 
-
-      response_data = JSON.parse(response.body)
-
-      return response_data
-    end  
-
-
-    def self.list_all 
-      raise NotImplementedError, 'Implement me in a child class!'
-    end 
-    
-
     # optional
     def load_message_history 
       raise NotImplementedError, 'Implement me in a child class!'
     end 
 
 
-    # optional
+     # optional
     def message_history
 
       workspace = Slack::Workspace.new
@@ -110,5 +91,25 @@ module Slack
       
       return list
     end 
+
+
+    def self.get(url, params)
+      response = HTTParty.get(url, query: params)
+
+      # TO DO
+      unless response.code == 200 && response.parsed_response["ok"]
+        raise SlackApiError, "We failed to get information from API"
+      end 
+
+      response_data = JSON.parse(response.body)
+
+      return response_data
+    end  
+
+
+    def self.list_all 
+      raise NotImplementedError, 'Implement me in a child class!'
+    end 
+
   end 
 end 
