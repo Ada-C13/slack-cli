@@ -1,8 +1,7 @@
-require "table_print"
 require_relative "recipient"
 
 class User < Recipient
-  attr_accessor :real_name, :status_text, :status_emoji, :slack_id, :name
+  attr_accessor :real_name, :status_text, :status_emoji
 
   # every time
   def initialize(slack_id, name, real_name, status_text = nil, status_emoji = nil)
@@ -10,6 +9,10 @@ class User < Recipient
     @real_name = real_name
     @status_text = status_text
     @status_emoji = status_emoji
+  end
+
+  def details
+    return "Name: #{@name}", "Slack_ID: #{@slack_id}", "Real_Name:#{@real_name}"
   end
 
   def self.list_users
@@ -21,10 +24,10 @@ class User < Recipient
     end
 
     user_list = response["members"].map do |user|
-      slack_id = user["id"],
-                 name = user["name"],
-                 real_name = user["profile"]["real_name"],
-                 status_text = user["profile"]["status_text"],
+      slack_id = user["id"]
+      name = user["name"]
+      real_name = user["profile"]["real_name"]
+      status_text = user["profile"]["status_text"]
       status_emoji = user["profile"]["status_emoji"]
 
       User.new(slack_id, name, real_name, status_text, status_emoji)

@@ -6,10 +6,14 @@ require "table_print"
 class Channel < Recipient
   attr_accessor :topic, :member_count
 
-  def initialize(slack_id, name, topic, member_count)
+  def initialize(slack_id, name, topic, member_count = 0)
     super(slack_id, name)
     @topic = topic
     @member_count = member_count
+  end
+
+ def details
+    return "Name:#{@name}" , "Slack_ID:#{@slack_id}", "Topic #{@topic}","Member Count: #{@member_count}"
   end
 
   # called in the workspace
@@ -23,7 +27,7 @@ class Channel < Recipient
     response["channels"].each do |channel|
       @slack_id = channel["id"]
       @name = channel["name"]
-      @topic = channel["topic"]
+      @topic = channel["topic"]["value"]
       @member_count = channel["members"].length
 
       channel_list << Channel.new(@slack_id, @name, @topic, @member_count)
