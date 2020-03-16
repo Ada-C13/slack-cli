@@ -42,10 +42,10 @@ describe "User" do
       result = {}
       VCR.use_cassette("users-list-endpoint") do
         result = User.get_all("users.list")
-      end
 
-      expect(result).must_be_kind_of HTTParty::Response
-      expect(result["ok"]).must_equal true
+        expect(result).must_be_kind_of HTTParty::Response
+        expect(result["ok"]).must_equal true
+      end
     end
 
     it "raises an error when a call to users-list-endpoint fails" do
@@ -71,9 +71,22 @@ describe "User" do
     end
   end
 
-  describe "self.details" do
-    # it "shows details********" do
-      
-    # end
+  describe "send_message" do
+    it "sends a message to the right channel" do
+      VCR.use_cassette("slack-posts") do
+        user = User.list_users[0]
+        response = user.send_message("Posting a test message!")
+        expect(response).must_equal true
+      end
+    end
+
+    it "raises a SlackAPIError when post request fails" do
+      # create an invalid user
+      user = User.new("bogusinfo", "invalid_user_name", "bogus_real_name")
+
+      VCR.use_cassette("slack-posts") do
+        expect{ user.send_message("Posting a test message!") }.must_raise SlackAPIError
+      end
+    end
   end
 end

@@ -23,8 +23,6 @@ class User < Recipient
     end
   end
 
-  # Class Methods ---------
-
   def self.list_users
     retrieved_response = self.get_all("users.list")
     users_list = retrieved_response["members"].map do |user|
