@@ -12,7 +12,7 @@ class Recipient
     q = {
       token: ENV['TOKEN']
     }
-    
+
     response = HTTParty.get(url, query: q)
 
     if !response["ok"]
@@ -28,7 +28,9 @@ class Recipient
       token: ENV['TOKEN'],
       channel: self.slack_id,
       text: message
+      # username: "Slackbot"
     }
+    
     response = HTTParty.post(url, q)
 
     if !response["ok"]

@@ -17,7 +17,7 @@ class Workspace
     
     if channel
       @selected = channel
-      return "#{channel} is now selected."
+      return "#{channel.name} is now selected."
     else
       return "#{my_channel} does not exist"
     end
@@ -30,9 +30,9 @@ class Workspace
 
     if user
       @selected = user
-      return "#{user} is now selected."
+      return "\n#{user.real_name} is now selected."
     else
-      return "#{my_user} does not exist"
+      return "\n#{my_user} does not exist"
     end
   end
 
