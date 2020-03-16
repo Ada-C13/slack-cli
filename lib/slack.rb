@@ -1,12 +1,8 @@
-#!/usr/bin/env ruby
 require 'dotenv'
 require 'httparty'
 require 'table_print'
 
 require_relative 'workspace.rb'
-# require_relative 'channel.rb'
-# require_relative 'recipient.rb'
-# require_relative 'user.rb'
 
 Dotenv.load
 
@@ -45,11 +41,9 @@ def loop_through_choices(workspace, choice)
   until choice == "quit"
     case choice
     when "list channels"
-      # tp workspace.channels
       tp workspace.channels, "name", "topic", "member_count", "slack_id"
       puts "\n"
     when "list users"
-      # tp workspace.users
       tp workspace.users, "slack_id", "name", "real_name" 
       puts "\n"
     when "select user"
