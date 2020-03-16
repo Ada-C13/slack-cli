@@ -19,7 +19,7 @@ describe 'User' do
 
   describe "details" do
     it "displays correct details" do
-      user_list = User.get_list("user")
+      user_list = User.get_list
       target_user = user_list.find {|user| user.name == "slackbot"}
       target_a = ["slackbot", "USLACKBOT", "Slackbot" ]
       expect(target_user.details).must_equal target_a
@@ -30,7 +30,7 @@ describe 'User' do
     # TO DO: before block with VCR cassette?
     it "returns array" do
       VCR.use_cassette("User.get_list") do
-        user_list = User.get_list("user")
+        user_list = User.get_list
         expect(user_list).must_be_kind_of Array
         expect(user_list.empty?).must_equal false
         expect(user_list.first).must_be_kind_of User
@@ -39,7 +39,7 @@ describe 'User' do
 
     it "has user called SlackBot" do
       VCR.use_cassette("User.get_list") do
-        user_list = User.get_list("user")
+        user_list = User.get_list
         target_user = user_list.find {|user| user.name == "slackbot"}
         expect(target_user).must_be_kind_of User
       end
@@ -47,7 +47,7 @@ describe 'User' do
 
     it "user SlackBot has expected state" do
       VCR.use_cassette("User.get_list") do
-        user_list = User.get_list("user")
+        user_list = User.get_list
         target_user = user_list.find {|user| user.name == "slackbot"}
         expect(target_user.slack_id).must_equal "USLACKBOT"
         expect(target_user.real_name).must_equal "Slackbot"

@@ -22,7 +22,7 @@ describe 'Channel' do
     # TO DO: before block with cassette
     it "returns array" do
       VCR.use_cassette("Channel.get_list") do
-        channel_list = Channel.get_list("channel")
+        channel_list = Channel.get_list
         expect(channel_list).must_be_kind_of Array
         expect(channel_list.empty?).must_equal false
         expect(channel_list.first).must_be_kind_of Channel
@@ -31,7 +31,7 @@ describe 'Channel' do
 
     it "has channel called Random" do
       VCR.use_cassette("Channel.get_list") do
-        channel_list = Channel.get_list("channel")
+        channel_list = Channel.get_list
         target_channel = channel_list.find {|channel| channel.name == "random"}
         expect(target_channel).must_be_kind_of Channel
       end
@@ -39,7 +39,7 @@ describe 'Channel' do
 
     it "channel SlackBot has expected state" do
       VCR.use_cassette("Channel.get_list") do
-        channel_list = Channel.get_list("channel")
+        channel_list = Channel.get_list
         target_channel = channel_list.find {|channel| channel.name == "random"}
         expect(target_channel.slack_id).must_equal "CVBCU0R37"
         expect(target_channel.topic).must_equal "Non-work banter and water cooler conversation"
@@ -50,7 +50,7 @@ describe 'Channel' do
 
   describe "details" do
     it "displays correct details" do
-      channel_list = Channel.get_list("channel")
+      channel_list = Channel.get_list
       target_channel = channel_list.find {|channel| channel.name == "random"}
       target_a = ["random", "CVBCU0R37", "Non-work banter and water cooler conversation", 1]
       expect(target_channel.details).must_equal target_a
