@@ -1,6 +1,6 @@
 require_relative "test_helper"
 
-describe "Workspace" do
+describe "WORKSPACE" do
   before do
     VCR.use_cassette("workspace_creation") do
       @workspace = Workspace.new
@@ -17,9 +17,33 @@ describe "Workspace" do
     expect(@workspace.users).must_be_kind_of Array
     expect(@workspace.users[0]).must_be_kind_of User
   end
+  describe "USER" do
+    it "can make a selection of a USER by name" do
+      selection = "norshonda.warren"
+      expect(@workspace.select_user(selection)).must_be_kind_of User
+    end
 
-  it "initializes @channels an array of channels" do
-    expect(@workspace.channels).must_be_kind_of Array
-    expect(@workspace.channels[0]).must_be_kind_of Channel
+    it "can make a selection of a USER by slack_id" do
+      selection = "UUW5E7SF3"
+      expect(@workspace.select_user(selection)).must_be_kind_of User
+    end
+  end
+  describe "CHANNEL" do
+    it "initializes @channels an array of channels" do
+      expect(@workspace.channels).must_be_kind_of Array
+      expect(@workspace.channels[0]).must_be_kind_of Channel
+    end
+
+    it "can make a selection of a Channel by name" do
+      @workspace.select_channel("general") 
+      expect(@workspace.selected).must_be_kind_of Channel
+      expect(@workspace.selected.name).must_equal "general"
+    end
+
+    it "can make a selection of a Channel by slack id" do
+      @workspace.select_channel("CUTE4M96W") 
+      expect(@workspace.selected).must_be_kind_of Channel
+      expect(@workspace.selected.slack_id).must_equal "CUTE4M96W"
+    end
   end
 end
