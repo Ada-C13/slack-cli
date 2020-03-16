@@ -1,6 +1,10 @@
 /coverage/
+coverage/
 
 .DS_Store
 
 # Ignore environemnt variables
 .env
+
+#Ignore history
+.history
