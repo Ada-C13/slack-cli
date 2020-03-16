@@ -15,7 +15,7 @@ def main
   Welcome to the Ada Slack CLI!"
   @workspace = Slack::Workspace.new
   
-  user_selection = "" # saves the gets.chomp of their options 
+  user_selection = ""
 
   until user_selection == "quit" || user_selection == "exit"
     user_selection = options 
@@ -33,6 +33,7 @@ def options
   select user
   select channel
   details
+  send message
   quit"
   return gets.chomp
 end
@@ -54,6 +55,10 @@ def user_input(user_selection)
     selection = @workspace.selected
   elsif user_selection == "details"
     tp @workspace.show_details(selection)
+  elsif user_selection == "send message"
+    # puts "Please enter your message"
+    # message = gets.chomp
+    @workspace.send_message
   elsif user_selection == "quit"
   else
     puts "*** Invalid selection, please try again. ***" 

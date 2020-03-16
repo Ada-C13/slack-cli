@@ -24,7 +24,7 @@ module Slack
       @channels.each do |channel|
         if input == channel.name || input == channel.slack_id
           @selected = channel 
-          puts "You selected #{input}"
+          puts "#{input} has been selected"
         end
       end
       if @selected == nil 
@@ -36,7 +36,7 @@ module Slack
       @users.each do |user|
         if input == user.name || input == user.slack_id
           @selected = user 
-          puts "You selected #{input}"
+          puts "#{input} has been selected"
         end 
       end
       if @selected == nil
@@ -52,8 +52,15 @@ module Slack
       end
     end
 
-    # def send_message 
-    # end
+    def send_message
+      if @selected == nil 
+        puts "Please select a channel to send message to"
+      else 
+        puts "Please enter your message"
+        message = gets.chomp
+        @selected.send_message(message)
+      end
+    end
 
   end
 end

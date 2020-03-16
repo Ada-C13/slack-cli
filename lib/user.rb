@@ -26,9 +26,7 @@ class User < Recipient
   end 
 
   def self.list_all 
-    # get defined in recipient 
     data = self.get("https://slack.com/api/users.list")
-
     users = []
     data["members"].each do |user|
       users << User.new(
@@ -45,19 +43,3 @@ class User < Recipient
   end
 
 end
-
-# def list_users
-#   query = {
-#     token: ENV["SLACK_API_TOKEN"]
-#   }
-
-#   url = "https://slack.com/api/users.list"
-#   response = HTTParty.get(url, query: query)
-#   #  puts response 
-#   response["members"].each do |user|
-#     puts "User info:
-#       username: #{user["name"]}, 
-#       real name: #{user["real_name"]}, 
-#       id: #{user["id"]}"
-#   end 
-# end

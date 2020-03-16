@@ -33,23 +33,3 @@ class Channel < Recipient
   end 
 
 end
-
-# def list_channels
-#   query = {
-#     token: ENV["SLACK_API_TOKEN"]
-#   }
-  
-#   url = "https://slack.com/api/channels.list"
-#   response = HTTParty.get(url, query: query)
-  
-#   response["channels"].each do |channel|
-#     puts "Channel info:
-#       name: #{channel["name"]},
-#       topic: #{channel["topic"]["value"]},
-#       member count: #{channel["num_members"]},
-#       id: #{channel["id"]},
-#       "
-#   end 
-# end
-
-

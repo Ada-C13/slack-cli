@@ -30,7 +30,12 @@ class Recipient
 
 
   def send_message(message)
-    ## nn to build 
+    response = HTTParty.post("https://slack.com/api/chat.postMessage", query: {token: ENV["BOT_API_TOKEN"], channel: self.slack_id, text: message})
+    if response.code != 200 || response["ok"] == false 
+      raise SlackAPIError, "We encountered a problem: #{response["error"]}"
+    else
+      puts "Message sent"
+    end
   end
 
   def details 

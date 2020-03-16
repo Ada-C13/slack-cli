@@ -19,10 +19,14 @@ describe "Channel" do
     describe "self.list" do 
       it "return a valid list of the channels" do 
         result = []
-
         VCR.use_cassette("channels-list-endpoint") do 
           result = Channel.list_all
         end 
+        expect(result).must_be_kind_of Array
+        expect(result.length).must_be :>, 0
+        result.each do |channel|
+          expect(channel).must_be_kind_of Channel
+        end
       end 
 
     end 
