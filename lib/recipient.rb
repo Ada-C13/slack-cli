@@ -22,6 +22,23 @@ module Slack_cli
         raise SlackAPIError, "We encountered a problem: #{resp["error"]}" 
       end
 
+      def send_message(channel)
+        message = gets.chomp
+        base_url = "https://slack.com/api/"
+        post_url = "#{base_url}/chat.postMessage"
+
+        resp = HTTParty.post(post_url,{
+          headers: { 'Content-Type'=> 'application/x-www-form-urlencoded',
+            'charset' => 'utf-8' },
+          body:{
+            token: ENV["SLACK_API_TOKEN"],
+            channel: channel,
+            text: message
+          }
+        })
+        return resp.code == 200 && resp.parsed_response["ok"]
+      end
+
       def self.list_all
         raise NotImplementedError, 'Implement me in a child class!'
       end
