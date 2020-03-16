@@ -28,6 +28,10 @@ class Workspace
     @selected.details
   end
 
+  def send_message(message)
+    @selected.send_message(message)
+  end
+
   def select_channel(selection)
     @selected = @channels.find do |channel| channel.slack_id == selection || channel.name == selection end
     return @selected
