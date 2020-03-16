@@ -20,7 +20,7 @@ describe "Workspace" do
     expect(@workspace).must_respond_to :channels
   end
 
-  it "initializes @users as an array of users " do
+  it "Initializes @users as an array of users " do
     expect(@users).must_be_kind_of Array
     expect(@users[0].slack_id).must_equal "USLACKBOT"
     expect(@users[0].name).must_equal "slackbot"
@@ -28,7 +28,7 @@ describe "Workspace" do
   end
 
 
-  it "initializes @channels as an array of channels " do
+  it "Initializes @channels as an array of channels " do
     expect(@channels).must_be_kind_of Array
     expect(@channels[0].name).must_equal "general"
     expect(@channels[0].slack_id).must_equal "CUT6XEYR0"
@@ -40,9 +40,9 @@ describe "Workspace" do
    
   # it "will raise an exception if the search fails" do
   #   VCR.use_cassette("new_workspace") do
-  #     users = ""
+  #     users = []
   #     expect {
-  #       response = get_users_from_api(users)
+  #       response = get_users_from_api
   #     }.must_raise SlackAPIError
   #   end
   # end

@@ -10,6 +10,7 @@ require 'minitest/skip_dsl'
 require 'vcr'
 require "dotenv"
 
+
 Dotenv.load
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new

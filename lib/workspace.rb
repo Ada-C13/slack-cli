@@ -50,7 +50,7 @@ module SlackApi
         end
 
         # unless response.code == 200
-        #   raise SlackAPIError, "Cannot find #{search_term}"
+        #   raise SlackAPIError
         # end
     end
 

@@ -1,11 +1,9 @@
-# This is the channel class
 require_relative 'recipient'
-
 
 module SlackApi
   class Channel < Recipient
+    
     attr_reader  :topic, :member_count, :slack_id, :name
-
 
     def initialize(
      slack_id:, 
@@ -18,21 +16,16 @@ module SlackApi
 
       @topic = topic
       @member_count = member_count
-
-
-    end # initialize end
-
-
+    end #initialize end
+    
     def show_details
     end
 
 # ################# Class Methods ########################
 # https://api.slack.com/methods/conversations.list
     def self.list_all
+      # I did this in Class Workspace. 
     end
-
-
-
 
   end # class end
   
