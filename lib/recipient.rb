@@ -6,9 +6,15 @@ module SlackCli
 
     def initialize(id, name)
       @id = id
-      @name = name
-    end #initialize
 
+      if !name.is_a? String
+        raise ArgumentError.new("Invalid name, must be String")
+      end
+      @name = name
+
+    end #initialize
+  
+  #--------------CLASS METHODS-----------------------------------
     private
     def self.load_all() #abstract method/template
       raise NotImplementedError, 'Implement me in a child class!'

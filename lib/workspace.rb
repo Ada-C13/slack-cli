@@ -66,14 +66,43 @@ module SlackCli
       return found_channel
     end
     #----------------------------------------------------------------
+    
+    #sends message
+    #input: aUser_message
+    #return:response code (int)
+
+    def send_message(aUser_message)
+      response_code = nil
+      if self.selected != nil
+        #if true, prompt user: "what's your message"
+    
+         #then send message to selected
+         payload = {
+           :channel => self.selected.id, 
+           :text => aUser_message, 
+           :token => ENV['SLACK_TOKEN']
+         }
+         payload_options = { 
+           :body => payload
+         }
+         url = ENV['BASE_URL'] + ENV['SUB_MESSAGE_URL']
+         response = HTTParty.post(url, payload_options)
+         return response.code
+       #if it is nil, 
+       else 
+       #prompt user to select before a message can be sent
+         puts "Select a user or channel before a message can be sent."
+       end
+      return response_code
+    end 
   end #class
 end #module
 
-test_workspace = SlackCli::Workspace.new
+#test_workspace = SlackCli::Workspace.new
 # test_workspace.users.each do |user|
 #   puts user.real_name  
 # end
 
-name = test_workspace.find_user("cheese")
-puts name
+#name = test_workspace.find_user("cheese")
+#puts name
 

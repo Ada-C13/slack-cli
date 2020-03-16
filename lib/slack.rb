@@ -84,27 +84,11 @@ def main
      #------------- SEND MESSAGE--------------------------------
     elsif user_input == options[5] #send message
       #check if a selected is not !=nil
-      if workspace.selected != nil
-       #if true, prompt user: "what's your message"
-        puts "What is your message?"
-        #get message
-        user_message = gets.chomp
-        #then send message to selected
-        payload = {
-          :channel => workspace.selected.id, 
-          :text => user_message, 
-          :token => ENV['SLACK_TOKEN']
-        }
-        payload_options = { 
-          :body => payload
-        }
-        url = ENV['BASE_URL'] + ENV['SUB_MESSAGE_URL']
-        HTTParty.post(url, payload_options)
-      #if it is nil, 
-      else 
-      #prompt user select before a message can be sent
-        puts "Select a user or channel before a message can be sent."
-      end
+      puts "What is your message?"
+      #get message
+      user_message = gets.chomp
+      
+      workspace.send_message(user_message)
     end 
     puts "What is your next selection?"
     user_input = gets.chomp #main prompt
