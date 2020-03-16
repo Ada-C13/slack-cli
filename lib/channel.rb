@@ -12,6 +12,10 @@ module Slack_cli
       @member_count = member_count 
     end
 
+    def details
+      tp self, "id", "name", "topic", "member_count"
+    end
+
     private
     # Get all the channels from Slack API.
     # For each channel it creates an intance of channel.
