@@ -44,6 +44,10 @@ module SlackCLI
       @users = SlackCLI::User.show_all 
     end
 
+    def expose_channels
+      @channels = SlackCLI::Channel.show_all 
+    end
+
     # Play with this further
     def speak
       body_talk = gets.chomp

@@ -1,3 +1,6 @@
+require 'httparty'
+require 'table_print'
+
 require_relative 'workspace.rb'
 require_relative 'receiver.rb'
 
@@ -18,16 +21,14 @@ module SlackCLI
     end 
 
     def self.show_all 
-      response = SlackCLI::Channel.get("https://slack.com/api/conversations.list") 
-
+      clap_back = SlackCLI::Channel.get_url("https://slack.com/api/conversations.list") 
       channels = []
-
       clap_back["channels"].each do |i|
         channels << SlackCLI::Channel.new(
           name: i["name"],
           id: i["id"],
-          focus: i["focus"],
-          headcount: i[""] #revisit this and fill out later 
+          focus: i["topic"]["value"],
+          headcount: i["num_members"] 
         )
       end
       return channels

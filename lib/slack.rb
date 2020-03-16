@@ -5,7 +5,6 @@ require 'dotenv'
 require 'httparty'
 
 Dotenv.load
-puts ENV
 
 require_relative 'workspace.rb'
 require_relative 'receiver.rb'
@@ -34,14 +33,14 @@ module SlackCLI
       case input
       when 1 
         puts "The users of this program are:\n"
-        tp workspace.expose_users, "real name", "username", "name" 
+        tp workspace.expose_users, "legal_name", "id", "name" 
         break
       when 2 
         puts "Enter a username to send your message to:\n"
         puts workspace.choose_user
       when 3 
         puts "The channels of this program are:\n"
-        tp workspace.channels, "name", "username", "focus", "headcount"
+        tp workspace.expose_channels, "name", "id", "focus", "headcount"
         break
       when 4 
         puts "Enter a channel name to post your message to:\n"
@@ -65,7 +64,5 @@ module SlackCLI
       puts "Thank you for using the Ada Slack CLI\n\n"
     end 
   end
-  puts "$PROGRAM_NAME"
-  puts $PROGRAM_NAME
   main if __FILE__ == $PROGRAM_NAME 
 end 
