@@ -67,4 +67,45 @@ describe "Workspace class" do
     end
   end
 
+  describe "select_user" do
+    it "selects a user from a slack_id" do
+      user_input = "USLACKBOT"
+      @workspace_inst.select_user(user_input)
+
+      expect(@workspace_inst.selected.name).must_equal "slackbot"
+      expect(@workspace_inst.selected).must_be_kind_of User
+    end
+
+    it "selects a user from a slack_id regardless of case" do
+      user_input = "uSlaCkbot" 
+      @workspace_inst.select_user(user_input)
+
+      expect(@workspace_inst.selected.name).must_equal "slackbot"
+      expect(@workspace_inst.selected).must_be_kind_of User
+    end
+
+    it "selects a user from a name" do
+      user_input = "slackbot"
+      @workspace_inst.select_user(user_input)
+
+      expect(@workspace_inst.selected.slack_id).must_equal "USLACKBOT"
+      expect(@workspace_inst.selected).must_be_kind_of User
+    end
+
+    it "selects a user from a name, regardless of case" do
+      user_input = "SlacKBot"
+      @workspace_inst.select_user(user_input)
+
+      expect(@workspace_inst.selected.slack_id).must_equal "USLACKBOT"
+      expect(@workspace_inst.selected).must_be_kind_of User
+    end
+
+    it "sets selected to nil if no match for slack_id or name" do
+      user_input = "adaisreallyawesome"
+      @workspace_inst.select_user(user_input)
+      
+      expect(@workspace_inst.selected).must_be_nil
+    end
+  end
+
 end
