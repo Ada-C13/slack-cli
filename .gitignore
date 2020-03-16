@@ -8,3 +8,6 @@ coverage/
 
 #Ignore history
 .history
+
+#launch.Json file
+launch.json
