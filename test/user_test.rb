@@ -84,4 +84,36 @@ describe "User class" do
       end 
     end 
   end 
+
+
+  describe "self.load_conversation_ids_for_im" do 
+
+    it "returns converstaion_id and slack_id list" do 
+      VCR.use_cassette("conversations-list-endpoint") do 
+        conversation_ids = Slack::User.load_conversation_ids_for_im
+
+        expect(conversation_ids).must_be_kind_of Array 
+        conversation_ids.each do |info|
+          expect(info[:converstaion_id]).must_include "D"
+          expect(info[:slack_id]).must_include "U"
+        end 
+      end
+    end 
+  end 
+
+
+  describe "#find_conversation_id_for_im(slack_id)" do 
+    it "returns a conversation id depending on slack_id" do 
+      VCR.use_cassette("conversations-list-endpoint") do
+         user = Slack::User.new(slack_id: "UV6BLS99N", name: "time_hannah_j_api_pro")
+
+         conversation_id = user.find_conversation_id_for_im
+
+         expect(conversation_id).must_be_kind_of String
+         expect(conversation_id).must_include "D" # "DUUT9MNBV"
+      end 
+    end 
+  end 
+
+
 end

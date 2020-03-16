@@ -38,10 +38,11 @@ module Slack
     end 
 
 
-    def load_message_history(selected) 
+    # optional
+    def load_message_history 
       params = {
         token: ENV["SLACK_TOKEN"],
-        channel: selected.slack_id, # Conversation ID 
+        channel: self.slack_id, # Conversation ID 
         limit: 10
       }
 
@@ -58,19 +59,21 @@ module Slack
     end  
 
 
-    def message_history(selected)
+    # optional
+    def message_history
 
       workspace = Slack::Workspace.new
-      messages = selected.load_message_history(selected) 
+      messages = self.load_message_history
 
       list = []
 
       messages.each do |message|
+        
         if message["subtype"] != "bot_add" && message["subtype"] != "channel_purpose" && message["subtype"] != "channel_join"
 
           (message["username"]) ? name = message["username"] : name = workspace.find_user_by_id(message["user"]).name
 
-          list << [name, message["text"]]
+          list << [name, message["text"], Time.at(message["ts"].to_f)]
         end    
       end 
       

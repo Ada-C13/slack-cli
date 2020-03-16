@@ -51,6 +51,7 @@ module Slack
     end 
 
 
+    # optional
     # Reference: http://blog.pingzhang.io/ruby/2016/07/25/ruby-json-operations/
     def change_setting(username, emoji)
       setting = {
@@ -64,20 +65,21 @@ module Slack
     end 
 
 
+    # optional
     def message_history 
       return nil if !@selected 
-      return "User selected" if @selected.class == Slack::User
 
       if @selected 
-        rows = @selected.message_history(@selected)
+        rows = @selected.message_history
 
-        table = Terminal::Table.new :headings => ['username', 'text'], :rows => rows
+        table = Terminal::Table.new :headings => ['username', 'text', 'timestamp'], :rows => rows
       end 
       
       return table
     end 
 
     
+    # optional
     def find_user_by_id(slack_id)
       user = @users.find do |user|
         user.slack_id == slack_id 

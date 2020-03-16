@@ -162,12 +162,7 @@ def validate_history
   message = WORKSPACE.message_history
 
   if !message 
-    puts " #{"⚠️  No channel selected".light_black}"
-    puts "    #{"After selecting a channel, try again!".light_black}"
-    return false
-
-  elsif message == "User selected"
-    puts " #{"⚠️  Checking message history for `users` are not available at the moment".light_black}"
+    puts " #{"⚠️  No user or channel selected".light_black}"
     puts "    #{"After selecting a channel, try again!".light_black}"
     return false
   end 
@@ -181,7 +176,7 @@ def display_history
 
   if message 
     puts "Here is #{get_recipient}'s message history below:"
-    rows = WORKSPACE.selected.message_history(WORKSPACE.selected)
+    rows = WORKSPACE.selected.message_history
     table = Terminal::Table.new :headings => ['username', 'text'], :rows => rows
     puts table 
   end 
