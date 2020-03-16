@@ -20,6 +20,7 @@ def get_user_input
       menu.choice "Select Channel"
       menu.choice "Select User"
       menu.choice "Details"
+      menu.choice "Send message"
       menu.choice "Exit"
   end
   return user_input
@@ -53,6 +54,13 @@ def selector(user_input)
         puts "Invalid entry"
       else
         @workspace.show_details
+        user_input = nil
+      end
+    when "Send message"
+      if @workspace.selected == nil
+        puts "Invalid entry"
+      else
+        @workspace.selected.send_message(@workspace.selected.name)
         user_input = nil
       end
     when "Exit"
