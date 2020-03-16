@@ -1,8 +1,6 @@
 require_relative "test_helper"
 
 
-
-
 describe "Workspace" do
   before do
     VCR.use_cassette("new_workspace") do
@@ -35,13 +33,5 @@ describe "Workspace" do
     expect(@channels[0].member_count).must_equal 5
   end
 
-   
-  # it "will raise an exception if the search fails" do
-  #   VCR.use_cassette("new_workspace") do
-  #     users = []
-  #     expect {
-  #       response = get_users_from_api
-  #     }.must_raise SlackAPIError
-  #   end
-  # end
-end #before block end
+  
+end 

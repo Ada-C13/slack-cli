@@ -18,12 +18,11 @@ module SlackApi
       @real_name = real_name
       @status_text = status_text
       @status_emoji = status_emoji
-    end # initialize end
-
+    end 
 
     def show_details
     end
 
-  end #class end
+  end 
   
-end #module end
+end 
