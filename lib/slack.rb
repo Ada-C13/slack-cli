@@ -1,7 +1,9 @@
+#coded along with Devin for Wave 1
 #!/usr/bin/env ruby
 
 require 'httparty'
 require 'dotenv'
+require 'table_print'
 
 require_relative 'workspace'
 
@@ -21,11 +23,11 @@ def main
     
     case user_input
     when "List users"
-      tp workspace.users, "slack_id", "name", "real_name" 
+      tp workspace.users, "slack_id", "name", "real_name", "status_emoji", "status_text"
       puts "\n"
       
     when "List channels"
-      tp workspace.channels, "name", "topic", "member_count", "slack_id"
+      tp workspace.channels, "name", "slack_id", "topic", "member_count"
       puts "\n"
       
     when "Select user"
@@ -70,7 +72,8 @@ end
 
 def input_prompt
   puts "What would you like to do? Your options are:" 
-  puts "List users \nList channels \nSelect user \nSelect channel \nDetails \nSend message \nQuit \n"
+  puts "List users \nList channels \nSelect user \nSelect channel \nDetails \nSend message \nQuit"
+  puts "\n"
 
   return gets.chomp.capitalize
 end

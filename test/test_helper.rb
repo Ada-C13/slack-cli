@@ -1,12 +1,17 @@
+#coded along with Devin for Wave 1
+
 require 'simplecov'
 SimpleCov.start do
   add_filter 'test/'
+  add_filter 'lib/slack.rb'
 end
 
+require 'httparty'
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
+require 'webmock/minitest'
 require 'vcr'
 require 'dotenv'
 
@@ -28,15 +33,9 @@ VCR.configure do |config|
     :match_requests_on => [:method, :uri, :body], # The http method, URI and body of a request all need to match
   }
 
-  #posts as name of user who generated that token => YOU
-  config.filter_sensitive_data("<SLACK_USER_TOKEN>") do
+  config.filter_sensitive_data("<SLACK_TOKEN>") do
     ENV['SLACK_TOKEN']
 
   end  
-
-  #posts as name of app
-  # config.filter_sensitive_data("<SLACK_BOT_TOKEN>") do
-  #   ENV['BOT_TOKEN']
-  # end
 
 end

@@ -1,3 +1,5 @@
+#coded along with Devin for Wave 1
+
 require 'httparty'
 
 class Recipient
@@ -8,33 +10,20 @@ class Recipient
     @name = name
   end
 
-  #api endpoint https://api.slack.com/methods/chat.postMessage
-  def send_message(msg_text)
-    #send the message using HTTParty
-    data = HTTParty.get(url, query: {token: ENV['SLACK_TOKEN']})
-    #deal with errors, if any
-    if data.code != 200
-      raise SlackAPIError
-    end
-
-    return data
-  end
-
   def details
     raise NotImplementedError, "Define this method in a child class"
   end
-
-  # ------ Class Methods ------
-
-  #this looks like it should be fetcher, based on the API's docs
+  
   def self.get(url)
-    #send message using HTTParty
+    response = HTTParty.get(url, query: {token: ENV['SLACK_TOKEN']})
 
-    #check for errors, if any
+    if response.code != 200 || response["ok"] == false
+      raise SlackAPIError, "We encountered a problem: #{response["error"]}"
+    end
+  
+    return response
   end
 
-
-  #this smells like a bigger factory method
   def self.list_all
     raise NotImplementedError, "Define this method in a child class"
   end
