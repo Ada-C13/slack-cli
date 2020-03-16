@@ -26,12 +26,12 @@ class Channel < Recipient
     data = self.get("https://api.slack.com/api/conversations.list")
     channels = []
     
-    data["channels"].each do |item|
+    data["channels"].each do |channel|
       channels << Channel.new(
-                 name: item["name"],
-                 slack_id: item["id"],
-                 topic: item["topic"]["value"],
-                 member_count: item["num_members"]
+                 name: channel["name"],
+                 slack_id: channel["id"],
+                 topic: channel["topic"]["value"],
+                 member_count: channel["num_members"]
       )
     end
 

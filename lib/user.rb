@@ -24,7 +24,7 @@ class User < Recipient
   end
 
   def self.list_all
-    data = self.get("https://api.slack.com/methods/users.list")
+    data = self.get("https://api.slack.com/api/users.list")
     users = []
     
     data["members"].each do |user|
@@ -36,6 +36,7 @@ class User < Recipient
                   status_text: user["profile"]["status_text"] 
       )
     end
-      return users
+    
+    return users
   end
 end

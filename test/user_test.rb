@@ -4,7 +4,7 @@ require_relative "test_helper"
 require_relative '../lib/user'
 
 describe "User" do
-
+  
   describe "self.get" do
     it "gets a list of users" do
       result = {}
