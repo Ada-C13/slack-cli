@@ -21,12 +21,18 @@ describe "Channel Class" do
       expect(channel).must_be_kind_of Channel
     end
   end
-
-  describe "Return an error" do
-    it "Returns error if incorrect querty given" do
-      VCR.use_cassette("bogus") do
-        expect { Channel.list_users.must_raise SlackAPI::SlackAPIError }
-      end
+  it "can make collect details of Channels" do
+    @channels = Channel.new("CUTE4M96W", "general", "Company-wide announcements and work-based matters", 5)
+    # expect(@channels.details.name).must_equal "general"
+    expect(@channels.details[0].split(":")[1]).must_equal("general") #array implementation of details
+    # expect(details[name]).must_equal("general") #hash implementation of details
+    # expect(details[1]).must_equal("CUTE4M96W")
+  end
+end
+describe "Return an error" do
+  it "Returns error if incorrect querty given" do
+    VCR.use_cassette("bogus") do
+      expect { Channel.list_users.must_raise SlackAPI::SlackAPIError }
     end
   end
 end
