@@ -18,10 +18,11 @@ describe "User" do
       expect { User.get(url) }.must_raise Exception
     end
   end
-  describe "list_all" do
+  describe "list_all and details" do
     before do
       VCR.use_cassette("list_all_users") do
         @user_list = User.list_all
+        @user_details = @user_list[0].details
       end
     end
     it "Should return an array of User objects" do
@@ -31,6 +32,8 @@ describe "User" do
         expect(user).must_be_instance_of User
       end
     end
+    it "Details should return a string containing details of User" do
+      expect(@user_details).must_be_kind_of String
+    end
   end
-  #TODO need to test for the details method
 end

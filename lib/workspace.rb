@@ -16,7 +16,7 @@ class Workspace
       user.name.downcase == name_or_slack_id.downcase || user.slack_id.downcase == name_or_slack_id.downcase
     end
 
-    @selected = user unless user == nil 
+    @selected = user unless user == nil
   end
 
   def select_channel(name_or_slack_id)
@@ -34,6 +34,6 @@ class Workspace
   def text_me(message)
     channel = @selected.slack_id
     request = @selected.send_message(channel, message)
-    return false if request["okay"] == false
+    return false if request["ok"] == false 
   end
 end

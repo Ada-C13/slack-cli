@@ -104,19 +104,22 @@ describe "Workspace" do
       end
     end
   end
-  describe "text_me"
-  it "Should have an ID of where the message should be sent to and a message" do
+  describe "text_me" do
+    it "Should send a HTTParty post request to send a message" do
+      VCR.use_cassette("send_message") do
+        workspace = Workspace.new
+        selected = workspace.select_user("mairheshmati")
+        request = workspace.text_me("Hello world")
 
-  end
-  it "Should send a HTTParty post request to send a message" do ### This is testing the Recipient's method!!!!!!!
-    VCR.use_cassette("#TODO: generate your own casset for sending messages") do
-      expect(request.code).must_equal 200
-      expect(request["okay"]).must_equal true
+        expect(request).wont_equal false
+      end
     end
-  end
-  it "Should raise an Exception when no message and/or no channel is given" do
-  end
-  it "Should return False if the message doesn't go through" do 
-
+    it "Should raise an Exception when no message and/or no channel is given" do
+      VCR.use_cassette("send_message") do
+        workspace = Workspace.new
+        selected = nil
+        expect { selected.send_message(nil, "hello world") }.must_raise Exception
+      end
+    end
   end
 end

@@ -11,7 +11,6 @@ class Recipient
     @slack_id = slack_id
   end
 
-
   def send_message(channel, message)
     url = "https://slack.com/api/chat.postMessage"
     query = {
@@ -19,8 +18,9 @@ class Recipient
       channel: channel,
       text: message,
     }
+
     request = HTTParty.post(url, query: query)
-    raise(Exception, "Encountered an error: #{request["error"]}") if request["okay"] == false || request.code != 200
+    raise(Exception, "Encountered an error: #{request["error"]}") if request["ok"] == false || request.code != 200
     return request
   end
 
@@ -29,12 +29,11 @@ class Recipient
       token: AUTH_TOKEN,
     }
     response = HTTParty.get(base_url, query: query)
-    raise(Exception, "Encountered an error: #{response["error"]}") if response["okay"] == false || response.code != 200
+    raise(Exception, "Encountered an error: #{response["error"]}") if response["ok"] == false || response.code != 200
     return response
   end
 
   def self.list_all
     raise(NotImplementedError, "Implement me in a child class!")
   end
-
 end

@@ -34,10 +34,11 @@ describe "channel" do
       expect(@response["channels"][-1]["num_members"]).must_equal 5
     end
   end
-  describe "list_all" do
+  describe "list_all and details" do
     before do
       VCR.use_cassette("list_all_channels") do
         @channel_list = Channel.list_all
+        @channel_details = @channel_list[0].details
       end
     end
     it "Should return an array of Channel objects" do
@@ -47,6 +48,8 @@ describe "channel" do
         expect(channel).must_be_instance_of Channel
       end
     end
+    it "Details should return a string containing details for Channel" do
+      expect(@channel_details).must_be_instance_of String
+    end
   end
-  #TODO needs to test for the details method 
 end
