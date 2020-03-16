@@ -40,9 +40,12 @@ describe "Workspace" do
     end
   end
 
-
-
-
-
-  
+  describe "show_details" do
+    it "returns selected user details" do
+      deets = @new_workspace.select_user("OLIVIAMULHOLLAND94").show_details
+      
+      expect(deets).must_be_kind_of String
+      expect(deets).must_equal "The current recipient is: oliviamulholland94, UV5GT0PBN."
+    end
+  end
 end
