@@ -4,6 +4,15 @@ require_relative "test_helper"
 require_relative '../lib/user'
 
 describe "User" do
+  describe "User.new" do
+    it "creates a new user" do
+      new_user = User.new(slack_id: 8, name: "Liv", real_name: "Olivia", status_text: "tired, per usual")
+
+      expect(new_user.name).must_equal "Liv"
+      expect(new_user.slack_id).must_equal 8
+      expect(new_user).must_be_kind_of User
+    end
+  end
   
   describe "self.get" do
     it "gets a list of users" do

@@ -39,7 +39,6 @@ class Recipient
   def self.list_all
     raise NotImplementedError, "Define this method in a child class"
   end
-
 end
 
 
