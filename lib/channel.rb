@@ -1,20 +1,20 @@
+require_relative "recipient"
 
-require 'dotenv'
-require 'httparty'
+# BASE_URL = "https://slack.com/api/conversations.list"
 
-Dotenv.load
+class Channel < Recipient
+  attr_reader :topic, :member_count
 
-BASE_URL = "https://slack.com/api/conversations.list"
-SLACK_TOKEN = ENV["SLACK_TOKEN"]
-
-class User
-
-  
-  def details(each)
-  #
+  def initialize(name:, slack_id:, topic:, member_count:)
+    super(name: name, slack_id: slack_id)
+    @topic = topic
+    @member_count = member_count
   end
 
-  def self.list_all(each)
-  #
+  def details
+  end
+
+  def self.list_all
+    #
   end
 end
