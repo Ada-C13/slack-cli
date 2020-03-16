@@ -44,4 +44,7 @@ VCR.configure do |config|
     ENV["SLACK_API_TOKEN"]
   end
 
+  config.filter_sensitive_data("<BOT_API_TOKEN>") do
+    ENV["BOT_API_TOKEN"]
+  end
 end

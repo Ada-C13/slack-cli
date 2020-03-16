@@ -56,8 +56,6 @@ def user_input(user_selection)
   elsif user_selection == "details"
     tp @workspace.show_details(selection)
   elsif user_selection == "send message"
-    # puts "Please enter your message"
-    # message = gets.chomp
     @workspace.send_message
   elsif user_selection == "quit"
   else

@@ -8,7 +8,6 @@ require_relative 'slack'
 # Dotenv.load # not needed bc its in slack and test helper 
 
 class SlackAPIError < Exception
-  # i think this is it? lol 
 end
 
 class Recipient

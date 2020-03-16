@@ -8,10 +8,6 @@ require_relative 'recipient'
 
 Dotenv.load
 
-# Recipient contains:
-#self.list_all
-#details
-
 
 class User < Recipient
 
@@ -36,7 +32,6 @@ class User < Recipient
                 status_emoji: user["profile"]["status_emoji"],
                 status_text: user["profile"]["status_text"]
       )
-
     end
     return users
 
