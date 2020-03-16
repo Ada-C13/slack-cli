@@ -9,6 +9,12 @@ require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
 
+require_relative '../lib/workspace'
+require_relative '../lib/user'
+require_relative '../lib/conversation'
+require_relative '../lib/channel'
+require_relative '../lib/direct_message'
+
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 VCR.configure do |config|
