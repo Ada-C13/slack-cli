@@ -20,12 +20,30 @@ describe "User class" do
 
   describe "list_all" do
     it "creates an array of users" do
-      VCR.use_cassette("list-users_endpoint") do
+      VCR.use_cassette("list_users_endpoint") do
         users = User.list_all
 
         expect(users).wont_be :empty?
         expect(users).must_be_kind_of Array
         expect(users[0]).must_be_kind_of User
+      end
+    end
+
+    describe "self.get" do
+      it "gets a list of users from the api" do
+        list = {}
+        VCR.use_cassette("list_users_endpoint") do
+          list = User.get("https://slack.com/api/users.list")
+        end
+        
+        expect(list).must_be_kind_of HTTParty::Response
+        expect(list["ok"]).must_equal true
+      end
+
+      it "raises an error when the api call fails" do
+        VCR.use_cassette("list_users_endpoint") do
+          expect {User.get("https://slack.com/api/bogus.call")}.must_raise SlackAPIError
+        end
       end
     end
   end
