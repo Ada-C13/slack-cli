@@ -1,6 +1,7 @@
 require "simplecov"
 SimpleCov.start do
   add_filter "test/"
+  add_filter "lib/slack.rb"
 end
 
 require "minitest"
@@ -10,6 +11,7 @@ require "minitest/skip_dsl"
 require "webmock/minitest"
 require "dotenv"
 require "vcr"
+require "table_print"
 
 Dotenv.load
 
@@ -25,5 +27,8 @@ VCR.configure do |config|
   # Don't leave our token lying around in a cassette file.
   config.filter_sensitive_data("<BOT_TOKEN>") do
     ENV["BOT_TOKEN"]
+  end
+  config.filter_sensitive_data("<SLACK_TOKEN>") do
+    ENV["SLACK_TOKEN"]
   end
 end
