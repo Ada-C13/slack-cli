@@ -93,9 +93,6 @@ def main
     puts "What is your next selection?"
     user_input = gets.chomp #main prompt
   end
-  
-  # TODO project
-
   puts "Thank you for using the Ada Slack CLI"
 end #main
 

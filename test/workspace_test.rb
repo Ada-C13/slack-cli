@@ -1,6 +1,4 @@
 require_relative 'test_helper'
-#require_relative '../lib/user'
-#require_relative '../lib/channel'
 require_relative '../lib/workspace'
 
 describe SlackCli::Workspace do
@@ -90,9 +88,6 @@ describe SlackCli::Workspace do
           expect(response_code).must_equal 200
         end
       end
-
-    end #send message method
-
-
+    end
   end #class
 end #module

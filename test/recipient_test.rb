@@ -1,8 +1,5 @@
 require_relative 'test_helper'
 
-# url = ENV['BASE_URL'] + ENV['SUB_USER_URL'] + "token=" + ENV['SLACK_TOKEN']
-# url = ENV['BASE_URL'] + ENV['SUB_CHANNEL_URL'] + "token=" + ENV['SLACK_TOKEN']
-
 describe SlackCli::Recipient do
   describe "Recipient" do
     describe 'Recipient Instantiation' do
