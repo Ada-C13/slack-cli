@@ -26,21 +26,14 @@ describe "workspace" do
   end
 
   describe "select channel" do
-    
-
-
+    #TODO
   end
 
   describe "select user" do
-    
-
-
+    #TODO
   end
 
   describe "show details" do
-    
-
-    
+    #TODO
   end
-
 end
