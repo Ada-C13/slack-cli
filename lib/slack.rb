@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 require "table_print"
 require "gemoji-parser"
 require_relative "workspace"
@@ -60,7 +59,7 @@ def main
           puts "No recipient selected."
         end
       when "5"
-        # send a message to selected recipient
+        # send a message to selected recipient and confirm
         if workspace.selected
           text_to_send = get_message_text
           puts workspace.selected.slack_id
