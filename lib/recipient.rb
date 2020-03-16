@@ -10,6 +10,18 @@ class Recipient
     @name = name
   end
 
+  def send_message(msg_text)
+    response = HTTParty.post(
+      https://api.slack.com/methods/chat.postMessage,
+      body:  {
+        token: ENV['SLACK_TOKEN'],
+        text: message,
+        channel: @slack_id
+      },
+      headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
+    )
+  end
+
   def details
     raise NotImplementedError, "Define this method in a child class"
   end
