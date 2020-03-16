@@ -47,4 +47,13 @@ describe 'Channel' do
       end
     end
   end
+
+  describe "details" do
+    it "displays correct details" do
+      channel_list = Channel.get_list("channel")
+      target_channel = channel_list.find {|channel| channel.name == "random"}
+      target_a = ["random", "CVBCU0R37", "Non-work banter and water cooler conversation", 1]
+      expect(target_channel.details).must_equal target_a
+    end
+  end
 end

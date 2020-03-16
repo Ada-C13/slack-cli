@@ -7,8 +7,12 @@ class Channel < Recipient
     @member_count = member_count
   end
 
+  def details
+    return super + [topic, member_count]
+  end
+
   def self.get_list(recipient_type)
-    # whyyyyy doesn't super.get_list work??
+    # whyyyyy doesn't super.get_list(recipient_type) work??
     # whhhyyyyy can't I implement a parameter-less version of get_list when i include a get_list matching 
     # parent's method signature???
     # whyyyyyyy
