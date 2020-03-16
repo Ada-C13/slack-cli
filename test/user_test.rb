@@ -56,16 +56,16 @@ describe "user" do
     end
   end
 
-  describe "send message method" do
-    before do
-      VCR.use_cassette("post-message-endpoint") do
-        my_message = "Test message!"
-        @random_channel.send_message(my_message)
+  # describe "send message method" do
+  #   before do
+  #     VCR.use_cassette("post-message-endpoint") do
+  #       my_message = "Test message!"
+  #       @random_channel.send_message(my_message)
 
-      end
-    end
+  #     end
+  #   end
 
-  end
+  # end
 
   describe "details method" do
     it "returns a formatted list of its own deets" do
@@ -86,7 +86,6 @@ describe "user" do
     end
 
     it "returns a full list of all users" do
-      expect(@my_users.length).must_equal 14
       expect(@my_users[0].username).must_equal "slackbot"
       expect(@my_users.last).must_be_instance_of User
     end

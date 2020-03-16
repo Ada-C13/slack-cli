@@ -27,8 +27,8 @@ class Recipient
     q = {
       token: ENV['TOKEN'],
       channel: self.slack_id,
-      text: message
-      # username: "Slackbot"
+      text: message,
+      username: "Slackbot"
     }
     
     response = HTTParty.post(url, q)
