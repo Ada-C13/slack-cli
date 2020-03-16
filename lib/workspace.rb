@@ -22,6 +22,9 @@ class Workspace
       end
     end
 
+    if @selected == nil
+      raise ArgumentError.new "The channel name or user id you entered is incorrect."
+    end
   end
 
   def select_channel(user_input)

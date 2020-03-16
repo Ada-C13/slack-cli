@@ -26,17 +26,17 @@ describe "Workspace" do
     it "selects user based off user input" do
       @new_workspace.select_user("OLIVIAMULHOLLAND94")
       
-      expect(@selected).must_be_kind_of User
-      expect(@selected.name).must_equal "oliviamulholland94"
-      expect(@selected.slack_id).must_equal "UV5GT0PBN"
+      expect(@new_workspace.selected).must_be_kind_of User
+      expect(@new_workspace.selected.name).must_equal "oliviamulholland94"
+      expect(@new_workspace.selected.slack_id).must_equal "UV5GT0PBN"
     end
 
     it "selects channel based off user input" do
       @new_workspace.select_channel("RANDOM")
       
-      expect(@selected).must_be_kind_of Channel
-      expect(@selected.name).must_equal "random"
-      expect(@selected.slack_id).must_equal "CV60NTK4G"
+      expect(@new_workspace.selected).must_be_kind_of Channel
+      expect(@new_workspace.selected.name).must_equal "random"
+      expect(@new_workspace.selected.slack_id).must_equal "CV60NTK4G"
     end
   end
 
