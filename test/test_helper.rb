@@ -11,21 +11,23 @@ require 'vcr'
 
 require 'dotenv'
 Dotenv.load
+Dotenv.require_keys("SLACK_TOKEN")
 
-require_relative '../lib/workspace'
-require_relative '../lib/slack'
+require_relative '../lib/workspace.rb'
+require_relative '../lib/slack.rb'
 require_relative '../lib/channel.rb'
 require_relative '../lib/recipient.rb'
 require_relative '../lib/user.rb'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
-VCR.configure do |config|
-  config.cassette_library_dir = "test/cassettes"
-  config.hook_into :webmock
-end
+# VCR.configure do |config|
+#   config.cassette_library_dir = "test/cassettes"
+#   config.hook_into :webmock
+# end
 
 VCR.configure do |config|
+  config.allow_http_connections_when_no_cassette = true
   config.cassette_library_dir = "test/cassettes" # folder where casettes will be located
   config.hook_into :webmock # tie into this other tool called webmock
   config.default_cassette_options = {
