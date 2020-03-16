@@ -39,11 +39,8 @@ describe "User" do
         params = {
           token: ENV['SLACK_TOKEN'],
         }
-        response = User.get("https://slack.com/api/bad.endpoint",params)
+        expect{User.get("https://slack.com/api/bad.endpoint",params)}.must_raise ArgumentError
       end
-
-      expect(response["ok"]).must_equal false
-      expect(response).must_be_kind_of HTTParty::Response
     end
   end
 

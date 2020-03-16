@@ -1,9 +1,6 @@
 require 'HTTParty'
 require 'dotenv'
 
-# require_relative 'channel.rb'
-# require_relative 'user.rb'
-
 Dotenv.load
 
 
@@ -31,6 +28,9 @@ class Recipient
 
   def self.get(url,params)
     response = HTTParty.get(url,query: params)
+
+    raise ArgumentError.new("Not a valid get request") if response["ok"] != true
+
     return response
   end
 

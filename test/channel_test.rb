@@ -38,11 +38,9 @@ describe "Channel" do
         params = {
           token: ENV['SLACK_TOKEN'],
         }
-        response = Channel.get("https://slack.com/api/bad.endpoint",params)
+         expect{Channel.get("https://slack.com/api/bad.endpoint",params)}.must_raise ArgumentError
       end
 
-      expect(response["ok"]).must_equal false
-      expect(response).must_be_kind_of HTTParty::Response
     end
   end
 

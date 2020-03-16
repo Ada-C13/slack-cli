@@ -68,14 +68,17 @@ def loop_through_choices(workspace, choice)
       elsif chosen_channel != nil
         tp chosen_channel.details
       else
-        puts "sorry, you don't have a user or channel selected currently"
+        puts "Sorry, you don't have a user or channel selected currently"
       end
     when "send message"
-      break if chosen_channel == nil && chosen_user == nil
-      print "What's the message? "
-      message = gets.chomp
-      send_msg_to = chosen_user ? chosen_user : chosen_channel
-      send_msg_to.send_message(message)
+      if chosen_channel == nil && chosen_user == nil
+        puts "Sorry, you don't have a user or channel selected currently"
+      else
+        print "What's the message? "
+        message = gets.chomp
+        send_msg_to = chosen_user ? chosen_user : chosen_channel
+        send_msg_to.send_message(message)
+      end
     end
 
     puts "................."
