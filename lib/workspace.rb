@@ -17,8 +17,8 @@ module Slack
 
     # reference: http://tableprintgem.com/
 
-    # Question
-    # Is it a good practice to use "tp" or "puts" in "workspace.rb" or "slack.rb"?
+    # Question:
+    # Is it a good practice to use "tp"/"puts" in "workspace.rb" or "slack.rb"?
     def list_users 
       tp @users, :name, :real_name, :slack_id
     end 
@@ -87,6 +87,5 @@ module Slack
 
       return user
     end 
-
   end 
 end 

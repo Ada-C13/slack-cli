@@ -73,7 +73,7 @@ describe "User class" do
 
   # optional
   describe "#find_conversation_id_for_im(slack_id)" do 
-    it "returns a conversation id depending on slack_id" do 
+    it "returns a conversation ID for a given slack_id" do 
       VCR.use_cassette("conversations-list-endpoint") do
          user = Slack::User.new(slack_id: "UV6BLS99N", name: "time_hannah_j_api_pro")
 

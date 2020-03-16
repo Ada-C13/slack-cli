@@ -54,7 +54,7 @@ describe "Workspace class" do
       end 
     end 
 
-    it "selects a user as recipient if I supply a username" do 
+    it "selects a user as recipient for a given username" do 
       name = "sea otter" 
       user = @workspace.select_user(name)
 
@@ -62,7 +62,7 @@ describe "Workspace class" do
       expect(user.name).must_equal name
     end 
 
-    it "selects a user as recipient if I supply a slack_id" do 
+    it "selects a user as recipient for a given slack_id" do 
       id = "USLACKBOT" 
       user = @workspace.select_user(id)
 
@@ -70,7 +70,7 @@ describe "Workspace class" do
       expect(user.slack_id).must_equal id
     end 
 
-    it "selects user as recipient if I supply a real_name" do 
+    it "selects user as recipient for a given real_name" do 
       real_name = "Slackbot" 
       user = @workspace.select_user(real_name)
 
@@ -87,7 +87,7 @@ describe "Workspace class" do
       end 
     end 
 
-    it "selects a channel as recipient if I supply a channel name" do 
+    it "selects a channel as recipient for a given channel name" do 
       name = "random"
       channel = @workspace.select_channel(name)
 
@@ -95,7 +95,7 @@ describe "Workspace class" do
       expect(channel.name).must_equal name
     end 
 
-    it "selects a channel as recipient if I supply a slack_id" do 
+    it "selects a channel as recipient for a given slack_id" do 
       id = "CV86T0TPY"
       channel = @workspace.select_channel(id)
 
@@ -112,7 +112,7 @@ describe "Workspace class" do
       end 
     end 
 
-    it "returns the selected user details" do 
+    it "returns selected user details" do 
       id = "USLACKBOT"
 
       # Invoke #select_user to assign "selected" variable
@@ -122,7 +122,7 @@ describe "Workspace class" do
     end 
 
 
-    it "returns the selected channel details" do
+    it "returns selected channel details" do
       name = "hannah-j-test" 
 
       @workspace.select_channel(name)
@@ -192,7 +192,7 @@ describe "Workspace class" do
   end 
 
   describe "#find_user_by_id" do 
-    it "returns a user based on slack_id" do 
+    it "returns a user for a given slack_id" do 
       VCR.use_cassette("users-list-endpoint") do
         
         workspace = Slack::Workspace.new() 

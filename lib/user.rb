@@ -74,7 +74,7 @@ module Slack
 
       return users.map do |user| 
 
-        # Reflect the setting change (optional)
+        # Apply the setting change (optional)
         if user["id"] == "USLACKBOT"
           name = parsed_data["name"]
           status_emoji = parsed_data["status_emoji"]

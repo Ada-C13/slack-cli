@@ -4,7 +4,7 @@ require 'table_print'
 require 'colorize'
 require 'terminal-table'
 
-# Question: Is it a good practice to use WORKSPACE as constant?
+# Question: Is it a good practice to use WORKSPACE as a constant?
 WORKSPACE = Slack::Workspace.new
 
 OPTIONS = {
@@ -41,7 +41,7 @@ end
 
 def validate_option(option) 
   while !OPTIONS.keys.include?(option) && !OPTIONS.values.flatten.include?(option)
-    puts "  #{"⚠️  You chose a wrong option!😅 Try again".light_black}."
+    puts "  #{"⚠️  You chose an invalid option!😅 Try again".light_black}."
     print " > "
     option = gets.chomp.downcase
   end 
@@ -50,7 +50,7 @@ end
 
 
 def get_user_name 
-  puts "Select a user name, a real name, or a slack id"
+  puts "Select a user name, a real name, or a slack ID"
   print "> "
   name = gets.chomp
   name = validate_user_name(name) 
@@ -69,13 +69,13 @@ def validate_user_name(name)
     user = WORKSPACE.select_user(name) ##
   end 
 
-  puts "  ✅ You've selected the user name, #{user.name.bold} - #{user.slack_id}"
+  puts "  ✅ You've selected the username, #{user.name.bold} - #{user.slack_id}"
   return name
 end 
 
 
 def get_channel_name 
-  puts "Select a channel name or a slack id"
+  puts "Select a channel name or a slack ID"
   print "> "
   name = gets.chomp
   channel = validate_channel_name(name) 
@@ -205,13 +205,13 @@ def main
   while continue 
     case option 
     when "1", *OPTIONS["1"] # list users
-      WORKSPACE.list_users  ##
+      WORKSPACE.list_users  
   
       display_options
       option = get_option
 
     when "2", *OPTIONS["2"]  # list channels 
-      WORKSPACE.list_channels ##
+      WORKSPACE.list_channels 
   
       display_options
       option = get_option

@@ -96,7 +96,6 @@ module Slack
     def self.get(url, params)
       response = HTTParty.get(url, query: params)
 
-      # TO DO
       unless response.code == 200 && response.parsed_response["ok"]
         raise SlackApiError, "We failed to get information from API"
       end 
