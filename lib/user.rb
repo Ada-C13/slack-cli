@@ -6,13 +6,13 @@ module Slack
  
     attr_reader :slack_id, :name, :real_name, :status_text, :status_emoji
     
-    def initialize(real_name: nil, status_text: nil, status_emoji: nil, conversation_id: nil, **args)
+    def initialize(real_name: nil, status_text: nil, status_emoji: nil, **args)
       super(**args)
 
       @real_name = real_name 
       @status_text = status_text 
       @status_emoji = status_emoji
-      @conversation_id = conversation_id
+      @conversation_id = nil # User's converstaion ID is not same as slack ID
     end 
 
     def details 
@@ -26,6 +26,7 @@ module Slack
     end 
 
 
+    # optional
     def find_conversation_id_for_im
       list = User.load_conversation_ids_for_im 
       
@@ -39,6 +40,7 @@ module Slack
     end 
 
 
+    # optional
     def load_message_history
       params = {
         token: ENV["SLACK_TOKEN"],
@@ -57,28 +59,6 @@ module Slack
       response_data = JSON.parse(response.body)
       return response_data["messages"]
     end  
-
-
-    # optional
-    def message_history
-
-      workspace = Slack::Workspace.new
-      messages = self.load_message_history
-
-      list = []
-
-      messages.each do |message|
-        
-        if message["subtype"] != "bot_add" && message["subtype"] != "channel_purpose" && message["subtype"] != "channel_join"
-
-          (message["username"]) ? name = message["username"] : name = workspace.find_user_by_id(message["user"]).name
-
-          list << [name, message["text"], Time.at(message["ts"].to_f)]
-        end    
-      end 
-      
-      return list
-    end 
 
 
     def self.list_all 

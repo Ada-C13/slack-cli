@@ -9,6 +9,7 @@ module Slack
       super(**args)
       @topic = topic 
       @member_count = member_count
+      @conversation_id = @slack_id # Channel's conversation id is the same as slack ID
     end 
 
 
@@ -57,28 +58,6 @@ module Slack
       response_data = JSON.parse(response.body)
       return response_data["messages"]
     end  
-
-
-    # optional
-    def message_history
-
-      workspace = Slack::Workspace.new
-      messages = self.load_message_history
-
-      list = []
-
-      messages.each do |message|
-        
-        if message["subtype"] != "bot_add" && message["subtype"] != "channel_purpose" && message["subtype"] != "channel_join"
-
-          (message["username"]) ? name = message["username"] : name = workspace.find_user_by_id(message["user"]).name
-
-          list << [name, message["text"], Time.at(message["ts"].to_f)]
-        end    
-      end 
-      
-      return list
-    end 
 
   end 
 end 

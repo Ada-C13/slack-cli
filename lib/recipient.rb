@@ -9,7 +9,7 @@ Dotenv.load
 
 def validate_env(token) 
   unless token
-    raise NoSlackTokenError, "Could not load SLACK_TOKEN. Add `SLACK_TOKEN` in the environment variable."
+    raise NoSlackTokenError, "Could not load SLACK_TOKEN. Add `SLACK_TOKEN` (aka user token) in the environment variable."
   end 
 end 
 
@@ -83,9 +83,32 @@ module Slack
       raise NotImplementedError, 'Implement me in a child class!'
     end 
     
-    # TO DO (refactor): I was going to implement #load_message_history in Recipient so that I could use it in 2 sub classes (User, Channel). However, I was not able to find a channel ID for each user. So, instead, I did not give an end user an option (check message history) 
-    # def load_message_history 
-    #   raise NotImplementedError, 'Implement me in a child class!'
-    # end 
+
+    # optional
+    def load_message_history 
+      raise NotImplementedError, 'Implement me in a child class!'
+    end 
+
+
+    # optional
+    def message_history
+
+      workspace = Slack::Workspace.new
+      messages = self.load_message_history
+
+      list = []
+
+      messages.each do |message|
+        
+        if message["subtype"] != "bot_add" && message["subtype"] != "channel_purpose" && message["subtype"] != "channel_join" && message["subtype"] != "channel_topic"
+
+          (message["username"]) ? name = message["username"] : name = workspace.find_user_by_id(message["user"]).name
+
+          list << [name, message["text"], Time.at(message["ts"].to_f)]
+        end    
+      end 
+      
+      return list
+    end 
   end 
 end 
