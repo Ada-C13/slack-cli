@@ -8,19 +8,19 @@
 require 'table_print'
 require_relative 'workspace'
 
-# Function to prompt list of users
+# Method to prompt list of users
 def list_users(workspace)
   puts "\nUser List\n\n"
   tp workspace.users, "id", "name", "real_name", "status_text", "status_emoji"
 end
 
-# Function to prompt list of channels
+# Method to prompt list of channels
 def list_channels(workspace)
   puts "\nChannel List\n\n"
   tp workspace.channels, "id", "name", "topic", "member_count"
 end
 
-# Function to select user
+# Method to select user
 def select_user(workspace)
   print "Enter user id or name: "
   choice = gets.chomp
@@ -31,7 +31,7 @@ def select_user(workspace)
   end
 end
 
-# Function to select channel
+# Method to select channel
 def select_channel(workspace)
   print "Enter channel id or name: "
   choice = gets.chomp
@@ -42,7 +42,7 @@ def select_channel(workspace)
   end
 end
 
-# Function to show details
+# Method to show details
 def show_details(workspace)
   begin
     puts workspace.show_details
@@ -51,7 +51,7 @@ def show_details(workspace)
   end
 end
 
-# Function to send message
+# Method to send message
 def send_message(workspace)
   print "Enter a message: "
   msg = gets.chomp
@@ -62,7 +62,7 @@ def send_message(workspace)
   end
 end
 
-# Main function to show CLI options and call other methods
+# Show CLI options and call other methods
 def main
   workspace = Workspace.new
 

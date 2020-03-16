@@ -17,7 +17,7 @@ class Recipient
     @name = name
   end
 
-  # Check results
+  # Helper method to check HTTParty results
   def self.check_results(result)
     unless result.code == 200
       raise RuntimeError, "Cannot talk to slack. HTTP code: #{result.code}"
@@ -30,6 +30,7 @@ class Recipient
   
   # Method to send a message
   def send_message(message)
+    raise ArgumentError, "Message must be a string" unless message.is_a?(String)
     query_parameters = { token: TOKEN, channel: @id, text: message }
     result = HTTParty.post(SLACK_URL + "chat.postMessage", query: query_parameters)
     Recipient.check_results(result)
@@ -38,6 +39,7 @@ class Recipient
 
   # Method to get all recipients (users or channels)
   def self.get(method)
+    raise ArgumentError, "Method must be a string" unless method.is_a?(String)
     query_parameters = { token: TOKEN }
     result = HTTParty.get(SLACK_URL + method, query: query_parameters)
     Recipient.check_results(result)

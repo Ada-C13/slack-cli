@@ -12,6 +12,7 @@ class Workspace
     @selected = nil
   end
 
+  # Method to select a channel
   def select_channel(param)
     raise ArgumentError, "Channel name or id must be a string" unless param.is_a?(String)
 
@@ -19,6 +20,7 @@ class Workspace
     raise ArgumentError, "Channel not found" if @selected == nil
   end
 
+  # Method to select a user
   def select_user(param)
     raise ArgumentError, "User name or id must be a string" unless param.is_a?(String)
 
@@ -26,14 +28,15 @@ class Workspace
     raise ArgumentError, "User not found" if @selected == nil
   end
 
+  # Method to show details of the selected user or channel
   def show_details
     raise ArgumentError, "Nothing is selected" if @selected == nil
     return @selected.details
   end
 
+  # Method to send a message to the selected user or channel
   def send_message(msg)
     raise ArgumentError, "Nothing is selected" if @selected == nil
-    raise ArgumentError, "Message must be a string" unless msg.is_a?(String)
     return @selected.send_message(msg)
   end
 
