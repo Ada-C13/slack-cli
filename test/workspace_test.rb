@@ -108,4 +108,9 @@ describe "Workspace class" do
     end
   end
 
+  describe "show_details" do
+    it "returns message if no user or channel selected" do
+      expect(@workspace_inst.show_details).must_equal "No user or channel was selected."
+    end
+  end
 end

@@ -37,7 +37,11 @@ class Workspace
   end
 
   def show_details
-    @selected.details
+    if @selected != nil
+      @selected.details
+    else
+      return "No user or channel was selected."
+    end
   end
 
   def send_message
