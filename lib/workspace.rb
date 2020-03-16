@@ -24,18 +24,18 @@ module Slack
 
     # Method shows details of the currently selected conversation.
     def show_details
-      raise NoRecipientError, "Cannot display details."
+      raise InvalidRecipientError, "No selection made yet. User must have a selected conversation."
     end
 
     # Method posts a message to the currently selected conversation.
     def post_message
-      raise NoRecipientError, "Cannot send message."
+      raise InvalidRecipientError, "No target conversation specified. Cannot send message."
     end
 
   end
 
-  class NoRecipientError < StandardError
-    def initialize(msg="No currently selected user or conversation.")
+  class InvalidRecipientError < StandardError
+    def initialize(msg="No valid user or conversation.")
       super
     end
   end

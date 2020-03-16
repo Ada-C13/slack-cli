@@ -15,6 +15,8 @@ module Slack
 
     # Placeholder method to be defined in child classes.
     # Method will return a bunch of details about specified conversation 
+    # Should probably implement in child classes so we can control the description to be user-friendly
+    # but if we're ok with a generic details printout, we can do it at parent Conversation level too
     def details
       raise NotImplementedError, "Define DETAILS method in child class."
     end
@@ -31,7 +33,7 @@ module Slack
     # Method takes the results of get_all and pretty-prints them.
     def self.list_all
       raise NotImplementedError, "Define LIST_ALL method in child class."
-      # could implement here if we want a pretty-print of ALL conversation types at some point
+      # could implement here if we want to see ALL conversation types at some point
       # perhaps a "show all convos our app is involved in" feature 
     end
 

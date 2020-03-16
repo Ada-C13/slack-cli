@@ -14,15 +14,15 @@ module Slack
   # CLASS METHODS
 
 
-  def self.get_all
+  # def self.get_all
     # TO-DO: implement when getting all 1-on-1 direct messages is necessary 
     # API endpoint https://slack.com/api/conversations.list  TYPES= "im"
-  end
+  # end
 
 
-  def self.list_all 
+  # def self.list_all 
     # TO-DO: implement when listing all 1-on-1 direct messages is necessary
-  end
+  # end
 
   end
 end

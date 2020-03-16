@@ -11,7 +11,6 @@ module Slack
     # CLASS METHODS
 
     # Method uses http get to retrieve all User "objects"
-    # TO-DO probably should be a private method???
     def self.get_all
       # httparty GET 
       # API endpoint https://slack.com/api/users.list?

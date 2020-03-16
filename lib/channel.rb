@@ -14,7 +14,7 @@ module Slack
 
 
   # Method uses http get to retrieve all Channel "objects"
-  # to-do: make it a private method
+  # returns an array of Channels
     def self.get_all
       # HTTP get
       # API endpoint https://slack.com/api/conversations.list default "public_channel" 
