@@ -2,7 +2,7 @@ require_relative 'recipient'
 require 'table_print'
 
 class User < Recipient
-  attr_reader :real_name, :status_text, :status_emoji, :all_users
+  attr_reader :slack_id, :name, :real_name, :status_text, :status_emoji
 
   def initialize(slack_id, name, real_name, status_text, status_emoji)
     super(slack_id, name)
