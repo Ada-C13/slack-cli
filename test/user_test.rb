@@ -1,46 +1,24 @@
 require_relative "test_helper"
 
-# describe "user initializes" do
+describe "user initializes" do
 
-#   it "user initializes with name" do
-#     recipient = User.new("Ada")
+  it "user initializes with name" do
+    recipient = User.new(1, "Ada", "AdaLove")
   
-#       expect(recipient).must_be_instance_of User
-#       expect(recipient.name).must_equal "Ada"
-#   end  
+      expect(recipient).must_be_instance_of User
+      expect(recipient.name).must_equal "Ada"
+      expect(recipient.id).must_equal 1
+      expect(recipient.real_name).must_equal "AdaLove"
+  end  
     
+  it "user raises error with not enough arguments" do
+    
+    expect{User.new()}.must_raise ArgumentError
+    expect{User.new(1)}.must_raise ArgumentError
+    expect{User.new(nil,nil,nil)}.must_raise ArgumentError
+    expect{User.new(1,nil,"ada")}.must_raise ArgumentError
+    expect{User.new(1,"ada")}.must_raise ArgumentError
+    expect{User.new(nil,"ada")}.must_raise ArgumentError
+  end  
 
-#   it "user initializes with id" do
-#     recipient = User.new(nil, "A100")
-  
-#       expect(recipient).must_be_instance_of User
-#       expect(recipient.id).must_equal "A100"
-#   end  
-
-   
-# end
-# xdescribe "user"
-#   xdescribe "self.get" do
-#    it "get s a list of users " do
-#      result = {}
-#      VCR.use_cassette ("user-list-endpoint") do
-#       result = User.get("https://slack.com/api/users.list")
-#      end
-     
-#      expect(results).must_be_kind_of HTTParty::Response
-#      expect(result.("ok")).must_equal true
-#    end
-  
-#    it "raises an error when a call fails" do
-#     VCR.use_cassette ("user-list-endpoint") do
-      
-#       expect{User.get(https://slack.com/api/bogus.endpoint)}.must_raise SlackAPIError
-#     end
-#    end
-#   end
-
-# #   xderscribe "self.list" do
-# #     it "return a valid list of the users"
-
-
-# # end
+end

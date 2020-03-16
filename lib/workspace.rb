@@ -3,8 +3,8 @@ require 'dotenv'
 require 'httparty'
 
 require_relative 'recipient'
-# require_relative 'user'
-# require_relative 'channel'
+require_relative 'user'
+require_relative 'channel'
 
 # @TODO: Load environment objects and key in an actual method
 Dotenv.load
@@ -79,13 +79,8 @@ class Workspace
 
     if type == "user"
       users["members"].each do |member|
-        if member["name"] == answer
-          @selected_recipient = Recipient.new(member["name"],member["id"])
-          @selected_type = "user"
-          puts "Thank you, I have noted your selection"
-          return
-        elsif member["id"] == answer
-          @selected_recipient = Recipient.new(member["name"],member["id"])
+        if member["name"] == answer || member["id"] == answer
+          @selected_recipient = User.new(member["id"], member["name"], member["real_name"])
           @selected_type = "user"
           puts "Thank you, I have noted your selection"
           return
@@ -95,13 +90,8 @@ class Workspace
       return
     elsif type == "channel"
       channels["channels"].each do |channel|
-        if channel["name"] == answer
-          @selected_recipient = Recipient.new(channel["name"],channel["id"])
-          @selected_type = "channel"
-          puts "Thank you, I have noted your selection"
-          return
-        elsif channel["id"] == answer
-          @selected_recipient = Recipient.new(channel["name"],channel["id"])
+        if channel["name"] == answer || channel["id"] == answer
+          @selected_recipient = Channel.new(channel["id"], channel["name"], channel["num_members"], channel["topic"]["value"])
           @selected_type = "channel"
           puts "Thank you, I have noted your selection"
           return
@@ -111,45 +101,6 @@ class Workspace
       return
     end 
   end
-  
- # while answer != "name" && answer != "id"
-    #   puts "Try again? Please type 'name' or 'id'."
-    #   answer = gets.chomp.downcase
-    # end 
-
-    # @TODO:  Refactor this.  Stop using parameters as variable names, lots of other duplication.  Jesus this is bad.
-    # if type == "user"
-    #   if answer == "name"
-    #     puts "Please provide the name:"
-    #     provided_name = gets.chomp
-        # recipient = User.create(provided_name, "user_#{answer}")
-        # @selected_recipient = recipient
-      #   puts "Thank you, I have noted your selection"
-      # elsif answer == "id"
-      #   puts "Please provide the id:"
-      #   provided_id = gets.chomp
-        # recipient = User.create(provided_id, "user_#{answer}")
-        # @selected_recipient = recipient
-  #       puts "Thank you, I have noted your selection"
-  #     end
-  #   end 
-
-  #   if type == "channel"
-  #     if answer == "name"
-  #       puts "Please provide the name:"
-  #       provided_name = gets.chomp
-  #       recipient = Channel.create(provided_name, "channel_#{answer}")
-  #       @selected_recipient = recipient
-  #       puts "Thank you, I have noted your selection"
-  #     elsif answer == "id"
-  #       puts "Please provide the id:"
-  #       provided_id = gets.chomp
-  #       recipient = Channel.create(provided_id, "channel_#{answer}")
-  #       @selected_recipient = recipient
-  #       puts "Thank you, I have noted your selection"
-  #     end
-  #   end 
-  # end
 end
 
 class SlackAPIError < StandardError ; end

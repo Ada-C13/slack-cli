@@ -42,14 +42,8 @@ def options(workspace)
       channel_info = workspace.name_or_id("channel")
       options(workspace)
     when "details"
-      if workspace.selected_type == "user"   # TODO I think this needs to be broken out in to user and channel
-        puts "Username: #{workspace.selected_recipient["name"]}"
-        puts "Name: #{workspace.selected_recipient["real_name"]}"
-        puts "Id: #{workspace.selected_recipient["id"]}"
-      elsif workspace.selected_type == "channel"
-        puts "Topic: #{workspace.selected_recipient["topic"]["value"]}"
-        puts "Number of Members: #{workspace.selected_recipient["num_members"]}"
-        puts "Channel ID: #{workspace.selected_recipient["id"]}"
+      if workspace.selected_type == "user" || workspace.selected_type == "channel"
+        workspace.selected_recipient.details
       else 
         "You have not selected a recipient."
       end

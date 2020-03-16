@@ -4,16 +4,21 @@ require_relative 'recipient'
 
 #module Slack 
   class User < Recipient
-    attr_reader :real_name, :status_text, :status_emoji
+    attr_reader :real_name
   
-    def initialize #(real_name:, status_text:, status_emoji:, name:, slack_id:)
-      super(id: id, name: name)
-  
+    def initialize (id, name, real_name)
+      super(id, name)
       @real_name = real_name
-      @status_text = status_text
-      @status_emoji = status_emoji
+
+      if @id == nil || @name == nil || @real_name == nil 
+        raise ArgumentError, "arguments can't be nil"
+      end
     end
 
-    
+    def details
+      puts "Username: #{@name}"
+      puts "Name: #{@real_name}"
+      puts "Id: #{@id}"
+    end
   end
 #end
