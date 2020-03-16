@@ -35,6 +35,7 @@ class Workspace
     @users.each do |user|
       if user.real_name == user_name
         @selected = user
+        puts "You have selected #{user.real_name}"
         break
       elsif user.slack_id == user_name
         @selected = user
@@ -58,12 +59,14 @@ class Workspace
   end
 
   def send_message(message)
-    url = "https://slack.com/api/chat.postMessage"
+    @selected.send_message(message)
+=begin
+ url = "https://slack.com/api/chat.postMessage"
     if @selected.class == Channel
-      HTTParty.post(url , query: {token: ENV["SLACK_API_TOKEN"], channel: @selected.name, text: message})
+      HTTParty.post(url , query: {token: ENV["SLACK_API_TOKEN"], channel: @selected.slack_id, text: message})
     elsif @selected.class == User
-      HTTParty.post(url , query: {token: ENV["SLACK_API_TOKEN"], channel: "@#{@selected.name}", text: message})
+      HTTParty.post(url , query: {token: ENV["SLACK_API_TOKEN"], channel: @selected.slack_id, text: message})
     end
-  end
-
+=end
+  end 
 end

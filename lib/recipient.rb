@@ -24,10 +24,6 @@ attr_reader :slack_id, :name
     raise NotImplementedError, "Define this method in a child class"    
   end
 
-  def send_message(message)
-
-  end
-
   def self.get(url)
     data = HTTParty.get(url, query: { token: ENV["SLACK_API_TOKEN"]})
 
@@ -42,7 +38,18 @@ attr_reader :slack_id, :name
   def self.list_all
     raise NotImplementedError, "Define this method in a child class"
   end
-end 
+
+  def send_message(message)
+      HTTParty.post("https://slack.com/api/chat.postMessage", query: {
+        token: ENV["SLACK_API_TOKEN"], 
+        channel: self.slack_id, 
+        text: message
+      }
+    )  
+  end
+
+
 
 class SlackAPIError < Exception  
+  end
 end
