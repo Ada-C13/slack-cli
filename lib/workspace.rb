@@ -1,3 +1,6 @@
+require_relative "user"
+require_relative "channel"
+
 class Workspace
   attr_reader :users, :channels, :selected
 
@@ -33,7 +36,9 @@ class Workspace
     return "Sorry, I couldn't find a user matching \"#{search_word}.\""
   end
 
+  def show_details
+  end
 
-  
-
+  def send_message
+  end
 end

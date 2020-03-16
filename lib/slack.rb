@@ -21,24 +21,18 @@ Dotenv.load
 
 # User: After completing any command other than quit, the program should reprint the list of commands and ask for another input.
 
-def menu_choice
-  print "Your options include: 1) list users, 2) list channels, or 3) quit: \n"
-  print "What would you like to do?"
-  return gets.chomp.downcase
-end
-
 def main
   workspace = Workspace.new
 
-  puts "\n Welcome to Nora's Slack API CLI. This Slack workspace currently has #{workspace.users.length} users and #{workspace.channels.length} channels."
+  puts "\nWelcome to Nora's Slack API CLI. \nThis Slack workspace currently has #{workspace.users.length} users and #{workspace.channels.length} channels."
   action = menu_choice
 
-  until action == "quit" || 3 || "exit" || "3) quit"
+  until action == "quit" || action == "3" || action == "exit" || action == "3) quit"
     case action
-    when "list users" || "users" || 1 || "1) list users"
+    when "list users", "users", "1", "1) list users"
       tp workspace.users, "name", "real_name", "slack_id"
       puts "\n"
-    when "list channels" || "channels" || 2 || "2) list channels"
+    when "list channels", "channels", "2", "2) list channels"
       tp workspace.channels, "name", "topic", "member_count", "slack_id"
       puts "\n"
     else
@@ -46,12 +40,17 @@ def main
       puts "\n"
     end
 
-    action
+    action = menu_choice
   end
 
   puts "Thank you for using Nora's Slack CLI.\n"
 end
 
+def menu_choice
+  print "Your options include: \n1) list users \n2) list channels \n3) quit \n\n"
+  print "What would you like to do? "
+  return gets.chomp.downcase
+end
 
 # The slack.rb file should not create, call, or use the User, Channel, or Recipient classes at all. The slack.rb file should mainly be interacting with the instance of Workspace created in the line workspace = Workspace.new. All User-related information that slack.rb receives should be returned from calling a method defined in the Workspace class.
 
