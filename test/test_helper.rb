@@ -9,13 +9,18 @@ require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
 
+
+
+
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 require_relative '../lib/recipient'
 require_relative '../lib/channel'
 require_relative '../lib/user'
 require_relative '../lib/workspace'
+require 'dotenv'
 
+Dotenv.load
 
 VCR.configure do |config|
   config.cassette_library_dir = "test/cassettes"
