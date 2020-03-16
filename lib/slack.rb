@@ -2,19 +2,21 @@
 require "dotenv"
 require "httparty"
 require "table_print"
-
-require_relative "workspace"
+require_relative 'workspace'
+require_relative 'recipient'
+require_relative 'user'
+require_relative 'channel'
 
 Dotenv.load
 
 def main
   workspace = Workspace.new 
-  puts "\n"
+  
   puts "Welcome to the Ada Slack CLI! This Slack workspace currently has #{workspace.users.count} users and #{workspace.channels.count} channels."
 
   user_input = prompt_for_input
 
-  until user_input == "quit" || user_input == "exit"
+  while user_input != "quit" || user_input != "exit"
     
     case user_input
     when "list users"
@@ -27,12 +29,14 @@ def main
       
     when "select user"
       print "Please enter the user name or ID: "
-      puts workspace.select_user
+      search_term = gets.chomp.downcase
+      puts workspace.select_user(search_term)
       puts "\n"
       
     when "select channel"
       print "Please enter the channel name or ID: "
-      puts workspace.select_channel
+      search_term = gets.chomp.downcase
+      puts workspace.select_channel(search_term)
       puts "\n"
       
     when "details"
@@ -50,7 +54,9 @@ def main
         puts "\n"
       else
         print "Please enter your message: "
-        workspace.send_message
+        user_input = gets.chomp
+        
+        workspace.send_message(user_input)
         puts "\n"
       end
     else
@@ -59,7 +65,7 @@ def main
     end
 
     user_input = prompt_for_input
-  end 
+  end
   puts "Thank you for using the ADA Slack CLI!"
   puts "\n"
 end

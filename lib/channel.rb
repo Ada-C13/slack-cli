@@ -16,12 +16,9 @@ class Channel < Recipient
 
   #------ Class Methods ------
 
-  #api endpoint https://api.slack.com/methods/conversations.list
   def self.list_all
-    #get the data
     response = Channel.get("https://slack.com/api/channels.list")
 
-    #parse the data, instansiate an object
     channels = []
 
     response["channels"].each do |item|
@@ -32,9 +29,6 @@ class Channel < Recipient
                 member_count: item["num_members"]
       )
     end
-
-    #return the list of instansiated objects
-    #this format tells me that I can use this to instansiate a Workspace!
     return channels
   end
 

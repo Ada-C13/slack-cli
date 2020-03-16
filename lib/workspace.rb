@@ -1,5 +1,6 @@
 require_relative "user"
 require_relative "channel"
+require_relative "recipient"
 
 class Workspace
   attr_reader :users, :channels, :selected
@@ -10,12 +11,9 @@ class Workspace
     @selected = nil
   end
 
-  def select_channel
-
-    search_term = gets.chomp
-
+  def select_channel(search_term)
     channels.each do |channel|
-      if channel.name == search_term || channel.slack_id == search_term
+      if channel.name.downcase == search_term.downcase || channel.slack_id.downcase == search_term.downcase
         @selected = channel
         return "Okay, #{selected.name} has been selected" 
       end
@@ -25,12 +23,9 @@ class Workspace
     return "Sorry, I couldn't find that channel."
   end
 
-  def select_user
-
-    search_term = gets.chomp
-
+  def select_user(search_term)
     users.each do |user|
-      if user.name == search_term || user.slack_id == search_term
+      if user.name.downcase == search_term.downcase || user.slack_id.downcase == search_term.downcase
         @selected = user
         return "Okay, #{selected.name} has been selected" 
       end
@@ -44,9 +39,7 @@ class Workspace
     @selected.details
   end
 
-  def send_message
-    msg_text = gets.chomp
-
+  def send_message(msg_text)
     @selected.send_message(msg_text)
   end
 end

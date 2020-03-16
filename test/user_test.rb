@@ -56,7 +56,9 @@ describe "User" do
       result.each do |item|
         expect(item).must_be_kind_of User
       end
-
     end
   end
+
+  
+
 end
