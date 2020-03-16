@@ -32,7 +32,7 @@ class Workspace
 
   def select_user(user_name)
     @users.each do |user|
-      if user.real_name == user_name || user.slack_id == user_name
+      if user.real_name == user_name || user.slack_id == user_name || user.name == user_name
         @selected = user
         puts "\n You have selected #{user.real_name}"
         break
