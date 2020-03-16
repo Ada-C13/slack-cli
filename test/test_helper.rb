@@ -11,9 +11,6 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
-require_relative  '../lib/workspace'
-require_relative  '../lib/recipient'
-require_relative  '../lib/channel'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
