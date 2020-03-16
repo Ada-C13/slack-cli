@@ -21,15 +21,15 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '690'
+      - '697'
       Connection:
       - keep-alive
       Date:
-      - Sat, 14 Mar 2020 23:30:20 GMT
+      - Mon, 16 Mar 2020 02:55:06 GMT
       Server:
       - Apache
       X-Slack-Req-Id:
-      - 83d25c15af62cac954949fa407ba8ef8
+      - 28cc48420777b86626a97ba7362d9082
       X-Oauth-Scopes:
       - identify,channels:read,users:read,users.profile:read,chat:write,users:write,users.profile:write
       X-Accepted-Oauth-Scopes:
@@ -60,26 +60,26 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-2yq0
+      - haproxy-www-erl2
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 6ca7826fb0f4c565b1af9c7737725c49.cloudfront.net (CloudFront)
+      - 1.1 4c48e9fb20d53d40e9fe273dbdae1099.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - SEA19-C1
       X-Amz-Cf-Id:
-      - UIQBP6ffd70SlKwSswWbYnQiESRDVZ434_pfKIV6sVfsCq_J5Q9MeA==
+      - fpPSyoo34jzbXQ8sYvYLTMMxVztNWcknwtIdYrEhkuSOl52S2arpNQ==
     body:
       encoding: ASCII-8BIT
-      string: '{"ok":true,"channels":[{"id":"CV5KRSHJQ","name":"general","is_channel":true,"created":1583868608,"is_archived":false,"is_general":true,"unlinked":0,"creator":"UUT9Z80AE","name_normalized":"general","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UUT9Z80AE","UUTA3S16E","UUW1CJZ41","UUUKJ03NX","UV63Y1672"],"topic":{"value":"Company-wide
+      string: '{"ok":true,"channels":[{"id":"CV5KRSHJQ","name":"general","is_channel":true,"created":1583868608,"is_archived":false,"is_general":true,"unlinked":0,"creator":"UUT9Z80AE","name_normalized":"general","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UUW1CJZ41","UUTA3S16E","UV63Y1672","UUUKJ03NX","UUT9Z80AE"],"topic":{"value":"Company-wide
         announcements and work-based matters","creator":"UUT9Z80AE","last_set":1583868608},"purpose":{"value":"This
         channel is for workspace-wide communication and announcements. All members
-        are in this channel.","creator":"UUT9Z80AE","last_set":1583868608},"previous_names":[],"num_members":5},{"id":"CV649DWUV","name":"slack-api","is_channel":true,"created":1583868609,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UUT9Z80AE","name_normalized":"slack-api","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UUT9Z80AE","UUTA3S16E","UUTJAGAEN","UUW1CJZ41","UUUKJ03NX","UV63Y1672"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":6},{"id":"CV7V4KYLF","name":"random","is_channel":true,"created":1583868609,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UUT9Z80AE","name_normalized":"random","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UUT9Z80AE","UUTA3S16E","UUW1CJZ41","UUUKJ03NX","UV63Y1672"],"topic":{"value":"Non-work
+        are in this channel.","creator":"UUT9Z80AE","last_set":1583868608},"previous_names":[],"num_members":5},{"id":"CV649DWUV","name":"slack-api","is_channel":true,"created":1583868609,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UUT9Z80AE","name_normalized":"slack-api","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UUTJAGAEN","UUW1CJZ41","UUTA3S16E","UV63Y1672","UUUKJ03NX","UUT9Z80AE","UV3CAV859"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":7},{"id":"CV7V4KYLF","name":"random","is_channel":true,"created":1583868609,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UUT9Z80AE","name_normalized":"random","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UUW1CJZ41","UUTA3S16E","UV63Y1672","UUUKJ03NX","UUT9Z80AE"],"topic":{"value":"Non-work
         banter and water cooler conversation","creator":"UUT9Z80AE","last_set":1583868609},"purpose":{"value":"A
         place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
-        you''d prefer to keep out of more focused work-related channels.","creator":"UUT9Z80AE","last_set":1583868609},"previous_names":[],"num_members":5},{"id":"CVASS4US0","name":"test","is_channel":true,"created":1584050770,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UUT9Z80AE","name_normalized":"test","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UV66LJW5A","UUT9Z80AE"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":2},{"id":"CVBS8GW8M","name":"dianas_test_channel","is_channel":true,"created":1584078400,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UUTA3S16E","name_normalized":"dianas_test_channel","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UUTA3S16E"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":1}],"response_metadata":{"next_cursor":""}}'
+        you''d prefer to keep out of more focused work-related channels.","creator":"UUT9Z80AE","last_set":1583868609},"previous_names":[],"num_members":5},{"id":"CVASS4US0","name":"test","is_channel":true,"created":1584050770,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UUT9Z80AE","name_normalized":"test","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UUT9Z80AE"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":1},{"id":"CVBS8GW8M","name":"dianas_test_channel","is_channel":true,"created":1584078400,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UUTA3S16E","name_normalized":"dianas_test_channel","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UUTA3S16E"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":1}],"response_metadata":{"next_cursor":""}}'
     http_version: null
-  recorded_at: Sat, 14 Mar 2020 23:30:20 GMT
+  recorded_at: Mon, 16 Mar 2020 02:55:06 GMT
 - request:
     method: get
     uri: https://slack.com/api/bogus.endpoint?token=<SLACK_TOKEN>
@@ -105,7 +105,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 16 Mar 2020 00:38:49 GMT
+      - Mon, 16 Mar 2020 03:01:01 GMT
       Server:
       - Apache
       Strict-Transport-Security:
@@ -124,24 +124,24 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 4db145759d443b4fc88cc6c1833cee89
+      - 966991ef3e9a56ecc07519ea3b0fa32a
       X-Xss-Protection:
       - '0'
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-9hkc
+      - haproxy-www-vmz3
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 4f3feb5c4393987d42d1971d404d7cea.cloudfront.net (CloudFront)
+      - 1.1 814362d7589b223cc8927cc821d97136.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - SEA19-C2
       X-Amz-Cf-Id:
-      - USomVbnSnzW9I6ZFPEb26JkEUraOAz4Vdymk1YyCIiUIpqz1CHb4GA==
+      - ssKUWz4neKMawaMVqn-GqhPQAmpATPMnRbWQeHMb1gSoZXDI__1tpw==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":false,"error":"unknown_method","req_method":"bogus.endpoint"}'
     http_version: null
-  recorded_at: Mon, 16 Mar 2020 00:38:49 GMT
+  recorded_at: Mon, 16 Mar 2020 03:01:01 GMT
 recorded_with: VCR 5.1.0
