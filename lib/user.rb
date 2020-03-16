@@ -22,19 +22,9 @@ class User < Recipient
         status_emoji: user["profile"]["status_emoji"],
       )
     end
-  #   users = []
 
-  #   data["members"].each do |item|
-  #     users << User.new(
-  #               name: item["name"],
-  #               slack_id: item["id"],
-  #               real_name: item["real_name"],
-  #               status_text: item["profile"]["status_text"],
-  #               status_emoji: item["profile"]["status_emoji"]
-  #     )
-  #   end
-  #   return users
-  # end
+    return users
+  end
 
   # TODO change to table print
   def details
@@ -43,9 +33,6 @@ class User < Recipient
     Slack id: #{slack_id}"
   end
 end
-
-puts User.list_all
-print User.list_all
 
 # Sample output
 
