@@ -2,6 +2,7 @@
 # but User stuff and Channel stuff are defined in their own clases
 require "dotenv"
 require "httparty"
+require "pry"
 require_relative "recipient"
 require_relative "channel"
 require_relative "user"
@@ -12,11 +13,24 @@ SLACK_TOKEN = ENV["SLACK_TOKEN"]
 
 class Workspace
   attr_reader :users, :channels
+  attr_accessor :selected
 
   def initialize
     @users = User.list_users
     @channels = Channel.list_channels
     @selected = []
+  end
+
+  # - When I type `details`, the program should print out details for the currently selected recipient. What information is printed depends on whether it's a channel or a user.
+  #   - If no recipient is currently selected, the program should let me know and return to the main command prompt.
+
+  def show_details
+    @selected.details
+  end
+
+  def select_channel(selection)
+    @selected = @channels.find do |channel| channel.slack_id == selection || channel.name == selection end
+    return @selected
   end
 
   def list_channels
@@ -28,6 +42,11 @@ class Workspace
       channels_list << channel["name"]
     end
     return channels_list
+  end
+
+  def select_user(selection)
+    @selected = @users.find do |user| user.slack_id == selection || user.name == selection end
+    return @selected
   end
 
   def list_users
