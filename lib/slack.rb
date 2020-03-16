@@ -26,7 +26,7 @@ def main
       
     when "select user"
       print "Please enter the user name or ID: "
-      tp workspace.select_user(gets.chomp), "id", "name", "real_name"
+      tp workspace.select_user(gets.chomp), ")id", "name", "real_name"
       puts "\n"
       
     when "select channel"
@@ -47,15 +47,17 @@ def main
         user_input = nil
         puts "\n"
       end 
+
     when "send message"
       if workspace.selected == nil
         puts "Please select a user or channel."
         puts "\n"
       else
         print "Please enter your message: "
-        workspace.send_message
+         workspace.send_message(gets.chomp)
         puts "\n"
       end
+
     else
       puts "Sorry, I didn't understand your request. Please try again."
       puts "\n"
@@ -66,6 +68,7 @@ def main
   puts "Thank you for using the ADA Slack CLI!"
   puts "\n"
 end
+
 
 def prompt_for_input
   print "Please choose from the options: list users, list channels, select user, select channel, details, send message, or quit: \n"

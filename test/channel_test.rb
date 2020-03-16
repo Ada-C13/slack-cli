@@ -2,6 +2,7 @@ require_relative "test_helper"
 require_relative "../lib/channel"
 
 describe "Channel" do
+
   describe "self.get" do
     it "can get a list of channels" do
       result = {}
@@ -20,6 +21,7 @@ describe "Channel" do
     end
   end
 
+  
   describe "self.list_all" do
     it "returns a list of valid channels" do
       result = []
@@ -32,7 +34,6 @@ describe "Channel" do
       result.each do |item|
         expect(item).must_be_kind_of Channel
       end
-
     end
   end
 end
