@@ -6,6 +6,8 @@ require_relative "recipient"
 require_relative "channel"
 require_relative "user"
 
+POST_MESSAGE_URL = "https://slack.com/api/chat.postMessage"
+
 class Workspace
 
   attr_reader :users, :channels, :selected
@@ -13,7 +15,7 @@ class Workspace
   def initialize
     @users = User.list_all
     @channels = Channel.list_all
-    @selected = ""
+    @selected = "" 
   end
 
   def select_user(user_id_or_username)
@@ -47,7 +49,5 @@ class Workspace
       return @selected
     end
   end
-
-  
 end
 
