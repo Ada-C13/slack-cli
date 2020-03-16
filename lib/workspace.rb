@@ -7,6 +7,17 @@ class Workspace
     @channels = Channel.get_list
   end
 
+  def select(recipient)
+    case recipient
+    when "user"
+      return users
+    when "channel"
+      return channels
+    else
+      raise ArgumentError.new("Invalid recipient.")
+    end
+  end
+
   def print_list(recipient)
     case recipient
     when "users"
