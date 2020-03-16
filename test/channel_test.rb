@@ -81,8 +81,6 @@ describe "Channel" do
         channel = Channel.list_channels[0]
         response = channel.send_message("Posting a test message!")
         expect(response).must_equal true
-        # Why does this not work?
-        # expect(response["channel"]).must_equal "CUTE4M96W"
       end
     end
 
