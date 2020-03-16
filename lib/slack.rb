@@ -10,7 +10,7 @@ Dotenv.load
 def main
   workspace = Workspace.new 
   puts "\n"
-  puts "Welcome to the Ada Slack CLI! This Slack workspace currently has #{workspace.users.count} users and #{workspace.channels.count} channels."
+  puts "Welcome to the Ada Slack CLI! \n This Slack workspace currently has #{workspace.users.count} users and #{workspace.channels.count} channels."
 
   user_input = prompt_for_input
 
