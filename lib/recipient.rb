@@ -17,7 +17,7 @@ class Recipient
 
     if response["ok"] != true || response.code != 200
       raise SlackError(("There was an error posting this message: #{response["error"]}"))
-    else puts "Your message was sent successfully!"     end
+    else puts "Your message has been sent successfully!"     end
 
     return response
   end
