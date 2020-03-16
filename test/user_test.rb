@@ -17,6 +17,15 @@ describe 'User' do
 
   end
 
+  describe "details" do
+    it "displays correct details" do
+      user_list = User.get_list("user")
+      target_user = user_list.find {|user| user.name == "slackbot"}
+      target_a = ["slackbot", "USLACKBOT", "Slackbot" ]
+      expect(target_user.details).must_equal target_a
+    end
+  end
+
   describe ".get_list" do
     # TO DO: before block with VCR cassette?
     it "returns array" do
