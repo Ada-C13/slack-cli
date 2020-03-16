@@ -57,7 +57,6 @@ class Workspace
 
   def send_message(message)
     response = @selected.send_message(message)
-    
     return response.code == 200 && response.parsed_response["ok"]
   end 
 end
