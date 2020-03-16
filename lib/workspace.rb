@@ -44,5 +44,4 @@ def select_channel(inputted_channel_info)
   return @selected_channel
 end
 
-
 end
