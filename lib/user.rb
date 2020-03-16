@@ -1,5 +1,4 @@
 require_relative "recipient"
-require "table_print" # do I need this here?
 
 class User < Recipient
   attr_reader :real_name, :status_text, :status_emoji
@@ -25,11 +24,8 @@ class User < Recipient
     return users
   end
 
-  # TODO change to table print
   def details
-    return "Username: #{name}, 
-    Real name: #{real_name}, 
-    Slack id: #{slack_id}"
+    tp self, "slack_id", "name", "real_name"
   end
 end
 
