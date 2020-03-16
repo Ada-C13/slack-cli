@@ -12,16 +12,15 @@ class Workspace
   def initialize
     @channels = Channel.list_all
     @users = User.list_all
-    @selected = nil
+    @selected = ""
   end
 
   def select_channel(channel_name)
     @channels.each do |channel|
-      if (channel.name) == channel_name
+      if channel.name == channel_name || channel.slack_id == channel_name
         @selected = channel
+        puts "\n You have selected #{channel.name}"
         break
-      elsif (channel.slack_id) == channel_name
-        @selected = channel
       else
         @selected = nil
       end
@@ -33,12 +32,10 @@ class Workspace
 
   def select_user(user_name)
     @users.each do |user|
-      if user.real_name == user_name
+      if user.real_name == user_name || user.slack_id == user_name
         @selected = user
-        puts "You have selected #{user.real_name}"
+        puts "\n You have selected #{user.real_name}"
         break
-      elsif user.slack_id == user_name
-        @selected = user
       else
         @selected = nil
       end
@@ -60,13 +57,5 @@ class Workspace
 
   def send_message(message)
     @selected.send_message(message)
-=begin
- url = "https://slack.com/api/chat.postMessage"
-    if @selected.class == Channel
-      HTTParty.post(url , query: {token: ENV["SLACK_API_TOKEN"], channel: @selected.slack_id, text: message})
-    elsif @selected.class == User
-      HTTParty.post(url , query: {token: ENV["SLACK_API_TOKEN"], channel: @selected.slack_id, text: message})
-    end
-=end
   end 
 end

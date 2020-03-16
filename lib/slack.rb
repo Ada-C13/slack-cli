@@ -69,7 +69,8 @@ def main
 end
 
 def prompt_for_input
-  print "Please choose an option: \n list users, \n list channels, \n select user, \n select channel, \n details, \n send message, \n or quit: \n"
+  print "Please choose an option: \n - list users \n - list channels \n - select user \n - select channel \n - details \n - send message \n or quit \n"
+  puts "--------------------------------------------"
   return gets.chomp.downcase
 end
 

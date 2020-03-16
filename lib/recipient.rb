@@ -47,9 +47,7 @@ attr_reader :slack_id, :name
       }
     )  
   end
-
-
+end
 
 class SlackAPIError < Exception  
-  end
 end
