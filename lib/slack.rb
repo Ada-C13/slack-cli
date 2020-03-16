@@ -29,7 +29,8 @@ module SlackCLI
     puts "Please enter the number entry you'd like to execute:"
 
     input = gets.chomp.to_i
-    while input != 7 do
+    # function exits when input == 7
+    while true do
       case input
       when 1 
         puts "The users of this program are:\n"
@@ -46,22 +47,20 @@ module SlackCLI
         puts "Enter a channel name to post your message to:\n"
         puts workspace.choose_channel
       when 5 
-        until workspace.chosen != nil
-          puts "Please enter a username or channel name."
-          input = gets.chomp.to_i 
-          puts input.summary 
-        end 
+        workspace.deets
       when 6 
         puts "Enter the message you'd like to send here:\n\n" 
         body_talk = gets.chomp
+        workspace.speak(body_talk)
+      when 7
+        puts "Thank you for using the Ada Slack CLI\n\n"
+        return
       else 
         puts "Hmm, I might have the memory of a goldfish; I don't remember that option being listed. Try again now?\n\n"
         input = gets.chomp.to_i 
       end 
-    end 
-
-    if input == 7
-      puts "Thank you for using the Ada Slack CLI\n\n"
+      puts "Please enter a new command."
+      input = gets.chomp.to_i
     end 
   end
   main if __FILE__ == $PROGRAM_NAME 

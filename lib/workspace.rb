@@ -16,28 +16,31 @@ module SlackCLI
     end
 
     def choose_channel 
-      sought = gets.chomp 
+      sought = gets.chomp.downcase
+
+      expose_channels 
 
       channels.each do |channel|
         if channel.name == sought || channel.id == sought
           @chosen = channel
-          return "Your entry, #{chosen.name} has been chosen."
+          return "Selected #{channel.name}."
         end
-      end 
-
-      @chosen = nil
-      return "That channel couldn't be recognized."
-    end 
+      end
+      return "Could not find channel."
+    end
 
     def choose_user
-      sought = gets.chomp
+      sought = gets.chomp.downcase 
+
+      expose_users 
 
       users.each do |user|
-        if user.name == sought || channel.id == sought 
-          @chosen = channel
-          return "Your entry, #{chosen.name} has been chosen." 
+        if user.name == sought || user.id == sought 
+          @chosen = user
+          return "Selected #{user.name}."  
         end 
       end 
+      return "Could not find user."
     end 
 
     def expose_users
@@ -48,10 +51,18 @@ module SlackCLI
       @channels = SlackCLI::Channel.show_all 
     end
 
-    # Play with this further
-    def speak
-      body_talk = gets.chomp
-      @chosen.speak(body_talk)
+    def deets
+      if @chosen
+        @chosen.summary
+        return
+      end
+      puts "<No receiver selected>" 
+    end
+
+    def speak(body_talk)
+      unless @chosen == nil
+        @chosen.give_slack(body_talk)
+      end 
     end 
   end 
 end 

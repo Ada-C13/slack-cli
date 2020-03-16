@@ -12,11 +12,10 @@ module SlackCLI
       @name = name
     end 
 
-    # https://api.slack.com/methods/chat.postMessage
     def give_slack(body_talk)
       clap_back = HTTParty.post("https://slack.com/api/chat.postMessage", query: {token: ENV['BOT_TOKEN'], channel: self.id, text: body_talk})
 
-      unless response.code == 200 || response["ok"] != false
+      unless clap_back.code == 200 || clap_back["ok"] != false
         raise ArgumentError.new("Whoops. Someone dropped the butter on the cat toy: #{clap_back["error"]}")
       end
       return clap_back
