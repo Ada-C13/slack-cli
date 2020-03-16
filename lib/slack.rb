@@ -76,7 +76,11 @@ def main
         workspace.show_selected
 
       when "send message"
-        workspace.send_message
+        begin
+          workspace.send_message
+        rescue Recipient::SlackApiError => error
+          puts "Unable to send message #{error.message}"
+        end
 
       when "quit"
         puts "Okay you want to quit. Goodbye"
