@@ -1,6 +1,7 @@
 # worksapce.rb
 require_relative "user"
 require_relative "channel"
+require_relative "recipient"
 
 module Slack_cli
   class Workspace
@@ -41,8 +42,8 @@ module Slack_cli
     end
 
     def send_message
+      @selected.send_message(channel)
     end
-
   end
 end
 
