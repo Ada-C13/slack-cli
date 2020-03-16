@@ -1,5 +1,6 @@
 # Recipient_test.rb
 require_relative 'test_helper'
+require_relative  '../lib/recipient'
 
 
 describe "Recipient" do
@@ -26,5 +27,13 @@ describe "Recipient" do
      
       expect(resp.code == 200 && resp.parsed_response["ok"]).must_equal "ok"
     end
+  end
+
+  it "raises an error if invoked list_all directly (without subclassing)" do
+    expect { Slack_cli::Recipient.list_all }.must_raise NotImplementedError
+  end
+
+  it "raises an error if invoked details directly (without subclassing)" do
+    expect { @recipient.details }.must_raise NotImplementedError
   end
 end
