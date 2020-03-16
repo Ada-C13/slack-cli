@@ -15,6 +15,14 @@ class Channel < Recipient
   end
 
   def self.list_all
-    #
+    data = Channel.get("https://slack.com/api/conversations.list")
+    channels = data["channels"].map do |channel|
+      self.new(
+        name: channel["name"],
+        slack_id: channel["id"],
+        topic: channel["topic"]["value"],
+        member_count: channel["num_members"]
+      )
+    end
   end
 end
