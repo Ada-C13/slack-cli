@@ -4,9 +4,9 @@ require 'httparty'
 require 'table_print'
 
 require_relative 'workspace.rb'
-require_relative 'channel.rb'
-require_relative 'recipient.rb'
-require_relative 'user.rb'
+# require_relative 'channel.rb'
+# require_relative 'recipient.rb'
+# require_relative 'user.rb'
 
 Dotenv.load
 
