@@ -7,6 +7,11 @@ class Recipient
     @name = name
     @slack_id = slack_id
   end
+
+  def details
+    return [name, slack_id]
+  end
+
   # TO DO: try putting a parameter-less version of get list here, with an uninstantiated error.
   def self.get_list(recipient_kind)
     if recipient_kind != "user" && recipient_kind != "channel"

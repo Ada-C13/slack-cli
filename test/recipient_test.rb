@@ -13,6 +13,14 @@ describe "Recipient" do
     end
   end
 
+  describe "details" do
+    it "returns array of name and id" do
+      recipient = Recipient.new("Test", "T00000001")
+      target_a = ["Test", "T00000001"]
+      expect(recipient.details).must_equal target_a
+    end
+  end
+
   describe "get_list" do
     it "raises error for invalid recipient type" do
       expect{Recipient.get_list("oogie-woogie")}.must_raise ArgumentError
