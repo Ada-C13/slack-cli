@@ -42,10 +42,12 @@ def main
       tp workspace.channels, "name", "topic", "member_count", "slack_id"
 
     when "select user", "3"
-      # TODO
+      print "Please provide a user name: "
+      puts workspace.select_user
 
     when "select channel", "4"
-      # TODO
+      print "Please provide a channel name: "
+      puts workspace.select_channel
 
     when "details", "5"
       # TODO
