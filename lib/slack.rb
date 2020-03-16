@@ -21,13 +21,35 @@ Dotenv.load
 
 # User: After completing any command other than quit, the program should reprint the list of commands and ask for another input.
 
+def menu_choice
+  print "Your options include: 1) list users, 2) list channels, or 3) quit: \n"
+  print "What would you like to do?"
+  return gets.chomp.downcase
+end
+
 def main
-  puts "Welcome to the Ada Slack CLI!"
   workspace = Workspace.new
 
-  # TODO project
+  puts "\n Welcome to Nora's Slack API CLI. This Slack workspace currently has #{workspace.users.length} users and #{workspace.channels.length} channels."
+  action = menu_choice
 
-  puts "Thank you for using the Ada Slack CLI"
+  until action == "quit" || 3 || "exit" || "3) quit"
+    case action
+    when "list users" || "users" || 1 || "1) list users"
+      tp workspace.users, "name", "real_name", "slack_id"
+      puts "\n"
+    when "list channels" || "channels" || 2 || "2) list channels"
+      tp workspace.channels, "name", "topic", "member_count", "slack_id"
+      puts "\n"
+    else
+      puts "Oops! I didn't understand you. Try again?"
+      puts "\n"
+    end
+
+    action
+  end
+
+  puts "Thank you for using Nora's Slack CLI.\n"
 end
 
 
