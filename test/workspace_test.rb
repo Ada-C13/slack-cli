@@ -75,4 +75,26 @@ describe "Workspace" do
       expect(@workspace.show_details).must_be_nil
     end
   end
+
+  # I'm not sure how to test this 
+  # describe "customize_bot" do
+  #   before do
+  #     VCR.use_cassette("workspace-customize-bot") do
+  #       user = HTTParty.get("https://slack.com/api/users.info?token=xoxp-991668681700-991668681972-981605165810-99a1cdf01edb9e571ee65cc11ea6ebf1&user=UV5KNL1UL")
+  #       @username = user["user"]["name"]
+  #       @emoji = user["user"]["profile"]["status_emoji"]
+  
+  #       @workspace.customize_bot("jessica bot test", ":rainbow:")
+  #     end
+  #   end
+
+  #   it "updates username and emoji" do
+  #     VCR.use_cassette('workspace-customize-bot2') do
+  #       user = HTTParty.get("https://slack.com/api/users.info?token=xoxp-991668681700-991668681972-981605165810-99a1cdf01edb9e571ee65cc11ea6ebf1&user=UV5KNL1UL")
+
+  #       expect(user["user"]["name"]).wont_equal @username
+  #       expect(user["user"]["profile"]["status_emoji"]).wont_equal @emoji
+  #     end
+  #   end
+  # end
 end
