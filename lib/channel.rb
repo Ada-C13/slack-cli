@@ -34,15 +34,5 @@ module SlackCli
         end
       return channels
     end #load_all method
-
-
   end #class
 end #module
-
-# testchannels = SlackCli::Channel.load_all
-# testchannels.each do |channel|
-#   puts channel.id
-#   puts channel.name
-#   puts channel.topic
-#   puts channel.member_count
-# end

@@ -23,13 +23,6 @@ module SlackCli
       response = HTTParty.get(url) #request that will return the response
       #parse response and get users
         response['members'].each do |member|
-          # "id": "UUUKJ03NX",
-          # "team_id": "TV63QKAAU",
-          # "name": "kate.d.mangubat",
-          # "deleted": false,
-          # "color": "4bbe2e",
-          # "real_name": "Kate Mangubat"
-  
           #create a user
           id = member["id"]
           name = member["name"]
@@ -44,17 +37,5 @@ module SlackCli
         end
       return users
     end #load_all method
-
   end #class
 end #module
-
-# testuser = SlackCli::User.new(1, "kate", "katem")
-# puts testuser.handle
-# all_users = SlackCli::User.load_all
-
-# all_users.each do |user|
-#   puts user.name
-#   puts user.real_name
-#   puts user.status_text
-#   puts user.status_emoji
-# end
