@@ -59,4 +59,9 @@ class Workspace
     response = @selected.send_message(message)
     return response.code == 200 && response.parsed_response["ok"]
   end 
+
+  def get_conversation_his
+    response = @selected.check_conversation_his
+    return response.code == 200 && response.parsed_response["ok"]
+  end
 end
