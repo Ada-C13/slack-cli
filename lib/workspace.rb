@@ -6,11 +6,12 @@ require_relative "user"
 
 module Slack
   class Workspace
-    attr_reader :users, :conversations, :selected
+    # attr_reader :users, :conversations, :selected
+    attr_reader :users, :selected
     
     def initialize
-      @users = User.get_all
-      @conversations = Conversation.get_all 
+      @users = User.list_all
+      #@conversations = Conversation.list_all 
       @selected = nil
     end
 
