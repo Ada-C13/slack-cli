@@ -4,18 +4,13 @@ require_relative "direct_message"
 require_relative "channel"
 require_relative "user"
 
-Dotenv.load
-
-SLACK_TOKEN = ENV["SLACK_TOKEN"]
-
-
 module Slack
   class Workspace
-    attr_reader :users, :channels, :selected
+    attr_reader :users, :conversations, :selected
     
     def initialize
       @users = User.get_all
-      @channels = Channel.get_all # TO-DO: replace this variable with CONVERSATIONS and create methods to list by type of conversation
+      @conversations = Conversation.get_all 
       @selected = nil
     end
 
