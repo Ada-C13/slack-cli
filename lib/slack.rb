@@ -23,7 +23,7 @@ def main
   while input != "quit"
     puts "\nWhat would you like to do?"
     puts "list users \nlist channels \nselect user \nselect channel \ndetails \nquit \n\n"
-    input = gets.chomp.downcase
+    input = gets.chomp
     case input 
     when "list users"
       workspace.print_list("users")
