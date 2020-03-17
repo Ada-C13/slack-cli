@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://slack.com/api/channels.list?token=xoxb-981934424289-982762382083-mwSLUaKBguf401BeOtA9dJv4
+    uri: https://slack.com/api/channels.list?token=xoxb-981934424289-982762382083-2NtOS96ZCaZQaQcaefb6YBVV
     body:
       encoding: US-ASCII
       string: ''
@@ -25,13 +25,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Sun, 15 Mar 2020 22:31:02 GMT
+      - Tue, 17 Mar 2020 05:30:22 GMT
       Server:
       - Apache
       X-Slack-Req-Id:
-      - 57f45208daaab84c9ea34e4c331811c8
+      - a8dae6d3cccf9615ec42ed71263ad858
       X-Oauth-Scopes:
-      - users:read,channels:read,chat:write,chat:write.customize,chat:write.public
+      - channels:read,chat:write,chat:write.customize,users:read,chat:write.public
       X-Accepted-Oauth-Scopes:
       - channels:read
       Access-Control-Expose-Headers:
@@ -60,105 +60,30 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-8jal
+      - haproxy-www-45sp
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 b48dedcc55e63f14261aa92cf2d61522.cloudfront.net (CloudFront)
+      - 1.1 a847181d425b7fc57e81eb3c800bfdf2.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - SEA19-C1
+      - SEA19-C2
       X-Amz-Cf-Id:
-      - R6rNhPOGPDeKk4Dv_bmpBvrJ9DewA4ClQ7POsJCWqN9KQDZrCieVBQ==
+      - vTBAcpuF1JyabFKZY5oQkhhI3SYuJjOW2qFouJm0Q__kDIi8Q3wJTQ==
     body:
       encoding: ASCII-8BIT
-      string: '{"ok":true,"channels":[{"id":"CV5GLCW12","name":"general","is_channel":true,"created":1583865622,"is_archived":false,"is_general":true,"unlinked":0,"creator":"UV5GLBZT6","name_normalized":"general","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UV60Q76GG","UV60P4CMN","UV64BM5QV","UV68KR96Z","UV5GLBZT6"],"topic":{"value":"Company-wide
+      string: '{"ok":true,"channels":[{"id":"CV5GLCW12","name":"general","is_channel":true,"created":1583865622,"is_archived":false,"is_general":true,"unlinked":0,"creator":"UV5GLBZT6","name_normalized":"general","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UV60Q76GG","UV5GLBZT6","UV60P4CMN","UV64BM5QV","UV68KR96Z"],"topic":{"value":"Company-wide
         announcements and work-based matters","creator":"UV5GLBZT6","last_set":1583865622},"purpose":{"value":"This
         channel is for workspace-wide communication and announcements. All members
-        are in this channel.","creator":"UV5GLBZT6","last_set":1583865622},"previous_names":[],"num_members":5},{"id":"CV5GLDJ9J","name":"slack-bot","is_channel":true,"created":1583865623,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UV5GLBZT6","name_normalized":"slack-bot","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UV60Q76GG","UV60P4CMN","UV64BM5QV","UV68KR96Z","UV5GLBZT6"],"topic":{"value":"A
-        place for us to test our slack API projects","creator":"UV5GLBZT6","last_set":1583865752},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":5},{"id":"CV86RT7AS","name":"random","is_channel":true,"created":1583865622,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UV5GLBZT6","name_normalized":"random","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UV60Q76GG","UV60P4CMN","UV64BM5QV","UV68KR96Z","UV5GLBZT6"],"topic":{"value":"Non-work
+        are in this channel.","creator":"UV5GLBZT6","last_set":1583865622},"previous_names":[],"num_members":5},{"id":"CV5GLDJ9J","name":"slack-bot","is_channel":true,"created":1583865623,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UV5GLBZT6","name_normalized":"slack-bot","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UV60Q76GG","UV5GLBZT6","UV60P4CMN","UV64BM5QV","UV68KR96Z"],"topic":{"value":"A
+        place for us to test our slack API projects","creator":"UV5GLBZT6","last_set":1583865752},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":5},{"id":"CV86RT7AS","name":"random","is_channel":true,"created":1583865622,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UV5GLBZT6","name_normalized":"random","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UV60Q76GG","UV5GLBZT6","UV60P4CMN","UV64BM5QV","UV68KR96Z"],"topic":{"value":"Non-work
         banter and water cooler conversation","creator":"UV5GLBZT6","last_set":1583865622},"purpose":{"value":"A
         place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
         you''d prefer to keep out of more focused work-related channels.","creator":"UV5GLBZT6","last_set":1583865622},"previous_names":[],"num_members":5}],"response_metadata":{"next_cursor":""}}'
     http_version: null
-  recorded_at: Sun, 15 Mar 2020 22:31:02 GMT
+  recorded_at: Tue, 17 Mar 2020 05:30:22 GMT
 - request:
     method: post
-    uri: https://slack.com/api/chat.postMessage?channel=CV5GLCW12&text=%23%3CProc:0x00007fbcd091b880@/Users/emily/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/minitest-5.14.0/lib/minitest/assertions.rb:612%3E&token=xoxb-981934424289-982762382083-mwSLUaKBguf401BeOtA9dJv4
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Content-Length:
-      - '424'
-      Connection:
-      - keep-alive
-      Date:
-      - Sun, 15 Mar 2020 22:31:02 GMT
-      Server:
-      - Apache
-      X-Slack-Req-Id:
-      - 6b4332225a030a907457eb7316e1570c
-      X-Oauth-Scopes:
-      - users:read,channels:read,chat:write,chat:write.customize,chat:write.public
-      X-Accepted-Oauth-Scopes:
-      - chat:write
-      Access-Control-Expose-Headers:
-      - x-slack-req-id, retry-after
-      X-Slack-Backend:
-      - h
-      X-Content-Type-Options:
-      - nosniff
-      Expires:
-      - Mon, 26 Jul 1997 05:00:00 GMT
-      Cache-Control:
-      - private, no-cache, no-store, must-revalidate
-      X-Xss-Protection:
-      - '0'
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Access-Control-Allow-Headers:
-      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
-        x-b3-sampled, x-b3-flags
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
-      Referrer-Policy:
-      - no-referrer
-      Access-Control-Allow-Origin:
-      - "*"
-      X-Via:
-      - haproxy-www-abpq
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 34f8ef0e4c880df0650a814412a26ea6.cloudfront.net (CloudFront)
-      X-Amz-Cf-Pop:
-      - SEA19-C1
-      X-Amz-Cf-Id:
-      - tAsAv9XxOgs9PPbR7adZPK0hQIBwZbBy9a7eZVjIgGRH1as_lUIq6g==
-    body:
-      encoding: ASCII-8BIT
-      string: '{"ok":true,"channel":"CV5GLCW12","ts":"1584311462.000100","message":{"bot_id":"BV7NS2P1A","type":"message","text":"#&lt;Proc:0x00007fbcd091b880@\/Users\/emily\/.rbenv\/versions\/2.6.5\/lib\/ruby\/gems\/2.6.0\/gems\/minitest-5.14.0\/lib\/minitest\/assertions.rb:612&gt;","user":"UUWNEB82F","ts":"1584311462.000100","team":"TUVTGCG8H","bot_profile":{"id":"BV7NS2P1A","deleted":false,"name":"Time
-        - Emily - API Project","updated":1584160273,"app_id":"AVACSNPN2","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TUVTGCG8H"}}}'
-    http_version: null
-  recorded_at: Sun, 15 Mar 2020 22:31:02 GMT
-- request:
-    method: post
-    uri: https://slack.com/api/chat.postMessage?channel=CV5GLCW12&text=this%20is%20a%20message!!!&token=xoxb-981934424289-982762382083-mwSLUaKBguf401BeOtA9dJv4
+    uri: https://slack.com/api/chat.postMessage?channel=CV5GLCW12&text=this%20is%20a%20message!!!&token=xoxb-981934424289-982762382083-2NtOS96ZCaZQaQcaefb6YBVV
     body:
       encoding: UTF-8
       string: ''
@@ -181,13 +106,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Sun, 15 Mar 2020 22:31:45 GMT
+      - Tue, 17 Mar 2020 05:30:22 GMT
       Server:
       - Apache
       X-Slack-Req-Id:
-      - dcff324e337d62f93f458e13c46d32c0
+      - 933d88a3e5bc64f4d2f990b3427a8ae2
       X-Oauth-Scopes:
-      - users:read,channels:read,chat:write,chat:write.customize,chat:write.public
+      - channels:read,chat:write,chat:write.customize,users:read,chat:write.public
       X-Accepted-Oauth-Scopes:
       - chat:write
       Access-Control-Expose-Headers:
@@ -216,94 +141,20 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-lgqg
+      - haproxy-www-zesd
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 e9f9d4725d6328edca783d6dff756da8.cloudfront.net (CloudFront)
-      X-Amz-Cf-Pop:
-      - SEA19-C1
-      X-Amz-Cf-Id:
-      - nSZCdqwYFLY7KLarEDh7sYs1Fmx5lSzKgqbQ2Skf6bOHFo-ehcjmVQ==
-    body:
-      encoding: ASCII-8BIT
-      string: '{"ok":true,"channel":"CV5GLCW12","ts":"1584311505.000600","message":{"bot_id":"BV7NS2P1A","type":"message","text":"this
-        is a message!!!","user":"UUWNEB82F","ts":"1584311505.000600","team":"TUVTGCG8H","bot_profile":{"id":"BV7NS2P1A","deleted":false,"name":"Time
-        - Emily - API Project","updated":1584160273,"app_id":"AVACSNPN2","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TUVTGCG8H"}}}'
-    http_version: null
-  recorded_at: Sun, 15 Mar 2020 22:31:45 GMT
-- request:
-    method: post
-    uri: https://slack.com/api/chat.postMessage?channel=CV5GLCW12&text=&token=xoxb-981934424289-982762382083-mwSLUaKBguf401BeOtA9dJv4
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Content-Length:
-      - '50'
-      Connection:
-      - keep-alive
-      Date:
-      - Sun, 15 Mar 2020 22:36:12 GMT
-      Server:
-      - Apache
-      X-Slack-Req-Id:
-      - 3b65937d48e6f87f340e6b1c3209bbb4
-      X-Oauth-Scopes:
-      - users:read,channels:read,chat:write,chat:write.customize,chat:write.public
-      X-Accepted-Oauth-Scopes:
-      - chat:write
-      Access-Control-Expose-Headers:
-      - x-slack-req-id, retry-after
-      X-Slack-Backend:
-      - h
-      X-Content-Type-Options:
-      - nosniff
-      Expires:
-      - Mon, 26 Jul 1997 05:00:00 GMT
-      Cache-Control:
-      - private, no-cache, no-store, must-revalidate
-      X-Xss-Protection:
-      - '0'
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Access-Control-Allow-Headers:
-      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
-        x-b3-sampled, x-b3-flags
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
-      Referrer-Policy:
-      - no-referrer
-      Access-Control-Allow-Origin:
-      - "*"
-      X-Via:
-      - haproxy-www-xy1y
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 97d744cbc5fa647cc362d14ff20ecf08.cloudfront.net (CloudFront)
+      - 1.1 d8792dbd3191bbe722eba5b536b979c8.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - SEA19-C2
       X-Amz-Cf-Id:
-      - E2nMZFV_hgKm0gu_yG9kQiYUHg1ynS2Vl9CTu76eGZUJ2c9c3hzifw==
+      - "-jyBRudto_BJewQMGtG_JCANrW8SzZ15IUrCjYJaS36U8LaiWeCp2g=="
     body:
       encoding: ASCII-8BIT
-      string: '{"ok":false,"error":"no_text"}'
+      string: '{"ok":true,"channel":"CV5GLCW12","ts":"1584423022.000100","message":{"bot_id":"BV7NS2P1A","type":"message","text":"this
+        is a message!!!","user":"UUWNEB82F","ts":"1584423022.000100","team":"TUVTGCG8H","bot_profile":{"id":"BV7NS2P1A","deleted":false,"name":"Time
+        - Emily - API Project","updated":1584422967,"app_id":"AVACSNPN2","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TUVTGCG8H"}}}'
     http_version: null
-  recorded_at: Sun, 15 Mar 2020 22:36:12 GMT
+  recorded_at: Tue, 17 Mar 2020 05:30:22 GMT
 recorded_with: VCR 5.1.0
