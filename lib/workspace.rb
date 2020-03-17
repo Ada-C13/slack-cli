@@ -1,5 +1,6 @@
 require "dotenv"
 require "httparty"
+require_relative "direct_message"
 require_relative "channel"
 require_relative "user"
 
@@ -19,7 +20,7 @@ module Slack
     end
 
     # Method selects a user or channel using the name or slack ID. 
-    def select_conversation
+    def select_by_id(id, type)
     end
 
     # Method shows details of the currently selected conversation.
