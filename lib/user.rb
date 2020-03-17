@@ -10,12 +10,11 @@ module Slack
     attr_reader :id, :user_name, :real_name
     
     def initialize(member)
-      raise ArgumentError, "Trying to create User object with bad data: #{member}." if member[:id] == nil
-      @id = member[:id]
-      @user_name = member[:name]
-      @real_name = member[:real_name]
+      raise ArgumentError, "Trying to create User object with bad data: #{member}." if member["id"] == nil
+      @id = member["id"]
+      @user_name = member["name"]
+      @real_name = member["real_name"]
     end
-
 
     # CLASS METHODS
 
