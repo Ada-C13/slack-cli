@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require_relative 'workspace'
+require "table_print"
 
 OPTIONS = [
   ["1", "list users"],
@@ -9,35 +10,49 @@ OPTIONS = [
 
 def main
   puts "Welcome to the Ada Slack CLI!"
-  workspace = Slack::Workspace.new
+  @workspace = Slack::Workspace.new
 
-  choice = prompt_and_retrieve
+  #MAIN LOOP 
+  choice = get_user_input
+  until (OPTIONS[-1].include? choice)
+    perform_action(choice)
+    choice = get_user_input
+  end
+  puts "\n>>>>>> Thank you for using the Slack CLI! Goodbye."
+end
 
-  until OPTIONS.any? { |option| option.include? choice } do 
+def perform_action(choice)
+
+  until OPTIONS.any? { |option| option.include? choice } 
     print "'#{choice}' is an invalid option, try again. > "
     choice = gets.strip.downcase
   end 
-
+  
   case choice 
-  when *OPTIONS[0]
-    puts "chose option 1"
-  when *OPTIONS[1]
-    puts "chose option 2"
-  when *OPTIONS[2]
-    puts "chose option 3"
+    when *OPTIONS[0]
+      puts "\n\n>>>>>>> LIST OF USERS"
+      tp @workspace.users
+    when *OPTIONS[1]
+      puts "\n\n>>>>>>> LIST OF CHANNELS"
+      puts "I'll get you those channels one day."
   end
 
-  puts "Thank you for using the Ada Slack CLI"
 end
 
-def prompt_and_retrieve
-  puts "MAIN MENU"
+def get_user_input
+  puts "\n\nMAIN MENU - please select from the following"
+
   OPTIONS.each do |option|
     puts option.join(" ")
   end
-  print "What would you like to do? > "
+  
+  print "\nWhat would you like to do? > "
   choice = gets.strip.downcase
   return choice
 end
 
+
 main if __FILE__ == $PROGRAM_NAME
+
+
+
