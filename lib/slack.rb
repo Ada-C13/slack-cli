@@ -21,7 +21,7 @@ def main
   selected = nil
   while input != "quit"
     puts "\nWhat would you like to do?"
-    puts "list users \nlist channels \nselect user \nselect channel \ndetails \nsend message \nquit \n\n"
+    puts "list users \nlist channels \nselect user \nselect channel \ndetails \nsend message \nmessage history \nquit \n\n"
     input = gets.chomp
     case input 
     when "list users"
@@ -46,6 +46,13 @@ def main
         text = gets.chomp
         workspace.post(text, selected)
         puts "Your message to #{selected.name} was successfully sent."
+      end
+    when "message history"
+      if selected == nil
+        puts "You must select a recipient before asking for details."
+      else
+        puts "Messages sent to #{selected.name}:"
+        ap selected.messages.values
       end
     when "quit"
       puts "Goodbye!"

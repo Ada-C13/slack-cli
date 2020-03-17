@@ -4,11 +4,13 @@ class API_Error < StandardError
 end
 class Recipient
   attr_reader :details
+  attr_accessor :messages
   def initialize(name, slack_id)
     @details = {
       "name" => name,
       "id" => slack_id
     }
+    @messages = {}
   end
 
   def name

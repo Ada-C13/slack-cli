@@ -35,6 +35,7 @@ class Workspace
     if !response["ok"]
       raise API_Error.new("#{response["error"]}")
     end
+    record_message(destination, response)
     return response
   end
 
@@ -53,6 +54,12 @@ class Workspace
   def find(recipient_kind, recipient_id)
     selected = recipient_kind.find {|recipient| recipient.name == recipient_id || recipient.slack_id == recipient_id}
     return selected
+  end
+
+  def record_message(recipient, response)
+    time_stamp = response["ts"]
+    text = response["message"]["text"]
+    recipient.messages[time_stamp] = text
   end
  
 end
