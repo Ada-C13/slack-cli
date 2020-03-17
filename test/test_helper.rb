@@ -5,6 +5,9 @@ SimpleCov.start do
   add_filter 'slack.rb'
 end
 
+require 'dotenv'
+Dotenv.load
+
 require 'table_print'
 require 'minitest'
 require 'minitest/autorun'
@@ -28,8 +31,8 @@ VCR.configure do |config|
   }
 
   # Don't leave our token lying around in a cassette file.
-  config.filter_sensitive_data("<SLACKAPI_TOKEN>") do
-    ENV["SLACKAPI_TOKEN"]
+  config.filter_sensitive_data("<SLACK_TOKEN>") do
+    ENV["SLACK_TOKEN"]
   end
 
   require_relative '../lib/slack'
