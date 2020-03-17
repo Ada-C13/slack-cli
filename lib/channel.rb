@@ -1,3 +1,5 @@
+# note: Channel's conversation ID is the same as slack ID
+
 require_relative 'recipient'
 
 module Slack 
@@ -9,7 +11,6 @@ module Slack
       super(**args)
       @topic = topic 
       @member_count = member_count
-      @conversation_id = @slack_id # Channel's conversation ID is the same as slack ID
     end 
 
 

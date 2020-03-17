@@ -1,3 +1,5 @@
+# note: User's converstaion ID is not same as slack ID
+
 require_relative 'recipient'
 
 module Slack
@@ -12,7 +14,6 @@ module Slack
       @real_name = real_name 
       @status_text = status_text 
       @status_emoji = status_emoji
-      @conversation_id = nil # User's converstaion ID is not same as slack ID
     end 
 
     def details 
@@ -32,11 +33,9 @@ module Slack
       
       list.each do |info|
         if info[:slack_id] == @slack_id
-          @conversation_id = info[:converstaion_id]
-          break
+          return info[:converstaion_id]
         end  
       end 
-      return @conversation_id
     end 
 
 
