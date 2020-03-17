@@ -23,9 +23,11 @@ module SlackCli
         end
 
         def self.list_all
+            raise SlackAPIError, "implement in user or channel"
         end
 
         def details
+            raise SlackAPIError, "implement in user or channel"
         end
 
     end

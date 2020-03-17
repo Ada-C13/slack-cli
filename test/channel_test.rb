@@ -9,7 +9,7 @@ describe "Channel Class" do
   describe "Channel instantiation" do
     before do
       @channel = SlackCli::Channel.new(slack_id: 1 ,name: "hala", topic: "ada", member_count: 2342)
-      @channel2 = SlackCli::Channel.new(slack_id: "CVDP09BL7" ,name: "halatests", topic: "ada", member_count: 1)
+      @channel2 = SlackCli::Channel.new(slack_id: "C01067YP1T9" ,name: "halatests", topic: "ada", member_count: 1)
     end
 
     it "is an instance of Channel" do
@@ -26,7 +26,7 @@ describe "Channel Class" do
           SLACK_API_TOKEN = ENV["SLACK_API_TOKEN"]
           channels = HTTParty.get(CHANNELS_URL,	query: {token: SLACK_API_TOKEN })
     
-          expect(SlackCli::Channel.list_all.length).must_equal 3
+          expect(SlackCli::Channel.list_all.length).must_equal 5
         end
     end
 

@@ -35,7 +35,7 @@ def main
       when "send message"
         workspace.send_message
       when "list details"
-        if workspace.selected == nil
+        if workspace.selected == nil || workspace.selected == ''
           puts "no previously selected user or channel!"
           puts "would you like to select a user or a channel? q to return to previous menu!"
           selection = gets.chomp
@@ -55,12 +55,23 @@ def main
             puts "wrong input! try again"
             main
           end
+        else 
+          if
+            selection == "user"
+              puts "here are the details of user #{workspace.selected.name}"
+              workspace.show_details
+            elsif  selection == "channel"
+              puts "here are the details of channel #{workspace.selected.name}"
+              workspace.show_details
+            else 
+              puts "wrong input! try again"
+              main
+          end
         end
       when "quit"
         puts "Thank you for using the Ada Slack CLI"
       end
     end
-
 end
 
 
