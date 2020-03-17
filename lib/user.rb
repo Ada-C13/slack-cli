@@ -10,7 +10,7 @@ module Slack
     attr_reader :id, :user_name, :real_name
     
     def initialize(member)
-      raise ArgumentError, "Trying to create User object with bad data: #{member}." if member["id"] == nil
+      raise ArgumentError, "Trying to create User object with bad data: #{member}." if member["id"] == nil || member["name"] == nil || member["real_name"] == nil 
       @id = member["id"]
       @user_name = member["name"]
       @real_name = member["real_name"]
@@ -21,7 +21,8 @@ module Slack
     # Parameter users: collection representing Users
     # Returns an array of User objects   
     def self.list_all
-      members = get_all
+      members_including_deleted = get_all
+      members = members_including_deleted.reject { |member| member["deleted"] == true } #cover a wonky case
       members.map { |member| User.new(member) }
     end
 
