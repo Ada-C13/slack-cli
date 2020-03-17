@@ -2828,4 +2828,63 @@ http_interactions:
       string: '{"ok":false,"error":"channel_not_found"}'
     http_version: null
   recorded_at: Mon, 16 Mar 2020 08:31:05 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.history?channel%5B%5D%5Bconverstaion_id%5D=D0100ST4T6U&channel%5B%5D%5Bslack_id%5D=U0102NT1RE3&channel%5B%5D%5Bconverstaion_id%5D=DVDHLE1HC&channel%5B%5D%5Bslack_id%5D=UVDHLDG0N&channel%5B%5D%5Bconverstaion_id%5D=DVAVBL4B0&channel%5B%5D%5Bslack_id%5D=UV8PPJX37&channel%5B%5D%5Bconverstaion_id%5D=DV8ABAGA0&channel%5B%5D%5Bslack_id%5D=UV8Q8T6S1&channel%5B%5D%5Bconverstaion_id%5D=DV873FZ2T&channel%5B%5D%5Bslack_id%5D=UV6BN9RTP&channel%5B%5D%5Bconverstaion_id%5D=DV7S3M8LF&channel%5B%5D%5Bslack_id%5D=USLACKBOT&channel%5B%5D%5Bconverstaion_id%5D=DV7RCMJD6&channel%5B%5D%5Bslack_id%5D=UUV26URFC&channel%5B%5D%5Bconverstaion_id%5D=DV69W8GEL&channel%5B%5D%5Bslack_id%5D=UUTG4NT6W&channel%5B%5D%5Bconverstaion_id%5D=DV618HEMB&channel%5B%5D%5Bslack_id%5D=UUVTM0ZJM&channel%5B%5D%5Bconverstaion_id%5D=DV5GR1CCC&channel%5B%5D%5Bslack_id%5D=UV7S06J4X&channel%5B%5D%5Bconverstaion_id%5D=DUWEBM19R&channel%5B%5D%5Bslack_id%5D=UV7EPA5EG&channel%5B%5D%5Bconverstaion_id%5D=DUUT9MNBV&channel%5B%5D%5Bslack_id%5D=UV6BLS99N&limit=10&token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '58'
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 17 Mar 2020 00:33:32 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding
+      X-Slack-Req-Id:
+      - eb3bacc0fe093b94ae046d731243e996
+      X-Xss-Protection:
+      - '0'
+      X-Slack-Backend:
+      - r
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-6vtt
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 981753271eb5b6d11bc29d52f173a5da.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - 9A10LczjJGDG7OIUGRo9mNPwsETKHJKQ8X3ZwcnCl-B3B_LeXtpb_Q==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"invalid_array_arg"}'
+    http_version: null
+  recorded_at: Tue, 17 Mar 2020 00:33:32 GMT
 recorded_with: VCR 5.1.0
