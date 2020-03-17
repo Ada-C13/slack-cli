@@ -19,31 +19,33 @@ describe 'Channel' do
   end
 
   describe "get_list" do
-    # TO DO: before block with cassette
-    it "returns array" do
+    before do
       VCR.use_cassette("Channel.get_list") do
-        channel_list = Channel.get_list
-        expect(channel_list).must_be_kind_of Array
-        expect(channel_list.empty?).must_equal false
-        expect(channel_list.first).must_be_kind_of Channel
+        @channel_list = Channel.get_list
+        @target_channel = @channel_list.find {|channel| channel.name == "random"}
       end
+    end
+    it "returns array" do
+      expect(@channel_list).must_be_kind_of Array
+      expect(@channel_list.empty?).must_equal false
+      expect(@channel_list.first).must_be_kind_of Channel
     end
 
     it "has channel called Random" do
-      VCR.use_cassette("Channel.get_list") do
-        channel_list = Channel.get_list
-        target_channel = channel_list.find {|channel| channel.name == "random"}
-        expect(target_channel).must_be_kind_of Channel
-      end
+      expect(@target_channel).must_be_kind_of Channel
     end
 
-    it "channel SlackBot has expected state" do
-      VCR.use_cassette("Channel.get_list") do
-        channel_list = Channel.get_list
-        target_channel = channel_list.find {|channel| channel.name == "random"}
-        expect(target_channel.slack_id).must_equal "CVBCU0R37"
-        expect(target_channel.topic).must_equal "Non-work banter and water cooler conversation"
-        expect(target_channel.member_count).must_equal 1
+    it "channel random has expected state" do
+      expect(@target_channel.slack_id).must_equal "CVBCU0R37"
+      expect(@target_channel.topic).must_equal "Non-work banter and water cooler conversation"
+      expect(@target_channel.member_count).must_equal 1
+    end
+
+    xit "sends message" do 
+      VCR.use_cassette("channel-post-success") do
+        #test for failing POST is in  recipient  
+        response = @target_channel.send("hello, from bot")
+        expect(response["message"]["text"]).must_equal "hello, from bot"
       end
     end
   end
@@ -52,7 +54,7 @@ describe 'Channel' do
     it "displays correct details" do
       channel_list = Channel.get_list
       target_channel = channel_list.find {|channel| channel.name == "random"}
-      target_a = ["random", "CVBCU0R37", "Non-work banter and water cooler conversation", 1]
+      target_a = ["random", "CVBCU0R37", "Non-work banter and water cooler conversation", 2]
       expect(target_channel.details).must_equal target_a
     end
   end

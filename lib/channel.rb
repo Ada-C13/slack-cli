@@ -11,8 +11,12 @@ class Channel < Recipient
     return super + [topic, member_count]
   end
 
+  def self.make_query
+    return super("channel")
+  end
+
   def self.get_list
-    response = super("channel")
+    response = self.make_query
     list = []
     response.parsed_response["channels"].each do |channel|
       list << Channel.new(channel["name"], channel["id"], channel["topic"]["value"], channel["num_members"]) 

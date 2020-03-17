@@ -21,14 +21,23 @@ describe "Recipient" do
     end
   end
 
-  describe "get_list" do
+  xdescribe "send" do
+    it "raises API error" do
+      VCR.use_cassette("post-fail") do
+        bunk_rec = Recipient.new("Test", "T00000001")
+        expect{bunk_rec.send("hi")}.must_raise API_Error
+      end
+    end
+  end
+
+  describe "make_query" do
     it "raises error for invalid recipient type" do
-      expect{Recipient.get_list("oogie-woogie")}.must_raise ArgumentError
+      expect{Recipient.make_query("oogie-woogie")}.must_raise ArgumentError
     end
     
     it "generates needed information for a user list" do
-      VCR.use_cassette("Recipient#get_list(user)") do
-        user_list = Recipient.get_list("user")
+      VCR.use_cassette("Recipient#make_query(user)") do
+        user_list = Recipient.make_query("user")
         expect(user_list["ok"]).must_equal true
         expect(user_list["members"]).must_be_kind_of Array
       end
@@ -36,8 +45,8 @@ describe "Recipient" do
     end
 
     it "generates needed information for a channel list" do
-      VCR.use_cassette("Recipient#get_list(channel)") do
-        channel_list = Recipient.get_list("channel")
+      VCR.use_cassette("Recipient#make_query(channel)") do
+        channel_list = Recipient.make_query("channel")
         expect(channel_list["ok"]).must_equal true
         expect(channel_list["channels"]).must_be_kind_of Array
       end
@@ -56,7 +65,7 @@ describe "Recipient" do
     # it "throws API_Error when API_KEY is invalid" do
     #   expect {
     #     ENV["SLACK_TOKEN"]= "xoxb-98095036Y595-980354253761-FBM9Y9WcbC3S90lUbCYMG0ET"
-    #     Recipient.get_list("user")
+    #     Recipient.make_query("user")
     #   }.must_raise API_Error
     # end
   end

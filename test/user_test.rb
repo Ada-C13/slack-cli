@@ -19,38 +19,40 @@ describe 'User' do
 
   describe "details" do
     it "displays correct details" do
-      user_list = User.get_list
-      target_user = user_list.find {|user| user.name == "slackbot"}
-      target_a = ["slackbot", "USLACKBOT", "Slackbot" ]
-      expect(target_user.details).must_equal target_a
+      VCR.use_cassette("User.get_list") do
+        user_list = User.get_list
+        target_user = user_list.find {|user| user.name == "slackbot"}
+        target_a = ["slackbot", "USLACKBOT", "Slackbot" ]
+        expect(target_user.details).must_equal target_a
+      end
     end
   end
 
-  describe ".get_list" do
-    # TO DO: before block with VCR cassette?
-    it "returns array" do
+  describe ".get_list + send" do
+    before do
       VCR.use_cassette("User.get_list") do
-        user_list = User.get_list
-        expect(user_list).must_be_kind_of Array
-        expect(user_list.empty?).must_equal false
-        expect(user_list.first).must_be_kind_of User
+        @user_list = User.get_list
+        @target_user = selected = @user_list.find {|recipient| recipient.name == "slackbot"}
       end
+    end
+    it "returns array" do
+      expect(@user_list).must_be_kind_of Array
+      expect(@user_list.empty?).must_equal false
+      expect(@user_list.first).must_be_kind_of User
     end
 
     it "has user called SlackBot" do
-      VCR.use_cassette("User.get_list") do
-        user_list = User.get_list
-        target_user = user_list.find {|user| user.name == "slackbot"}
-        expect(target_user).must_be_kind_of User
-      end
+      expect(@target_user).must_be_kind_of User
     end
 
     it "user SlackBot has expected state" do
-      VCR.use_cassette("User.get_list") do
-        user_list = User.get_list
-        target_user = user_list.find {|user| user.name == "slackbot"}
-        expect(target_user.slack_id).must_equal "USLACKBOT"
-        expect(target_user.real_name).must_equal "Slackbot"
+      expect(@target_user.slack_id).must_equal "USLACKBOT"
+      expect(@target_user.real_name).must_equal "Slackbot"
+    end
+
+    it "sends message" do 
+      VCR.use_cassette("post-success") do
+        #test for failing POST is in  recipient 
       end
     end
     
