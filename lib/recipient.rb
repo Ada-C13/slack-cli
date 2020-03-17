@@ -1,45 +1,33 @@
 require_relative 'lib_helper'
-#parent class for Channel and User 
+#template method for Channel and User 
 class API_Error < StandardError
 end
 class Recipient
-  attr_reader :name, :slack_id
-
+  attr_reader :details
   def initialize(name, slack_id)
-    @name = name
-    @slack_id = slack_id
+    @details = {
+      "name" => name,
+      "id" => slack_id
+    }
   end
 
-  def details
-    return [name, slack_id]
+
+  def name
+    return @details["name"]
   end
 
-  # def compose(message, to_recipient)
-  #   if message.class != String
-  #     raise ArgumentError.new("Message must be string")
-  #   end
-  #   post_param = {
-  #     token: API_KEY,
-  #     text: message,
-  #     channel: slack_id,
-  #   }
-  #   response = HTTParty.post(BASE_URL + 'chat.postMessage', body: post_param)
-  #   if !response["ok"]
-  #     raise API_Error.new("#{response["error"]}")
-  #   end
-  #   return response
-  # end
+  def slack_id
+    return @details["id"]
+  end
 
   def self.make_query(recipient_kind)
     if recipient_kind != "user" && recipient_kind != "channel"
       raise ArgumentError.new("Not a valid recipient")
     end
-    query_param = {token: API_KEY}
-    response = HTTParty.get(BASE_URL + "#{recipient_kind}s.list", query: query_param)
+    response = HTTParty.get(BASE_URL + "#{recipient_kind}s.list", query: QUERY_PARAM)
     if !response["ok"]
       raise API_Error.new("#{response["error"]}")
     end
     return response
   end
-
 end

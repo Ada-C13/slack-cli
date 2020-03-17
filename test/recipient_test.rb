@@ -13,11 +13,11 @@ describe "Recipient" do
     end
   end
 
-  describe "details" do
+  describe "self.details" do
     it "returns array of name and id" do
       recipient = Recipient.new("Test", "T00000001")
-      target_a = ["Test", "T00000001"]
-      expect(recipient.details).must_equal target_a
+      expect(recipient.details["id"]).must_equal "T00000001"
+      expect(recipient.details["name"]).must_equal "Test"
     end
   end
 

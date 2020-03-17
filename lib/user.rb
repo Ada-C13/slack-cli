@@ -1,14 +1,13 @@
 require_relative 'recipient.rb'
 class User < Recipient
-  attr_reader :real_name
 
   def initialize(name, slack_id, real_name)
     super(name, slack_id)
-    @real_name = real_name
+    @details["real_name"] = real_name
   end
 
-  def details
-    return super + [real_name]
+  def real_name
+    return details["real_name"]
   end
 
   def self.make_query
@@ -23,5 +22,4 @@ class User < Recipient
     end
     return list
   end
-
 end

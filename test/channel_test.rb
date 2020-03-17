@@ -54,8 +54,8 @@ describe 'Channel' do
     it "displays correct details" do
       channel_list = Channel.get_list
       target_channel = channel_list.find {|channel| channel.name == "random"}
-      target_a = ["random", "CVBCU0R37", "Non-work banter and water cooler conversation", 2]
-      expect(target_channel.details).must_equal target_a
+      expect(target_channel.details["topic"]).must_equal "Non-work banter and water cooler conversation"
+      expect(target_channel.details["num_members"]).must_equal 2
     end
   end
 end

@@ -22,8 +22,7 @@ describe 'User' do
       VCR.use_cassette("User.get_list") do
         user_list = User.get_list
         target_user = user_list.find {|user| user.name == "slackbot"}
-        target_a = ["slackbot", "USLACKBOT", "Slackbot" ]
-        expect(target_user.details).must_equal target_a
+        expect(target_user.details["real_name"]).must_equal "Slackbot"
       end
     end
   end
