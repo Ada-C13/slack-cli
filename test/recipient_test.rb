@@ -21,15 +21,6 @@ describe "Recipient" do
     end
   end
 
-  xdescribe "send" do
-    it "raises API error" do
-      VCR.use_cassette("post-fail") do
-        bunk_rec = Recipient.new("Test", "T00000001")
-        expect{bunk_rec.send("hi")}.must_raise API_Error
-      end
-    end
-  end
-
   describe "make_query" do
     it "raises error for invalid recipient type" do
       expect{Recipient.make_query("oogie-woogie")}.must_raise ArgumentError
@@ -52,21 +43,14 @@ describe "Recipient" do
       end
 
     end
-
-    # how do I write a test for my API_Error? I need an invalid
-    # token to be passed in a way that won't mess up all the other
-    # tests....can I force a different value of API_KEY (located
-    # in lib/lib_helper) in a particular test?
-    # looked into dotenv - not much luck without using bash 
-    # could write another option into source code to test this - but
-    # i don't like this option
-
-    # this doesn't work:
-    # it "throws API_Error when API_KEY is invalid" do
-    #   expect {
-    #     ENV["SLACK_TOKEN"]= "xoxb-98095036Y595-980354253761-FBM9Y9WcbC3S90lUbCYMG0ET"
-    #     Recipient.make_query("user")
-    #   }.must_raise API_Error
-    # end
+    #how do I test for a bad API key??? 
+    xit "throws API_Error when API_KEY is invalid" do
+      VCR.use_cassette("query fail") do
+        
+        expect {
+          
+        }.must_raise API_Error
+      end
+    end
   end
 end

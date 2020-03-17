@@ -1,11 +1,10 @@
 require_relative 'workspace'
 
 def select(input, workspace)
-  input = input.split(" ")[1]
-  selected = workspace.select(input)
+  recipient_kind = input.split(" ")[1]
   puts "Enter the Slack ID, channel name, or username of the recipient."
-  input = gets.chomp
-  selected = selected.find {|recipient| recipient.name == input || recipient.slack_id == input}
+  recipient_id = gets.chomp
+  selected = workspace.select(recipient_kind, recipient_id)
   if selected == nil
     puts "Recipient not found."
   else
@@ -22,7 +21,7 @@ def main
   selected = nil
   while input != "quit"
     puts "\nWhat would you like to do?"
-    puts "list users \nlist channels \nselect user \nselect channel \ndetails \nquit \n\n"
+    puts "list users \nlist channels \nselect user \nselect channel \ndetails \nsend message \nquit \n\n"
     input = gets.chomp
     case input 
     when "list users"
@@ -37,8 +36,16 @@ def main
       if selected == nil
         puts "You must select a recipient before asking for details."
       else
-        # TO DO; refactor details so that table print can be used
         ap selected.details
+      end
+    when "send message"
+      if selected == nil
+        puts "You must select a recipient before asking for details."
+      else
+        puts "What is your message to #{selected.name}?"
+        text = gets.chomp
+        workspace.post(text, selected)
+        puts "Your message to #{selected.name} was successfully sent."
       end
     when "quit"
       puts "Goodbye!"

@@ -14,7 +14,7 @@ class Channel < Recipient
   def member_count
     return details["num_members"]
   end
-  
+
   def self.make_query
     return super("channel")
   end

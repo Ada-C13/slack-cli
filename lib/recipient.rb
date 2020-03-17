@@ -11,7 +11,6 @@ class Recipient
     }
   end
 
-
   def name
     return @details["name"]
   end
@@ -30,4 +29,5 @@ class Recipient
     end
     return response
   end
+
 end

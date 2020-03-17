@@ -46,17 +46,24 @@ describe 'Workspace' do
       end
     end
     it "throws ArgError when given invalid recipient" do
-      expect{@workspace.select("oogie")}.must_raise ArgumentError
+      expect{@workspace.select("oogie", "boogie")}.must_raise ArgumentError
     end
-    it "returns array of users" do
-      target_a = @workspace.select("user")
-      expect(target_a).must_be_kind_of Array
-      expect(target_a.first).must_be_kind_of User
+    it "returns a user" do
+      target_user = @workspace.select("user", "slackbot")
+      expect(target_user).must_be_kind_of User
     end
     it "returns array of channels" do
-      target_a = @workspace.select("channel")
-      expect(target_a).must_be_kind_of Array
-      expect(target_a.first).must_be_kind_of Channel
+      target_channel = @workspace.select("channel", "random")
+      expect(target_channel).must_be_kind_of Channel
+    end
+  end
+
+  describe "post" do
+    it "raises API error" do
+      VCR.use_cassette("post-fail") do
+        bunk_rec = Recipient.new("Test", "T00000001")
+        expect{bunk_rec.post("hi", bunk_rec)}.must_raise API_Error
+      end
     end
   end
 end
