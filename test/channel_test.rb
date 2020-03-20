@@ -23,8 +23,8 @@ describe "Channel Class" do
     it "can list all channels in the workspace" do
         VCR.use_cassette("list all") do
           CHANNELS_URL = "https://slack.com/api/conversations.list" 
-          SLACK_API_TOKEN = ENV["SLACK_API_TOKEN"]
-          channels = HTTParty.get(CHANNELS_URL,	query: {token: SLACK_API_TOKEN })
+          SLACK_BOT_TOKEN = ENV["SLACK_BOT_TOKEN"]
+          channels = HTTParty.get(CHANNELS_URL,	query: {token: SLACK_BOT_TOKEN })
     
           expect(SlackCli::Channel.list_all.length).must_equal 5
         end

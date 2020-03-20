@@ -19,7 +19,7 @@ module SlackCli
 
         def self.list_all
             url = "https://slack.com/api/users.list"
-            param = {token: ENV["SLACK_API_TOKEN"]}
+            param = {token: ENV["SLACK_BOT_TOKEN"]}
             result = self.get(url, param)
             user_list = result["members"].map { |user| SlackCli::User.new(slack_id: user["id"], name: user["name"], real_name: user["real_name"], status_text: user["status_text"], status_emoji: user["status_emoji"]) }
             return user_list

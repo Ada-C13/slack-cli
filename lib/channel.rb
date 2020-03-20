@@ -29,7 +29,7 @@ module SlackCli
 
     def self.list_all
         url = "https://slack.com/api/conversations.list"
-        param = {token: ENV["SLACK_API_TOKEN"]}
+        param = {token: ENV["SLACK_BOT_TOKEN"]}
         result = self.get(url, param)
         channel_list = result["channels"].map { |channel| SlackCli::Channel.new(slack_id: channel["id"], name: channel["name"], topic: channel["topic"]["value"], member_count: channel["num_members"]) }
         return channel_list
