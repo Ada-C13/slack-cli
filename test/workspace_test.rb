@@ -23,7 +23,7 @@ describe "workspace Class" do
     
     it "can list all channels in the workspace" do
       VCR.use_cassette("list all channels") do
-        expect(@workspace.channels.length).must_equal 4
+        expect(@workspace.channels.length).must_equal 5
       end
     end
     
@@ -63,19 +63,19 @@ describe "workspace Class" do
 
     it "must show details of a user or channel" do
         VCR.use_cassette("show details") do
-            string_io = StringIO.new               
-            string_io.puts 'UV868PVCP'
-            string_io.rewind 
-            $stdin = string_io   
-            
-            @workspace.select_user    
-            $stdin = STDIN         
-        expect(@workspace.show_details).must_equal @workspace.selected.details
+          string_io = StringIO.new               
+          string_io.puts 'UV868PVCP'
+          string_io.rewind 
+          $stdin = string_io   
+          
+          @workspace.select_user    
+          $stdin = STDIN         
+          expect(@workspace.show_details).must_equal @workspace.selected.details
         end
     end
 
     it "can send a message to a user" do
-        VCR.use_cassette("send messages") do
+        VCR.use_cassette("send messages to user") do
             string_io = StringIO.new 
             string_io.puts 'user'              
             string_io.puts 'UV868PVCP'
@@ -88,21 +88,22 @@ describe "workspace Class" do
             $stdin = STDIN          
             expect(message).must_equal true && 200
         end
-    end
+     end
 
     it "can send a message to a channel" do
-        VCR.use_cassette("send messages") do
-            string_io = StringIO.new 
-            string_io.puts 'channel'              
-            string_io.puts 'CVDP09BL7'
-            string_io.puts 'asdfas'
-            string_io.rewind 
-            $stdin = string_io   
-            
-            message = @workspace.send_message    
-            $stdin = STDIN          
-            expect(message).must_equal true && 200
-        end
+      VCR.use_cassette("send messages to channel") do
+          string_io = StringIO.new 
+          string_io.puts 'channel'              
+          string_io.puts 'C01067YP1T9'
+          string_io.puts 'testing new token'
+          string_io.rewind 
+          $stdin = string_io   
+     
+          
+          message = @workspace.send_message    
+          $stdin = STDIN          
+          expect(message).must_equal true && 200
+      end
     end
 
   end

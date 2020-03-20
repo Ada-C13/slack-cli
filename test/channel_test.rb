@@ -9,7 +9,7 @@ describe "Channel Class" do
   describe "Channel instantiation" do
     before do
       @channel = SlackCli::Channel.new(slack_id: 1 ,name: "hala", topic: "ada", member_count: 2342)
-      @channel2 = SlackCli::Channel.new(slack_id: "C01067YP1T9" ,name: "halatests", topic: "ada", member_count: 1)
+      @channel2 = SlackCli::Channel.new(slack_id: "CVDP09BL7" ,name: "halatests", topic: "ada", member_count: 1)
     end
 
     it "is an instance of Channel" do
@@ -30,18 +30,15 @@ describe "Channel Class" do
         end
     end
 
-    it "can create a new channel"do
+    it "can send a message to a channel"do
         VCR.use_cassette("send messages to channel") do
-        expect(SlackCli::Channel.create_a_channel("hala_tests")).must_equal 200 
+            expect(@channel2.send_message("testing new token!")).must_equal true && 200
+            expect(@channel2.send_message("if you can see this")).must_equal true &&  200
+            expect(@channel2.send_message("it means my token is working")).must_equal true && 200
+            expect(@channel2.send_message("hi five!")).must_equal true &&  200
         end
     end
 
-    it "can send a message to a channel"do
-        VCR.use_cassette("send messages to channel") do
-            expect(@channel2.send_message("hello!")).must_equal true && 200
-            expect(@channel2.send_message("final test")).must_equal true && 200
-        end
-    end
 
   end
 end

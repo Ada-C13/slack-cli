@@ -65,7 +65,7 @@ module SlackCli
 
         def show_details
             tp selected.details
-            # return selected.details
+            return selected.details
         end
 
         def send_message
