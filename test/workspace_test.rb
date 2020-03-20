@@ -3,7 +3,7 @@ require "simplecov"
 
 describe "Workspace class" do
   it "create a workspace" do
-    VCR.use_cassette("get_users") do
+    VCR.use_cassette("slack") do
 
       #Arrange
 
@@ -15,7 +15,7 @@ describe "Workspace class" do
   end
 
   it "check workspace.new is a list of users" do
-    VCR.use_cassette("get_users") do
+    VCR.use_cassette("slack") do
       #Arrange & Act
       workspace = Workspace.new()
 
@@ -26,4 +26,18 @@ describe "Workspace class" do
       end
     end
   end
+
+  it "check workspace.new is a list of channel" do
+    VCR.use_cassette("slack") do
+      #Arrange & Act
+      workspace = Workspace.new()
+
+      #Assert
+      expect(workspace.channels).must_be_instance_of Array
+      workspace.channels.each do |channel|
+        expect(channel).must_be_instance_of Channel
+      end
+    end
+  end
+
 end
