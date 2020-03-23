@@ -3,7 +3,7 @@ require 'table_print'
 require "dotenv"
 require "httparty"
 
-require_relative 'workspace'
+require_relative './workspace'
 
 Dotenv.load
 
@@ -64,6 +64,8 @@ def main
 
     user_input = prompt_for_input
   end 
+
+
   puts "Thank you for using the ADA Slack CLI!"
   puts "\n"
 end
@@ -74,4 +76,15 @@ def prompt_for_input
   return gets.chomp.downcase
 end
 
+
 main if __FILE__ == $PROGRAM_NAME
+
+
+##### TODO - to add command line options for set profile name 
+##### TODO - to add command line options for set profile emoji
+
+#When I change these settings, the program should save them in the JSON format in a file named bot-settings.json. 
+#When I restart the program, it should reload those settings.
+
+#As a user, I can see a history of messages sent to the currently selected recipient.
+# If I change recipients, the message list should also change

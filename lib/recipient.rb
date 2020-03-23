@@ -45,9 +45,37 @@ attr_reader :slack_id, :name
         channel: self.slack_id, 
         text: message
       }
-    )  
+    )
+  end 
+ 
+  def set_user_profile_name(name)
+    HTTParty.post("https://slack.com/api/users.profile.set?", query: {
+      token: ENV["SLACK_API_TOKEN"], 
+      profile: {display_name: name}.to_json,
+      user: self.slack_id,
+      }      
+    )
+
+    #File.open("bot-settings.json", "w") do |name|
+    #  name.write(query.to_json)
+    #end  
+  end
+
+  def set_user_profile_emoji(emoji)
+    HTTParty.post("https://slack.com/api/users.profile.set?", query: {
+      token: ENV["SLACK_API_TOKEN"], 
+      profile: {status_emoji: emoji}.to_json,
+      user: self.slack_id,
+      }      
+    )
+    #File.open("bot-settings.json", "w") do |emoji|
+    #  emoji.write(query.to_json)
+    #end 
   end
 end
+
+
+
 
 class SlackAPIError < Exception  
 end
