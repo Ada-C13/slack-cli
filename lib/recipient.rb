@@ -43,6 +43,11 @@ module SlackCli
           text: message
         }
       })
+
+      if resp.parsed_response["ok"] == false || resp.code != 200
+        raise SlackAPIError, "Error on API #{resp["error"]}"
+      end 
+
       return resp.code == 200 && resp.parsed_response["ok"]
     end
 
