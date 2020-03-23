@@ -69,4 +69,68 @@ http_interactions:
         }
     http_version: null
   recorded_at: Sat, 14 Mar 2020 20:20:01 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/channelsfail.list?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '83'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 23 Mar 2020 19:31:30 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Referrer-Policy:
+      - no-referrer
+      X-Slack-Backend:
+      - h
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 2a82f63e90d768d2b50655933f475263
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-mbv8
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 eab8a154a09e69260fbfe4df90182b2f.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - 3bxQzFXm45-M3XphOotcDs5nCeJczW6iDONxnMS2HluSKVoAdcCWPw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"unknown_method","req_method":"channelsfail.list"}'
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:31:30 GMT
 recorded_with: VCR 5.1.0

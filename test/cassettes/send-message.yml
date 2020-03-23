@@ -1035,4 +1035,132 @@ http_interactions:
         - Jessica - API Project","updated":1583952595,"app_id":"AV8C3U6A3","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TV5KNL1LL"}}}'
     http_version: null
   recorded_at: Sun, 15 Mar 2020 22:19:52 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '54'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 23 Mar 2020 19:31:30 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Referrer-Policy:
+      - no-referrer
+      X-Slack-Backend:
+      - h
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - a7d7de98803b8507af3e50b118c7f872
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-9hkc
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 7e87179efaa9e3c316bd3d3a74cfded8.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - 0hE9JeODPzGiLjuapVWcMs3q1iw_-Zzh7vLpXIzCG5W2ba2FM9yyhw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"token_revoked"}'
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:31:30 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/users.list?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '54'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 23 Mar 2020 19:31:30 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Referrer-Policy:
+      - no-referrer
+      X-Slack-Backend:
+      - r
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 44a3ee6a7fbe9f69fe5cb1e91115f234
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-dyrq
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 1b74ccf4cb51eacf97a0e6d60ae46a3f.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - sLX8_y3N7UNVC8sFKMmSAwPY5dTZ9DWetU7Owl2AAI2dYbNCz5egBA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"token_revoked"}'
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:31:30 GMT
 recorded_with: VCR 5.1.0
