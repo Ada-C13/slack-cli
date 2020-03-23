@@ -44,25 +44,28 @@ class Workspace
       },
       query: {
         token: TOKEN,
-        profile: ({"display_name": username, "status_emoji": emoji}).to_json
+        profile: ({
+          "display_name": username,
+          "status_emoji": emoji
+        }).to_json
       }
     })
 
-    if response.code != 200 || response["ok"] == false
-      if response["error"] == "profile_status_set_failed_not_emoji_syntax"
-        puts "Please try again, and use proper emoji syntax (:emoji_name:)"
-      elsif response["error"] == "profile_status_set_failed_not_valid_emoji"
-        puts "Please try again, #{emoji} is not in our library."
-      else
-        puts "#{response["error"]}"
-      end
-    else
+    if response.code == 200 && response["ok"]
       # https://stackoverflow.com/questions/27163085/read-and-write-json-data-from-form-to-file
       # opens a file using the path provided
       # w+: Read-write - overwrites the existing file or creates new file if no file exists
       File.open("./lib/json/bot-settings.json", "w+") do |file| 
         # generates a JSON file from the argument provided (response) and writes it into the file
         file.write(JSON.generate(response))
+      end
+    else
+      if response["error"] == "profile_status_set_failed_not_emoji_syntax"
+        puts "Please try again, and use proper emoji syntax (:emoji_name:)"
+      elsif response["error"] == "profile_status_set_failed_not_valid_emoji"
+        puts "Please try again, #{emoji} is not in our library."
+      else
+        puts "#{response["error"]}"
       end
     end
   end

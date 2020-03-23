@@ -39,10 +39,10 @@ class Recipient
 
   def self.get(endpoint)
     response = HTTParty.get(BASE_URL + endpoint, query: QUERY)
-    if response.code != 200 || response["ok"] == false
-      raise SlackApiError, "We encountered a problem: #{response["error"]}"
-    else
+    if response.code == 200 && response["ok"]
       return response
+    else
+      raise SlackApiError, "We encountered a problem: #{response["error"]}"
     end
   end
 

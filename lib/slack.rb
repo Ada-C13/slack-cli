@@ -88,7 +88,7 @@ end
 def customize_bot
   print "Enter a new name for the bot: "
   new_bot_name = gets.chomp
-  print "Enter a new status emoji for the bot (:emoji_name: format): "
+  print "Enter a new status emoji for the bot (Syntax > :emoji_name:): "
   new_status_emoji = gets.chomp
   WORKSPACE.customize_bot(new_bot_name, new_status_emoji)
 end
