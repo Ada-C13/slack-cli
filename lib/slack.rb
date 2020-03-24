@@ -5,7 +5,9 @@ require "table_print"
 OPTIONS = [
   ["1", "list users"],
   ["2", "list channels"],
-  ["3", "quit"],
+  ["3", "select user"],
+  ["4", "select a channel"],
+  ["5", "quit"],
 ]
 
 def main
@@ -34,8 +36,16 @@ def perform_action(choice)
       tp @workspace.users
     when *OPTIONS[1]
       puts "\n\n>>>>>>> LIST OF CHANNELS"
-      tp @workspace.channels
-      # TO-DO tp @workspace.channels.exclude direct messages
+      tp @workspace.channels, :include => :id
+    when *OPTIONS[2]
+      puts "\n\n>>>>>>> SELECTING A USER"
+      make_selection("user")
+      
+    when *OPTIONS[3]
+      puts "\n\n>>>>>>> SELECTING A CHANNEL"
+     make_selection("channel")
+      
+      
   end
 
 end
@@ -50,6 +60,12 @@ def get_user_input
   print "\nWhat would you like to do? > "
   choice = gets.strip.downcase
   return choice
+end
+
+def make_selection(type)
+  print "Please enter the id for the #{type} > "
+  input = user.get
+  @workspace.select_by_id(input)
 end
 
 

@@ -2,7 +2,7 @@ require_relative "conversation"
 
 module Slack
   class DirectMessage < Conversation
-    attr_reader :id, :user
+    attr_reader :user
     
     def initialize(data)
       super(data)

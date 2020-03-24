@@ -2,7 +2,7 @@ require_relative "conversation.rb"
 
 module Slack
   class Channel < Conversation
-    attr_reader :id, :name, :topic, :member_count
+    attr_reader :name, :topic, :member_count
     
     def initialize(channel)
       raise ArgumentError, "Trying to create Channel object with bad data: #{channel}." if channel["id"] == nil || !(channel["is_channel"])  
@@ -24,7 +24,7 @@ module Slack
     def self.list_all
       channels = get_all.map { |channel| Channel.new(channel)}
     end
-    
+
     private
 
       # Method uses http get to retrieve all Channel "objects"

@@ -2,6 +2,7 @@ require_relative "bad_response_error"
 
 module Slack
   class Conversation
+    attr_reader :id
     
     def initialize(data)
       @id = data["id"] #template
@@ -25,8 +26,7 @@ module Slack
     # CLASS METHODS
 
     def self.list_all
-
-      # Template, extend this method in child classes.
+      # Extend this method in child classes.
     end
 
     private 

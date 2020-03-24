@@ -18,7 +18,8 @@ module Slack
     end
 
     # Method selects a user or channel using the name or slack ID. 
-    def select_by_id(id, type)
+    def select_by_id(type, id)
+      
     end
 
     # Method shows details of the currently selected conversation.
