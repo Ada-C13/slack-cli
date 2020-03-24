@@ -55,7 +55,8 @@ class Workspace
     selected = recipient_kind.find {|recipient| recipient.name == recipient_id || recipient.slack_id == recipient_id}
     return selected
   end
-
+  
+  private
   def record_message(recipient, response)
     time_stamp = response["ts"]
     text = response["message"]["text"]
