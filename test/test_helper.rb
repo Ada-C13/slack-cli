@@ -9,6 +9,10 @@ require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
 
+require 'dotenv'
+
+Dotenv.load
+
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 VCR.configure do |config|
@@ -25,5 +29,7 @@ VCR.configure do |config|
   }
 
   # Don't leave our token lying around in a cassette file.
-
+  config.filter_sensitive_data("<SLACK_TOKEN>") do
+    ENV["SLACK_TOKEN"]
+  end
 end

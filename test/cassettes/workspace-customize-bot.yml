@@ -1,0 +1,158 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://slack.com/api/users.info?token=<SLACK_TOKEN>&user=UV5KNL1UL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '576'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 06:46:30 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - b45fef6664c0d4bc8d699c5e3ca6e3f9
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,users.profile:read,chat:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - users:read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-83yj
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 7022a5bbf9872d4a09d63e6cdb457dfe.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - z4alBjUGl29UNUYzGsKsOR40Q1McB_MPnNgNzjDu6HT4KnAiGwC3sg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"user":{"id":"UV5KNL1UL","team_id":"TV5KNL1LL","name":"jessica","deleted":false,"color":"9f69e7","real_name":"Jessica
+        Stone","tz":"America\/Los_Angeles","tz_label":"Pacific Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Jessica
+        Stone","real_name_normalized":"Jessica Stone","display_name":"jessica bot
+        test","display_name_normalized":"jessica bot test","status_text":"","status_emoji":":rainbow:","status_expiration":0,"avatar_hash":"g3f062ade197","first_name":"Jessica","last_name":"Stone","image_24":"https:\/\/secure.gravatar.com\/avatar\/3f062ade197077d689d640dc2c62d378.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/3f062ade197077d689d640dc2c62d378.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/3f062ade197077d689d640dc2c62d378.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/3f062ade197077d689d640dc2c62d378.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/3f062ade197077d689d640dc2c62d378.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/3f062ade197077d689d640dc2c62d378.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-512.png","status_text_canonical":"","team":"TV5KNL1LL"},"is_admin":true,"is_owner":true,"is_primary_owner":true,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1584341007,"has_2fa":false}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 06:46:30 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/users.profile.set?profile=%7B%22display_name%22:%22jessica%20bot%20test%22,%22status_emoji%22:%22:rainbow:%22%7D&token=<SLACK_TOKEN>
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '413'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 06:46:30 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - b6a2479fedffa41e24ef750e642fb138
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,users.profile:read,chat:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - users.profile:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-coly
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 943c6a4d4ee43b18ee91634536f53eae.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - mW5GL-RGwNJ1UGoVaECqEQlbX22De6w9MY9m8BoMm1XzDPclhmw0YA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"profile":{"title":"","phone":"","skype":"","real_name":"Jessica Stone","real_name_normalized":"Jessica
+        Stone","display_name":"jessica bot test","display_name_normalized":"jessica
+        bot test","fields":null,"status_text":"","status_emoji":":rainbow:","status_expiration":0,"avatar_hash":"g3f062ade197","email":"jstone4815@gmail.com","first_name":"Jessica","last_name":"Stone","image_24":"https:\/\/secure.gravatar.com\/avatar\/3f062ade197077d689d640dc2c62d378.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/3f062ade197077d689d640dc2c62d378.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/3f062ade197077d689d640dc2c62d378.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/3f062ade197077d689d640dc2c62d378.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/3f062ade197077d689d640dc2c62d378.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/3f062ade197077d689d640dc2c62d378.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-512.png","status_text_canonical":""},"ok":true,"username":"jessica"}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 06:46:30 GMT
+recorded_with: VCR 5.1.0
