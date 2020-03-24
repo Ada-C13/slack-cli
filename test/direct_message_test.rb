@@ -1,7 +1,7 @@
 require_relative "test_helper"
 require_relative "../lib/direct_message"
 
-describe "direct message" do
+xdescribe "direct message" do
   before do
     dm = {
       "id" => "DUYS4LFM0",

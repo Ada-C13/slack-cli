@@ -3,15 +3,17 @@ require "httparty"
 require_relative "direct_message"
 require_relative "channel"
 require_relative "user"
+require_relative "bad_response_error"
 
 module Slack
   class Workspace
     # attr_reader :users, :conversations, :selected
-    attr_reader :users, :selected
+    attr_reader :users, :channels, :selected
     
     def initialize
       @users = User.list_all
-      #@conversations = Conversation.list_all 
+      @channels = Channel.list_all
+      #@direct_messages = DirectMessage.list_all
       @selected = nil
     end
 
@@ -27,6 +29,12 @@ module Slack
     # Method posts a message to the currently selected conversation.
     def post_message
       raise InvalidRecipientError, "No target conversation specified. Cannot send message."
+    end
+
+    private 
+
+    def is_valid_target?(input, type)
+      # check users and conversations for valid target
     end
 
   end

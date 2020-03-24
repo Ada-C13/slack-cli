@@ -22,7 +22,7 @@ module Slack
     # Returns an array of User objects   
     def self.list_all
       members_including_deleted = get_all
-      members = members_including_deleted.reject { |member| member["deleted"] == true } #cover a wonky case
+      members = members_including_deleted.reject { |member| member["deleted"] } #cover a wonky case
       members.map { |member| User.new(member) }
     end
 
@@ -32,7 +32,7 @@ module Slack
     # returns an httparty Response object
     def self.get_all
       data = HTTParty.get("https://slack.com/api/users.list?", query: { token: SLACK_TOKEN, })
-      raise StandardError, "Users.list endpoint response IS NOT OK." unless data["ok"]
+      raise BadResponseError, "Users.list endpoint response IS NOT OK." unless data["ok"]
       return data["members"]
     end
   end

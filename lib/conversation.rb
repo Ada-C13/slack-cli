@@ -1,16 +1,16 @@
+require_relative "bad_response_error"
+
 module Slack
   class Conversation
-    attr_reader :id
     
-    def initialize(id)
-      @id = id
-      @type = nil
+    def initialize(data)
+      @id = data["id"] #template
     end
 
     # Super method to send messages to selected conversation.
     def post_message(message)
       # API ENDPOINT: https://slack.com/api/chat.postMessage 
-      
+      # query: @id
     end
 
     # Placeholder method to be defined in child classes.
@@ -24,17 +24,20 @@ module Slack
 
     # CLASS METHODS
 
-    # Method uses http get to retrieve all Conversation "objects"
-    def self.get_all 
-      raise NotImplementedError, "Define GET_ALL method in child class."
-      # could implement here if we want a list of ALL conversation types at some point
+    def self.list_all
+      data = get_all
+      # Template, extend this method in child classes.
     end
 
-    # Method takes the results of get_all and pretty-prints them.
-    def self.list_all
-      raise NotImplementedError, "Define LIST_ALL method in child class."
-      # could implement here if we want to see ALL conversation types at some point
-      # perhaps a "show all convos our app is involved in" feature 
+    private 
+
+    def self.get_all
+      query = {
+        token: SLACK_TOKEN,
+      }
+      data = HTTParty.get("https://slack.com/api/conversations.list?", query: query)
+      raise BadResponseError, "Conversations.list endpoint response IS NOT OK." unless data["ok"]
+      return data
     end
 
   end

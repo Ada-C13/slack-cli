@@ -1,7 +1,7 @@
 require_relative "test_helper"
 require_relative "../lib/user"
 
-describe "user" do
+xdescribe "user" do
 
   before do 
     member = {"id"=>"USLACKBOT", "team_id"=>"TV5H57Z7E", "name"=>"slackbot", "deleted"=>false, "color"=>"757575", "real_name"=>"Slackbot",}

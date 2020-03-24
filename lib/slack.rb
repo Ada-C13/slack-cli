@@ -34,7 +34,8 @@ def perform_action(choice)
       tp @workspace.users
     when *OPTIONS[1]
       puts "\n\n>>>>>>> LIST OF CHANNELS"
-      puts "I'll get you those channels one day."
+      tp @workspace.channels
+      # TO-DO tp @workspace.channels.exclude direct messages
   end
 
 end

@@ -4,7 +4,7 @@ require_relative "../lib/workspace"
 describe "workspace" do
   before do
     VCR.use_cassette("users_list_endpoint") do
-    @test_workspace = Slack::Workspace.new
+      @test_workspace = Slack::Workspace.new
     end
   end
 

@@ -3,26 +3,28 @@ require_relative "conversation"
 module Slack
   class DirectMessage < Conversation
     
-    def initialize(id, user)
-      super(id)
-      @type = :IM
-      @user = user 
+    def initialize(data)
+      super(data)
+      @user = data["user"]
     end
 
 
+    # CLASS METHODS
+    # Method takes raw Channel data and converts it into an array of Channel objects.
+    def self.list_all
+      direct_messages = super.map { |data| DirectMessage.new(data)}
+    end
 
-  # CLASS METHODS
+    private
 
-
-  # def self.get_all
-    # TO-DO: implement when getting all 1-on-1 direct messages is necessary 
-    # API endpoint https://slack.com/api/conversations.list  TYPES= "im"
-  # end
-
-
-  # def self.list_all 
-    # TO-DO: implement when listing all 1-on-1 direct messages is necessary
-  # end
-
+    # Method uses http get to retrieve all Channel "objects"
+    # returns an array of Channels
+    def self.get_all
+      query = {
+        token: SLACK_TOKEN,
+        types: "im",
+      }
+      return super["channels"] #Slack considers direct messages to also be "channels"
+    end
   end
 end
