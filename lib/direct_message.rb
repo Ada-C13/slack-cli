@@ -2,6 +2,7 @@ require_relative "conversation"
 
 module Slack
   class DirectMessage < Conversation
+    attr_reader :id, :user
     
     def initialize(data)
       super(data)
@@ -12,7 +13,7 @@ module Slack
     # CLASS METHODS
     # Method takes raw Channel data and converts it into an array of Channel objects.
     def self.list_all
-      direct_messages = super.map { |data| DirectMessage.new(data)}
+      direct_messages = get_all.map { |data| DirectMessage.new(data)}
     end
 
     private
@@ -24,7 +25,7 @@ module Slack
         token: SLACK_TOKEN,
         types: "im",
       }
-      return super["channels"] #Slack considers direct messages to also be "channels"
+      return super(query)["channels"] #Slack considers direct messages to also be "channels"
     end
   end
 end

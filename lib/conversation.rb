@@ -25,16 +25,13 @@ module Slack
     # CLASS METHODS
 
     def self.list_all
-      data = get_all
+
       # Template, extend this method in child classes.
     end
 
     private 
 
-    def self.get_all
-      query = {
-        token: SLACK_TOKEN,
-      }
+    def self.get_all(query)
       data = HTTParty.get("https://slack.com/api/conversations.list?", query: query)
       raise BadResponseError, "Conversations.list endpoint response IS NOT OK." unless data["ok"]
       return data

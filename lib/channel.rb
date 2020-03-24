@@ -22,15 +22,18 @@ module Slack
 
   # Method takes raw Channel data and converts it into an array of Channel objects.
     def self.list_all
-      channels = super.map { |channel| Channel.new(channel)}
+      channels = get_all.map { |channel| Channel.new(channel)}
     end
-
+    
     private
 
       # Method uses http get to retrieve all Channel "objects"
       # returns an array of Channels
     def self.get_all
-      return super["channels"]
+      query = {
+        token: SLACK_TOKEN,
+      }
+      return super(query)["channels"]
     end
 
   end

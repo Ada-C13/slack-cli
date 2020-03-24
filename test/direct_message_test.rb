@@ -1,7 +1,7 @@
 require_relative "test_helper"
 require_relative "../lib/direct_message"
 
-xdescribe "direct message" do
+describe "direct message" do
   before do
     dm = {
       "id" => "DUYS4LFM0",
@@ -58,7 +58,7 @@ xdescribe "direct message" do
     it "has a DirectMessage with the user USLACKBOT" do
       VCR.use_cassette("conversations_list_direct_messages_endpoint") do
         direct_messages = Slack::DirectMessage.list_all
-        expect(results.any? { |result| result.user == "USLACKBOT" } ).must_equal true  
+        expect(direct_messages.any? { |direct_message| direct_message.user == "USLACKBOT" } ).must_equal true  
       end
     end
     

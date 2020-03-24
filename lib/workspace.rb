@@ -13,7 +13,7 @@ module Slack
     def initialize
       @users = User.list_all
       @channels = Channel.list_all
-      #@direct_messages = DirectMessage.list_all
+      @direct_messages = DirectMessage.list_all
       @selected = nil
     end
 

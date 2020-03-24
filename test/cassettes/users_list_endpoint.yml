@@ -177,4 +177,78 @@ http_interactions:
         messages for testing purposes. Recommended mute this channel.","creator":"UV614256C","last_set":1584353723},"previous_names":[],"num_members":1}],"response_metadata":{"next_cursor":""}}'
     http_version: null
   recorded_at: Tue, 24 Mar 2020 10:04:42 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '292'
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 24 Mar 2020 10:37:05 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - dc5c81c0e103eb9389147920a9c9c38b
+      X-Oauth-Scopes:
+      - chat:write.public,chat:write,channels:read,users:read,im:read
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-9e4s
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 68eedbdfabd017beabf28d04341fec21.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - cgjGaI0lA28IQjLRGZAgNXYq2gZ3barcEsFVbguEEjEH10bhk5_SWg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"DVDS2KLPQ","created":1584065406,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV89SRSAJ","is_user_deleted":false,"priority":0},{"id":"DVBLESY4D","created":1584065406,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUUTBJARH","is_user_deleted":false,"priority":0},{"id":"DVBLESX6Z","created":1584065406,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV5RV3UDA","is_user_deleted":false,"priority":0},{"id":"DVBKWG80G","created":1584065407,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV5RH7XE0","is_user_deleted":false,"priority":0},{"id":"DV1HJDEDP","created":1584065406,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV828MW79","is_user_deleted":false,"priority":0},{"id":"DV065488K","created":1584065406,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV614256C","is_user_deleted":false,"priority":0},{"id":"DUYS4LFM0","created":1584065406,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Tue, 24 Mar 2020 10:37:05 GMT
 recorded_with: VCR 5.1.0
