@@ -56,7 +56,6 @@ class Workspace
     return selected
   end
   
-  private
   def record_message(recipient, response)
     time_stamp = response["ts"]
     text = response["message"]["text"]
