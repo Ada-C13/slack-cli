@@ -39,7 +39,6 @@ describe "Recipient" do
 
 
   it "can send a valid message" do
-    
     VCR.use_cassette("recipient-recipients-endpoint") do
       @recipient = Slack_cli::Recipient.new(id: "CV5GLCW12", name: "general")
       def @recipient.gets
@@ -48,6 +47,15 @@ describe "Recipient" do
       response = @recipient.send_message("general")
       expect(response).must_equal true
     end
-   
+  end
+
+  it "raises an error if the message can't be sent." do
+    VCR.use_cassette("recipient-recipients-endpoint") do
+      @recipient = Slack_cli::Recipient.new(id: "CV5GLCW12", name: "general")
+      def @recipient.gets
+        "Test"
+      end
+      expect { @recipient.send_message("not_channel") }.must_raise SlackAPIError
+    end
   end
 end

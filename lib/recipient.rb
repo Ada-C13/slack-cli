@@ -36,7 +36,10 @@ module Slack_cli
             text: message
           }
         })
-        return resp.code == 200 && resp.parsed_response["ok"]
+        if resp.code == 200 && resp.parsed_response["ok"]
+          return true
+        end
+        raise SlackAPIError, "We encountered a problem: #{resp["error"]}" 
       end
 
       def self.list_all
