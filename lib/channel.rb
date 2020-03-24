@@ -31,5 +31,5 @@ class Channel < Recipient
 
     return channel_info
   end
-
+  
 end 

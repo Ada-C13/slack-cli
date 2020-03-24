@@ -15,6 +15,7 @@ end
 
 # controls command line interactivity 
 def main
+  
   workspace = Workspace.new
 
   puts "\n"
