@@ -38,8 +38,9 @@ require_relative "channel"
       return @selected.details
     end 
 
-    def send_message
-      # TODO: implement send_message
+    # posts a message in the selected channel in workspace 
+    def send_message(message_text)
+      @selected.send_message(message_text)
     end 
 
   end 

@@ -7,7 +7,7 @@ Dotenv.load
 
 # prompts user for their input and records it
 def prompt_action 
-  puts "You have six options: list users, list channels, select user, select channel, display details, or quit."
+  puts "You have six options: list users, list channels, select user, select channel, display details, send message, or quit."
   puts "\n"
   print "Please enter your choice: "
   return gets.chomp.downcase
@@ -57,8 +57,18 @@ def main
         puts "\n"
       end
 
-    #TODO: integrate send message functionality
-
+    when "send message"
+      if workspace.selected == nil
+        puts "You must \"select user\" or \"select channel\" first."
+        puts "\n"
+      else
+        print "Enter your message: "
+        message = gets.chomp
+        workspace.send_message(message)
+        user_input = nil
+        puts "\n"
+      end
+    
     else 
       puts "\n"
       puts "I cannot perform \"#{user_input}\". Please try again ->"

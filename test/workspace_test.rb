@@ -15,13 +15,11 @@ describe "Workspace" do
 
     it "creates an array of User objects" do 
       expect(@test_workspace.users).must_be_kind_of Array
-      expect(@test_workspace.users.length).must_equal 11 # Assumption: This workspace will not have any more users created
-      
+      expect(@test_workspace.users.length).must_equal 11 # Assumption: This workspace will not have any more users created      
     end 
 
     it "creates an array of Channel objects" do 
       expect(@test_workspace.channels).must_be_kind_of Array
-      expect(@test_workspace.channels.length).must_equal 3 # Assumption: This workspace will not have any more channels created 
     end 
   end
 
@@ -80,15 +78,59 @@ describe "Workspace" do
     end 
   end 
 
-  
   xdescribe "display_details" do 
     # TODO: write tests for this method
     # i was unsure how to verify command line output
   end 
 
-  xdescribe "send_message" do 
-    # TODO: write tests for this method
-    # i could not get my bot to post messages 
+  describe "send_message" do 
+    it "can send a valid message" do 
+      # arrange
+      VCR.use_cassette("workspace-test") do 
+        @test_workspace = Workspace.new()
+        @test_workspace.select_channel("general")
+        @selected_channel = @test_workspace.selected 
+      end 
+      result = {}
+
+      # act 
+      VCR.use_cassette("post-messages") do 
+        result = @selected_channel.send_message("Hey I can post messages!")
+      end 
+
+      # assert
+      expect(result).must_be_kind_of HTTParty::Response
+      expect(result["ok"]).must_equal true
+    end 
+
+    it "raises an error if no recipient is selected" do 
+      # arrange
+      @selected_channel = Channel.new(topic: "channel does not exist", member_count: 1, name: "bogus", slack_id:"CHAT1234")
+
+      # act / assert 
+      result = {}
+      VCR.use_cassette("post-messages") do 
+        expect {@selected_channel.send_message("Hey I can post messages!")}.must_raise SlackAPIError
+      end 
+    end
+
+    it "sends the correct message to the correct channel" do 
+      # arrange
+      VCR.use_cassette("workspace-test") do 
+        @test_workspace = Workspace.new()
+        @test_workspace.select_channel("CUTE4MTD0") # "api-testing"
+        @selected_channel = @test_workspace.selected 
+      end 
+      result = {}
+
+      # act 
+      VCR.use_cassette("post-messages") do 
+        result = @selected_channel.send_message("heeeey everyone! :)")
+      end 
+
+      # assert
+      expect(result["channel"]).must_equal "CUTE4MTD0"    
+      expect(result["message"]["text"]).must_equal "heeeey everyone! :)"
+    end
   end 
-  
 end

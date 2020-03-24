@@ -22,8 +22,21 @@ class Recipient
     return requested_data
   end
 
+  # post a message to a slack channel 
   def send_message(message)
-    #TODO: implement send_message
+    message_reciever = self.slack_id
+
+    sent_message_details = HTTParty.post("https://slack.com/api/chat.postMessage", 
+                                          query: {token: ENV["BOT_TOKEN"], channel: message_reciever, text: message} )
+
+    if sent_message_details["ok"] == false
+      raise SlackAPIError, "Encountered error: #{sent_message_details["error"]}"
+    else 
+      puts "\n"
+      puts "Message sent sucessfully."
+    end
+
+    return sent_message_details
   end
 
   # ----- ABSTRACT METHODS -----
