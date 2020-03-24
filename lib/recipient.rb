@@ -33,7 +33,7 @@ class Recipient
       raise SlackAPIError, "Encountered error: #{sent_message_details["error"]}"
     else 
       puts "\n"
-      puts "Message sent sucessfully."
+      puts "Message sent successfully."
     end
 
     return sent_message_details
