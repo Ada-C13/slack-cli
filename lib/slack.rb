@@ -33,17 +33,20 @@ def perform_action(choice)
   case choice 
     when *OPTIONS[0]
       puts "\n\n>>>>>>> LIST OF USERS"
-      tp @workspace.users
+      count = 0
+      my_proc = Proc.new{count = count + 1}
+      tp @workspace.users, {user: lambda{ |u| my_proc.call }}, :id, :user_name, :real_name => {:display_method => :name}
     when *OPTIONS[1]
       puts "\n\n>>>>>>> LIST OF CHANNELS"
-      tp @workspace.channels, :include => :id
+      # tp @workspace.channels, :include => :id
+      count = 0
+      my_proc = Proc.new{count = count + 1}
+      tp @workspace.channels, {channel: lambda{ |u| my_proc.call }}, :id, :name, :topic, :member_count
     when *OPTIONS[2]
-      puts "\n\n>>>>>>> SELECTING A USER"
-      make_selection("user")
+      make_selection("user", @workspace.users )
       
     when *OPTIONS[3]
-      puts "\n\n>>>>>>> SELECTING A CHANNEL"
-     make_selection("channel")
+     make_selection("channel", @workspace.channels )
       
       
   end
@@ -62,10 +65,27 @@ def get_user_input
   return choice
 end
 
-def make_selection(type)
-  print "Please enter the id for the #{type} > "
-  input = user.get
-  @workspace.select_by_id(input)
+def make_selection(type, list)
+  puts "\n\n>>>>>>> SELECTING A #{type.upcase}"
+  print "Please enter the #{type} number or the ID as listed > "
+  input = gets.strip
+
+  if input != 0 && input.to_i == 0 #gave us an ID
+    @workspace.select_by_id(type, input)
+  else #gave us an int 
+    while input == 0 || input.to_i > list.length
+      validate_selection(input)
+    end
+    @workspace.select_by_index(type, input.to_i-1)
+  end
+
+  puts "Selected #{type}: #{@workspace.selected.name}"
+  
+end
+
+def validate_selection(input)
+  print "#{input} is not a valid choice, re-enter the number > "
+  return gets.strip
 end
 
 

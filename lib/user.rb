@@ -7,13 +7,13 @@ SLACK_TOKEN = ENV["SLACK_TOKEN"]
 
 module Slack
   class User
-    attr_reader :id, :user_name, :real_name
+    attr_reader :id, :user_name, :name
     
     def initialize(member)
       raise ArgumentError, "Trying to create User object with bad data: #{member}." if member["id"] == nil || member["name"] == nil || member["real_name"] == nil 
       @id = member["id"]
       @user_name = member["name"]
-      @real_name = member["real_name"]
+      @name = member["real_name"]
     end
 
     # CLASS METHODS

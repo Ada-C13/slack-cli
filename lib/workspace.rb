@@ -10,6 +10,8 @@ module Slack
     # attr_reader :users, :conversations, :selected
     attr_reader :users, :channels, :selected
     
+    
+    
     def initialize
       @users = User.list_all
       @channels = Channel.list_all
@@ -19,7 +21,27 @@ module Slack
 
     # Method selects a user or channel using the name or slack ID. 
     def select_by_id(type, id)
-      
+      result = nil
+
+      case type 
+        when "channel"
+          result = @channels.index { |channel| channel.id == id }
+          raise ArgumentError, "no channel with id: #{id}" if result.nil?
+          @selected = @channels[result]
+        when "user"
+          result = @users.index { |user| user.id == id }
+          raise ArgumentError, "no user with id: #{id}" if result.nil?
+          @selected = @users[result]
+      end
+    end
+
+    def select_by_index(type, index)
+      case type 
+      when "channel"
+        @selected = @channels[index]
+      when "user"
+        @selected = @users[index]
+      end
     end
 
     # Method shows details of the currently selected conversation.
@@ -34,7 +56,9 @@ module Slack
 
     private 
 
-    def is_valid_target?(input, type)
+    def find_id
+      return
+
       # check users and conversations for valid target
     end
 
