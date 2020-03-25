@@ -39,5 +39,4 @@ describe "Workspace class" do
       end
     end
   end
-
 end

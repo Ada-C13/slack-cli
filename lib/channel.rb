@@ -9,6 +9,8 @@ Dotenv.load
 class Channel < Recipient
   attr_reader :topic, :member_count
 
+  BASE_URL = "https://slack.com/api/channels.list?"
+
   def initialize(topic, member_count, name, slack_id)
     super(slack_id: slack_id, name: name)
     @topic = topic

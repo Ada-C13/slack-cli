@@ -3,16 +3,15 @@ require_relative "channel"
 require "pry"
 
 class Workspace
-  attr_reader :users, :channels, :query
+  attr_reader :users, :channels, :selected, :query
 
   Dotenv.load
-
-  BOT_TOKEN = ENV["BOT_TOKEN"]
 
   def initialize()
     @query = { token: SLACK_TOKEN }
     @users = self.list_all_user
     @channels = self.list_all_channel
+    @selected = nil
   end
 
   def list_all_user
@@ -27,7 +26,7 @@ class Workspace
 
   def list_all_channel
     all_channel = []
-    response = HTTParty.get(BASE_URL, query: query)["channels"]
+    response = HTTParty.get(Channel::BASE_URL, query: query)["channels"]
     response.each do |channel|
       all_channel << Channel.new(
         channel["topic"]["value"],
