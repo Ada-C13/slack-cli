@@ -1,6 +1,7 @@
 require_relative "test_helper"
 
 describe "Recipient class" do
+
   describe 'Self.list_all' do
     it 'self.list_all' do
       expect{Recipient.list_all}.must_raise NotImplementedError
@@ -11,7 +12,7 @@ describe "Recipient class" do
     VCR.use_cassette("list-user-endpoint") do
       recipient = Recipient.new(slack_id: "CV63MEZTJ", name: "random")
       response = recipient.send_message("Hi")
-      expect(response).must_equal true
+      expect(recipient.send_message("Hi")).must_equal true
     end
   end
 
@@ -22,8 +23,8 @@ describe "Recipient class" do
     end
   end
 
-  describe 'derails' do
-    it 'sdetails' do
+  describe 'details' do
+    it 'details' do
       responde = Recipient.new(slack_id: "jeta", name: "jeta")
       expect{responde.details}.must_raise NotImplementedError
     end

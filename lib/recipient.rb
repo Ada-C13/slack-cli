@@ -17,6 +17,7 @@ class Recipient
 
   def self.get(url)
     response = HTTParty.get(url , query: {token: ENV["SLACK_TOKEN"]})
+    
     if response.code != 200 || response["ok"] == false
       raise SlackAPIError, "We encaunterd a problem #{response["error"]}"
     end
@@ -30,7 +31,7 @@ class Recipient
 
   def send_message(msg)
     url = "https://slack.com/api/chat.postMessage"
-    query = {token: ENV["BOT_TOKEN"], channel: self.slack_id, text: msg}
+    query = {token: ENV["SLACK_TOKEN"], channel: self.slack_id, text: msg}
 
     response = HTTParty.post(url, query: query)
 

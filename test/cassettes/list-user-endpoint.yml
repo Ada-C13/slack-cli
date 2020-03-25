@@ -980,4 +980,374 @@ http_interactions:
       string: '{"ok":false,"error":"channel_not_found"}'
     http_version: null
   recorded_at: Sun, 15 Mar 2020 23:53:16 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=CV63MEZTJ&text=Hi&token=<BOT_TOKEN>
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '312'
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 17 Mar 2020 01:46:28 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 04a35ae3893b387e5cc4102c6c8c484a
+      X-Oauth-Scopes:
+      - chat:write,channels:read,users:read
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-57iu
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 4c48e9fb20d53d40e9fe273dbdae1099.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - hnXNgREOevZmTDxpjnAAwxwqluldf-zEqXhqi_yTOfMYkC2tsT0qwA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"CV63MEZTJ","ts":"1584409588.000100","message":{"bot_id":"BV85DAQP6","type":"message","text":"Hi","user":"UUVR12XJ6","ts":"1584409588.000100","team":"TV5KNL1LL","bot_profile":{"id":"BV85DAQP6","deleted":false,"name":"Jeta","updated":1583959127,"app_id":"AVAEDFTTR","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TV5KNL1LL"}}}'
+    http_version: null
+  recorded_at: Tue, 17 Mar 2020 01:46:28 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=CV63MZTJ&text=Hi&token=<BOT_TOKEN>
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '60'
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 17 Mar 2020 01:46:43 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - a8bc28b41a0a72865e2e4fa248176e76
+      X-Oauth-Scopes:
+      - chat:write,channels:read,users:read
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-s23t
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 b48dedcc55e63f14261aa92cf2d61522.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - 9HqoTKGEZ5viI07sXiXJu1qp0-Kk6Jm5hvNNuAhI95j7YN0ViDEKQw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"channel_not_found"}'
+    http_version: null
+  recorded_at: Tue, 17 Mar 2020 01:46:43 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=CV63MEZTJ&text=Hi&token=<SLACK_TOKEN>
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '311'
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 25 Mar 2020 20:30:04 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - a7b2391e6185f3f1d23162d157f76e05
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-7q06
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 eb7d416369db7f3961117199ddc9e343.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - HIO50-C2
+      X-Amz-Cf-Id:
+      - Sze-_b-vMTvm8qNyVNfgILEZKoy7-yXY9zpkntaw6mssi57ppsdDOQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"CV63MEZTJ","ts":"1585168204.000200","message":{"bot_id":"BUVR12TNW","type":"message","text":"Hi","user":"UV66H40LV","ts":"1585168204.000200","team":"TV5KNL1LL","bot_profile":{"id":"BUVR12TNW","deleted":false,"name":"Jeta","updated":1583959127,"app_id":"AVAEDFTTR","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TV5KNL1LL"}}}'
+    http_version: null
+  recorded_at: Wed, 25 Mar 2020 20:30:04 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=CV63MEZTJ&text=Hi&token=<SLACK_TOKEN>
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '311'
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 25 Mar 2020 20:30:04 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 8ef6050eaf643f47480537788b7a1fc1
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-4766
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 91c80546b6d0beebffe469756e2c35aa.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - HIO50-C2
+      X-Amz-Cf-Id:
+      - XbHF8bfnxGJRL9Kjnjz345BlOYfTjnQ8U4UwjXmFD2SL7w1nwcgR3Q==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"CV63MEZTJ","ts":"1585168204.000300","message":{"bot_id":"BUVR12TNW","type":"message","text":"Hi","user":"UV66H40LV","ts":"1585168204.000300","team":"TV5KNL1LL","bot_profile":{"id":"BUVR12TNW","deleted":false,"name":"Jeta","updated":1583959127,"app_id":"AVAEDFTTR","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TV5KNL1LL"}}}'
+    http_version: null
+  recorded_at: Wed, 25 Mar 2020 20:30:04 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=CV6J&text=Hi&token=<SLACK_TOKEN>
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '60'
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 25 Mar 2020 20:30:05 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - f9cd1752cb7e0772bfae2507212f7c55
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-9s4u
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 23902d8ef9680db023f27a4c4f37e390.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - HIO50-C2
+      X-Amz-Cf-Id:
+      - YMrtwhZ1eH-KyYFQp3se0opKMghlHq1vu8yHutU694CUMDmI7gJehg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"channel_not_found"}'
+    http_version: null
+  recorded_at: Wed, 25 Mar 2020 20:30:05 GMT
 recorded_with: VCR 5.1.0

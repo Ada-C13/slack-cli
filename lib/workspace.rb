@@ -35,7 +35,6 @@ class WorkSpace
     return "Sorry, I couldn't find that user"
   end
 
-
   def show_details
     @selected.details
   end
