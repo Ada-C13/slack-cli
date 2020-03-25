@@ -37,4 +37,26 @@ class Workspace
     end
     return all_channel
   end
+
+  def select_user(user_id)
+    @users.each do |user|
+      if user_id == user.slack_id
+        @selected = user
+      elsif user_id == user.name
+        @selected = user
+      end
+    end
+    return @selected
+  end
+
+  def select_channel(channel_id)
+    @channels.each do |channel|
+      if channel_id == channel.slack_id
+        @selected = channel
+      elsif channel_id == channel.name
+        @selected = channel
+      end
+    end
+    return @selected
+  end
 end
