@@ -12,6 +12,8 @@ module Slack
     def post_message(message)
       # API ENDPOINT: https://slack.com/api/chat.postMessage 
       # query: @id
+      results = HTTParty.post("https://slack.com/api/chat.postMessage", query: { token: SLACK_TOKEN, channel: id, text: message})
+      raise BadResponseError, "chat.postMessage endpoint response IS NOT OK." unless results["ok"]
     end
 
     # Placeholder method to be defined in child classes.

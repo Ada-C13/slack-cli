@@ -12,12 +12,9 @@ module Slack
       @member_count = channel["num_members"]
     end
 
-    # def details
-    #   # return string describing: 
-    #   # channel name
-    #   # channel topic 
-    #   # member_count 
-    # end
+    def details
+      return "Details for this channel... \n name: #{name} \n topic: #{topic} \n number of members: #{member_count}"
+    end
 
 
   # Method takes raw Channel data and converts it into an array of Channel objects.

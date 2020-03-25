@@ -7,7 +7,9 @@ OPTIONS = [
   ["2", "list channels"],
   ["3", "select user"],
   ["4", "select a channel"],
-  ["5", "quit"],
+  ["5", "show details"],
+  ["6", "post a message"],
+  ["7", "quit"],
 ]
 
 def main
@@ -36,19 +38,35 @@ def perform_action(choice)
       count = 0
       my_proc = Proc.new{count = count + 1}
       tp @workspace.users, {user: lambda{ |u| my_proc.call }}, :id, :user_name, :real_name => {:display_method => :name}
+
     when *OPTIONS[1]
       puts "\n\n>>>>>>> LIST OF CHANNELS"
       # tp @workspace.channels, :include => :id
       count = 0
       my_proc = Proc.new{count = count + 1}
       tp @workspace.channels, {channel: lambda{ |u| my_proc.call }}, :id, :name, :topic, :member_count
+
     when *OPTIONS[2]
       make_selection("user", @workspace.users )
       
     when *OPTIONS[3]
      make_selection("channel", @workspace.channels )
-      
-      
+
+    when *OPTIONS[4] #details
+      if @workspace.selected.nil?
+        puts "Oops, you haven't made a selection yet. Make a selection first."
+      else
+        puts @workspace.selected.details
+      end
+
+    when *OPTIONS[5] #post message
+      if @workspace.selected.nil?
+        puts "Who ya trying to send a message to? Pick someone first, silly."
+      else
+        print "Enter the message that you want to send to #{@workspace.selected.name} > "
+        message = gets
+        @workspace.selected.post_message(message)
+      end
   end
 
 end

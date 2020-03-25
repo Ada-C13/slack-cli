@@ -16,6 +16,17 @@ module Slack
       @name = member["real_name"]
     end
 
+    def details
+      return "Details for this user: \n id: #{id} \n user name: #{user_name} \n real name: #{name}"
+    end
+
+    def post_message(message)
+      # API ENDPOINT: https://slack.com/api/chat.postMessage 
+      # query: @id
+      results = HTTParty.post("https://slack.com/api/chat.postMessage", query: { token: SLACK_TOKEN, channel: id, text: message})
+      raise BadResponseError, "chat.postMessage endpoint response IS NOT OK." unless results["ok"]
+    end
+
     # CLASS METHODS
 
     # Parameter users: collection representing Users
