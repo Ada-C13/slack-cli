@@ -22,6 +22,7 @@ module SlackApi
     end
 
 # ################# Class Methods ########################
+
     # https://api.slack.com/methods/conversations.list
     def self.list_all
       # This method exists in Class Workspace. 
