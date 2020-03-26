@@ -3,6 +3,8 @@ require_relative 'workspace'
 require_relative 'user'
 require_relative 'channel'
 
+# nice work :)
+
 # helper method
 def get_user_input
   puts "Choose an action from the following list:
