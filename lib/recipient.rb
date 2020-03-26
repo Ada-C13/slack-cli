@@ -60,7 +60,7 @@ attr_reader :slack_id, :name
     #Optional -
     #When I change these settings, the program should save them in the JSON format in a file named bot-settings.json.
     #When I restart the program, it should reload those settings.
-    File.open("./bot-settings.json", "w") do |name|
+    File.open("./.bot-settings.json", "w") do |name|
       name.write(query.to_json)
     end  
 
