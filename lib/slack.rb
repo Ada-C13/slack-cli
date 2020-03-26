@@ -56,6 +56,11 @@ def main
         print "Please enter your message: "
         message = gets.chomp.to_s
         workspace.send_message(message)
+        if workspace.send_message(message)
+          puts "Your message is sent".blue.bold
+        else
+          puts "Something is not right.... message is not sent!".blue.bold
+        end
         puts "\n"
       end
 

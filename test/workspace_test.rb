@@ -129,6 +129,20 @@ describe "Workspace" do
     end
   end
 
+  #Optional - updating user setting
+  xdescribe "set_profile_setting(name, emoji)" do
+    # tried to write the test for it but couldn't quite figure out yet..
+    #can only use it for the authorized user
+    it "will return ture it is an User that can change the setting" do
+      VCR.use_cassette("create_workspace")do
+      @workspace = Workspace.new
+      end
 
+      @workspace.select_user('keikei1128')
+      response = @workspace.set_profile_setting("Sharon", ":unicorn_face:")
+      
+      expect(response.selected.status_emoji).must_equal ":unicorn_face:"
+    end
+  end
 end  
 
