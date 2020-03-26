@@ -44,6 +44,7 @@ class Workspace
     end
   end
 
-  def send_message
+  def send_message(message)
+    @selected.send_message(message)
   end
 end
