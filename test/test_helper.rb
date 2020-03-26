@@ -8,7 +8,7 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
-
+ 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 VCR.configure do |config|
@@ -25,5 +25,12 @@ VCR.configure do |config|
   }
 
   # Don't leave our token lying around in a cassette file.
+  config.filter_sensitive_data("<SLACK_USER_TOKEN>") do
+    ENV['SLACK_API_TOKEN']
 
+  end  
+
+  config.filter_sensitive_data("<SLACK_BOT_TOKEN>") do
+    ENV['BOT_TOKEN']
+  end
 end
