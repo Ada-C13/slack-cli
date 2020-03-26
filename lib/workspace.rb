@@ -19,6 +19,7 @@ class Workspace
       end
     end
 
+    # Nice job on the clear personalized error messages. 
     @selected = nil
     return "Sorry, I couldn't find that channel."
   end
