@@ -8,8 +8,8 @@ describe "User class" do
     id = "0317"
 
     #Act
-    user = User.new(name, id)
+    user = SlackCLI::User.new(name, id)
     #Assert
-    expect(user).must_be_instance_of User
+    expect(user).must_be_instance_of SlackCLI::User
   end
 end

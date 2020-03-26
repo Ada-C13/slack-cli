@@ -10,7 +10,7 @@ Dotenv.load
 SLACK_TOKEN = ENV["SLACK_TOKEN"]
 
 def main
-  workspace = Workspace.new
+  workspace = SlackCLI::Workspace.new
   puts "Welcome to the Ada Slack CLI!
   at this time, our workspace has #{workspace.users.count} users
   and #{workspace.channels.count} channels."
@@ -53,9 +53,8 @@ def main
       if workspace.selected_channel == nil
         puts "no channel selected"
       else
-      ap workspace.selected_channel.print_details
+        ap workspace.selected_channel.print_details
       end
-      
     end
 
     puts "what would you like to see?"

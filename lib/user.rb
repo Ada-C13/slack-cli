@@ -11,7 +11,6 @@ module SlackCLI
     def initialize(name, slack_id, channels = [])
       super(slack_id: slack_id, name: name)
       @channels = channels
-
     end
 
     def print_details
