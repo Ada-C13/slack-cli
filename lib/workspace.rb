@@ -49,10 +49,12 @@ class Workspace
 
   def show_details
     if @selected.class == Channel
-      tp @selected, "name", "topic", "memeber_count", "slack_id"
+      return tp @selected, "name", "topic", "memeber_count", "slack_id"
+      puts "\n"
     elsif 
       @selected.class == User
-      tp @selected, "slack_id", "name", "real_name","status_emoji"
+      return tp @selected, "slack_id", "name", "real_name","status_emoji"
+      puts "\n"
     end 
   end
 

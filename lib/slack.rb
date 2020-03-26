@@ -19,7 +19,7 @@ def main
     
     case user_input
     when "list users" 
-      tp workspace.users, "slack_id", "name", "real_name"
+      tp workspace.users, "slack_id", "name", "real_name", "status_emoji"
       puts "\n"
       
     when "list channels"
@@ -43,7 +43,7 @@ def main
         puts "\nYou haven't selected a user or channel!!! Try again!".bold
         puts "\n"
       else
-        puts workspace.show_details
+        workspace.show_details
         user_input = nil
         puts "\n"
       end 
