@@ -1,4 +1,8 @@
 require 'httparty'
+require 'dotenv'
+
+Dotenv.load
+
 
 module SlackApi
   class Recipient 
@@ -15,20 +19,17 @@ module SlackApi
 
     end 
 
-
-
-    # https://api.slack.com/methods/chat.postMessage
-      def send_message(message)
-        # use HTTParty here to send the message
-        # address errors
-      end
-
       def show_details
         raise NotImplementedError, "Define this method in a child class"
       end
 
 
       # ################## Class Methods #########################
+
+      # These methods are not implemented ########################
+      BASE_URL = "https://slack.com/api/"
+
+
       def self.get(url, params)
         # send message using HTTParty
         # check for errors
@@ -39,19 +40,36 @@ module SlackApi
       def self.list_all
         raise NotImplementedError, "Define this method in a child class"
       end
+
+
+
+
+
+      def self.send_message(message, channel)
+
+      #   endpoint = BASE_URL + "chat.postMessage"
+
+      #   response = HTTParty.post(
+      #     endpoint,
+      #     body: { 
+      #       token: BOT_TOKEN, 
+      #       text: message, 
+      #       channel: channel
+      #     },
+      #     headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
+      #   )
+
+      #   unless response.code == 200 && response.parsed_response["ok"]
+      #     raise SlackApiError, "Error when posting #{message} to #{channel}, error: #{response.parsed_response["error"]}"
+      #   end
+
+      #   return true
+
+        
+      end
   end 
 
 end 
 
 
-class SlackError < StandardError
-end
-
-
-
-
-
-
-
-
-
+class SlackApiError < StandardError; end
