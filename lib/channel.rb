@@ -20,6 +20,9 @@ module SlackCli
       channels = []
       #send request to Slack API using users.list endpoint
       response = HTTParty.get(url) #request that will return the response
+      if response.code != 200 || response["ok"] == false
+        raise SlackAPIError, "We encountered a problem: #{response["error"]}"
+      end
       #parse response and get users
         response['channels'].each do |channel|
           id = channel["id"]

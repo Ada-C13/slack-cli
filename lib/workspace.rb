@@ -76,17 +76,20 @@ module SlackCli
       if self.selected != nil
         #if true, prompt user: "what's your message"
     
-         #then send message to selected
-         payload = {
-           :channel => self.selected.id, 
-           :text => aUser_message, 
-           :token => ENV['SLACK_TOKEN']
-         }
-         payload_options = { 
-           :body => payload
-         }
-         url = ENV['BASE_URL'] + ENV['SUB_MESSAGE_URL']
-         response = HTTParty.post(url, payload_options)
+        #then send message to selected
+        payload = {
+          :channel => self.selected.id, 
+          :text => aUser_message, 
+          :token => ENV['SLACK_TOKEN']
+        }
+        payload_options = { 
+          :body => payload
+        }
+        url = ENV['BASE_URL'] + ENV['SUB_MESSAGE_URL']
+        response = HTTParty.post(url, payload_options)
+        if response.code != 200 || response["ok"] == false
+          raise SlackAPIError, "We encountered a problem: #{response["error"]}"
+        end
          return response.code
        #if it is nil, 
        else 
