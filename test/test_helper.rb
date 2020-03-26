@@ -9,6 +9,10 @@ require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
 
+require_relative '../lib/channel'
+require_relative '../lib/user'
+require_relative '../lib/workspace'
+
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 VCR.configure do |config|
@@ -25,5 +29,12 @@ VCR.configure do |config|
   }
 
   # Don't leave our token lying around in a cassette file.
+  config.filter_sensitive_data("<SLACK_API_TOKEN>") do
+    ENV["SLACK_API_TOKEN"]
+  end
+
+  config.filter_sensitive_data("<USER_TOKEN>") do
+    ENV["USER_TOKEN"]
+  end
 
 end
