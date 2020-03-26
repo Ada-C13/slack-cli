@@ -98,16 +98,16 @@ describe "Workspace" do
       @workspace.select_user("Joseph")
       user_details = @workspace.show_details
 
-      expect(user_details).must_be_kind_of String
-      expect(user_details).must_equal "Class name = Joseph, name = nguyen.josephduy, slack id = US1N1DHGQ"
+      expect(user_details).must_be_kind_of TablePrint::Returnable
+      #expect(user_details).must_equal "Class name = Joseph, name = nguyen.josephduy, slack id = US1N1DHGQ"
     end
 
     it "will return a channel details" do
       @workspace.select_channel('general')
       channel_details = @workspace.show_details
 
-      expect(channel_details).must_be_kind_of String
-      expect(channel_details).must_equal "Channel name = general, topic = Company-wide announcements and work-based matters, memeber count = 2, slack id = CRQ896WKD"
+      expect(channel_details).must_be_kind_of TablePrint::Returnable
+      #expect(channel_details).must_equal "Channel name = general, topic = Company-wide announcements and work-based matters, memeber count = 2, slack id = CRQ896WKD"
     end
   end
 

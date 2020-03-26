@@ -19,7 +19,7 @@ class User < Recipient
   end
 
   def detail
-    tp self, "slack_id", "name", "real_name"
+    tp self, "slack_id", "name", "real_name","status_emoji"
   end
 
   def self.list_all

@@ -2,6 +2,7 @@ require "httparty"
 require "dotenv"
 require_relative "user"
 require_relative "channel"
+require 'table_print'
 
 Dotenv.load
 
@@ -48,10 +49,10 @@ class Workspace
 
   def show_details
     if @selected.class == Channel
-      return "Channel name = #{@selected.name}, topic = #{@selected.topic}, memeber count = #{@selected.memeber_count}, slack id = #{@selected.slack_id}"
+      tp @selected, "name", "topic", "memeber_count", "slack_id"
     elsif 
       @selected.class == User
-      return "Class name = #{@selected.real_name}, name = #{@selected.name}, slack id = #{@selected.slack_id}"
+      tp @selected, "slack_id", "name", "real_name","status_emoji"
     end 
   end
 
@@ -60,16 +61,9 @@ class Workspace
     return response.code == 200 && response.parsed_response["ok"]
   end 
 
-  def set_profile_name(name)
-    response = @selected.set_user_profile_name(name)
+  def set_profile_setting(name, emoji)
+    response = @selected.set_user_profile_name(name, emoji)
     return response.code == 200 && response.parsed_response["ok"]
   end
-
-  def set_profile_emoji(emoji)
-    response = @selected.set_user_profile_emoji(emoji)
-    return response.code == 200 && response.parsed_response["ok"]
-  end
-
-  
 
 end

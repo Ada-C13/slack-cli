@@ -48,29 +48,23 @@ attr_reader :slack_id, :name
     )
   end 
  
-  def set_user_profile_name(name)
-    HTTParty.post("https://slack.com/api/users.profile.set?", query: {
+  def set_user_profile_name(name, emoji)
+    query = {
       token: ENV["SLACK_API_TOKEN"], 
-      profile: {display_name: name}.to_json,
+      profile: {display_name: name, status_emoji: emoji}.to_json,
       user: self.slack_id,
       }      
-    )
 
-    #File.open("bot-settings.json", "w") do |name|
-    #  name.write(query.to_json)
-    #end  
-  end
+    response = HTTParty.post("https://slack.com/api/users.profile.set?", query: query)
 
-  def set_user_profile_emoji(emoji)
-    HTTParty.post("https://slack.com/api/users.profile.set?", query: {
-      token: ENV["SLACK_API_TOKEN"], 
-      profile: {status_emoji: emoji}.to_json,
-      user: self.slack_id,
-      }      
-    )
-    #File.open("bot-settings.json", "w") do |emoji|
-    #  emoji.write(query.to_json)
-    #end 
+    #Optional -
+    #When I change these settings, the program should save them in the JSON format in a file named bot-settings.json.
+    #When I restart the program, it should reload those settings.
+    File.open("./bot-settings.json", "w") do |name|
+      name.write(query.to_json)
+    end  
+
+    return response
   end
 end
 
