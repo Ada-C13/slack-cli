@@ -22,8 +22,17 @@ module SlackCLI
       return { topic: topic, member_count: member_count, slack_id: slack_id, name: name }
     end
 
-    def self.get_from_api
-      query_parameters = {}
-    end
+    # def self.get_from_api
+    #   query_parameters = {
+    #     token: ENV["SLACK_TOKEN"],
+    #   }
+    #   response = get(BASE_URL, query_parameters)
+
+    #   if (response.code == 200)
+    #     channels = response["channels"].map do |Channel|
+    #       slack_id = channel
+    #     end
+    #   end
+    # end
   end
 end

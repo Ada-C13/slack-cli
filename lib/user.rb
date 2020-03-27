@@ -8,6 +8,12 @@ module SlackCLI
     BASE_URL = "https://slack.com/api/users.list?"
     attr_reader :channels, :name, :slack_id
 
+    # def initialize(name:, slack_id:, channels: [])
+    #   super(slack_id: slack_id, name: name)
+    #   @channels = channels
+    # end
+
+
     def initialize(name, slack_id, channels = [])
       super(slack_id: slack_id, name: name)
       @channels = channels

@@ -40,16 +40,75 @@ describe "Workspace class" do
     end
   end
 
-  it "select a user" do
-    VCR.use_cassette("slack") do
-      #Arrange
-      workspace = SlackCLI::Workspace.new()
-      user_id = workspace.users[0].slack_id
-      #Act
-      workspace.select_user(user_id)
-      #Assert
-      expect(workspace.selected_user).must_equal workspace.users[0]
+  describe "#select_user" do
+    it "select a user by id" do
+      VCR.use_cassette("slack") do
+        #Arrange
+        workspace = SlackCLI::Workspace.new()
+        user_id = workspace.users[0].slack_id
+        #Act
+        workspace.select_user(user_id)
+        #Assert
+        expect(workspace.selected_user).must_equal workspace.users[0]
+      end
+    end
+
+    it "select a user by name" do
+      VCR.use_cassette("slack") do
+        #Arrange
+        workspace = SlackCLI::Workspace.new()
+        #Act
+        workspace.select_user("slackbot")
+        #Assert
+        expect(workspace.selected_user.name).must_equal "slackbot"
+      end
     end
   end
+
+  describe "#selected_channel" do
+    it "select a channel by id" do
+      VCR.use_cassette("slack") do
+        #Arrange
+        workspace = SlackCLI::Workspace.new()
+        channel_id = workspace.channels[0].slack_id
+        #Act
+        workspace.select_channel(channel_id)
+        #Assert
+        expect(workspace.selected_channel).must_equal workspace.channels[0]
+      end
+    end
+
+    it "select a channel by name" do
+      VCR.use_cassette("slack") do
+        #Arrange
+        workspace = SlackCLI::Workspace.new()
+        #Act
+        workspace.select_channel("general")
+        #Assert
+        expect(workspace.selected_channel.name).must_equal "general"
+      end
+    end
+  end
+
   # write a test for 1, select user by name, 2. select channel by id and by name
+
+  describe "#send_message" do
+    it "sends a message to a user" do
+      VCR.use_cassette("send_message") do
+        workspace = SlackCLI::Workspace.new()
+        workspace.select_user("USLACKBOT")
+
+        expect(workspace.send_message("what is for lunch?")).must_equal true
+      end
+    end
+
+    it "sends a message to a channel" do
+      VCR.use_cassette("send_message") do
+        workspace = SlackCLI::Workspace.new()
+        workspace.select_channel("CV8PR7M4M")
+
+        expect(workspace.send_message("do you need help with your project?")).must_equal true
+      end
+    end
+  end
 end

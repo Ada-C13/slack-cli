@@ -44,7 +44,7 @@ def main
       else
         puts "selected channel with id #{workspace.selected_channel.slack_id}"
       end
-    when "detail"
+    when "detail", "details"
       if workspace.selected_user == nil
         puts "no user selected"
       else

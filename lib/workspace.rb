@@ -67,13 +67,12 @@ module SlackCLI
     #get request, client wants data from the server (doens't make any change)
     #post request, changing stuff on the server (makes changes)
 
-    # def send_message
-    #   if selected_channel || selected_user == nil
-    #     raise SlackApiError, "invalid recipient"
-    #   else
-    #     HTTParty.post(...)
-    #   end
-
-    # end
+    def send_message(message)
+      if @selected_user
+        @selected_user.send_message(message, @selected_user)
+      elsif @selected_channel
+        @selected_channel.send_message(message, @selected_channel)
+      end
+    end
   end
 end
