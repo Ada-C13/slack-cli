@@ -16,8 +16,8 @@ describe "WorkSpace class" do
     it "select a user" do 
       VCR.use_cassette("list-user-endpoint") do
         response = WorkSpace.new
-        search_term = "jeta"
-        selected = nil
+        search_term = "Slackbot"
+        selected = User.new(real_name: "Slackbot", status_text: "", status_emoji: "", name: "slackbot", slack_id: "USLACKBOT")
 
         response.users.each do |user|
           if user.name == search_term || user.slack_id == search_term
@@ -26,17 +26,17 @@ describe "WorkSpace class" do
         end
         expect(response.select_user(search_term)).must_be_kind_of String
         expect(selected).must_be_kind_of User
-        expect(selected.real_name).must_equal "jeta"
+        expect(selected.real_name).must_equal "Slackbot"
         expect(selected.status_emoji).must_equal ""
         expect(selected.status_text).must_equal ""
-        expect(selected.name).must_equal "jeta"
+        expect(selected.name).must_equal "slackbot"
       end
     end 
 
     it "select invalid user" do 
       VCR.use_cassette("list-user-endpoint") do
         response = WorkSpace.new
-        search_term = "+++++"
+        search_term = "++++"
         selected = nil
 
         response.users.each do |user|
@@ -73,7 +73,7 @@ describe "WorkSpace class" do
     it "selects invalid channel" do 
       VCR.use_cassette("list-channel-endpoint") do
         response = WorkSpace.new
-        search_term = "+++++++"
+        search_term = "++++++"
         selected = nil
 
         response.channels.each do |channel|

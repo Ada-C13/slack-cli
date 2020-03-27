@@ -25,7 +25,7 @@ describe "Recipient class" do
 
   describe 'details' do
     it 'details' do
-      responde = Recipient.new(slack_id: "jeta", name: "jeta")
+      responde = Recipient.new(slack_id: "USLACKBOT", name: "slackbot")
       expect{responde.details}.must_raise NotImplementedError
     end
   end

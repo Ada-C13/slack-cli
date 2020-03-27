@@ -18,13 +18,16 @@ describe "Channel class" do
           channels << Channel.new(topic: topic, member_count: member_count, slack_id: slack_id, slack_id: slack_id, name: name)
         end
 
-        expect(channels[0]).must_be_instance_of Channel
+        expect(channels[2]).must_be_instance_of Channel
         
-        expected_topic = {"value" => "", "creator" => "", "last_set" => 0}
-        expect(channels[0].topic).must_equal expected_topic
-        expect(channels[0].member_count.length).must_equal 5
-        expect(channels[0].slack_id).must_equal "CV5KNMDKN"
-        expect(channels[0].name).must_equal "slack-cli"
+        expected_topic = {
+          "value" => "Non-work banter and water cooler conversation",
+          "creator" => "UV5KNL1UL",
+          "last_set" => 1583868525}
+        expect(channels[2].topic).must_equal expected_topic
+        expect(channels[2].member_count.length).must_equal 5
+        expect(channels[2].slack_id).must_equal "CV63MEZTJ"
+        expect(channels[2].name).must_equal "random"
       end
     end
   end
