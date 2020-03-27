@@ -3,7 +3,7 @@ require_relative "recipient"
 class User < Recipient
   attr_reader :real_name, :status_text, :status_emoji
 
-  def initialize( real_name: nil, status_text: nil, status_emoji: nil, name:, id:)
+  def initialize(real_name: nil, status_text: nil, status_emoji: nil, name:, id:)
     super(id: id, name: name)
 
     @real_name = real_name
@@ -13,7 +13,7 @@ class User < Recipient
 
 
   def details
-    tp self, "slack_id", "name", "real_name"
+    tp self, "id", "name", "real_name"
   end
 
 

@@ -42,7 +42,7 @@ class Workspace
   # When I type details, the program should print out details for the currently selected recipient. 
   # What information is printed depends on whether it's a channel or a user.
   def show_details
-    return @selected.details 
+     @selected.details
   end
 
 
