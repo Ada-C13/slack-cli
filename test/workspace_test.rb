@@ -17,7 +17,7 @@ describe "WorkSpace class" do
       VCR.use_cassette("list-user-endpoint") do
         response = WorkSpace.new
         search_term = "Slackbot"
-        selected = User.new(real_name: "Slackbot", status_text: "", status_emoji: "", name: "slackbot", slack_id: "USLACKBOT")
+        selected = User.new(real_name: "Slackbot", status_text: "", status_emoji: "", name: "slackbot", slack_id: "USLAKBOT")
 
         response.users.each do |user|
           if user.name == search_term || user.slack_id == search_term
@@ -30,6 +30,7 @@ describe "WorkSpace class" do
         expect(selected.status_emoji).must_equal ""
         expect(selected.status_text).must_equal ""
         expect(selected.name).must_equal "slackbot"
+        expect(selected.slack_id).must_equal "USLAKBOT"
       end
     end 
 
