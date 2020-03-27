@@ -1,5 +1,5 @@
 /coverage/
-
+/test/cassettes
 .DS_Store
 
 # Ignore environemnt variables
