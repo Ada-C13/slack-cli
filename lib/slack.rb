@@ -103,7 +103,7 @@ def make_selection(type, list)
   else #gave us an integer
     puts "checking for user ##{input}..."
     while input == 0 || input.to_i > list.length
-      validate_selection(input)
+      input = validate_selection(input)
     end
     @workspace.select_by_index(type, input.to_i-1)
     puts "Selected #{type}: #{@workspace.selected.name}"
