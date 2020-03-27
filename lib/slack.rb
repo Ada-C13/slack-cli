@@ -2,6 +2,7 @@ require "dotenv"
 require "httparty"
 require "table_print"
 
+
 require_relative "workspace"
 
 Dotenv.load
@@ -26,7 +27,7 @@ def main
       
     when "select user"
       print "Please enter the user name or ID: "
-      tp workspace.select_user(gets.chomp), ")id", "name", "real_name"
+      tp workspace.select_user(gets.chomp), "id", "name", "real_name"
       puts "\n"
       
     when "select channel"
@@ -36,14 +37,10 @@ def main
       
     when "details"
       if workspace.selected == nil
-        puts "Please select a user or channel."
-        puts "\n"
-      elsif workspace.selected.is_a?(User)
-        tp workspace.show_details, "id", "name", "real_name"
-        user_input = nil
+      puts"Please select a user or channel."
         puts "\n"
       else
-        tp workspace.show_details, "name", "topic", "members", "id"
+        workspace.show_details
         user_input = nil
         puts "\n"
       end 
