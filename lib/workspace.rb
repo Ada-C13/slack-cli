@@ -10,8 +10,6 @@ module Slack
     # attr_reader :users, :conversations, :selected
     attr_reader :users, :channels, :selected
     
-    
-    
     def initialize
       @users = User.list_all
       @channels = Channel.list_all
