@@ -19,7 +19,9 @@ end
 
 # all the user interface
 def main
+  puts "{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}"
   puts "Welcome to the Ada Slack CLI!"
+  puts "{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}"
   # sets and instance of workplace and makes it an instance variable
   @workspace = Workspace.new
   # i is set to negative -1
@@ -48,28 +50,33 @@ def main
     end
     if answer == "list channels" || answer == "1"
       # puts workspace.list_channels (method that shows channels)
-      tp workspace.channels, :name, :topic, :member_count
+      tp @workspace.channels, :name, :topic, :member_count
     elsif answer == "list users" || answer == "2"
       # puts workspace.list_users table from user.rb
       tp @workspace.users, :slack_id, :real_name, :name
     elsif answer == "select user" || answer == "3"
       # puts workspace.list_users
+      puts "{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}"
       puts "Please select a user by name or slack_id to send a message"
       selection = gets.chomp
       @workspace.select_user(selection)
       details = @workspace.show_details
       # confrims user selection
+      puts "{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}"
       puts "You've selected user: #{@workspace.selected.name}"
       puts details
     elsif answer == "select channel" || answer == "4"
       # puts workspace.list_users
+      puts "{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}"
       puts "Please select a Channel by name or slack_id to send a message"
       selection = gets.chomp
       @workspace.select_channel(selection)
       details = @workspace.show_details
+      puts "{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}"
       puts "You've selected channel: #{@workspace.selected.name}"
       puts details
     elsif answer == "send message" || answer == "5"
+      puts "{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}"
       puts "Please enter your message here to #{@workspace.selected.name}"
       message = gets.chomp
       @workspace.send_message(message)
