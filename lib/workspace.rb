@@ -6,7 +6,7 @@ module SlackCLI
   class SlackApiError < Exception; end
 
   class Workspace
-    attr_reader :users, :channels, :selected_user, :selected_channel, :query
+    attr_reader :users, :channels, :selected, :selected, :query
 
     Dotenv.load
 
@@ -14,8 +14,8 @@ module SlackCLI
       @query = { token: SLACK_TOKEN }
       @users = self.list_all_user
       @channels = self.list_all_channel
-      @selected_user = nil
-      @selected_channel = nil
+      @selected = nil
+      @selected = nil
     end
 
     def list_all_user
@@ -45,33 +45,31 @@ module SlackCLI
     def select_user(user_id)
       @users.each do |user|
         if user_id == user.slack_id
-          @selected_user = user
+          @selected = user
         elsif user_id == user.name
-          @selected_user = user
+          @selected = user
         end
       end
-      return @selected_user
+      return @selected
     end
 
     def select_channel(channel_id)
       @channels.each do |channel|
         if channel_id == channel.slack_id
-          @selected_channel = channel
+          @selected = channel
         elsif channel_id == channel.name
-          @selected_channel = channel
+          @selected = channel
         end
       end
-      return @selected_channel
+      return @selected
     end
 
     #get request, client wants data from the server (doens't make any change)
     #post request, changing stuff on the server (makes changes)
 
     def send_message(message)
-      if @selected_user
-        @selected_user.send_message(message, @selected_user)
-      elsif @selected_channel
-        @selected_channel.send_message(message, @selected_channel)
+      if @selected
+        return @selected.send_message(message, @selected)
       end
     end
   end

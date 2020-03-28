@@ -22,17 +22,14 @@ describe "Recipeint class" do
       end
     end
 
-    it "raises Slack_Api_error by giving fake user_name" do 
+    it "raises Slack_Api_error by giving fake user_name" do
       VCR.use_cassette("send_message") do
-       
+
         #Arrange & Act
         user = SlackCLI::User.new("sugarplum", "111111")
-        
-        expect{user.send_message("hello can you chat?", user)}.must_raise SlackCLI::SlackApiError
 
-
+        expect { user.send_message("hello can you chat?", user) }.must_raise SlackCLI::SlackApiError
       end
-
     end
   end
 end

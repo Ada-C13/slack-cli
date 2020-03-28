@@ -49,7 +49,7 @@ describe "Workspace class" do
         #Act
         workspace.select_user(user_id)
         #Assert
-        expect(workspace.selected_user).must_equal workspace.users[0]
+        expect(workspace.selected).must_equal workspace.users[0]
       end
     end
 
@@ -60,12 +60,12 @@ describe "Workspace class" do
         #Act
         workspace.select_user("slackbot")
         #Assert
-        expect(workspace.selected_user.name).must_equal "slackbot"
+        expect(workspace.selected.name).must_equal "slackbot"
       end
     end
   end
 
-  describe "#selected_channel" do
+  describe "#selected" do
     it "select a channel by id" do
       VCR.use_cassette("slack") do
         #Arrange
@@ -74,7 +74,7 @@ describe "Workspace class" do
         #Act
         workspace.select_channel(channel_id)
         #Assert
-        expect(workspace.selected_channel).must_equal workspace.channels[0]
+        expect(workspace.selected).must_equal workspace.channels[0]
       end
     end
 
@@ -85,7 +85,7 @@ describe "Workspace class" do
         #Act
         workspace.select_channel("general")
         #Assert
-        expect(workspace.selected_channel.name).must_equal "general"
+        expect(workspace.selected.name).must_equal "general"
       end
     end
   end

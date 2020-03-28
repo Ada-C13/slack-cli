@@ -9,16 +9,20 @@ Dotenv.load
 
 SLACK_TOKEN = ENV["SLACK_TOKEN"]
 
+def allowed_input
+  puts "Your options are: list users, list channel, select user, 
+  select channel, details, and send message or quit: what would you like to see?"
+  return gets.chomp()
+end
+
 def main
   workspace = SlackCLI::Workspace.new
   puts "Welcome to the Ada Slack CLI!
   at this time, our workspace has #{workspace.users.count} users
   and #{workspace.channels.count} channels."
 
-  # TODO project
+  user_input = allowed_input
 
-  puts "what would you like to see?"
-  user_input = gets.chomp()
   until user_input == "quit" || user_input == "exit"
     case user_input
 
@@ -34,7 +38,7 @@ def main
       if workspace.select_user(user_input) == nil
         puts "no user with that user name exist"
       else
-        puts "selected user with id #{workspace.selected_user.slack_id}"
+        puts "selected user with id #{workspace.selected.slack_id}"
       end
     when "select channel"
       puts "please enter a channel name or slack_id"
@@ -42,23 +46,33 @@ def main
       if workspace.select_channel(user_input) == nil
         puts "no channel with that channel name exist"
       else
-        puts "selected channel with id #{workspace.selected_channel.slack_id}"
+        puts "selected channel with id #{workspace.selected.slack_id}"
       end
     when "detail", "details"
-      if workspace.selected_user == nil
+      if workspace.selected == nil
         puts "no user selected"
       else
-        ap workspace.selected_user.print_details
+        ap workspace.selected.print_details
       end
-      if workspace.selected_channel == nil
+      if workspace.selected == nil
         puts "no channel selected"
       else
-        ap workspace.selected_channel.print_details
+        ap workspace.selected.print_details
+      end
+    when "send message"
+      if workspace.selected == nil
+        puts "you need to selec a user or a channel."
+        puts "\n"
+      else
+        puts "enter your message: "
+        user_input = gets.chomp()
+        success = workspace.send_message(user_input)
+        puts "\n"
+        puts "sent message" if success
       end
     end
 
-    puts "what would you like to see?"
-    user_input = gets.chomp()
+    user_input = allowed_input
   end
 
   puts "Thank you for using the Ada Slack CLI"
