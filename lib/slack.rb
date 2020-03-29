@@ -2,6 +2,7 @@
 require_relative 'workspace'
 require 'dotenv'
 require 'httparty'
+require 'table_print'
 
 
 def ask_again
@@ -27,10 +28,11 @@ def main
   while input != -1
 
     if input == 1
-      puts workspace.list_users.to_s
+      tp workspace.list_users, :slack_id, :name, :real_name, :status_text, :status_emoji 
+      
       input = ask_again
     elsif input == 2
-      puts workspace.list_channels.to_s
+      tp workspace.list_channels, :slack_id, :name, :topic, :member_count
       input = ask_again
     elsif input == 3
       puts "What is the user's ID?"
@@ -58,3 +60,7 @@ def main
 end
 
 main if __FILE__ == $PROGRAM_NAME
+
+
+tp workspace.list_users, :slack_id, :name, :real_name, :status_text, :status_emoji 
+#{user: lambda{ |u| my_proc.call }}, :id, :user_name, :real_name => {:display_method => :name}

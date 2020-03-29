@@ -1,6 +1,7 @@
 require_relative 'user'
 require_relative 'channel'
 require_relative 'recipient'
+require 'table_print'
 
 
 
