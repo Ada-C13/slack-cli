@@ -52,7 +52,7 @@ def main
       workspace.send_message(gets.chomp)
       input = ask_again
     else
-      puts "idk"
+      puts "You did not enter a valid number"
       input = ask_again
     end 
   end 
