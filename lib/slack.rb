@@ -62,5 +62,3 @@ end
 main if __FILE__ == $PROGRAM_NAME
 
 
-tp workspace.list_users, :slack_id, :name, :real_name, :status_text, :status_emoji 
-#{user: lambda{ |u| my_proc.call }}, :id, :user_name, :real_name => {:display_method => :name}

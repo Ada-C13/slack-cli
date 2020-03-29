@@ -38,12 +38,11 @@ class ChannelRecipient < Recipient
   end 
 
   def self.find(id)
-    self.list_all.each do |channel|
-      if id == channel.slack_id
-        return channel
-      end 
-    end
+      self.list_all.each do |channel|
+        if id == channel.slack_id
+          return channel
+        end 
+      end
     return "CHANNEL NOT FOUND"
   end 
-
 end 
