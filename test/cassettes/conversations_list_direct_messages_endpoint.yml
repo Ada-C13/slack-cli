@@ -1,0 +1,159 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '718'
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 24 Mar 2020 10:18:35 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 644f918e3e8e1975548a12582c670f14
+      X-Oauth-Scopes:
+      - chat:write.public,chat:write,channels:read,users:read,im:read
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-nmqw
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 be082a2326b7d49643607b097f1e7181.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - MiDgA1kf_O-prL7ZqOQggHPmqEE3fR8hlnO_XEkcvxtULuynHjDoDg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"CUT7CLL1Y","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1583866138,"is_archived":false,"is_general":true,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"UV614256C","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TV5H57Z7E"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"Company-wide
+        announcements and work-based matters","creator":"UV614256C","last_set":1583866138},"purpose":{"value":"This
+        channel is for workspace-wide communication and announcements. All members
+        are in this channel.","creator":"UV614256C","last_set":1583866138},"previous_names":[],"num_members":9},{"id":"CUT7CM7M0","name":"ada-projects","is_channel":true,"is_group":false,"is_im":false,"created":1583866139,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"ada-projects","is_shared":false,"parent_conversation":null,"creator":"UV614256C","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TV5H57Z7E"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"This
+        channel is for ada-projects collaboration and communication.","creator":"UV828MW79","last_set":1584052023},"previous_names":[],"num_members":9},{"id":"CV5H594KE","name":"random","is_channel":true,"is_group":false,"is_im":false,"created":1583866138,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"random","is_shared":false,"parent_conversation":null,"creator":"UV614256C","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TV5H57Z7E"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"Non-work
+        banter and water cooler conversation","creator":"UV614256C","last_set":1583866138},"purpose":{"value":"A
+        place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
+        you''d prefer to keep out of more focused work-related channels.","creator":"UV614256C","last_set":1583866138},"previous_names":[],"num_members":10},{"id":"C01046CUVD5","name":"spam","is_channel":true,"is_group":false,"is_im":false,"created":1584353722,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"spam","is_shared":false,"parent_conversation":null,"creator":"UV614256C","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TV5H57Z7E"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"Spam
+        messages for testing purposes. Recommended mute this channel.","creator":"UV614256C","last_set":1584353723},"previous_names":[],"num_members":1}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Tue, 24 Mar 2020 10:18:35 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '292'
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 24 Mar 2020 10:35:37 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - fa895566b4c1ef0183982e9692732388
+      X-Oauth-Scopes:
+      - chat:write.public,chat:write,channels:read,users:read,im:read
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-jfpz
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 caf6806821bc479b28a6f1ce3043b8a6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - _FkDI98PKYis-2DtL5HBPPgOwu8Hd3tEf5ykOmi2zcgwoDWDL21y1g==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"DVDS2KLPQ","created":1584065406,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV89SRSAJ","is_user_deleted":false,"priority":0},{"id":"DVBLESY4D","created":1584065406,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUUTBJARH","is_user_deleted":false,"priority":0},{"id":"DVBLESX6Z","created":1584065406,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV5RV3UDA","is_user_deleted":false,"priority":0},{"id":"DVBKWG80G","created":1584065407,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV5RH7XE0","is_user_deleted":false,"priority":0},{"id":"DV1HJDEDP","created":1584065406,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV828MW79","is_user_deleted":false,"priority":0},{"id":"DV065488K","created":1584065406,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV614256C","is_user_deleted":false,"priority":0},{"id":"DUYS4LFM0","created":1584065406,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Tue, 24 Mar 2020 10:35:37 GMT
+recorded_with: VCR 5.1.0
