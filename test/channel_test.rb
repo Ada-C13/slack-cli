@@ -9,10 +9,30 @@ describe "Channel class" do
           :slack_id => "1234567",
           :name => "random" 
         }
-
-
         expect(Slack::Channel.new(profile)).must_respond_to :topic   
         expect(Slack::Channel.new(profile)).must_respond_to :member_count
+      end 
+    end 
+  end 
+
+
+   describe "#send_message" do 
+    it "sends a message to a selected channel" do 
+      VCR.use_cassette("conversations-list-endpoint") do 
+
+        workspace = Slack::Workspace.new
+
+        channel = workspace.select_channel("hannah-j-test")       
+
+        expect(channel.send_message("Good morning!", channel)).must_equal true 
+      end  
+    end 
+
+    it "raises SlackApiError when given a bogus channel name" do
+      VCR.use_cassette("conversations-list-endpoint") do
+        channel = Slack::Channel.new(slack_id: "123456", name: "goblin-channel")
+
+        expect{channel.send_message("Hungry", channel)}.must_raise SlackApiError
       end 
     end 
   end 

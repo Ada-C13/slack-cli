@@ -9,14 +9,36 @@ describe "User class" do
           :slack_id => "USLACKBOT",
           :name => "slackbot" 
         }
-
-
         expect(Slack::User.new(profile)).must_respond_to :real_name   
         expect(Slack::User.new(profile)).must_respond_to :status_text
         expect(Slack::User.new(profile)).must_respond_to :status_emoji
       end 
     end 
   end 
+
+
+  describe "#send_message" do 
+    it "sends a message to a selected user" do 
+      VCR.use_cassette("users-list-endpoint") do 
+
+        workspace = Slack::Workspace.new
+
+        user = workspace.select_user("USLACKBOT")       
+
+        expect(user.send_message("Good morning SLACKBOT!", user)).must_equal true 
+      end  
+    end 
+
+
+    it "raises SlackApiError when given a bogus user name" do
+      VCR.use_cassette("users-list-endpoint") do
+        user = Slack::User.new(slack_id: "123456", name: "goblin")
+
+        expect{user.send_message("Hungry", user)}.must_raise SlackApiError
+      end 
+    end 
+  end 
+
 
   describe "self.get" do 
     it "returns a response of users list from API" do
