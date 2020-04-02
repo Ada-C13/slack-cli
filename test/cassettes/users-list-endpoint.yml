@@ -1,0 +1,1848 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://slack.com/api/users.list?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '2148'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Mar 2020 07:20:16 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - b08e2af8fbd46819c1ce2dca20fa7cb5
+      X-Oauth-Scopes:
+      - incoming-webhook,chat:write,users:read,channels:read,chat:write.public,chat:write.customize
+      X-Accepted-Oauth-Scopes:
+      - users:read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-6vtt
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 112d82578d402a38d8d02e8b857617e1.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - a1iLxcIMoSPR2cDj9VxQAAVs_gqEC-KZxrg4eatX6nHDGe8XAMa7XA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"members":[{"id":"USLACKBOT","team_id":"TV6151X8D","name":"slackbot","deleted":false,"color":"757575","real_name":"Slackbot","tz":null,"tz_label":"Pacific
+        Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Slackbot","real_name_normalized":"Slackbot","display_name":"Slackbot","display_name_normalized":"Slackbot","fields":null,"status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"sv41d8cd98f0","always_active":true,"first_name":"slackbot","last_name":"","image_24":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_24.png","image_32":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_32.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_72.png","image_192":"https:\/\/a.slack-edge.com\/80588\/marketing\/img\/avatars\/slackbot\/avatar-slackbot.png","image_512":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_512.png","status_text_canonical":"","team":"TV6151X8D"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":0},{"id":"UUTG4NT6W","team_id":"TV6151X8D","name":"space_lee_api_project","deleted":false,"color":"e7392d","real_name":"space_lee_api_project","tz":"America\/Los_Angeles","tz_label":"Pacific
+        Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"space_lee_api_project","real_name_normalized":"space_lee_api_project","display_name":"","display_name_normalized":"","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"g4d652bc1dc0","api_app_id":"AUTFW5NHG","always_active":false,"bot_id":"BUTG4NRPC","first_name":"space_lee_api_project","last_name":"","image_24":"https:\/\/secure.gravatar.com\/avatar\/4d652bc1dc012ee2969d55b3f6aab77d.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/4d652bc1dc012ee2969d55b3f6aab77d.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/4d652bc1dc012ee2969d55b3f6aab77d.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/4d652bc1dc012ee2969d55b3f6aab77d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/4d652bc1dc012ee2969d55b3f6aab77d.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/4d652bc1dc012ee2969d55b3f6aab77d.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-512.png","status_text_canonical":"","team":"TV6151X8D"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":true,"is_app_user":false,"updated":1583964500},{"id":"UUV26URFC","team_id":"TV6151X8D","name":"faezeh.ashtiani","deleted":false,"color":"e96699","real_name":"Faezeh
+        Ashtiani","tz":"America\/Los_Angeles","tz_label":"Pacific Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Faezeh
+        Ashtiani","real_name_normalized":"Faezeh Ashtiani","display_name":"Faezeh
+        Ashtiani","display_name_normalized":"Faezeh Ashtiani","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"g49ca5a5b9f0","image_24":"https:\/\/secure.gravatar.com\/avatar\/49ca5a5b9f0231ebc8b194de11a5c156.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/49ca5a5b9f0231ebc8b194de11a5c156.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/49ca5a5b9f0231ebc8b194de11a5c156.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/49ca5a5b9f0231ebc8b194de11a5c156.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/49ca5a5b9f0231ebc8b194de11a5c156.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/49ca5a5b9f0231ebc8b194de11a5c156.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-512.png","status_text_canonical":"","team":"TV6151X8D"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1583940518},{"id":"UUVTM0ZJM","team_id":"TV6151X8D","name":"hannahjoo24","deleted":false,"color":"4bbe2e","real_name":"Hannah
+        J","tz":"America\/Los_Angeles","tz_label":"Pacific Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Hannah
+        J","real_name_normalized":"Hannah J","display_name":"Hannah J","display_name_normalized":"Hannah
+        J","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"g5803f07bd29","image_24":"https:\/\/secure.gravatar.com\/avatar\/5803f07bd29cd7a59cbea3b3df9da82c.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0018-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/5803f07bd29cd7a59cbea3b3df9da82c.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0018-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/5803f07bd29cd7a59cbea3b3df9da82c.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0018-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/5803f07bd29cd7a59cbea3b3df9da82c.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0018-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/5803f07bd29cd7a59cbea3b3df9da82c.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0018-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/5803f07bd29cd7a59cbea3b3df9da82c.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0018-512.png","status_text_canonical":"","team":"TV6151X8D"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1584083940},{"id":"UV6BLS99N","team_id":"TV6151X8D","name":"time_hannah_j_api_pro","deleted":false,"color":"674b1b","real_name":"time_hannah_j_api_pro","tz":"America\/Los_Angeles","tz_label":"Pacific
+        Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"time_hannah_j_api_pro","real_name_normalized":"time_hannah_j_api_pro","display_name":"","display_name_normalized":"","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"gd932c9be94d","api_app_id":"AUTHSAF7U","always_active":true,"bot_id":"BV6BLS7R6","first_name":"time_hannah_j_api_pro","last_name":"","image_24":"https:\/\/secure.gravatar.com\/avatar\/d932c9be94d3329c04bf42721e39f37b.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/d932c9be94d3329c04bf42721e39f37b.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/d932c9be94d3329c04bf42721e39f37b.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/d932c9be94d3329c04bf42721e39f37b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/d932c9be94d3329c04bf42721e39f37b.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/d932c9be94d3329c04bf42721e39f37b.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-512.png","status_text_canonical":"","team":"TV6151X8D"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":true,"is_app_user":false,"updated":1583877231},{"id":"UV6BN9RTP","team_id":"TV6151X8D","name":"acirizarry","deleted":false,"color":"3c989f","real_name":"Antonia","tz":"America\/Los_Angeles","tz_label":"Pacific
+        Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Antonia","real_name_normalized":"Antonia","display_name":"Antonia","display_name_normalized":"Antonia","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"g1d52593258f","image_24":"https:\/\/secure.gravatar.com\/avatar\/1d52593258f3269ce7df6f47eede3926.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0003-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/1d52593258f3269ce7df6f47eede3926.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0003-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/1d52593258f3269ce7df6f47eede3926.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0003-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/1d52593258f3269ce7df6f47eede3926.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0003-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/1d52593258f3269ce7df6f47eede3926.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0003-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/1d52593258f3269ce7df6f47eede3926.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0003-512.png","status_text_canonical":"","team":"TV6151X8D"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1583875971},{"id":"UV7EPA5EG","team_id":"TV6151X8D","name":"space_faezeh_slackcli","deleted":true,"profile":{"title":"","phone":"","skype":"","real_name":"space_faezeh_slackcli","real_name_normalized":"space_faezeh_slackcli","display_name":"","display_name_normalized":"","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"g0eab32d725c","api_app_id":"AUWCLTSHZ","always_active":false,"bot_id":"BUV4X0PR8","image_24":"https:\/\/secure.gravatar.com\/avatar\/0eab32d725c509ff6898ab50cc2a310c.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/0eab32d725c509ff6898ab50cc2a310c.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/0eab32d725c509ff6898ab50cc2a310c.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/0eab32d725c509ff6898ab50cc2a310c.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/0eab32d725c509ff6898ab50cc2a310c.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/0eab32d725c509ff6898ab50cc2a310c.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-512.png","status_text_canonical":"","team":"TV6151X8D"},"is_bot":true,"is_app_user":false,"updated":1583951811},{"id":"UV7S06J4X","team_id":"TV6151X8D","name":"sara.lee.higgins","deleted":false,"color":"9f69e7","real_name":"Lee
+        Higgins","tz":"America\/Los_Angeles","tz_label":"Pacific Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Lee
+        Higgins","real_name_normalized":"Lee Higgins","display_name":"Lee","display_name_normalized":"Lee","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"6ad837cd90b3","image_original":"https:\/\/avatars.slack-edge.com\/2020-03-10\/992093288453_6ad837cd90b3fbad7f7e_original.jpg","is_custom_image":true,"first_name":"Lee","last_name":"Higgins","image_24":"https:\/\/avatars.slack-edge.com\/2020-03-10\/992093288453_6ad837cd90b3fbad7f7e_24.jpg","image_32":"https:\/\/avatars.slack-edge.com\/2020-03-10\/992093288453_6ad837cd90b3fbad7f7e_32.jpg","image_48":"https:\/\/avatars.slack-edge.com\/2020-03-10\/992093288453_6ad837cd90b3fbad7f7e_48.jpg","image_72":"https:\/\/avatars.slack-edge.com\/2020-03-10\/992093288453_6ad837cd90b3fbad7f7e_72.jpg","image_192":"https:\/\/avatars.slack-edge.com\/2020-03-10\/992093288453_6ad837cd90b3fbad7f7e_192.jpg","image_512":"https:\/\/avatars.slack-edge.com\/2020-03-10\/992093288453_6ad837cd90b3fbad7f7e_512.jpg","image_1024":"https:\/\/avatars.slack-edge.com\/2020-03-10\/992093288453_6ad837cd90b3fbad7f7e_1024.jpg","status_text_canonical":"","team":"TV6151X8D"},"is_admin":true,"is_owner":true,"is_primary_owner":true,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1583910116},{"id":"UV8PPJX37","team_id":"TV6151X8D","name":"hannahtekie","deleted":false,"color":"684b6c","real_name":"Hannah
+        Tekie","tz":"America\/Los_Angeles","tz_label":"Pacific Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Hannah
+        Tekie","real_name_normalized":"Hannah Tekie","display_name":"Hannah Tekie","display_name_normalized":"Hannah
+        Tekie","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"ge5ad3a56a25","image_24":"https:\/\/secure.gravatar.com\/avatar\/e5ad3a56a25238960a331c68e669058c.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0023-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/e5ad3a56a25238960a331c68e669058c.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0023-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/e5ad3a56a25238960a331c68e669058c.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0023-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/e5ad3a56a25238960a331c68e669058c.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0023-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/e5ad3a56a25238960a331c68e669058c.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0023-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/e5ad3a56a25238960a331c68e669058c.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0023-512.png","status_text_canonical":"","team":"TV6151X8D"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1583963653},{"id":"UV8Q8T6S1","team_id":"TV6151X8D","name":"time_hannaht_api_proj","deleted":false,"color":"5b89d5","real_name":"time_hannaht_api_proj","tz":"America\/Los_Angeles","tz_label":"Pacific
+        Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"time_hannaht_api_proj","real_name_normalized":"time_hannaht_api_proj","display_name":"","display_name_normalized":"","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"g68a14a7ef6f","api_app_id":"AUW0C94F4","always_active":false,"bot_id":"BUX9ZENAF","image_24":"https:\/\/secure.gravatar.com\/avatar\/68a14a7ef6f82301ee04ef3d0cdf985d.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/68a14a7ef6f82301ee04ef3d0cdf985d.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/68a14a7ef6f82301ee04ef3d0cdf985d.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/68a14a7ef6f82301ee04ef3d0cdf985d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/68a14a7ef6f82301ee04ef3d0cdf985d.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/68a14a7ef6f82301ee04ef3d0cdf985d.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-512.png","status_text_canonical":"","team":"TV6151X8D"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":true,"is_app_user":false,"updated":1583964279},{"id":"UVDHLDG0N","team_id":"TV6151X8D","name":"space_antonia_slack_a","deleted":false,"color":"2b6836","real_name":"space_antonia_slack_a","tz":"America\/Los_Angeles","tz_label":"Pacific
+        Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"space_antonia_slack_a","real_name_normalized":"space_antonia_slack_a","display_name":"","display_name_normalized":"","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"g414258b4a47","api_app_id":"AUYFPQ7EW","always_active":false,"bot_id":"BUYHNANBU","image_24":"https:\/\/secure.gravatar.com\/avatar\/414258b4a474678284e84e7501601c08.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0021-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/414258b4a474678284e84e7501601c08.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0021-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/414258b4a474678284e84e7501601c08.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0021-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/414258b4a474678284e84e7501601c08.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0021-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/414258b4a474678284e84e7501601c08.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0021-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/414258b4a474678284e84e7501601c08.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0021-512.png","status_text_canonical":"","team":"TV6151X8D"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":true,"is_app_user":false,"updated":1584051604}],"cache_ts":1584170416,"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Sat, 14 Mar 2020 07:20:16 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/channels.list?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '792'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Mar 2020 07:20:16 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 33c81505ef9ed2dca3c4e321e7037c8a
+      X-Oauth-Scopes:
+      - incoming-webhook,chat:write,users:read,channels:read,chat:write.public,chat:write.customize
+      X-Accepted-Oauth-Scopes:
+      - channels:read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-9611
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 325ed3ba58a560748d886354beef39c0.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - JpPZK1Anhln1lGhtjVDHAdii6YKYyHrGUE3XiwDk1cBfp2SBsx2YFA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"CUT6YR3LJ","name":"lees-test-channel","is_channel":true,"created":1583865761,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UV7S06J4X","name_normalized":"lees-test-channel","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UV7S06J4X","UUTG4NT6W"],"topic":{"value":"For
+        having fun with the Slack API!!","creator":"UV7S06J4X","last_set":1584080167},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":2},{"id":"CV60LA20G","name":"general","is_channel":true,"created":1583865651,"is_archived":false,"is_general":true,"unlinked":0,"creator":"UV7S06J4X","name_normalized":"general","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UV7S06J4X","UV8PPJX37","UV6BN9RTP","UUV26URFC","UUVTM0ZJM"],"topic":{"value":"Company-wide
+        announcements and work-based matters","creator":"UV7S06J4X","last_set":1583865651},"purpose":{"value":"This
+        channel is for workspace-wide communication and announcements. All members
+        are in this channel.","creator":"UV7S06J4X","last_set":1583865651},"previous_names":[],"num_members":5},{"id":"CV86T0TPY","name":"random","is_channel":true,"created":1583865651,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UV7S06J4X","name_normalized":"random","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UV7S06J4X","UV8PPJX37","UV6BN9RTP","UUV26URFC","UUVTM0ZJM"],"topic":{"value":"Non-work
+        banter and water cooler conversation","creator":"UV7S06J4X","last_set":1583865651},"purpose":{"value":"A
+        place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
+        you''d prefer to keep out of more focused work-related channels.","creator":"UV7S06J4X","last_set":1583865651},"previous_names":[],"num_members":5},{"id":"CV8HLGW9L","name":"hannah-j-test","is_channel":true,"created":1583876330,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UUVTM0ZJM","name_normalized":"hannah-j-test","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UV6BLS99N","UUVTM0ZJM"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"Let''s
+        learn about Korean culture","creator":"UUVTM0ZJM","last_set":1584048625},"previous_names":[],"num_members":2},{"id":"CV8PR7M4M","name":"hannahmary","is_channel":true,"created":1583963710,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UV8PPJX37","name_normalized":"hannahmary","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UV7S06J4X","UV8PPJX37","UV6BN9RTP","UUV26URFC","UUVTM0ZJM"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":5},{"id":"CVB8WV8BS","name":"fun","is_channel":true,"created":1584048695,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UUVTM0ZJM","name_normalized":"fun","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UV7S06J4X","UV8PPJX37","UV6BN9RTP","UUV26URFC","UUVTM0ZJM"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":5}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Sat, 14 Mar 2020 07:20:16 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_TOKEN>&text=Good%20morning%20SLACKBOT%21&channel=USLACKBOT&username=My%20Bot
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '169'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Mar 2020 07:20:16 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - d1b858ad9aee36efeba781a9c07997eb
+      X-Oauth-Scopes:
+      - incoming-webhook,chat:write,users:read,channels:read,chat:write.public,chat:write.customize
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-nhgw
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 a847181d425b7fc57e81eb3c800bfdf2.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - 51ejCUROfCQjNORixJZbzjI7sWAbl0Yvd8-ryN3SzwMcfnAskJk04w==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"D010208FSP9","ts":"1584170416.000100","message":{"type":"message","subtype":"bot_message","text":"Good
+        morning SLACKBOT!","ts":"1584170416.000100","username":"My Bot","bot_id":"BV6BLS7R6"}}'
+    http_version: null
+  recorded_at: Sat, 14 Mar 2020 07:20:16 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_TOKEN>&text=Hungry&channel=123456&username=My%20Bot
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '60'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Mar 2020 07:20:17 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 131283be1140b823f553306832fc9cdd
+      X-Oauth-Scopes:
+      - incoming-webhook,chat:write,users:read,channels:read,chat:write.public,chat:write.customize
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-7q06
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 943c6a4d4ee43b18ee91634536f53eae.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - 7WIajP-GDbbrEzoZMqPo9TjRfOsQX_PzfYv12zI0O5XtxaPA1qr43A==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"channel_not_found"}'
+    http_version: null
+  recorded_at: Sat, 14 Mar 2020 07:20:17 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/bogus-users.list?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Mar 2020 07:49:02 GMT
+      Server:
+      - Apache
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - no-referrer
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Slack-Backend:
+      - h
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Robots-Tag:
+      - noindex,nofollow
+      Set-Cookie:
+      - b=6bu9a56fedb764869a81b56y5; expires=Thu, 14-Mar-2030 07:49:02 GMT; Max-Age=315532800;
+        path=/; domain=.slack.com; secure; SameSite=None
+      - x=6bu9a56fedb764869a81b56y5.1584172142; expires=Sat, 14-Mar-2020 08:04:02
+        GMT; Max-Age=900; path=/; domain=.slack.com; secure; SameSite=None
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Via:
+      - haproxy-www-heis
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 d90109c5a0c30f43223e0db85921c5c2.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - w3rFF_JhF2jqpXoPRUPpKFsPNtQiKnNMoXf2ZeZE9akZ30AUPOSdtA==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PCFET0NUWVBFIGh0bWw+PGh0bWwgbGFuZz0iZW4tVVMiIGNsYXNzPSIiPjxoZWFkPjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBzcmM9Imh0dHBzOi8vYS5zbGFjay1lZGdlLmNvbS9idjEtOC04Y2FjZGEyL3dlYnBhY2subWFuaWZlc3QuMmYxZTNlYTY3MmNkN2JmN2FlZjAubWluLmpzIiBvbmxvYWQ9IndpbmRvdy5fY2RuID8gX2Nkbi5vayh0aGlzLCBhcmd1bWVudHMpIDogbnVsbCIgb25lcnJvcj0id2luZG93Ll9jZG4gPyBfY2RuLmZhaWxlZCh0aGlzLCBhcmd1bWVudHMpIDogbnVsbCIgY3Jvc3NvcmlnaW49ImFub255bW91cyI+PC9zY3JpcHQ+PHNjcmlwdD53aW5kb3cudHNfZW5kcG9pbnRfdXJsID0gImh0dHBzOlwvXC9zbGFjay5jb21cL2JlYWNvblwvdGltaW5nIjsoZnVuY3Rpb24oZSkgewoJdmFyIG49RGF0ZS5ub3c/RGF0ZS5ub3coKTorbmV3IERhdGUscj1lLnBlcmZvcm1hbmNlfHx7fSx0PVtdLGE9e30saT1mdW5jdGlvbihlLG4pe2Zvcih2YXIgcj0wLGE9dC5sZW5ndGgsaT1bXTthPnI7cisrKXRbcl1bZV09PW4mJmkucHVzaCh0W3JdKTtyZXR1cm4gaX0sbz1mdW5jdGlvbihlLG4pe2Zvcih2YXIgcixhPXQubGVuZ3RoO2EtLTspcj10W2FdLHIuZW50cnlUeXBlIT1lfHx2b2lkIDAhPT1uJiZyLm5hbWUhPW58fHQuc3BsaWNlKGEsMSl9O3Iubm93fHwoci5ub3c9ci53ZWJraXROb3d8fHIubW96Tm93fHxyLm1zTm93fHxmdW5jdGlvbigpe3JldHVybihEYXRlLm5vdz9EYXRlLm5vdygpOituZXcgRGF0ZSktbn0pLHIubWFya3x8KHIubWFyaz1yLndlYmtpdE1hcmt8fGZ1bmN0aW9uKGUpe3ZhciBuPXtuYW1lOmUsZW50cnlUeXBlOiJtYXJrIixzdGFydFRpbWU6ci5ub3coKSxkdXJhdGlvbjowfTt0LnB1c2gobiksYVtlXT1ufSksci5tZWFzdXJlfHwoci5tZWFzdXJlPXIud2Via2l0TWVhc3VyZXx8ZnVuY3Rpb24oZSxuLHIpe249YVtuXS5zdGFydFRpbWUscj1hW3JdLnN0YXJ0VGltZSx0LnB1c2goe25hbWU6ZSxlbnRyeVR5cGU6Im1lYXN1cmUiLHN0YXJ0VGltZTpuLGR1cmF0aW9uOnItbn0pfSksci5nZXRFbnRyaWVzQnlUeXBlfHwoci5nZXRFbnRyaWVzQnlUeXBlPXIud2Via2l0R2V0RW50cmllc0J5VHlwZXx8ZnVuY3Rpb24oZSl7cmV0dXJuIGkoImVudHJ5VHlwZSIsZSl9KSxyLmdldEVudHJpZXNCeU5hbWV8fChyLmdldEVudHJpZXNCeU5hbWU9ci53ZWJraXRHZXRFbnRyaWVzQnlOYW1lfHxmdW5jdGlvbihlKXtyZXR1cm4gaSgibmFtZSIsZSl9KSxyLmNsZWFyTWFya3N8fChyLmNsZWFyTWFya3M9ci53ZWJraXRDbGVhck1hcmtzfHxmdW5jdGlvbihlKXtvKCJtYXJrIixlKX0pLHIuY2xlYXJNZWFzdXJlc3x8KHIuY2xlYXJNZWFzdXJlcz1yLndlYmtpdENsZWFyTWVhc3VyZXN8fGZ1bmN0aW9uKGUpe28oIm1lYXN1cmUiLGUpfSksZS5wZXJmb3JtYW5jZT1yLCJmdW5jdGlvbiI9PXR5cGVvZiBkZWZpbmUmJihkZWZpbmUuYW1kfHxkZWZpbmUuYWpzKSYmZGVmaW5lKCJwZXJmb3JtYW5jZSIsW10sZnVuY3Rpb24oKXtyZXR1cm4gcn0pIC8vIGVzbGludC1kaXNhYmxlLWxpbmUKfSkod2luZG93KTs8L3NjcmlwdD48c2NyaXB0PgoKKGZ1bmN0aW9uKCkgewoJCgl3aW5kb3cuVFNNYXJrID0gZnVuY3Rpb24obWFya19sYWJlbCkgewoJCWlmICghd2luZG93LnBlcmZvcm1hbmNlIHx8ICF3aW5kb3cucGVyZm9ybWFuY2UubWFyaykgcmV0dXJuOwoJCXBlcmZvcm1hbmNlLm1hcmsobWFya19sYWJlbCk7Cgl9OwoJd2luZG93LlRTTWFyaygnc3RhcnRfbG9hZCcpOwoKCQoJd2luZG93LlRTTWVhc3VyZUFuZEJlYWNvbiA9IGZ1bmN0aW9uKG1lYXN1cmVfbGFiZWwsIHN0YXJ0X21hcmtfbGFiZWwpIHsKCQlpZiAoIXdpbmRvdy5wZXJmb3JtYW5jZSB8fCAhd2luZG93LnBlcmZvcm1hbmNlLm1hcmsgfHwgIXdpbmRvdy5wZXJmb3JtYW5jZS5tZWFzdXJlKSB7CgkJCXJldHVybjsKCQl9CgoJCXBlcmZvcm1hbmNlLm1hcmsoc3RhcnRfbWFya19sYWJlbCArICdfZW5kJyk7CgoJCXRyeSB7CgkJCXBlcmZvcm1hbmNlLm1lYXN1cmUobWVhc3VyZV9sYWJlbCwgc3RhcnRfbWFya19sYWJlbCwgc3RhcnRfbWFya19sYWJlbCArICdfZW5kJyk7CgkJCXdpbmRvdy5UU0JlYWNvbihtZWFzdXJlX2xhYmVsLCBwZXJmb3JtYW5jZS5nZXRFbnRyaWVzQnlOYW1lKG1lYXN1cmVfbGFiZWwpWzBdLmR1cmF0aW9uKTsKCQl9IGNhdGNoIChlKSB7CgkJCQoJCX0KCX07CgoJCglpZiAoJ3NlbmRCZWFjb24nIGluIG5hdmlnYXRvcikgewoJCXdpbmRvdy5UU0JlYWNvbiA9IGZ1bmN0aW9uKGxhYmVsLCB2YWx1ZSkgewoJCQl2YXIgZW5kcG9pbnRfdXJsID0gd2luZG93LnRzX2VuZHBvaW50X3VybCB8fCAnaHR0cHM6Ly9zbGFjay5jb20vYmVhY29uL3RpbWluZyc7CgkJCW5hdmlnYXRvci5zZW5kQmVhY29uKAoJCQkJZW5kcG9pbnRfdXJsICsgJz9kYXRhPScgKyBlbmNvZGVVUklDb21wb25lbnQobGFiZWwgKyAnOicgKyB2YWx1ZSksCgkJCQknJwoJCQkpOwoJCX07Cgl9IGVsc2UgewoJCXdpbmRvdy5UU0JlYWNvbiA9IGZ1bmN0aW9uKGxhYmVsLCB2YWx1ZSkgewoJCQl2YXIgZW5kcG9pbnRfdXJsID0gd2luZG93LnRzX2VuZHBvaW50X3VybCB8fCAnaHR0cHM6Ly9zbGFjay5jb20vYmVhY29uL3RpbWluZyc7CgkJCW5ldyBJbWFnZSgpLnNyYyA9IGVuZHBvaW50X3VybCArICc/ZGF0YT0nICsgZW5jb2RlVVJJQ29tcG9uZW50KGxhYmVsICsgJzonICsgdmFsdWUpOwoJCX07Cgl9Cn0pKCk7Cjwvc2NyaXB0PjxzY3JpcHQ+d2luZG93LlRTTWFyaygnc3RlcF9sb2FkJyk7PC9zY3JpcHQ+PG5vc2NyaXB0PjxtZXRhIGh0dHAtZXF1aXY9InJlZnJlc2giIGNvbnRlbnQ9IjA7IFVSTD0vYXBpL2JvZ3VzLXVzZXJzLmxpc3Q/dG9rZW49PFNMQUNLX1RPS0VOPiZhbXA7bm9qc21vZGU9MSI+PC9ub3NjcmlwdD48c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlwdCI+dmFyIHNhZmVfaG9zdHMgPSBbJ2FwcC5vcHRpbWl6ZWx5LmNvbSddOwoKaWYgKHNlbGYgIT09IHRvcCAmJiBzYWZlX2hvc3RzLmluZGV4T2YodG9wLmxvY2F0aW9uLmhvc3QpID09PSAtMSkgewoJd2luZG93LmRvY3VtZW50LndyaXRlKAoJCSdcdTAwM0NzdHlsZT5ib2R5ICoge2Rpc3BsYXk6bm9uZSAhaW1wb3J0YW50O31cdTAwM0Mvc3R5bGU+XHUwMDNDYSBocmVmPSIjIiBvbmNsaWNrPScgKwoJCQknInRvcC5sb2NhdGlvbi5ocmVmPXdpbmRvdy5sb2NhdGlvbi5ocmVmIiBzdHlsZT0iZGlzcGxheTpibG9jayAhaW1wb3J0YW50O3BhZGRpbmc6MTBweCI+R28gdG8gU2xhY2suY29tXHUwMDNDL2E+JwoJKTsKfQoKKGZ1bmN0aW9uKCkgewoJdmFyIHRpbWVyOwoJaWYgKHNlbGYgIT09IHRvcCAmJiBzYWZlX2hvc3RzLmluZGV4T2YodG9wLmxvY2F0aW9uLmhvc3QpID09PSAtMSkgewoJCXRpbWVyID0gd2luZG93LnNldEludGVydmFsKGZ1bmN0aW9uKCkgewoJCQlpZiAod2luZG93KSB7CgkJCQl0cnkgewoJCQkJCXZhciBwYWdlRWwgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncGFnZScpOwoJCQkJCXZhciBjbGllbnRFbCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjbGllbnQtdWknKTsKCQkJCQl2YXIgc2VjdGlvbkVscyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJ25hdiwgaGVhZGVyLCBzZWN0aW9uJyk7CgoJCQkJCXBhZ2VFbC5wYXJlbnROb2RlLnJlbW92ZUNoaWxkKHBhZ2VFbCk7CgkJCQkJY2xpZW50RWwucGFyZW50Tm9kZS5yZW1vdmVDaGlsZChjbGllbnRFbCk7CgkJCQkJZm9yICh2YXIgaSA9IDA7IGkgPCBzZWN0aW9uRWxzLmxlbmd0aDsgaSsrKSB7CgkJCQkJCXNlY3Rpb25FbHNbaV0ucGFyZW50Tm9kZS5yZW1vdmVDaGlsZChzZWN0aW9uRWxzW2ldKTsKCQkJCQl9CgkJCQkJd2luZG93LlRTID0gbnVsbDsKCQkJCQl3aW5kb3cuVEQgPSBudWxsOwoJCQkJCXdpbmRvdy5jbGVhckludGVydmFsKHRpbWVyKTsKCQkJCX0gY2F0Y2ggKGUpIHt9CQoJCQl9CgkJfSwgMjAwKTsKCX0KfSkoKTs8L3NjcmlwdD48c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlwdCI+CndpbmRvdy5kYXRhTGF5ZXIgPSB3aW5kb3cuZGF0YUxheWVyIHx8IFtdOwp3aW5kb3cuZGF0YUxheWVyLnB1c2goewoJJ2d0bS5zdGFydCc6IERhdGUubm93KCksCgknZXZlbnQnIDogJ2d0bS5qcycsCgknc2VjdXJlX3BhZ2UnIDogZmFsc2UsCn0pOwp2YXIgZmlyc3RTY3JpcHQgPSBkb2N1bWVudC5nZXRFbGVtZW50c0J5VGFnTmFtZSgnc2NyaXB0JylbMF07CnZhciB0aGlzU2NyaXB0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc2NyaXB0Jyk7CnRoaXNTY3JpcHQuYXN5bmMgPSB0cnVlOwp0aGlzU2NyaXB0LnNyYyA9ICcvL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbS9ndG0uanM/aWQ9R1RNLUtIMkxQSyc7CmZpcnN0U2NyaXB0LnBhcmVudE5vZGUuaW5zZXJ0QmVmb3JlKHRoaXNTY3JpcHQsIGZpcnN0U2NyaXB0KTsKPC9zY3JpcHQ+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPgpkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCJET01Db250ZW50TG9hZGVkIiwgZnVuY3Rpb24oZSkgewoJdmFyIGd0bURhdGFMYXllciA9IHdpbmRvdy5kYXRhTGF5ZXIgfHwgW107Cgl2YXIgZ3RtVGFncyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJypbZGF0YS1ndG0tY2xpY2tdJyk7Cgl2YXIgZ3RtQ2xpY2tIYW5kbGVyID0gZnVuY3Rpb24oYykgewoJCXZhciBndG1fZXZlbnRzID0gdGhpcy5nZXRBdHRyaWJ1dGUoJ2RhdGEtZ3RtLWNsaWNrJyk7CgkJaWYgKCFndG1fZXZlbnRzKSByZXR1cm47CgkJdmFyIGd0bV9ldmVudHNfYXJyID0gZ3RtX2V2ZW50cy5zcGxpdCgiLCIpOwoJCWZvcih2YXIgZT0wOyBlIDwgZ3RtX2V2ZW50c19hcnIubGVuZ3RoOyBlKyspIHsKCQkJdmFyIGV2ID0gZ3RtX2V2ZW50c19hcnJbZV0udHJpbSgpOwoJCQlndG1EYXRhTGF5ZXIucHVzaCh7ICdldmVudCc6IGV2IH0pOwoJCX0KCX07Cglmb3IodmFyIGc9MDsgZyA8IGd0bVRhZ3MubGVuZ3RoOyBnKyspewoJCXZhciBlbGVtID0gZ3RtVGFnc1tnXTsKCQllbGVtLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgZ3RtQ2xpY2tIYW5kbGVyKTsKCX0KfSk7Cjwvc2NyaXB0PjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0Ij4KKGZ1bmN0aW9uKGUsYyxiLGYsZCxnLGEpe2UuU2xhY2tCZWFjb25PYmplY3Q9ZDsKZVtkXT1lW2RdfHxmdW5jdGlvbigpeyhlW2RdLnE9ZVtkXS5xfHxbXSkucHVzaChbMSpuZXcgRGF0ZSgpLGFyZ3VtZW50c10pfTsKZVtkXS5sPTEqbmV3IERhdGUoKTtnPWMuY3JlYXRlRWxlbWVudChiKTthPWMuZ2V0RWxlbWVudHNCeVRhZ05hbWUoYilbMF07CmcuYXN5bmM9MTtnLnNyYz1mO2EucGFyZW50Tm9kZS5pbnNlcnRCZWZvcmUoZyxhKQp9KSh3aW5kb3csZG9jdW1lbnQsInNjcmlwdCIsImh0dHBzOi8vYS5zbGFjay1lZGdlLmNvbS9idjEtOC04Y2FjZGEyL3NsYWNrX2JlYWNvbi41MjU2YzFmMjUyZjlhZTg4NTA3MS5taW4uanMiLCJzYiIpOwp3aW5kb3cuc2IoJ3NldCcsICd0b2tlbicsICczMzA3ZjQzNjk2M2UwMmQ0ZjllYjg1Y2U1MTU5NzQ0YycpOwp3aW5kb3cuc2IoJ3RyYWNrJywgJ3BhZ2V2aWV3Jyk7Cjwvc2NyaXB0PjxtZXRhIG5hbWU9InJlZmVycmVyIiBjb250ZW50PSJuby1yZWZlcnJlciI+PG1ldGEgbmFtZT0ic3VwZXJmaXNoIiBjb250ZW50PSJub2Zpc2giPjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0Ij52YXIgVFNfbGFzdF9sb2dfZGF0ZSA9IG51bGw7CnZhciBUU01ha2VMb2dEYXRlID0gZnVuY3Rpb24oKSB7Cgl2YXIgZGF0ZSA9IG5ldyBEYXRlKCk7CgoJdmFyIHkgPSBkYXRlLmdldEZ1bGxZZWFyKCk7Cgl2YXIgbW8gPSBkYXRlLmdldE1vbnRoKCkrMTsKCXZhciBkID0gZGF0ZS5nZXREYXRlKCk7CgoJdmFyIHRpbWUgPSB7CgkgIGg6IGRhdGUuZ2V0SG91cnMoKSwKCSAgbWk6IGRhdGUuZ2V0TWludXRlcygpLAoJICBzOiBkYXRlLmdldFNlY29uZHMoKSwKCSAgbXM6IGRhdGUuZ2V0TWlsbGlzZWNvbmRzKCkKCX07CgoJT2JqZWN0LmtleXModGltZSkubWFwKGZ1bmN0aW9uKG1vbWVudCwgaW5kZXgpIHsKCQlpZiAobW9tZW50ID09ICdtcycpIHsKCQkJaWYgKHRpbWVbbW9tZW50XSA8IDEwKSB7CgkJCQl0aW1lW21vbWVudF0gPSB0aW1lW21vbWVudF0rJzAwJzsKCQkJfSBlbHNlIGlmICh0aW1lW21vbWVudF0gPCAxMDApIHsKCQkJCXRpbWVbbW9tZW50XSA9IHRpbWVbbW9tZW50XSsnMCc7CgkJCX0KCQl9IGVsc2UgaWYgKHRpbWVbbW9tZW50XSA8IDEwKSB7CgkJCXRpbWVbbW9tZW50XSA9ICcwJyArIHRpbWVbbW9tZW50XTsKCQl9Cgl9KTsKCgl2YXIgc3RyID0geSArICcvJyArIG1vICsgJy8nICsgZCArICcgJyArIHRpbWUuaCArICc6JyArIHRpbWUubWkgKyAnOicgKyB0aW1lLnMgKyAnLicgKyB0aW1lLm1zOwoJaWYgKFRTX2xhc3RfbG9nX2RhdGUpIHsKCQl2YXIgZGlmZiA9IGRhdGUtVFNfbGFzdF9sb2dfZGF0ZTsKCQkvL3N0cis9ICcgKCcrZGlmZisnbXMpJzsKCX0KCVRTX2xhc3RfbG9nX2RhdGUgPSBkYXRlOwoJcmV0dXJuIHN0cisnICc7Cn0KCnZhciBwYXJzZURlZXBMaW5rUmVxdWVzdCA9IGZ1bmN0aW9uKGNvZGUpIHsKCXZhciBtID0gY29kZS5tYXRjaCgvImlkIjoiKFtDREddW0EtWjAtOV17OCx9KSIvKTsKCXZhciBpZCA9IG0gPyBtWzFdIDogbnVsbDsKCgltID0gY29kZS5tYXRjaCgvInRlYW0iOiIoVFtBLVowLTldezgsfSkiLyk7Cgl2YXIgdGVhbSA9IG0gPyBtWzFdIDogbnVsbDsKCgltID0gY29kZS5tYXRjaCgvIm1lc3NhZ2UiOiIoWzAtOV0rXC5bMC05XSspIi8pOwoJdmFyIG1lc3NhZ2UgPSBtID8gbVsxXSA6IG51bGw7CgoJcmV0dXJuIHsgaWQ6IGlkLCB0ZWFtOiB0ZWFtLCBtZXNzYWdlOiBtZXNzYWdlIH07Cn0KCmlmICgncmVuZGVyZXJFdmFsQXN5bmMnIGluIHdpbmRvdykgewoJdmFyIG9yaWdSZW5kZXJlckV2YWxBc3luYyA9IHdpbmRvdy5yZW5kZXJlckV2YWxBc3luYzsKCXdpbmRvdy5yZW5kZXJlckV2YWxBc3luYyA9IGZ1bmN0aW9uKGJsb2IpIHsKCQl0cnkgewoJCQl2YXIgZGF0YSA9IEpTT04ucGFyc2UoZGVjb2RlVVJJQ29tcG9uZW50KGF0b2IoYmxvYikpKTsKCQkJaWYgKGRhdGEuY29kZS5tYXRjaCgvaGFuZGxlRGVlcExpbmsvKSkgewoJCQkJdmFyIHJlcXVlc3QgPSBwYXJzZURlZXBMaW5rUmVxdWVzdChkYXRhLmNvZGUpOwoJCQkJaWYgKCFyZXF1ZXN0LmlkIHx8ICFyZXF1ZXN0LnRlYW0gfHwgIXJlcXVlc3QubWVzc2FnZSkgcmV0dXJuOwoKCQkJCXJlcXVlc3QuY21kID0gJ2NoYW5uZWwnOwoJCQkJVFNTU0IuaGFuZGxlRGVlcExpbmtXaXRoQXJncyhKU09OLnN0cmluZ2lmeShyZXF1ZXN0KSk7CgkJCQlyZXR1cm47CgkJCX0gZWxzZSB7CgkJCQlvcmlnUmVuZGVyZXJFdmFsQXN5bmMoYmxvYik7CgkJCX0KCQl9IGNhdGNoIChlKSB7CgkJfQoJfQp9PC9zY3JpcHQ+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPnZhciBUU1NTQiA9IHsKCWNhbGw6IGZ1bmN0aW9uKCkgewoJCXJldHVybiBmYWxzZTsKCX0KfTs8L3NjcmlwdD48c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlwdCI+d2luZG93LmFkZEV2ZW50TGlzdGVuZXIoJ2xvYWQnLCBmdW5jdGlvbigpIHsKCXZhciB3YXNfVFMgPSB3aW5kb3cuVFM7CglkZWxldGUgd2luZG93LlRTOwoJaWYgKHdhc19UUykgd2luZG93LlRTID0gd2FzX1RTOwp9KTs8L3NjcmlwdD48dGl0bGU+VGhlcmUncyBiZWVuIGEgZ2xpdGNo4oCmIHwgU2xhY2s8L3RpdGxlPjxsaW5rIGhyZWY9Imh0dHBzOi8vYS5zbGFjay1lZGdlLmNvbS82NmE1Mi9zdHlsZS9yb2xsdXAtc2xhY2tfa2l0X2xlZ2FjeV9hZGFwdGVycy5jc3MiIHJlbD0ic3R5bGVzaGVldCIgdHlwZT0idGV4dC9jc3MiIG9ubG9hZD0id2luZG93Ll9jZG4gPyBfY2RuLm9rKHRoaXMsIGFyZ3VtZW50cykgOiBudWxsIiBvbmVycm9yPSJ3aW5kb3cuX2NkbiA/IF9jZG4uZmFpbGVkKHRoaXMsIGFyZ3VtZW50cykgOiBudWxsIiBjcm9zc29yaWdpbj0iYW5vbnltb3VzIj48bGluayBocmVmPSJodHRwczovL2Euc2xhY2stZWRnZS5jb20vNjY4ZWI0L3N0eWxlL3JvbGx1cC1wbGFzdGljLmNzcyIgcmVsPSJzdHlsZXNoZWV0IiB0eXBlPSJ0ZXh0L2NzcyIgb25sb2FkPSJ3aW5kb3cuX2NkbiA/IF9jZG4ub2sodGhpcywgYXJndW1lbnRzKSA6IG51bGwiIG9uZXJyb3I9IndpbmRvdy5fY2RuID8gX2Nkbi5mYWlsZWQodGhpcywgYXJndW1lbnRzKSA6IG51bGwiIGNyb3Nzb3JpZ2luPSJhbm9ueW1vdXMiPjxsaW5rIGhyZWY9Imh0dHBzOi8vYS5zbGFjay1lZGdlLmNvbS9idjEtOC04Y2FjZGEyL21vZGVybi52ZW5kb3IuNTYwODEwNi5taW4uY3NzIiByZWw9InN0eWxlc2hlZXQiIHR5cGU9InRleHQvY3NzIiBvbmxvYWQ9IndpbmRvdy5fY2RuID8gX2Nkbi5vayh0aGlzLCBhcmd1bWVudHMpIDogbnVsbCIgb25lcnJvcj0id2luZG93Ll9jZG4gPyBfY2RuLmZhaWxlZCh0aGlzLCBhcmd1bWVudHMpIDogbnVsbCIgY3Jvc3NvcmlnaW49ImFub255bW91cyI+PGxpbmsgaHJlZj0iaHR0cHM6Ly9hLnNsYWNrLWVkZ2UuY29tL2J2MS04LThjYWNkYTIvYXBwbGljYXRpb24uMDAzN2YwMy5taW4uY3NzIiByZWw9InN0eWxlc2hlZXQiIHR5cGU9InRleHQvY3NzIiBvbmxvYWQ9IndpbmRvdy5fY2RuID8gX2Nkbi5vayh0aGlzLCBhcmd1bWVudHMpIDogbnVsbCIgb25lcnJvcj0id2luZG93Ll9jZG4gPyBfY2RuLmZhaWxlZCh0aGlzLCBhcmd1bWVudHMpIDogbnVsbCIgY3Jvc3NvcmlnaW49ImFub255bW91cyI+PGxpbmsgaHJlZj0iaHR0cHM6Ly9hLnNsYWNrLWVkZ2UuY29tL2YxOTVjMy9zdHlsZS9yb2xsdXAtc2xhY2tfa2l0X2hlbHBlcnMuY3NzIiByZWw9InN0eWxlc2hlZXQiIGlkPSJzbGFja19raXRfaGVscGVyc19zdHlsZXNoZWV0IiB0eXBlPSJ0ZXh0L2NzcyIgb25sb2FkPSJ3aW5kb3cuX2NkbiA/IF9jZG4ub2sodGhpcywgYXJndW1lbnRzKSA6IG51bGwiIG9uZXJyb3I9IndpbmRvdy5fY2RuID8gX2Nkbi5mYWlsZWQodGhpcywgYXJndW1lbnRzKSA6IG51bGwiIGNyb3Nzb3JpZ2luPSJhbm9ueW1vdXMiPjxsaW5rIGhyZWY9Imh0dHBzOi8vYS5zbGFjay1lZGdlLmNvbS9mMDIwYTgvc3R5bGUvNDA0LmNzcyIgcmVsPSJzdHlsZXNoZWV0IiB0eXBlPSJ0ZXh0L2NzcyIgb25sb2FkPSJ3aW5kb3cuX2NkbiA/IF9jZG4ub2sodGhpcywgYXJndW1lbnRzKSA6IG51bGwiIG9uZXJyb3I9IndpbmRvdy5fY2RuID8gX2Nkbi5mYWlsZWQodGhpcywgYXJndW1lbnRzKSA6IG51bGwiIGNyb3Nzb3JpZ2luPSJhbm9ueW1vdXMiPjxsaW5rIGhyZWY9Imh0dHBzOi8vYS5zbGFjay1lZGdlLmNvbS9lNTNiZjgvc3R5bGUvc3RpY2t5X25hdi5jc3MiIHJlbD0ic3R5bGVzaGVldCIgdHlwZT0idGV4dC9jc3MiIG9ubG9hZD0id2luZG93Ll9jZG4gPyBfY2RuLm9rKHRoaXMsIGFyZ3VtZW50cykgOiBudWxsIiBvbmVycm9yPSJ3aW5kb3cuX2NkbiA/IF9jZG4uZmFpbGVkKHRoaXMsIGFyZ3VtZW50cykgOiBudWxsIiBjcm9zc29yaWdpbj0iYW5vbnltb3VzIj48bGluayBocmVmPSJodHRwczovL2Euc2xhY2stZWRnZS5jb20vOTVhYmEwL3N0eWxlL2Zvb3Rlci5jc3MiIHJlbD0ic3R5bGVzaGVldCIgdHlwZT0idGV4dC9jc3MiIG9ubG9hZD0id2luZG93Ll9jZG4gPyBfY2RuLm9rKHRoaXMsIGFyZ3VtZW50cykgOiBudWxsIiBvbmVycm9yPSJ3aW5kb3cuX2NkbiA/IF9jZG4uZmFpbGVkKHRoaXMsIGFyZ3VtZW50cykgOiBudWxsIiBjcm9zc29yaWdpbj0iYW5vbnltb3VzIj48bGluayBocmVmPSJodHRwczovL2Euc2xhY2stZWRnZS5jb20vMDQxNWMvc3R5bGUvbGlicy9sYXRvLTItY29tcHJlc3NlZC5jc3MiIHJlbD0ic3R5bGVzaGVldCIgdHlwZT0idGV4dC9jc3MiIG9ubG9hZD0id2luZG93Ll9jZG4gPyBfY2RuLm9rKHRoaXMsIGFyZ3VtZW50cykgOiBudWxsIiBvbmVycm9yPSJ3aW5kb3cuX2NkbiA/IF9jZG4uZmFpbGVkKHRoaXMsIGFyZ3VtZW50cykgOiBudWxsIiBjcm9zc29yaWdpbj0iYW5vbnltb3VzIj48bWV0YSBwcm9wZXJ0eT0ib2c6dHlwZSIgY29udGVudD0id2Vic2l0ZSI+PG1ldGEgcHJvcGVydHk9Im9nOnNpdGVfbmFtZSIgY29udGVudD0iU2xhY2siPjxtZXRhIHByb3BlcnR5PSJvZzp0aXRsZSIgY29udGVudD0iVGhlcmUncyBiZWVuIGEgZ2xpdGNo4oCmIj48bWV0YSBwcm9wZXJ0eT0ib2c6aW1hZ2UiIGNvbnRlbnQ9Imh0dHBzOi8vYS5zbGFjay1lZGdlLmNvbS84MDU4OC9pbWcvNDA0LzQwNC1tZXRhLXRodW1iLmpwZyI+PG1ldGEgcHJvcGVydHk9Im9nOmRlc2NyaXB0aW9uIiBjb250ZW50PSJXZSdyZSBub3QgcXVpdGUgc3VyZSB3aGF0IHdlbnQgd3JvbmcuIFlvdSBjYW4gZ28gYmFjaywgb3IgdHJ5IGxvb2tpbmcgb24gb3VyICZsdDthIGhyZWY9JnF1b3Q7aHR0cDovL2dldC5zbGFjay5oZWxwJnF1b3Q7IHRhcmdldD0mcXVvdDtfYmxhbmsmcXVvdDsmZ3Q7SGVscCBDZW50ZXImbHQ7L2EmZ3Q7IGlmIHlvdSBuZWVkIGEgaGFuZC4iPjxtZXRhIHByb3BlcnR5PSJvZzp1cmwiIGNvbnRlbnQ9Imh0dHBzOi8vc2xhY2suY29tL2FwaS9ib2d1cy11c2Vycy5saXN0Ij48bGluayBpZD0iZmF2aWNvbiIgcmVsPSJzaG9ydGN1dCBpY29uIiBocmVmPSJodHRwczovL2Euc2xhY2stZWRnZS5jb20vODA1ODgvbWFya2V0aW5nL2ltZy9tZXRhL2Zhdmljb24tMzIucG5nIiBzaXplcz0iMTZ4MTYgMzJ4MzIgNDh4NDgiIHR5cGU9ImltYWdlL3BuZyI+PC9oZWFkPjxib2R5IGNsYXNzPSIgZGVwcmVjYXRlZCI+PHNjcmlwdD52YXIgdyA9IE1hdGgubWF4KGRvY3VtZW50LmRvY3VtZW50RWxlbWVudC5jbGllbnRXaWR0aCwgd2luZG93LmlubmVyV2lkdGggfHwgMCk7CmlmICh3ID4gMTQ0MCkgZG9jdW1lbnQucXVlcnlTZWxlY3RvcignYm9keScpLmNsYXNzTGlzdC5hZGQoJ3dpZGVzY3JlZW4nKTs8L3NjcmlwdD48bmF2IGNsYXNzPSJ0b3AgcGVyc2lzdGVudCI+PGEgaHJlZj0iaHR0cHM6Ly9zbGFjay5jb20vIiBjbGFzcz0ibG9nbyIgZGF0YS1xYT0ibG9nbyIgZGF0YS1jbG9nLWV2ZW50PSJXRUJTSVRFX0NMSUNLIiBkYXRhLWNsb2ctcGFyYW1zPSJjbGlja190YXJnZXQ9bG9nbyIgYXJpYS1sYWJlbD0iU2xhY2sgaG9tZXBhZ2UiPjwvYT48dWw+PGxpPjxhIGhyZWY9Imh0dHBzOi8vc2xhY2suY29tL2lzIiBkYXRhLXFhPSJwcm9kdWN0IiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1uYXZfcHJvZHVjdCI+UHJvZHVjdDwvYT48L2xpPjxsaT48YSBocmVmPSJodHRwczovL3NsYWNrLmNvbS9wcmljaW5nP3VpX3N0ZXA9NTUmdWlfZWxlbWVudD01IiBkYXRhLXFhPSJwcmljaW5nIiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1uYXZfcHJpY2luZyI+UHJpY2luZzwvYT48L2xpPjxsaT48YSBocmVmPSJodHRwczovL2dldC5zbGFjay5oZWxwL2hjL2VuLXVzIiBkYXRhLXFhPSJzdXBwb3J0IiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1uYXZfc3VwcG9ydCI+U3VwcG9ydDwvYT48L2xpPjxsaSBjbGFzcz0ibW9iaWxlX2J0biBkb3dubG9hZF9zbGFjayI+PGEgaHJlZj0iL2dldCIgZGF0YS1xYT0iZG93bmxvYWRfc2xhY2siIGRhdGEtY2xvZy1ldmVudD0iV0VCU0lURV9DTElDSyIgZGF0YS1jbG9nLXBhcmFtcz0iY2xpY2tfdGFyZ2V0PW5hdl9kb3dubG9hZCI+RG93bmxvYWQgU2xhY2s8L2E+PC9saT48bGk+PGEgZGF0YS1ndG0tY2xpY2s9IlNpZ25VcCxvcHRvdXRfbmF2X2NyZWF0ZV90ZWFtIiBocmVmPSJodHRwczovL3NsYWNrLmNvbS9jcmVhdGUiIGNsYXNzPSIiIGRhdGEtcWE9ImNyZWF0ZV90ZWFtIiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1uYXZfY3JlYXRlX3RlYW0iPkNyZWF0ZSBhIG5ldyB3b3Jrc3BhY2U8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cHM6Ly9zbGFjay5jb20vZ2V0LXN0YXJ0ZWQiIGRhdGEtZ3RtLWNsaWNrPSJvcHRvdXRfbmF2X2ZpbmRfdGVhbSIgZGF0YS1xYT0iZmluZF90ZWFtIiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1uYXZfZmluZF90ZWFtIj5GaW5kIHlvdXIgd29ya3NwYWNlPC9hPjwvbGk+PGxpIGNsYXNzPSJzaWduX2luIGhpZGVfb25fbW9iaWxlIj48YSBkYXRhLWd0bS1jbGljaz0ib3B0b3V0X25hdl9zaWduaW4iIGhyZWY9Imh0dHBzOi8vc2xhY2suY29tL3NpZ25pbiIgY2xhc3M9ImJ0bl9zdGlja3kgYnRuX2ZpbGxlZCIgZGF0YS1xYT0ic2lnbl9pbiIgZGF0YS1jbG9nLWV2ZW50PSJXRUJTSVRFX0NMSUNLIiBkYXRhLWNsb2ctcGFyYW1zPSJjbGlja190YXJnZXQ9bmF2X3NpZ25faW4iPlNpZ24gaW48L2E+PC9saT48bGkgY2xhc3M9Im1vYmlsZV9idG4gbW9iaWxlX21lbnVfYnRuIj48YSBocmVmPSIjIiBjbGFzcz0iYnRuX3N0aWNreSIgZGF0YS1jbG9nLWV2ZW50PSJXRUJTSVRFX0NMSUNLIiBkYXRhLWNsb2ctcGFyYW1zPSJjbGlja190YXJnZXQ9bmF2X21vYmlsZV9tZW51X2J0biI+TWVudTwvYT48L2xpPjwvdWw+PC9uYXY+PG5hdiBjbGFzcz0ibW9iaWxlX21lbnUgbG9hZGluZyBtZW51X3Njcm9sbCIgYXJpYS1oaWRkZW49InRydWUiPjxkaXYgY2xhc3M9Im1vYmlsZV9tZW51X3dyYXBwZXIiPjxkaXYgY2xhc3M9Im1vYmlsZV9tZW51X2hlYWRlciI+PGEgaHJlZj0iaHR0cHM6Ly9zbGFjay5jb20vIiBjbGFzcz0ibG9nbyIgZGF0YS1jbG9nLWV2ZW50PSJXRUJTSVRFX0NMSUNLIiBkYXRhLWNsb2ctcGFyYW1zPSJjbGlja190YXJnZXQ9bmF2X2xvZ28iPjwvYT48YSBocmVmPSIjIiBjbGFzcz0iY2xvc2UiIGFyaWEtbGFiZWw9ImNsb3NlIiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1uYXZfbWVudV9jbG9zZSI+PHRzLWljb24gY2xhc3M9InRzX2ljb24gdHNfaWNvbl90aW1lcyI+PC90cy1pY29uPjwvYT48L2Rpdj48dWw+PGxpPjxhIGhyZWY9Imh0dHBzOi8vc2xhY2suY29tL2lzIiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1uYXZfcHJvZHVjdCI+UHJvZHVjdDwvYT48L2xpPjxsaT48YSBocmVmPSJodHRwczovL3NsYWNrLmNvbS9wcmljaW5nP3VpX3N0ZXA9NTUmdWlfZWxlbWVudD01IiBjbGFzcz0ibW9iaWxlX25hdl9wcmljaW5nIiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1uYXZfcHJpY2luZyI+UHJpY2luZzwvYT48L2xpPjxsaT48YSBocmVmPSJodHRwczovL2dldC5zbGFjay5oZWxwL2hjL2VuLXVzIiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1uYXZfc3VwcG9ydCI+U3VwcG9ydDwvYT48L2xpPjxsaT48YSBocmVmPSIvZ2V0IiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1uYXZfZG93bmxvYWQiPkRvd25sb2FkIDxzcGFuIGNsYXNzPSJvcHRpb25hbF9kZXNrdG9wX25hdl9tZXNzYWdlIj50aGUgU2xhY2sgYXBwPC9zcGFuPjwvYT48L2xpPjwvdWw+PHVsIGNsYXNzPSJtb2JpbGVfbWVudV9mb290ZXIiPjxsaT48YSBocmVmPSJodHRwczovL3NsYWNrLmNvbS9zaWduaW4iIGRhdGEtZ3RtLWNsaWNrPSJvcHRvdXRfbmF2X3NpZ25pbiIgdGFyZ2V0PSJfYmxhbmsiIGRhdGEtY2xvZy1ldmVudD0iV0VCU0lURV9DTElDSyIgZGF0YS1jbG9nLXBhcmFtcz0iY2xpY2tfdGFyZ2V0PW5hdl9zaWduX2luIj48dHMtaWNvbiBjbGFzcz0idHNfaWNvbiBzbWFsbCBmbG9hdF9ub25lIHRlYW1faWNvbiB0c19pY29uX3BsdXMgZGVmYXVsdCBzaWdudXBfaWNvbiI+PC90cy1pY29uPjxzcGFuIGNsYXNzPSJzd2l0Y2hlcl9sYWJlbCI+U2lnbiBpbjwvc3Bhbj48L2E+PC9saT48bGk+PGEgZGF0YS1ndG0tY2xpY2s9IlNpZ25VcCxvcHRvdXRfbmF2X2NyZWF0ZV90ZWFtIiBocmVmPSJodHRwczovL3NsYWNrLmNvbS9jcmVhdGUiIGNsYXNzPSIiIHRhcmdldD0iX2JsYW5rIiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1uYXZfY3JlYXRlX3RlYW0iPjx0cy1pY29uIGNsYXNzPSJ0c19pY29uIHNtYWxsIGZsb2F0X25vbmUgdGVhbV9pY29uIGMtaWNvbi0tc2xhY2sgZGVmYXVsdCBzaWdudXBfaWNvbiI+PC90cy1pY29uPjxzcGFuIGNsYXNzPSJzd2l0Y2hlcl9sYWJlbCI+Q3JlYXRlIGEgbmV3IHdvcmtzcGFjZTwvc3Bhbj48L2E+PC9saT48L3VsPjwvZGl2PjwvbmF2PjxkaXYgaWQ9InBhZ2UiIGNsYXNzPSIiPjxkaXYgaWQ9InBhZ2VfY29udGVudHMiIGRhdGEtcWE9InBhZ2VfY29udGVudHMiIGNsYXNzPSIiPjxkaXYgaWQ9InByZWxvYWQiPjwvZGl2PjxkaXYgaWQ9ImNvbnRlbnQiIGRhdGEtYmFja2dyb3VuZD0iaHR0cHM6Ly9hLnNsYWNrLWVkZ2UuY29tLzgwNTg4L2ltZy80MDQvbWFycmFrZXNoLW1lYWRvdy04MC5qcGciPjxpbWcgaWQ9ImJhY2tncm91bmQiIHNyYz0iZGF0YTppbWFnZS9naWY7YmFzZTY0LFIwbEdPRGxoQVFBQkFJQUFBQUFBQVAvLy95SDVCQUVBQUFBQUxBQUFBQUFCQUFFQUFBSUJSQUE3Ij48ZGl2IGlkPSJzcHJpdGUtd3JhcHBlciI+PGRpdiBjbGFzcz0ic3ByaXRlIHBpZ2d5IHBpZ2d5X2NoZXdpbmciPjwvZGl2PjxkaXYgY2xhc3M9InNwcml0ZSBjaGlja2VuIGNoaWNrZW5fd2Fsa19sciI+PGRpdiBjbGFzcz0ic3ViX3Nwcml0ZSI+PC9kaXY+PC9kaXY+PGRpdiBjbGFzcz0ic3ByaXRlIGNoaWNrZW4gY2hpY2tlbl9wZWNrXzJ4IGZsaXBwZWQiPjwvZGl2PjxkaXYgY2xhc3M9InNwcml0ZSBwaWdneSBwaWdneV93YWxrIHBpZ2d5X3dhbGtfbHIiPjwvZGl2PjxkaXYgY2xhc3M9InNwcml0ZSBjaGlja2VuIGNoaWNrZW5fd2Fsa19ybCBmbGlwcGVkIj48ZGl2IGNsYXNzPSJzdWJfc3ByaXRlIj48L2Rpdj48L2Rpdj48ZGl2IGNsYXNzPSJzcHJpdGUgcGlnZ3kgcGlnZ3lfd2FsayBmbGlwcGVkIHBpZ2d5X3dhbGtfcmwiPjwvZGl2PjxkaXYgY2xhc3M9InNwcml0ZSBidXR0ZXJmbHkgYnV0dGVyZmx5X2FuZ2xlIGJ1dHRlcmZseV9hbmdsZV9sciI+PC9kaXY+PGRpdiBjbGFzcz0ic3ByaXRlIGJ1dHRlcmZseSBidXR0ZXJmbHlfYW5nbGVfMSBidXR0ZXJmbHlfYW5nbGVfMV9sciI+PC9kaXY+PGRpdiBjbGFzcz0ic3ByaXRlIGJ1dHRlcmZseSBidXR0ZXJmbHlfcm9va2VkIGJ1dHRlcmZseV9yb29rZWRfbHIiPjwvZGl2PjxkaXYgY2xhc3M9InNwcml0ZSBidXR0ZXJmbHkgYnV0dGVyZmx5X3NpZGUgYnV0dGVyZmx5X3NpZGVfbHIiPjwvZGl2PjxkaXYgY2xhc3M9InNwcml0ZSBidXR0ZXJmbHkgYnV0dGVyZmx5X2FuZ2xlIGZsaXBwZWQgYnV0dGVyZmx5X2FuZ2xlX3JsIGJvdHRvbSI+PC9kaXY+PGRpdiBjbGFzcz0ic3ByaXRlIGJ1dHRlcmZseSBidXR0ZXJmbHlfYW5nbGVfMSBmbGlwcGVkIGJ1dHRlcmZseV9hbmdsZV8xX3JsIGJvdHRvbSI+PC9kaXY+PGRpdiBjbGFzcz0ic3ByaXRlIGJ1dHRlcmZseSBidXR0ZXJmbHlfcm9va2VkIGZsaXBwZWQgYnV0dGVyZmx5X3Jvb2tlZF9ybCBib3R0b20iPjwvZGl2PjxkaXYgY2xhc3M9InNwcml0ZSBidXR0ZXJmbHkgYnV0dGVyZmx5X3NpZGUgZmxpcHBlZCBidXR0ZXJmbHlfc2lkZV9ybCBib3R0b20iPjwvZGl2PjwvZGl2PjwvZGl2PjxkaXYgaWQ9ImxvYWRlciI+PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHdpZHRoPSIzMnB4IiBoZWlnaHQ9IjMycHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIiBjbGFzcz0idWlsLWhlYXJ0Ij48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0xMDAgaGVpZ2h0PTEwMCBmaWxsPSJub25lIiBjbGFzcz0iYmsiPjwvcmVjdD48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MCA1MCkiPjxnPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC01MCAtNTApIj48cGF0aCBkPSJNOTAsMzAuMmMwLTExLTktMjAuMS0yMC0yMC4xcy0yMCw5LjEtMjAsMjAuMmMwLDAuMiwwLTAuMywwLDAuN0g1MGMwLTEsMC0wLjYsMC0wLjhjMC0xMS05LTIwLjEtMjAtMjAuMXMtMjAsOS4xLTIwLDIwLjIgYzAsMC4yLDAtMC4zLDAsMC43aDBjMC4zLDIwLDMwLDM5LjUsNDAsNTVjMTAtMTUuNSwzOS43LTM1LDQwLTU1aDBDOTAsMzAsOTAsMzAuNCw5MCwzMC4yeiIgZmlsbD0iI2YwMiI+PC9wYXRoPjwvZz48YW5pbWF0ZVRyYW5zZm9ybSBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iIHR5cGU9InNjYWxlIiBmcm9tPSIxLjMiIHRvPSIwLjkiIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBjYWxjTW9kZT0ic3BsaW5lIiB2YWx1ZXM9IjEuMzswLjk7MS4xOzAuOSIga2V5VGltZXM9IjA7MC4zOzAuMzAxOzEiIGtleVNwbGluZXM9IjAgMC43NSAwLjI1IDE7MCAxIDAgMTswIC43NSAuMjUgMSI+PC9hbmltYXRlVHJhbnNmb3JtPjwvZz48L2c+PC9zdmc+PC9kaXY+PGRpdiBjbGFzcz0iY2FyZCI+PGgxPjxpIGNsYXNzPSJ0c19pY29uIHRzX2ljb25fd2FybmluZyBtdXN0YXJkX3llbGxvdyI+PC9pPlRoZXJl4oCZcyBiZWVuIGEgZ2xpdGNo4oCmPC9oMT48cD5XZeKAmXJlIG5vdCBxdWl0ZSBzdXJlIHdoYXQgd2VudCB3cm9uZy4gWW91IGNhbiBnbyBiYWNrLCBvciB0cnkgbG9va2luZyBvbiBvdXIgPGEgaHJlZj0iaHR0cDovL2dldC5zbGFjay5oZWxwL2hjL2VuLXVzIiB0YXJnZXQ9Il9ibGFuayI+SGVscCBDZW50ZXI8L2E+IGlmIHlvdSBuZWVkIGEgaGFuZC48L3A+PC9kaXY+PG5vc2NyaXB0PjxzdHlsZT4jbG9hZGVyIHsKCQkJCQkJZGlzcGxheTogbm9uZTsKCQkJCQl9PC9zdHlsZT48L25vc2NyaXB0PjxzY3JpcHQ+Ci8vIGZpcmUgNDA0CndpbmRvdy5kYXRhTGF5ZXIgPSB3aW5kb3cuZGF0YUxheWVyIHx8IFtdOwp3aW5kb3cuZGF0YUxheWVyLnB1c2goewoJJ2V2ZW50JyA6ICdFcnJvcjQwNCcsCn0pOwoKKGZ1bmN0aW9uKCkgewoJLy8gcXVpY2sgaGFjazogOC1iaXQgYWxwaGEtZnJpZW5kbHkgbG9nbwoJdmFyIGxvZ28gPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnaGVhZGVyX2xvZ28nKTsKCXZhciBhbHRfc3JjID0gJ2RhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBUEFBQUFCSUNBTUFBQUQvRW9pNEFBQUMrbEJNVkVVQUFBQW9GU2NxSWpFb0pUTXJMRFFyTWpnMU1EazdNemdxT0QwOU5Uby9PRDFDT2o5RVBFRkZQVU5JUFVoTlBFbTlIeWxKUVViUEYxeE1SRWxpUFZGZFAxQ3dKMXE4S1NwUFIwek1JVmZMSVZ1Uk0xU3JLMWt3VWs2TE5saUdPRmNzVlZIQkxTZFRTay9QSmw1VlRWSXpXRS9OSzA2L05DalJLMlpaVVZiQ055ck5NMFV5WUZWY1ZGblBOa3hmVmx3dVpsclFOV2hoV0Y3SlBqWmtXMkhVT25ISlJUZkZTQ3BuWDJScVltZHNaR25WUkhYSVVTaHVaV3R4YUc3TVZUTEpXQ3gxYkhGTGVXNGFqSFI0Y0hYYVVvTjBjblpnZ0RWZWdEczdoMnQ4YzNremkyNGhrSGhvZ2plQWRuemJXb1o3ZVgxMGhqWWptSGg3aGpqU2NDeUhmb1EwbUhsL2lUUXVtb0NGaURWNGkwR0RnWVdHaVRiUWRDMUhsWHpnWm81OGowV0hoWWxBblhpSmg0dmdiWkxVZVQ4dHBYN1VmQ3Ara2s0Nm8zM2diNW1NaW80K3BvMmprVFhmZFp1UWpwTFdoQ3VTa0pTbmxEQTRyb2F1bERJNXI0ZVZrNWM4c1lsRHJaK0hvR2ZqZjZPWmxwcURvbTVCdFkyY21aN2pocWVDcVgrZm5hR0Fxb2JjbVM3T25pdFN1Wkdpb0tUVm5pNVF2WnZtajYybG82ZmdvU3VwcHFwZndKOW52YXJlcGpib2w3TnN2Ykd0cXE5MnZiTnl2cm13cmJMaXFrSnR3NlJwd2NodndjS3lyN1J3eHFicm9icHR4Y3poc1U2MnRMaHZ4ODU2eDg5K3lxemx0Vm02dUx6c3FjQit5OVRudUdLK3U4RGt1bUtJejdqdXNjYmx2V3ZCdjhPUHp0TEV3Y2JKdzhLVjFMN3F3M2Z2dXN6SXhzck14OFdYMWRuTXljN3R4NEh1eVltajJzWFJ6TXJ4d3RQUHpkR2oyZC9VenMzVDBOWGowWi9zMEpTbzN1VFkwdEd4Mzh6enk5clgxTm52MUo2eTMrYmMxOVhvMkt5NDRlSzg0dERiMk56eDJLZmYyZGp6MDkrODV0cmwzYnpmM09IejNMSGozdHpGNXVubTROL0k2dURJNmV6bDR1ZjM0cjNxNU9QNTRPcnA1dXY1NXNmVTdmTFY3K2I1Nk0vdDZ1L3c2dW5iOE8vNjZQRDc3ZHJoOCt6dzd2TDM4TnZtOC9UMjhPL3c4dS81Ny9YMjgvajA5dlB1K1BQNjl1Zis5dTd6K1B2ODl2WDYrZS80K3ZmOCtmNzIrLzcvK3ZuNi9QbjgvdnZlZ3YxdUFBQUFBWFJTVGxNQVFPYllaZ0FBQ2dkSlJFRlVlQUhsMmdWNEUya2V4L0gvNm50cHNhYnJ2cVVyU0E2SHRseDdHOXpkWWQwWHlYYWwyU080MHhUM0xtbHdEMXE1V3lTNHV4L2RYbkhiU29xVWFVbWU1NmFaeVp2L1pON0pOSkFUNk9meGZiRHZ6aTl2TTVOQUtibWdMTG0wZkpKNTB2cnJVRWE0MXB2ZEpwMkNzbUc3MmVOM0tBditNRk1wVGlnRDlwcTkvaE9qdHZkdHA0K0ppVzJYQ2NHUTFTb21PaW82Sm00SVBMQ2xLSGdWQkY4VUVTUkRNQXdub3FLZ0JFKzZCMEZYbHdpbVFqQ1lpQ2dYSHRUZnpmL1pUZGNnZ2lRSWh2aEFnbDNIMXkxWWQ5d0ZVcitiNVp1K2UyN2Zqb001RUJRNkloZ0R3V0Fnb2l1ZzZ1SUVZNGtKRjBIQ09jbG4wM2ZQcEZ2YzB1OUNFRlFoZ3VFUURIMUxIM3hqc0ZFdzJLZDR2Ums1d05kU1M0SlJIRWtFUTRJYm5BMHFuT09NSGhPVU5qMzJwKzZmV0xBZDhQQWlnaHI4T1JGbGdvcC9HcjJPc3piTjF6WnYwYUx0ZEF0Mk4zakJwdUFHbndVVjYxRHdBdDlOODdVOStkb1NneXpZQlhob0wvMW5naytEaWdVb2VEQUgySW1mK29pMXZGNFc3Rnp3Z2hPQ0czd1NWS3d3c2pkZGZDNTlUdHNXWHMybjRlQWNlR2poUkJBZjNPQ2pvT0k0RGw3Z3JaM0haMzJDZ2lXYlhnM0JDemI4bDRNNUk4WjVhM25EVUMvZTlQd2NlSGhoUVEzdVMwVDdRZjFGakJ3U2F3VUttNTUvRllJWTNEZTR3WHNnZ0UzLy9HMC92aGI1cGdYeU40dmJ2QjEzSVFCTys1aFdkU1BLaDFXSmJqWjhZNkY2OE9XTjFobEp5YmFkdWFEczhoN2IxTVFaaS9ZN0dNRTdBY3UySFhYS05qMVlyUDJxVStQR2plZmdYdm1tNTZXZks0WUFPTVpFRUVTanR4WDVDWGJaRGQ1ZnJ2dlV6djRmYUlna0hyWGo5L2dOdG9ZUUVobzMzTTVKTjAxcmViK2dYTm1tWmJWcVVsOGl2c0tuT3NHdFBCRjhEaUl1MGZkWFI2V0JMMXNWSWxWamtWTVN2Qlc4WmhCUitlR1NUZE5hWGcrTDBxYTcvN1FOQXBSSVdHcGNsZ1IvQ29KbGtVVE81QVRzWkRTUnEzc1UzeTJoV1V3bFZGZWdpaStrdDJtTXpMWmdJOFRhemorTU1wdVhRbUNzaEMyQkVjeDFKVXdkQUVrclIxaEMwd0RpNWNGSmFDb0Y5T2Z0bHZrV1N3OGN6TmgwNS81OGJZbDdFSWpMb1lUTktnOTIxQ1lLeGdDVnJDRnNzUUFKUkxTWk1hKzY0dW1XdzllVytBWDF5amJka2EvMU9BS0I2RTNZd2psNWNDcFJkQmhFeXI5bWhqd1k5OWJJZ3hLdUhmUXlvbDdwT2IzazRBa3pFdENtdVZCYU9QeG9RVkhlenFseGtqdCt6eng3QTQvVEVSWTg2aXRoUklHT1E4KzBOb0xiR05SN0U5eG9yMnpUdERZSHdEa1RGOThHZGJJTFV1VUtIYmtwakpDd0FrWXdiUFc4SHBzbHBxNWRsaUFlVHZpR0QvK25pRStURmlVUGFWTGVjMUZSY0laUzd3V2F5OXowa2gwNTZGbGV3SnZHbTBvRnI0SXhzY3RBR3R3VlBaUUtINU1MZ3YweHhHTzQ3NkNyMkVEZ3RNV0pyd2tjek82RkxTaDR0blRUZk8xVkY0ak80K0NGRC9KWXJRQ1l5cU5nWWRTaFF4eEFjYkZFRk9kemdmWDREOXlvcStJQTNoQWlTbFBvaFNVb1dMcnBpZDVhZUloTjk1V09UQzBZenBxdUFKWkZSS0djTUhsUlZCRmduSkEvSEFVemUyR2VoYm5wVGwvOS9LdWY1OU43SCtDemdQSlc5V0E1ZEUxUEF6cUZOWm4rLzdaVTNGczdGNEI1aFdmVFdpUHZGbUNYbUp1Ky82OTg4RzhSb1NJVE5oY0VIdHdiVDZRdXdXZWNISzFjaTNycjVvSFhRUXZXZzlieWRnSG1rbS82MnR5bWxiWGFXdVA5Tmp0Q0NGYWxRNks5U0QyWXk5NXYzMytXazd3bXJBQzV4R096eWhFWlFhZ29CeURGODFIdnZDbmYvbWlrZkRiOUQrbW04K2UyMTRvYVhndnNqVWVvZmhIbkwzaG4zeG9hY1JNZHJIbDkwWnV0blVRVXdnRlRFcEVKZFlERVZWck0zd1E1QnhzUjVVMlAvTEw5SzFxdmh2ZEJXVzQ0a1F0TDRwU0MwMm9UTmhQQUd2cXFCSlZnWkJGSTVXeHgzK0NldVl1ZTVmbmQ5TWd1RFY2czlLNFdXd3grN0FrakREV3ltY0VjSG9Uc1ppTVp2VzFtbWtya1FvK0NqK0tjbkdMMFBON3Zwa2QreU5meTZtaXg5dUJQWmpSaGVDbExmQUNBZzdrWW9oeU1MbUFUMVdBa0loY1UrZDAwcmVWVjFXTDExSTVxMWt4alhTaFlQSGE3RW1YeEFGYTFLenlEc01RNWdjbi9wZ3RYL3BXdnBTU2JiZ2hxOXBpaU5jU0hUUmFjSVpsQVZMUGV2V00wK0FxbkVaRU8ySklWeHlIamY5T0ZHNzZvcksyUGVxV2IvZzVLb1REREZCTXF1d0VLdzdlSFVjU2o5cGlUNHBuWEFmMnI5eE9SSmxmOVljTlV0RzliUUpzdUtxbmxWVU85MGsxdmdsTGk3SitXOXg3VnZzSFp0R2VxQ3p5V29WTzZrRjd2TmFwdmM1SUE5TVNqZkdhcE44M1h2aTltdll3bmpUZjlCUVFndHgzeDROQW5ENS9pVitCVVZvTUp2OC9VcXdVUEI0RExZY1NqTGxlcVRjL2FOSUN2cGVvd04xMTU4bjBJU0RNaXlrYkJuNk52YUx6a1pCMjhRL0R0SDdFREpwdERNOStGeDRNQzEyajZQTDdsNjArK1FHTmxtMzVQUEsvR1h3UC8xdlMyb2dCOEQ1ZUhQajNzaTg1b1BTQUdmTTMyZUkrMEs0RHNUeXlBRWphZlk2b0pvVGI2My9UUHJkOTY4b2tubm5oT0svRzJ6NmJyRFQwR2F2WnIrRUZ0QkNTT0NFTEFKOWh6UGxVQkwwY0VlbXVKNzRjalQ0T0hNMGxEWWpqZ3JjWDdsNDQ2d3FHNGFiNzJIYjYyeExPMFZiN3ArcWhXbVV1NHdZbFpVeVM3aFl2RzN3QXc0SnUvYlBBb2lDTWVpZTY1RUNyRUlQd3licEhPUFdJbmZpQmlraC9iWFlITjlkRTdUejFCdmFiRi9reHIzLzdnK3hSUWhVY1cxalVwOWZSUjIvQXErQnpGd2VpbmFBMEhDRElpaWZTWHU2SUlvbXRuK0ZSZkRwMENHZWdGTHh0MUtqQWNHMXF2QXEyVmIvbzlkKzJMSDN4djV2MFJ5RmNMNWNyZnhNRUpBSEJUUTBSaEp2dnB6TFZEcWhBQk9ycXp5aE1sVm9ETitBVXZHM1V1bzVhUGVoTUh5emY5NGwrK05ndTJnenFPS0VxVWY2bWxIZkVqR2Yza1lXb0hzRlVXakgvOXB5Q3hxYUVROVlyNCttVnVtcStsU3JWcFBWR2c1K1RmMDhvdVI1UlpXVGNJU0VRbU9zWEhBTldCc0I4YkRLQlZrazAvcjZVcWY3eXlNTVdNbEdiVG5JRXdSVGxZMzhTemFlUWRzdnRhV3dpek54c0FqdUw1aUhKZkloNVZPS0FtYTZrM1dKdCtwZjNLZlB6OWVKVk5JeHVqaUp5QkE0Rk8raSswK1Y1alU2YjAvVEIrV28zMXZnbTgwK2lFbzFMeHB6RWUrZWdKaG16VGZPM2lmSEM3am9OVG9IVHNUVFErYzdhRFJ3MmZkNU5YV2tsMmtBcVhpV2d0ZmpPakl4TFJXOEV0RXdmTEhoV0h4NldCeDJLYUs5OTAwN241UUtVODBQUHB3bFJEM1hEeEFOWVB6d1N2NU5vMWREcGRqYWpUNEhFMm9hNUd1R015YkFaZTN5Yk45UHBtVGJwZUFleDBZbXlvZU5wSEoyV0R5Tms3TGlhYUYzY1lFSzVKM1E0bTY5WTgxaXRZdHVrL05ib0dtR1RUbHlBUXpzdjdqMlk3WEtDT3k5cC85RElIYWh4Wk96ZWVkVURncE1GbzA4L1UvTXhvdkFIWWRXbndJMnV5RnF2NEJPL3BtdDJNSlg0RERHOTZraE1lV2RjcTQrQlhuM2k2ZWplRnJ4T2ZNbFByNFJFMkhqK1RHL3FSRVpGdTJyblFMSnA1Qng1bEE4WGFXZ04zdS9DM2lXV2J2cmRRN0wwRWo3WmozeldzMVhUZ3B2dkF1NGlESjRDVTg4akNTZWFVN1U1NG5JeG1iUnB4d21OR3N1bmo4UGlUYlBvUWxBRjQweGVoRFBqTlNJMkdzb0FialIvSGx3VVhCNHU5SzZDTXVQR3JlOCs3WEZCbTNMcHg0NVlUSGl2L0JvdVlTSzlZVFRUbkFBQUFBRWxGVGtTdVFtQ0MnOwoJaWYgKGxvZ28pIHsKCQlsb2dvID0gbG9nby5nZXRFbGVtZW50c0J5VGFnTmFtZSgnaW1nJylbMF07CgkJaWYgKCFsb2dvKSByZXR1cm47CgkJbG9nby5zcmMgPSBhbHRfc3JjOwoJfQp9KCkpOwo8L3NjcmlwdD48L2Rpdj48ZGl2IGlkPSJvdmVybGF5Ij48L2Rpdj48L2Rpdj48Zm9vdGVyIGRhdGEtcWE9ImZvb3RlciI+PHNlY3Rpb24gY2xhc3M9ImxpbmtzIj48ZGl2IGNsYXNzPSJncmlkIj48ZGl2IGNsYXNzPSJjb2wgc3Bhbl8xX29mXzQgbmF2X2NvbCI+PHVsPjxsaSBjbGFzcz0iY2F0XzEiPlVzaW5nIFNsYWNrPC9saT48bGk+PGEgaHJlZj0iaHR0cHM6Ly9zbGFjay5jb20vaXMiIGRhdGEtcWE9InByb2R1Y3RfZm9vdGVyIiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1mb290ZXJfcHJvZHVjdCI+UHJvZHVjdDwvYT48L2xpPjxsaT48YSBocmVmPSJodHRwczovL3NsYWNrLmNvbS9lbnRlcnByaXNlIiBkYXRhLXFhPSJlbnRlcnByaXNlX2Zvb3RlciIgZGF0YS1jbG9nLWV2ZW50PSJXRUJTSVRFX0NMSUNLIiBkYXRhLWNsb2ctcGFyYW1zPSJjbGlja190YXJnZXQ9Zm9vdGVyX2VudGVycHJpc2UiPkVudGVycHJpc2U8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cHM6Ly9zbGFjay5jb20vcHJpY2luZz91aV9zdGVwPTI4JnVpX2VsZW1lbnQ9NSIgZGF0YS1xYT0icHJpY2luZ19mb290ZXIiIGRhdGEtY2xvZy1ldmVudD0iV0VCU0lURV9DTElDSyIgZGF0YS1jbG9nLXBhcmFtcz0iY2xpY2tfdGFyZ2V0PWZvb3Rlcl9wcmljaW5nIj5QcmljaW5nPC9hPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHBzOi8vZ2V0LnNsYWNrLmhlbHAvaGMvZW4tdXMiIGRhdGEtcWE9InN1cHBvcnRfZm9vdGVyIiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1mb290ZXJfc3VwcG9ydCI+U3VwcG9ydDwvYT48L2xpPjxsaT48YSBocmVmPSJodHRwczovL3NsYWNrLmNvbS9ndWlkZXMiIGRhdGEtcWE9ImdldHRpbmdfc3RhcnRlZCIgZGF0YS1jbG9nLWV2ZW50PSJXRUJTSVRFX0NMSUNLIiBkYXRhLWNsb2ctcGFyYW1zPSJjbGlja190YXJnZXQ9Zm9vdGVyX2dldHRpbmdfc3RhcnRlZCI+U2xhY2sgR3VpZGVzPC9hPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHBzOi8vc2xhY2suY29tL2FwcHMiIGRhdGEtcWE9ImFwcF9kaXJlY3RvcnkiIGRhdGEtY2xvZy1ldmVudD0iV0VCU0lURV9DTElDSyIgZGF0YS1jbG9nLXBhcmFtcz0iY2xpY2tfdGFyZ2V0PWZvb3Rlcl9hcHBfZGlyZWN0b3J5Ij5BcHAgRGlyZWN0b3J5PC9hPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHBzOi8vYXBpLnNsYWNrLmNvbS8iIGRhdGEtcWE9ImFwaSIgZGF0YS1jbG9nLWV2ZW50PSJXRUJTSVRFX0NMSUNLIiBkYXRhLWNsb2ctcGFyYW1zPSJjbGlja190YXJnZXQ9Zm9vdGVyX2FwaSI+QVBJPC9hPjwvbGk+PC91bD48L2Rpdj48ZGl2IGNsYXNzPSJjb2wgc3Bhbl8xX29mXzQgbmF2X2NvbCI+PHVsPjxsaSBjbGFzcz0iY2F0XzIiPlNsYWNrIDx0cy1pY29uIGNsYXNzPSJ0c19pY29uX2hlYXJ0Ij48L3RzLWljb24+PC9saT48bGk+PGEgaHJlZj0iaHR0cHM6Ly9zbGFjay5jb20vam9icyIgZGF0YS1xYT0iam9icyIgZGF0YS1jbG9nLWV2ZW50PSJXRUJTSVRFX0NMSUNLIiBkYXRhLWNsb2ctcGFyYW1zPSJjbGlja190YXJnZXQ9Zm9vdGVyX2pvYnMiPkpvYnM8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cHM6Ly9zbGFjay5jb20vY3VzdG9tZXJzIiBkYXRhLXFhPSJjdXN0b21lcnMiIGRhdGEtY2xvZy1ldmVudD0iV0VCU0lURV9DTElDSyIgZGF0YS1jbG9nLXBhcmFtcz0iY2xpY2tfdGFyZ2V0PWZvb3Rlcl9jdXN0b21lcnMiPkN1c3RvbWVyczwvYT48L2xpPjxsaT48YSBocmVmPSJodHRwczovL3NsYWNrLmNvbS9kZXZlbG9wZXJzIiBkYXRhLXFhPSJkZXZlbG9wZXJzIiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1mb290ZXJfZGV2ZWxvcGVycyI+RGV2ZWxvcGVyczwvYT48L2xpPjxsaT48YSBocmVmPSJodHRwczovL3NsYWNrLmNvbS9ldmVudHMiIGRhdGEtcWE9ImV2ZW50cyIgZGF0YS1jbG9nLWV2ZW50PSJXRUJTSVRFX0NMSUNLIiBkYXRhLWNsb2ctcGFyYW1zPSJjbGlja190YXJnZXQ9Zm9vdGVyX2V2ZW50cyI+RXZlbnRzPC9hPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHBzOi8vc2xhY2tocS5jb20vIiBkYXRhLXFhPSJibG9nX2Zvb3RlciIgZGF0YS1jbG9nLWV2ZW50PSJXRUJTSVRFX0NMSUNLIiBkYXRhLWNsb2ctcGFyYW1zPSJjbGlja190YXJnZXQ9Zm9vdGVyX2Jsb2ciPkJsb2c8L2E+PC9saT48L3VsPjwvZGl2PjxkaXYgY2xhc3M9ImNvbCBzcGFuXzFfb2ZfNCBuYXZfY29sIj48dWw+PGxpIGNsYXNzPSJjYXRfMyI+TGVnYWw8L2xpPjxsaT48YSBocmVmPSJodHRwczovL3NsYWNrLmNvbS9wcml2YWN5LXBvbGljeSIgZGF0YS1xYT0icHJpdmFjeSIgZGF0YS1jbG9nLWV2ZW50PSJXRUJTSVRFX0NMSUNLIiBkYXRhLWNsb2ctcGFyYW1zPSJjbGlja190YXJnZXQ9Zm9vdGVyX3ByaXZhY3kiPlByaXZhY3k8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cHM6Ly9zbGFjay5jb20vc2VjdXJpdHkiIGRhdGEtcWE9InNlY3VyaXR5IiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1mb290ZXJfc2VjdXJpdHkiPlNlY3VyaXR5PC9hPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHBzOi8vc2xhY2suY29tL3Rlcm1zLW9mLXNlcnZpY2UiIGRhdGEtcWE9InRvcyIgZGF0YS1jbG9nLWV2ZW50PSJXRUJTSVRFX0NMSUNLIiBkYXRhLWNsb2ctcGFyYW1zPSJjbGlja190YXJnZXQ9Zm9vdGVyX3RvcyI+VGVybXMgb2YgU2VydmljZTwvYT48L2xpPjxsaT48YSBocmVmPSJodHRwczovL3NsYWNrLmNvbS9wb2xpY2llcyIgZGF0YS1xYT0icG9saWNpZXMiIGRhdGEtY2xvZy1ldmVudD0iV0VCU0lURV9DTElDSyIgZGF0YS1jbG9nLXBhcmFtcz0iY2xpY2tfdGFyZ2V0PWZvb3Rlcl9wb2xpY2llcyI+UG9saWNpZXM8L2E+PC9saT48L3VsPjwvZGl2PjxkaXYgY2xhc3M9ImNvbCBzcGFuXzFfb2ZfNCBuYXZfY29sIj48dWw+PGxpIGNsYXNzPSJjYXRfNCI+SGFuZHkgTGlua3M8L2xpPjxsaT48YSBocmVmPSJodHRwczovL3NsYWNrLmNvbS9kb3dubG9hZHMiIGRhdGEtcWE9ImRvd25sb2FkcyIgZGF0YS1jbG9nLWV2ZW50PSJXRUJTSVRFX0NMSUNLIiBkYXRhLWNsb2ctcGFyYW1zPSJjbGlja190YXJnZXQ9Zm9vdGVyX2Rvd25sb2FkcyI+RG93bmxvYWQgZGVza3RvcCBhcHA8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cHM6Ly9zbGFjay5jb20vZG93bmxvYWRzIiBkYXRhLXFhPSJkb3dubG9hZHNfbW9iaWxlIiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1mb290ZXJfZG93bmxvYWRzX21vYmlsZSI+RG93bmxvYWQgbW9iaWxlIGFwcDwvYT48L2xpPjxsaT48YSBocmVmPSJodHRwczovL3NsYWNrLmNvbS9icmFuZC1ndWlkZWxpbmVzIiBkYXRhLXFhPSJicmFuZF9ndWlkZWxpbmVzIiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1mb290ZXJfYnJhbmRfZ3VpZGVsaW5lcyI+QnJhbmQgR3VpZGVsaW5lczwvYT48L2xpPjxsaT48YSBocmVmPSJodHRwczovL3NsYWNrYXR3b3JrLmNvbSIgZGF0YS1xYT0ic2xhY2tfYXRfd29yayIgZGF0YS1jbG9nLWV2ZW50PSJXRUJTSVRFX0NMSUNLIiBkYXRhLWNsb2ctcGFyYW1zPSJjbGlja190YXJnZXQ9Zm9vdGVyX3NsYWNrX2F0X3dvcmsiPlNsYWNrIGF0IFdvcms8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cHM6Ly9zdGF0dXMuc2xhY2suY29tLyIgZGF0YS1xYT0ic3RhdHVzIiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1mb290ZXJfc3RhdHVzIj5TdGF0dXM8L2E+PC9saT48L3VsPjwvZGl2PjwvZGl2Pjwvc2VjdGlvbj48ZGl2IGNsYXNzPSJmb290bm90ZSI+PHNlY3Rpb24+PGEgaHJlZj0iaHR0cHM6Ly9zbGFjay5jb20iIGFyaWEtbGFiZWw9IlNsYWNrIGhvbWVwYWdlIiBkYXRhLWNsb2ctZXZlbnQ9IldFQlNJVEVfQ0xJQ0siIGRhdGEtY2xvZy1wYXJhbXM9ImNsaWNrX3RhcmdldD1mb290ZXJfc2xhY2tfaWNvbiI+PHRzLWljb24gY2xhc3M9ImMtaWNvbi0tc2xhY2siIGFyaWEtaGlkZGVuPjwvdHMtaWNvbj48L2E+PHVsPjxsaT48YSBocmVmPSJodHRwczovL3NsYWNrLmNvbS9oZWxwL2NvbnRhY3QiIGRhdGEtcWE9ImNvbnRhY3RfdXMiIGRhdGEtY2xvZy1ldmVudD0iV0VCU0lURV9DTElDSyIgZGF0YS1jbG9nLXBhcmFtcz0iY2xpY2tfdGFyZ2V0PWZvb3Rlcl9jb250YWN0X3VzIj5Db250YWN0IFVzPC9hPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHBzOi8vdHdpdHRlci5jb20vU2xhY2tIUSIgZGF0YS1xYT0ic2xhY2tfdHdpdHRlciIgZGF0YS1jbG9nLWV2ZW50PSJXRUJTSVRFX0NMSUNLIiBkYXRhLWNsb2ctcGFyYW1zPSJjbGlja190YXJnZXQ9Zm9vdGVyX3NsYWNrX3R3aXR0ZXIiIGFyaWEtbGFiZWw9IlNsYWNrIG9uIFR3aXR0ZXIiPjx0cy1pY29uIGNsYXNzPSJ0c19pY29uX3R3aXR0ZXIiIGFyaWEtaGlkZGVuPjwvdHMtaWNvbj48L2E+PC9saT48bGkgY2xhc3M9Inl0Ij48YSBocmVmPSJodHRwczovL3d3dy55b3V0dWJlLmNvbS9jaGFubmVsL1VDWTNZRUNnZUJjTEN6SXJGTFA0Z2JsdyIgZGF0YS1xYT0ic2xhY2tfeW91dHViZSIgZGF0YS1jbG9nLWV2ZW50PSJXRUJTSVRFX0NMSUNLIiBkYXRhLWNsb2ctcGFyYW1zPSJjbGlja190YXJnZXQ9Zm9vdGVyX3NsYWNrX3lvdXR1YmUiIGFyaWEtbGFiZWw9IlNsYWNrIG9uIFlvdVR1YmUiPjx0cy1pY29uIGNsYXNzPSJ0c19pY29uX3lvdXR1YmUiIGFyaWEtaGlkZGVuPjwvdHMtaWNvbj48L2E+PC9saT48L3VsPjwvc2VjdGlvbj48L2Rpdj48L2Zvb3Rlcj48c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlwdCI+Ci8qKgogKiBBIHBsYWNlaG9sZGVyIGZ1bmN0aW9uIHRoYXQgdGhlIGJ1aWxkIHNjcmlwdCB1c2VzIHRvCiAqIHJlcGxhY2UgZmlsZSBwYXRocyB3aXRoIHRoZWlyIENETiB2ZXJzaW9ucy4KICoKICogQHBhcmFtIHtTdHJpbmd9IGZpbGVfcGF0aCAtIEZpbGUgcGF0aAogKiBAcmV0dXJucyB7U3RyaW5nfQogKi8KZnVuY3Rpb24gdnZ2KGZpbGVfcGF0aCkgewoJCSB2YXIgdnZ2X3dhcm5pbmcgPSAnWW91IGNhbm5vdCB1c2UgdnZ2IG9uIGR5bmFtaWMgdmFsdWVzLiBQbGVhc2UgbWFrZSBzdXJlIHlvdSBvbmx5IHBhc3MgaW4gc3RhdGljIGZpbGUgcGF0aHMuJzsgaWYgKHdpbmRvdy5UUyAmJiB3aW5kb3cuVFMud2FybikgeyB3aW5kb3cuVFMud2Fybih2dnZfd2FybmluZyk7IH0gZWxzZSB7IGNvbnNvbGUud2Fybih2dnZfd2FybmluZyk7IH0gCglyZXR1cm4gZmlsZV9wYXRoOwp9Cgp2YXIgY2RuX3VybCA9ICJodHRwczpcL1wvYS5zbGFjay1lZGdlLmNvbSI7CnZhciB2dnZfYWJzX3VybCA9ICJodHRwczpcL1wvc2xhY2suY29tXC8iOwp2YXIgaW5jX2pzX3NldHVwX2RhdGEgPSB7CgllbW9qaV9zaGVldHM6IHsKCQlhcHBsZTogJ2h0dHBzOi8vYS5zbGFjay1lZGdlLmNvbS84MDU4OC9pbWcvZW1vamlfMjAxN18xMl8wNi9zaGVldF9hcHBsZV82NF9pbmRleGVkXzI1Ni5wbmcnLAoJCWdvb2dsZTogJ2h0dHBzOi8vYS5zbGFjay1lZGdlLmNvbS84MDU4OC9pbWcvZW1vamlfMjAxN18xMl8wNi9zaGVldF9nb29nbGVfNjRfaW5kZXhlZF8yNTYucG5nJywKCX0sCn07Cjwvc2NyaXB0PjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0Ij4JLy8gY29tbW9uIGJvb3RfZGF0YQoJdmFyIGJvb3RfZGF0YSA9IHsiYXBpX3VybCI6IlwvYXBpXC8iLCJhcHAiOiJ3ZWIiLCJ1c2VyX2lkIjpudWxsLCJ0ZWFtX2lkIjoiVDAwMDAwMDAwIiwidmlzaXRvcl91aWQiOiI2YnU5YTU2ZmVkYjc2NDg2OWE4MWI1Nnk1Iiwibm9fbG9naW4iOnRydWUsInZlcnNpb25fdHMiOiIxNTg0MTQyMjE5IiwidmVyc2lvbl91aWQiOiJhYTViNGUxMTVhYWFjMDUxZWNhOTk5NjMzNTM4NWRmYmU5OWZjNjg0IiwiY2FjaGVfdmVyc2lvbiI6InYyMS1ub21hZCIsImNhY2hlX3RzX3ZlcnNpb24iOiJ2Mi1idW5ueSIsInJlZGlyX2RvbWFpbiI6InNsYWNrLXJlZGlyLm5ldCIsInNpZ25pbl91cmwiOiJodHRwczpcL1wvc2xhY2suY29tXC9zaWduaW4iLCJhYnNfcm9vdF91cmwiOiJodHRwczpcL1wvc2xhY2suY29tXC8iLCJ0ZWFtX3VybCI6IiIsImltYWdlX3Byb3h5X3VybCI6Imh0dHBzOlwvXC9zbGFjay1pbWdzLmNvbVwvIiwiYmVhY29uX3RpbWluZ191cmwiOiJodHRwczpcL1wvc2xhY2suY29tXC9iZWFjb25cL3RpbWluZyIsImJlYWNvbl9lcnJvcl91cmwiOiJodHRwczpcL1wvc2xhY2suY29tXC9iZWFjb25cL2Vycm9yIiwiY2xvZ191cmwiOiJjbG9nXC90cmFja1wvIiwiYXBpX3Rva2VuIjoiIiwidnZ2X3BhdGhzIjp7Imx6X3N0cmluZyI6Imh0dHBzOlwvXC9hLnNsYWNrLWVkZ2UuY29tXC9idjEtOC04Y2FjZGEyXC9sei1zdHJpbmctMS40LjQud29ya2VyLjhkZTFiMDBkNjcwZmYzZGM3MDZhMC5qcyIsImNvZGVtaXJyb3IiOiJodHRwczpcL1wvYS5zbGFjay1lZGdlLmNvbVwvYnYxLTgtOGNhY2RhMlwvY29kZW1pcnJvci5taW4uNjhjNmEwNjEyYWJjY2M2Yjg4NTkubWluLmpzIiwiY29kZW1pcnJvcl9hZGRvbl9zaW1wbGUiOiJodHRwczpcL1wvYS5zbGFjay1lZGdlLmNvbVwvYnYxLTgtOGNhY2RhMlwvY29kZW1pcnJvcl9zaW1wbGUuOTkzZmM1ZjhkZGQ0MDFmNjMyYWEubWluLmpzIiwiY29kZW1pcnJvcl9sb2FkIjoiaHR0cHM6XC9cL2Euc2xhY2stZWRnZS5jb21cL2J2MS04LThjYWNkYTJcL2NvZGVtaXJyb3JfbG9hZC43NWEzNjEzY2E4MjkyMTZmMTAzMy5taW4uanMiLCJjb2RlbWlycm9yX2ZpbGVzIjp7ImphdmFzY3JpcHQiOiJodHRwczpcL1wvYS5zbGFjay1lZGdlLmNvbVwvYnYxLTgtOGNhY2RhMlwvY29kZW1pcnJvcl9sYW5nX2phdmFzY3JpcHQuYWMxODMzZTllMjM5ZDUzMmI1YTkubWluLmpzIn19LCJub3RpZmljYXRpb25fc291bmRzIjpbeyJ2YWx1ZSI6ImIyLm1wMyIsImxhYmVsIjoiRGluZyIsInVybCI6Imh0dHBzOlwvXC9hLnNsYWNrLWVkZ2UuY29tXC83ZTkxXC9zb3VuZHNcL3B1c2hcL2IyLm1wMyIsInVybF9vZ2ciOiJodHRwczpcL1wvYS5zbGFjay1lZGdlLmNvbVwvNDZlYmJcL3NvdW5kc1wvcHVzaFwvYjIub2dnIn0seyJ2YWx1ZSI6ImFuaW1hbF9zdGljay5tcDMiLCJsYWJlbCI6IkJvaW5nIiwidXJsIjoiaHR0cHM6XC9cL2Euc2xhY2stZWRnZS5jb21cLzdlOTFcL3NvdW5kc1wvcHVzaFwvYW5pbWFsX3N0aWNrLm1wMyIsInVybF9vZ2ciOiJodHRwczpcL1wvYS5zbGFjay1lZGdlLmNvbVwvNDZlYmJcL3NvdW5kc1wvcHVzaFwvYW5pbWFsX3N0aWNrLm9nZyJ9LHsidmFsdWUiOiJiZWVuX3RyZWUubXAzIiwibGFiZWwiOiJEcm9wIiwidXJsIjoiaHR0cHM6XC9cL2Euc2xhY2stZWRnZS5jb21cLzdlOTFcL3NvdW5kc1wvcHVzaFwvYmVlbl90cmVlLm1wMyIsInVybF9vZ2ciOiJodHRwczpcL1wvYS5zbGFjay1lZGdlLmNvbVwvNDZlYmJcL3NvdW5kc1wvcHVzaFwvYmVlbl90cmVlLm9nZyJ9LHsidmFsdWUiOiJjb21wbGV0ZV9xdWVzdF9yZXF1aXJlbWVudC5tcDMiLCJsYWJlbCI6IlRhLWRhIiwidXJsIjoiaHR0cHM6XC9cL2Euc2xhY2stZWRnZS5jb21cLzdlOTFcL3NvdW5kc1wvcHVzaFwvY29tcGxldGVfcXVlc3RfcmVxdWlyZW1lbnQubXAzIiwidXJsX29nZyI6Imh0dHBzOlwvXC9hLnNsYWNrLWVkZ2UuY29tXC80NmViYlwvc291bmRzXC9wdXNoXC9jb21wbGV0ZV9xdWVzdF9yZXF1aXJlbWVudC5vZ2cifSx7InZhbHVlIjoiY29uZmlybV9kZWxpdmVyeS5tcDMiLCJsYWJlbCI6IlBsaW5rIiwidXJsIjoiaHR0cHM6XC9cL2Euc2xhY2stZWRnZS5jb21cLzdlOTFcL3NvdW5kc1wvcHVzaFwvY29uZmlybV9kZWxpdmVyeS5tcDMiLCJ1cmxfb2dnIjoiaHR0cHM6XC9cL2Euc2xhY2stZWRnZS5jb21cLzQ2ZWJiXC9zb3VuZHNcL3B1c2hcL2NvbmZpcm1fZGVsaXZlcnkub2dnIn0seyJ2YWx1ZSI6ImZsaXR0ZXJidWcubXAzIiwibGFiZWwiOiJXb3ciLCJ1cmwiOiJodHRwczpcL1wvYS5zbGFjay1lZGdlLmNvbVwvN2U5MVwvc291bmRzXC9wdXNoXC9mbGl0dGVyYnVnLm1wMyIsInVybF9vZ2ciOiJodHRwczpcL1wvYS5zbGFjay1lZGdlLmNvbVwvNDZlYmJcL3NvdW5kc1wvcHVzaFwvZmxpdHRlcmJ1Zy5vZ2cifSx7InZhbHVlIjoiaGVyZV95b3VfZ29fbGlnaHRlci5tcDMiLCJsYWJlbCI6IkhlcmUgeW91IGdvIiwidXJsIjoiaHR0cHM6XC9cL2Euc2xhY2stZWRnZS5jb21cLzdlOTFcL3NvdW5kc1wvcHVzaFwvaGVyZV95b3VfZ29fbGlnaHRlci5tcDMiLCJ1cmxfb2dnIjoiaHR0cHM6XC9cL2Euc2xhY2stZWRnZS5jb21cLzQ2ZWJiXC9zb3VuZHNcL3B1c2hcL2hlcmVfeW91X2dvX2xpZ2h0ZXIub2dnIn0seyJ2YWx1ZSI6ImhpX2Zsb3dlcnNfaGl0Lm1wMyIsImxhYmVsIjoiSGkiLCJ1cmwiOiJodHRwczpcL1wvYS5zbGFjay1lZGdlLmNvbVwvN2U5MVwvc291bmRzXC9wdXNoXC9oaV9mbG93ZXJzX2hpdC5tcDMiLCJ1cmxfb2dnIjoiaHR0cHM6XC9cL2Euc2xhY2stZWRnZS5jb21cLzQ2ZWJiXC9zb3VuZHNcL3B1c2hcL2hpX2Zsb3dlcnNfaGl0Lm9nZyJ9LHsidmFsdWUiOiJrbm9ja19icnVzaC5tcDMiLCJsYWJlbCI6Iktub2NrIEJydXNoIiwidXJsIjoiaHR0cHM6XC9cL2Euc2xhY2stZWRnZS5jb21cLzdlOTFcL3NvdW5kc1wvcHVzaFwva25vY2tfYnJ1c2gubXAzIiwidXJsX29nZyI6Imh0dHBzOlwvXC9hLnNsYWNrLWVkZ2UuY29tXC80NmViYlwvc291bmRzXC9wdXNoXC9rbm9ja19icnVzaC5vZ2cifSx7InZhbHVlIjoic2F2ZV9hbmRfY2hlY2tvdXQubXAzIiwibGFiZWwiOiJXaG9hISIsInVybCI6Imh0dHBzOlwvXC9hLnNsYWNrLWVkZ2UuY29tXC83ZTkxXC9zb3VuZHNcL3B1c2hcL3NhdmVfYW5kX2NoZWNrb3V0Lm1wMyIsInVybF9vZ2ciOiJodHRwczpcL1wvYS5zbGFjay1lZGdlLmNvbVwvNDZlYmJcL3NvdW5kc1wvcHVzaFwvc2F2ZV9hbmRfY2hlY2tvdXQub2dnIn0seyJ2YWx1ZSI6Iml0ZW1fcGlja3VwLm1wMyIsImxhYmVsIjoiWW9pbmsiLCJ1cmwiOiJodHRwczpcL1wvYS5zbGFjay1lZGdlLmNvbVwvN2U5MVwvc291bmRzXC9wdXNoXC9pdGVtX3BpY2t1cC5tcDMiLCJ1cmxfb2dnIjoiaHR0cHM6XC9cL2Euc2xhY2stZWRnZS5jb21cLzQ2ZWJiXC9zb3VuZHNcL3B1c2hcL2l0ZW1fcGlja3VwLm9nZyJ9LHsidmFsdWUiOiJodW1tdXMubXAzIiwibGFiZWwiOiJIdW1tdXMiLCJ1cmwiOiJodHRwczpcL1wvYS5zbGFjay1lZGdlLmNvbVwvN2ZhOVwvc291bmRzXC9wdXNoXC9odW1tdXMubXAzIiwidXJsX29nZyI6Imh0dHBzOlwvXC9hLnNsYWNrLWVkZ2UuY29tXC80NmViYlwvc291bmRzXC9wdXNoXC9odW1tdXMub2dnIn0seyJ2YWx1ZSI6Im5vbmUiLCJsYWJlbCI6Ik5vbmUifV0sImFsZXJ0X3NvdW5kcyI6W3sidmFsdWUiOiJmcm9nLm1wMyIsImxhYmVsIjoiRnJvZyIsInVybCI6Imh0dHBzOlwvXC9zbGFjay5nbG9iYWwuc3NsLmZhc3RseS5uZXRcL2EzNGFcL3NvdW5kc1wvZnJvZy5tcDMifV0sImNhbGxfc291bmRzIjpbeyJ2YWx1ZSI6ImNhbGxcL2FsZXJ0X3YyLm1wMyIsImxhYmVsIjoiQWxlcnQiLCJ1cmwiOiJodHRwczpcL1wvc2xhY2suZ2xvYmFsLnNzbC5mYXN0bHkubmV0XC8wOGY3XC9zb3VuZHNcL2NhbGxcL2FsZXJ0X3YyLm1wMyJ9LHsidmFsdWUiOiJjYWxsXC9pbmNvbWluZ19yaW5nX3YyLm1wMyIsImxhYmVsIjoiSW5jb21pbmcgcmluZyIsInVybCI6Imh0dHBzOlwvXC9zbGFjay5nbG9iYWwuc3NsLmZhc3RseS5uZXRcLzA4ZjdcL3NvdW5kc1wvY2FsbFwvaW5jb21pbmdfcmluZ192Mi5tcDMifSx7InZhbHVlIjoiY2FsbFwvb3V0Z29pbmdfcmluZ192Mi5tcDMiLCJsYWJlbCI6Ik91dGdvaW5nIHJpbmciLCJ1cmwiOiJodHRwczpcL1wvc2xhY2suZ2xvYmFsLnNzbC5mYXN0bHkubmV0XC8wOGY3XC9zb3VuZHNcL2NhbGxcL291dGdvaW5nX3JpbmdfdjIubXAzIn0seyJ2YWx1ZSI6ImNhbGxcL3BvcF92Mi5tcDMiLCJsYWJlbCI6IkluY29taW5nIHJlYWN0aW9uIiwidXJsIjoiaHR0cHM6XC9cL3NsYWNrLmdsb2JhbC5zc2wuZmFzdGx5Lm5ldFwvMDhmN1wvc291bmRzXC9jYWxsXC9wb3BfdjIubXAzIn0seyJ2YWx1ZSI6ImNhbGxcL3RoZXlfbGVmdF9jYWxsX3YyLm1wMyIsImxhYmVsIjoiVGhleSBsZWZ0IGNhbGwiLCJ1cmwiOiJodHRwczpcL1wvc2xhY2suZ2xvYmFsLnNzbC5mYXN0bHkubmV0XC8wOGY3XC9zb3VuZHNcL2NhbGxcL3RoZXlfbGVmdF9jYWxsX3YyLm1wMyJ9LHsidmFsdWUiOiJjYWxsXC95b3VfbGVmdF9jYWxsX3YyLm1wMyIsImxhYmVsIjoiWW91IGxlZnQgY2FsbCIsInVybCI6Imh0dHBzOlwvXC9zbGFjay5nbG9iYWwuc3NsLmZhc3RseS5uZXRcLzA4ZjdcL3NvdW5kc1wvY2FsbFwveW91X2xlZnRfY2FsbF92Mi5tcDMifSx7InZhbHVlIjoiY2FsbFwvdGhleV9qb2luZWRfY2FsbF92Mi5tcDMiLCJsYWJlbCI6IlRoZXkgam9pbmVkIGNhbGwiLCJ1cmwiOiJodHRwczpcL1wvc2xhY2suZ2xvYmFsLnNzbC5mYXN0bHkubmV0XC8wOGY3XC9zb3VuZHNcL2NhbGxcL3RoZXlfam9pbmVkX2NhbGxfdjIubXAzIn0seyJ2YWx1ZSI6ImNhbGxcL3lvdV9qb2luZWRfY2FsbF92Mi5tcDMiLCJsYWJlbCI6IllvdSBqb2luZWQgY2FsbCIsInVybCI6Imh0dHBzOlwvXC9zbGFjay5nbG9iYWwuc3NsLmZhc3RseS5uZXRcLzA4ZjdcL3NvdW5kc1wvY2FsbFwveW91X2pvaW5lZF9jYWxsX3YyLm1wMyJ9LHsidmFsdWUiOiJjYWxsXC9jb25maXJtYXRpb25fdjIubXAzIiwibGFiZWwiOiJDb25maXJtYXRpb24iLCJ1cmwiOiJodHRwczpcL1wvc2xhY2suZ2xvYmFsLnNzbC5mYXN0bHkubmV0XC8wOGY3XC9zb3VuZHNcL2NhbGxcL2NvbmZpcm1hdGlvbl92Mi5tcDMifV0sImNhbGxfc291bmRzX3ZlcnNpb24iOiJ2MiIsImltZyI6eyJhcHBfaWNvbiI6Imh0dHBzOlwvXC9hLnNsYWNrLWVkZ2UuY29tXC84MDU4OFwvaW1nXC9zbGFja19ncm93bF9pY29uX3ZvZ3VlLnBuZyJ9LCJwYWdlX25lZWRzX2VudGVycHJpc2UiOmZhbHNlLCJwYWdlX25lZWRzX2N1c3RvbV9lbW9qaSI6ZmFsc2UsImlzX2RlcHJlY2F0ZWRfd2ViY2xpZW50X2Jyb3dzZXIiOmZhbHNlLCJpc191bnN1cHBvcnRlZF93ZWJjbGllbnRfYnJvd3NlciI6dHJ1ZSwiZGVmYXVsdF90eiI6IkFtZXJpY2FcL0xvc19BbmdlbGVzIiwiZmVhdHVyZV9uZXdfcHVycGxlX3NjaGVtZSI6ZmFsc2UsImZlYXR1cmVfYnVpbGRlcl9nZXR0aW5nX3N0YXJ0ZWRfaTE4biI6ZmFsc2UsImZlYXR1cmVfYnVpbGRlcl9jcmVhdGlvbl9vcmdfcG9saWN5IjpmYWxzZSwiZmVhdHVyZV9idWlsZGVyX2V4dGVuc2lvbnMiOmZhbHNlLCJmZWF0dXJlX2tleWJvYXJkX2tleV90b29sdGlwIjpmYWxzZSwiZmVhdHVyZV9idWlsZGVyX3dlYmhvb2tfYWRtaW4iOnRydWUsImZlYXR1cmVfYnVpbGRlcl93ZWJob29rX3RyaWdnZXIiOnRydWUsImZlYXR1cmVfYWxseV9idWdiYXNoIjpmYWxzZSwiZmVhdHVyZV9idWlsZGVyX3NjaGVkdWxlZF90cmlnZ2VyIjp0cnVlLCJmZWF0dXJlX2Jsb2NrX2tpdF9tYXhfc2VsZWN0ZWRfaXRlbXMiOnRydWUsImZlYXR1cmVfYnVpbGRlcl9mZWVkYmFja19idXR0b24iOmZhbHNlLCJmZWF0dXJlX2J1aWxkZXJfbWVzc2FnZV9zdGVwX3JpY2hfdGV4dCI6ZmFsc2UsImZlYXR1cmVfYXBwX3ZpZXdzX3YxIjp0cnVlLCJmZWF0dXJlX2F1ZGl0X2xvZ3NfdmlldyI6ZmFsc2UsImZlYXR1cmVfYXVkaXRfbG9nc192aWV3X3dvcmtzcGFjZSI6ZmFsc2UsImZlYXR1cmVfZGF0YV9sb2NhdGlvbl9uZXdfdHJhbnNsYXRpb25zIjpmYWxzZSwiZmVhdHVyZV9za19pMThuIjpmYWxzZSwiZmVhdHVyZV9zc29fY29tYmluZV9jb25maWdfcHJlZmVyZW5jZXMiOmZhbHNlLCJmZWF0dXJlX3Nzb19wcmVmZXJlbmNlc192aWV3X21vZGFscyI6dHJ1ZSwiZmVhdHVyZV9zY2hlZHVsZWRfZXhwb3J0c19jbGFyaWZ5X2NhbmNlbGxhdGlvbiI6dHJ1ZSwiZmVhdHVyZV9kZWZhdWx0X2Jyb3dzZXJfY29udHJvbF92MiI6ZmFsc2UsImZlYXR1cmVfYWNjb3VudF9jcmVhdGlvbl9zaG93X2N1c3RvbV90b3MiOnRydWUsImZlYXR1cmVfaWRwX2dyb3VwX2NvdW50IjpmYWxzZSwiZmVhdHVyZV9hY2Nlc3NpYmxlX3NlbGVjdHMiOmZhbHNlLCJmZWF0dXJlX2J1aWxkZXJfZGlzYWJsZV9nbG9iYWxfdHJpZ2dlcnMiOnRydWUsImZlYXR1cmVfd29ya2Zsb3dfYnVpbGRlcl9lbmFibGVkX29yZ19zZXR0aW5nIjp0cnVlLCJmZWF0dXJlX2J1aWxkZXJfY2FuX2FjY2VzcyI6ZmFsc2UsImZlYXR1cmVfZXNjX3JldGVudGlvbl9jbGllbnQiOmZhbHNlLCJmZWF0dXJlX2VzY19yZXRlbnRpb25fY2xpZW50X2NvcHkiOnRydWUsImZlYXR1cmVfYWx3YXlzX3Nob3dfYXJjaGl2ZV9jaGFubmVsX29wdGlvbiI6ZmFsc2UsImZlYXR1cmVfZ3JhbnVsYXJfZG5kIjpmYWxzZSwiZmVhdHVyZV9jb250ZXh0X2Jhcl9ndWVzdHMiOmZhbHNlLCJmZWF0dXJlX2NvbnRleHRfYmFyX3R6X2lzc3VlcyI6ZmFsc2UsImZlYXR1cmVfbXVsdGlfZmlsZV9sYXlvdXQiOnRydWUsImZlYXR1cmVfbWlncmF0aW9uX29yZ19hcHByb3ZhbHMiOnRydWUsImZlYXR1cmVfbmV3eHBfMzI2NiI6dHJ1ZSwiZmVhdHVyZV9uZXd4cF8zMjc5Ijp0cnVlLCJmZWF0dXJlX25ld3hwXzQxNTMiOmZhbHNlLCJmZWF0dXJlX3RpbnlzcGVjayI6ZmFsc2UsImZlYXR1cmVfb3JnX2d1ZXN0X2NvbnZlcnNpb24iOnRydWUsImZlYXR1cmVfb3JnX2xldmVsX3VzZXJfZ3JvdXBzX3BoYXNlXzJfZnJvbnRlbmQiOmZhbHNlLCJmZWF0dXJlX3VzZV9uZXdfbGlzdF90ZWFtc19yZXNwb25zZSI6dHJ1ZSwiZmVhdHVyZV9kZXNrdG9wX2NvcHlfdGV4dCI6ZmFsc2UsImZlYXR1cmVfc3NiX3EzMTlfZGVwcmVjYXRpb24iOnRydWUsImZlYXR1cmVfc3NiX3EzMTlfZGVwcmVjYXRpb25fZGFyayI6ZmFsc2UsImZlYXR1cmVfc3NiX3EzMTlfZGVwcmVjYXRpb25fbW9kYWwiOmZhbHNlLCJmZWF0dXJlX3NzYl9xMzE5X2RlcHJlY2F0aW9uX21vZGFsX3N0b3JlX292ZXJyaWRlIjpmYWxzZSwiZmVhdHVyZV9zc2JfcTMxOV9kZXByZWNhdGlvbl9ibG9jayI6dHJ1ZSwiZmVhdHVyZV9kZXByZWNhdGVfZ2V0X21lbWJlcl9ieV9uYW1lIjpmYWxzZSwiZmVhdHVyZV91bmtub3duX2ZpbGVzIjp0cnVlLCJmZWF0dXJlX3Vua25vd25fbWVzc2FnZXMiOnRydWUsImZlYXR1cmVfYWRkX21lc3NhZ2VfcGVyZiI6ZmFsc2UsImZlYXR1cmVfZml4X2N1c3RvbV9lbW9qaV9lcnJvcnMiOnRydWUsImZlYXR1cmVfbW9kZXJuX2RlbGV0ZV9maWxlIjp0cnVlLCJmZWF0dXJlX2NvcHlfY2hhbm5lbF9saW5rIjp0cnVlLCJmZWF0dXJlX2NvbGxhcHNlX3JlYWN0aW9ucyI6ZmFsc2UsImZlYXR1cmVfZW1haWxfd29ya2Zsb3ciOmZhbHNlLCJmZWF0dXJlX21lc3NhZ2Vfa2l0X2luX21lc3NhZ2VfcGFuZSI6dHJ1ZSwiZmVhdHVyZV9pYV9lZHVjYXRpb24iOmZhbHNlLCJmZWF0dXJlX2NoYW5uZWxfZGV0YWlsc19tZW1iZXJzaGlwX2xpc3QiOmZhbHNlLCJmZWF0dXJlX2FsbF9kbV9tdXRlX2JvdHMiOmZhbHNlLCJmZWF0dXJlX2hlbHBfbWVudV9mZWVkYmFjayI6ZmFsc2UsImZlYXR1cmVfZmlsZV90aHJlYWRzIjp0cnVlLCJmZWF0dXJlX2Jyb2FkY2FzdF9pbmRpY2F0b3IiOnRydWUsImZlYXR1cmVfbmV3X3JlcGxpZXNfYWZ0ZXJfYmNhc3QiOnRydWUsImZlYXR1cmVfc29uaWNfZW1vamkiOmZhbHNlLCJmZWF0dXJlX2Vtb2ppX3NlYXJjaF9rZXl3b3Jkc19pbl9hdXRvY29tcGxldGUiOmZhbHNlLCJmZWF0dXJlX2VtYWlsX2luZ2VzdGlvbiI6ZmFsc2UsImZlYXR1cmVfc2lkZWJhcl9jb250ZXh0X21lbnUiOmZhbHNlLCJmZWF0dXJlX2F0dGFjaG1lbnRzX2lubGluZSI6ZmFsc2UsImZlYXR1cmVfZml4X2ZpbGVzIjp0cnVlLCJmZWF0dXJlX2FhYV9hZG1pbl9hcGlzIjp0cnVlLCJmZWF0dXJlX2FhYV9hZG1pbl9hcGlzX2V2ZW50c19kb2NzIjp0cnVlLCJmZWF0dXJlX2FwcF9sYXVuY2hlcl9iYW5uZXJzIjpmYWxzZSwiZmVhdHVyZV9hcHBfbGF1bmNoZXJfZmlsdGVycyI6ZmFsc2UsImZlYXR1cmVfaGVscF90ZXN0X3ByaW1lciI6ZmFsc2UsImZlYXR1cmVfZ2xvYmFsX2FjdGlvbnNfZ3Vlc3RfY2hlY2siOmZhbHNlLCJmZWF0dXJlX2N1c3RvbV9zdGF0dXNfZXhwaXJ5Ijp0cnVlLCJmZWF0dXJlX2NoYW5uZWxfc2lkZWJhcl9kcmFmdHNfc2VjdGlvbiI6dHJ1ZSwiZmVhdHVyZV9uYXZpZ2F0ZV9oaXN0b3J5Ijp0cnVlLCJmZWF0dXJlX21lc3NhZ2VfYWN0aW9uc19yZWZyZXNoIjp0cnVlLCJmZWF0dXJlX2NvbXBvc2VfZmxvdyI6ZmFsc2UsImZlYXR1cmVfY29tcG9zZV9mbG93X3h3cyI6ZmFsc2UsImZlYXR1cmVfdGVtcF9jaGFubmVsX3N1YnNjcmlwdGlvbnMiOmZhbHNlLCJmZWF0dXJlX2Zhc3Rlcl9jb3VudF9hbGxfdW5yZWFkcyI6dHJ1ZSwiZmVhdHVyZV9zb25pY191c2VyX2dyb3VwcyI6ZmFsc2UsImZlYXR1cmVfY2hhbm5lbF9zZWxlY3Rvcl9mb3JfdGVhbV9ndWVzdHNfdXBkYXRlIjpmYWxzZSwiZmVhdHVyZV9kZXNrdG9wX3N5bXB0b21fZXZlbnRzIjpmYWxzZSwiZmVhdHVyZV9kYXRhX3Jlc2lkZW5jeV9kZWJ1Z2dpbmciOmZhbHNlLCJmZWF0dXJlX2VudF9hZG1pbl9hcHByb3ZlZF9hcHBzX3YyIjp0cnVlLCJmZWF0dXJlX21vZGVybml6ZWRfeHdzX3Blcm1hbGlua19kaWFsb2dzIjp0cnVlLCJmZWF0dXJlX2Rhc2hib2FyZF9zb3J0YWJsZV9saXN0cyI6ZmFsc2UsImZlYXR1cmVfc2tfbG9hZGluZ19idXR0b25fbW90aW9ucyI6dHJ1ZSwiZmVhdHVyZV9za19iYXNlX2ljb24iOmZhbHNlLCJmZWF0dXJlX2hlbHBfbW9kYWxfaWFfcmVkZXNpZ24iOnRydWUsImZlYXR1cmVfaGVscF9tb2RhbF9pYV9yZWRlc2lnbl9wYXJ0X2RldXgiOmZhbHNlLCJmZWF0dXJlX2NlX2VuZ19jb250YWN0X2Zvcm1fY2F0ZWdvcmllcyI6ZmFsc2UsImZlYXR1cmVfY2VfZW5nX2NvbnRhY3RfZmVlZGJhY2siOmZhbHNlLCJmZWF0dXJlX2dkcHJfZXhwb3J0cyI6dHJ1ZSwiZmVhdHVyZV9jaGFubmVsX2lzX3JlbW92ZV9jcmVhdGVfc2hhcmVkX2NoYW5uZWwiOmZhbHNlLCJmZWF0dXJlX3NoYXJlZF9jaGFubmVsc19tdWx0aV9vcmciOmZhbHNlLCJmZWF0dXJlX3JlbW92ZV9kb3VibGVfZGlhbW9uZHMiOmZhbHNlLCJmZWF0dXJlX3JlbW92ZV9wZW5kaW5nX2Nvbm5lY3Rpb25zIjpmYWxzZSwiZmVhdHVyZV9yZW1vdmVfZG91YmxlX3JpbmdzIjpmYWxzZSwiZmVhdHVyZV9leHRlcm5hbF9vcmdzX3NlY3Rpb25fY2hhbm5lbF9kZXRhaWxzIjpmYWxzZSwiZmVhdHVyZV9kaXNwbGF5X29yZ3NfbGlzdF9zaGFyZV9kaWFsb2ciOmZhbHNlLCJmZWF0dXJlX2VuYWJsZV9tdWx0aV9vcmdfaW52aXRlc19mZSI6ZmFsc2UsImZlYXR1cmVfZW5hYmxlX211bHRpX29yZ19kaXNjb25uZWN0X2ZlIjpmYWxzZSwiZmVhdHVyZV9zaGFyZWRfY2hhbm5lbHNfbXVsdGlfb3JnX2ludml0ZXNfYmUiOmZhbHNlLCJmZWF0dXJlX2NvbnRleHRfYmFyX3NjYWxhYmxlX21vcmUiOmZhbHNlLCJmZWF0dXJlX2NvbnRleHRfYmFyX21lc3NhZ2VfcGFuZV9jbGljayI6ZmFsc2UsImZlYXR1cmVfbWFuYWdlX3NjX2NoYW5uZWxfY2FyZCI6ZmFsc2UsImZlYXR1cmVfY3JlYXRlX3ByaXZhdGVfY19jaGFubmVscyI6ZmFsc2UsImZlYXR1cmVfZ2Rwcl91c2VyX2pvaW5fdG9zIjp0cnVlLCJmZWF0dXJlX3VzZXJfaW52aXRlX3Rvc19hcHJpbF8yMDE4Ijp0cnVlLCJmZWF0dXJlX2NoYW5uZWxfbWdtdF9waGFzZV90aHJlZSI6ZmFsc2UsImZlYXR1cmVfaW5jcmVtZW50YWxfdW5yZWFkX2NvdW50cyI6ZmFsc2UsImZlYXR1cmVfbmV1ZV90eXBlIjpmYWxzZSwiZmVhdHVyZV9jdXN0X2FjcV9pMThuX3R3ZWFrcyI6ZmFsc2UsImZlYXR1cmVfcmVmYWNfdGhlX3RheCI6ZmFsc2UsImZlYXR1cmVfY29udGFjdF9zYWxlc19leHBlcmltZW50Ijp0cnVlLCJmZWF0dXJlX2RhdGFfcmVzaWRlbmN5X2pwX2Jhbm5lciI6dHJ1ZSwiZmVhdHVyZV9pYV9yZXZhbXBfd2ViIjpmYWxzZSwiZmVhdHVyZV9pYV9yZXZhbXBfd2ViX3dhdmVfdHdvIjpmYWxzZSwiZmVhdHVyZV9kYXRhX3Jlc2lkZW5jeV9hdXN0cmFsaWFfYmFubmVyIjpmYWxzZSwiZmVhdHVyZV9wcm9qX25hdl9jb21wb25lbnQiOmZhbHNlLCJmZWF0dXJlX3Byb2pfdXBkYXRlX3RyYW5zcGFyZW5jeV9yZXBvcnQiOmZhbHNlLCJmZWF0dXJlX3doaXRlbGlzdF96ZW5kZXNrX2NoYXRfd2lkZ2V0IjpmYWxzZSwiZmVhdHVyZV9hcHBfYWN0aW9uX3NsYXNoX2NvbW1hbmRzX3BhZDEwNDIiOnRydWUsImZlYXR1cmVfc2hvcnRjdXRzX21lbnVfYW5ub3VuY2Vfb25seSI6dHJ1ZSwiZmVhdHVyZV9saXZlX3N1cHBvcnRfZnJlZV9wbGFuIjpmYWxzZSwiZmVhdHVyZV9vZmZsaW5lX21vZGUiOmZhbHNlLCJmZWF0dXJlX2ZvcmNlX2xzX2NvbXByZXNzaW9uIjpmYWxzZSwiZmVhdHVyZV91c2VfaW1ncHJveHlfcmVzaXppbmciOnRydWUsImZlYXR1cmVfc2hhcmVfbWVudGlvbl9jb21tZW50X2NsZWFudXAiOmZhbHNlLCJmZWF0dXJlX2VsZWN0cm9uX21lbW9yeV9sb2dnaW5nIjpmYWxzZSwiZmVhdHVyZV9sb2NhbGl6YXRpb25fcGhhc2VfdHdvIjp0cnVlLCJmZWF0dXJlX2xvY2FsZV9lc19MQSI6dHJ1ZSwiZmVhdHVyZV9sb2NhbGVfZW5fR0IiOnRydWUsImZlYXR1cmVfbG9jYWxlX3B0X0JSIjp0cnVlLCJmZWF0dXJlX25ld19sb2NhbGVfdG9hc3QiOnRydWUsImZlYXR1cmVfY2hhbm5lbF9leHBvcnRzIjpmYWxzZSwiZmVhdHVyZV9kb2NzX21lbnRpb25zX2FuZF9jaGFubmVscyI6ZmFsc2UsImZlYXR1cmVfdmFjYXRpb25fZGVsaWdodCI6dHJ1ZSwiZmVhdHVyZV90aHJlYWRzX3VucmVhZF90cmFuc2xhdGlvbnMiOmZhbHNlLCJmZWF0dXJlX2NhbGxzX2VzY191aSI6dHJ1ZSwiZmVhdHVyZV9jYWxsc19zdXJ2ZXlfcmVxdWVzdF9yZXNwb25zZSI6dHJ1ZSwiZmVhdHVyZV9yZW1vdGVfZmlsZXNfYXBpIjp0cnVlLCJmZWF0dXJlX3Rva2VuX2lwX3doaXRlbGlzdCI6dHJ1ZSwiZmVhdHVyZV9zaWRlYmFyX3RoZW1lX3VuZG8iOmZhbHNlLCJmZWF0dXJlX2hpZGVfb25fc3RhcnR1cCI6dHJ1ZSwiZmVhdHVyZV9kb250X3NldF9jaGFubmVsX21lbWJlcnNoaXBfdHdpY2UiOmZhbHNlLCJmZWF0dXJlX2FsbG93X2ludHJhX3dvcmRfZm9ybWF0dGluZyI6dHJ1ZSwiZmVhdHVyZV9pMThuX2NoYW5uZWxzX3ZhbGlkYXRlX2Vtb2ppIjp0cnVlLCJmZWF0dXJlX2Z3X2VuZ19ub3JtYWxpemF0aW9uIjp0cnVlLCJmZWF0dXJlX3NsaW1fc2Nyb2xsYmFyIjpmYWxzZSwiZmVhdHVyZV9wcmltYXJ5X3NlYXJjaCI6ZmFsc2UsImZlYXR1cmVfbW9kZXJuX3NvdW5kcyI6ZmFsc2UsImZlYXR1cmVfc2xpX2NoYW5uZWxfYXJjaGl2ZV9zdWdnZXN0aW9ucyI6dHJ1ZSwiZmVhdHVyZV9zdGVlcGxlX2NodXJjaCI6dHJ1ZSwiZmVhdHVyZV9zdGVlcGxlX2NodXJjaF9saW5rIjp0cnVlLCJmZWF0dXJlX3N0ZWVwbGVfY2h1cmNoX2V4dCI6dHJ1ZSwiZmVhdHVyZV9zdHJvbGxlcnNfdG9fcGVyY2giOnRydWUsImZlYXR1cmVfZmFudGFpbF9udXJ0dXJlIjp0cnVlLCJmZWF0dXJlX3BvdXJvdmVyIjpmYWxzZSwiZmVhdHVyZV9wZW9wbGVfc2VhcmNoIjpmYWxzZSwiZmVhdHVyZV9yZWFjdF9tZXNzYWdlcyI6dHJ1ZSwiZmVhdHVyZV9lZGdlX3VwbG9hZF9wcm94eV9jaGVjayI6ZmFsc2UsImZlYXR1cmVfbGVnYWN5X2ZpbGVfdXBsb2FkX2FuYWx5dGljcyI6dHJ1ZSwiZmVhdHVyZV9zb25pY19maW5kX21vcmVfd2tzcHMiOmZhbHNlLCJmZWF0dXJlX3NvbmljX2lucHV0cyI6ZmFsc2UsImZlYXR1cmVfdGhyZWFkZWRfc2xhY2tfb3duZWRfcGx1Z2lucyI6dHJ1ZSwiZmVhdHVyZV9hcHBfcG9wb3V0c19pMThuIjpmYWxzZSwiZmVhdHVyZV9zbmlwcGV0X21vZGVzX2kxOG4iOmZhbHNlLCJmZWF0dXJlX2dkcml2ZV9kb19ub3RfaW5zdGFsbF9ieV9kZWZhdWx0Ijp0cnVlLCJmZWF0dXJlX2VrbV9iYWNrZmlsbF9hZGRfc2xlZXAiOmZhbHNlLCJmZWF0dXJlX2VrbV9tZXNzYWdlX3Jldm9jYXRpb25fcG9sbGluZ190ZXN0IjpmYWxzZSwiZmVhdHVyZV9sb25nZXJfY2hhbm5lbF9uYW1lcyI6dHJ1ZSwiZmVhdHVyZV90ZWFtX2FkbWluc19saXN0X2FwaSI6ZmFsc2UsImZlYXR1cmVfdGVhbV9hZG1pbnNfbGlzdF9hcGlfYWNjZXNzIjpmYWxzZSwiZmVhdHVyZV9tc19sYXRlc3QiOnRydWUsImZlYXR1cmVfZ3Vlc3RzX3VzZV9lbnRpdGxlbWVudHMiOnRydWUsImZlYXR1cmVfYXBwX2NhbnZhc2VzIjpmYWxzZSwiZmVhdHVyZV9jYWxsc19zaXBfaW50ZWdyYXRpb25fbGFiZWxzIjpmYWxzZSwiZmVhdHVyZV9hcHBfaG9tZV9hZG1pbl9wYWdlcyI6ZmFsc2UsImZlYXR1cmVfYXBwX2FjdGlvbnNfYWRtaW5fcGFnZXMiOmZhbHNlLCJmZWF0dXJlX2FwcF92aWV3c19yZW1pbmRlcnMiOmZhbHNlLCJmZWF0dXJlX3JlbWluZGVyc191c2VyIjpmYWxzZSwiZmVhdHVyZV9ibG9ja3NfcmVtaW5kZXJzX2xpc3QiOmZhbHNlLCJmZWF0dXJlX21lc3NhZ2VfYmxvY2tzIjpmYWxzZSwiZmVhdHVyZV9zaWxlbmNlX2FwcF9kbXMiOmZhbHNlLCJmZWF0dXJlX3NldF90el9hdXRvbWF0aWNhbGx5Ijp0cnVlLCJmZWF0dXJlX2NvbmZpcm1fY2xlYXJfYWxsX3VucmVhZHNfcHJlZiI6dHJ1ZSwiZmVhdHVyZV9ibG9ja19tb3VudHMiOnRydWUsImZlYXR1cmVfYXR0YWNobWVudHNfdjIiOnRydWUsImZlYXR1cmVfaTE4bl9hcHBfbWVzc2FnZV90YWIiOmZhbHNlLCJmZWF0dXJlX2JrX3NlbGVjdF9maWx0ZXJzIjpmYWxzZSwiZmVhdHVyZV9ibG9ja19raXRfZXhwYW5kYWJsZV9ibG9jayI6ZmFsc2UsImZlYXR1cmVfZ3JvdXBfYmxvY2siOmZhbHNlLCJmZWF0dXJlX2Jsb2NrX2tpdF9kZWVwX2xpbmtzIjp0cnVlLCJmZWF0dXJlX3Nob3dfYmxvY2tfa2l0X2luX3NoYXJlX2RpYWxvZ3MiOmZhbHNlLCJmZWF0dXJlX2Jsb2NrX2tpdF9ldmVudF9ibG9jayI6ZmFsc2UsImZlYXR1cmVfYmxvY2tfa2l0X3VzZXJfYmxvY2siOmZhbHNlLCJmZWF0dXJlX2Jsb2NrX2tpdF9yYWRpb19idXR0b25zIjp0cnVlLCJmZWF0dXJlX21ya2R3bl9vbl9yYWRpb19idXR0b24iOnRydWUsImZlYXR1cmVfYmxvY2tfa2l0X3RhYmxlIjpmYWxzZSwiZmVhdHVyZV9ibG9ja19raXRfcmFuZ2VfZGF0ZXBpY2tlciI6ZmFsc2UsImZlYXR1cmVfYmxvY2tfa2l0X3RpbWVwaWNrZXIiOmZhbHNlLCJmZWF0dXJlX2FkZF9hcHBfaG9tZV90ZWFtX25hbWUiOmZhbHNlLCJmZWF0dXJlX2JlYWNvbl9qc19lcnJvcnMiOmZhbHNlLCJmZWF0dXJlX2JlYWNvbl9qc19hZG1pbl9lcnJvcnMiOmZhbHNlLCJmZWF0dXJlX2RpYWxvZ3NfdjJfbW9iaWxlIjp0cnVlLCJmZWF0dXJlX3VzZXJfYXBwX2Rpc2FibGVfc3BlZWRfYnVtcCI6dHJ1ZSwiZmVhdHVyZV90cmFjdG9yX3NoYXJlZF9pbnZpdGVfbGluayI6dHJ1ZSwiZmVhdHVyZV9uZXd4cF8yMTE5Ijp0cnVlLCJmZWF0dXJlX3RyYWN0b3JfYmFja3VwX2NoYW5uZWxuYW1lX2NvcHkiOnRydWUsImZlYXR1cmVfZGVncmFkZWRfcnRtX2Fsd2F5c19mYWlscyI6ZmFsc2UsImZlYXR1cmVfYXBwc19tYW5hZ2VfcGVybWlzc2lvbnNfc2NvcGVfY2hhbmdlcyI6dHJ1ZSwiZmVhdHVyZV9yZW1pbmRlcl9jcm9zc193b3Jrc3BhY2UiOnRydWUsImZlYXR1cmVfcDJwIjpmYWxzZSwiZmVhdHVyZV9nbG9iYWxfbmF2IjpmYWxzZSwiZmVhdHVyZV9nbG9iYWxfbmF2X3JvbGxiYWNrIjpmYWxzZSwiZmVhdHVyZV9jbGFzc2ljX25hdiI6ZmFsc2UsImZlYXR1cmVfbmV3X3JlYWN0aW9ucyI6dHJ1ZSwiZmVhdHVyZV9wYWdlc19leGFtcGxlIjpmYWxzZSwiZmVhdHVyZV9zb25pY19waW5zIjpmYWxzZSwiZmVhdHVyZV9zb25pY192aWRlb19wbGFjZWhvbGRlciI6dHJ1ZSwiZmVhdHVyZV9pYXAxIjpmYWxzZSwiZmVhdHVyZV9pYV9nYSI6ZmFsc2UsImZlYXR1cmVfaWFfaTE4biI6ZmFsc2UsImZlYXR1cmVfaWFfdGhlbWVzIjpmYWxzZSwiZmVhdHVyZV9zb25pY19oYXJkX3JlbG9hZCI6dHJ1ZSwiZmVhdHVyZV9oaWRkZW5fd2tzcF91bmZ1cmxzIjp0cnVlLCJmZWF0dXJlX2d1ZXN0X3drc3BfdW5mdXJscyI6ZmFsc2UsImZlYXR1cmVfd29ya3NwYWNlX3NjaW1fbWFuYWdlbWVudCI6ZmFsc2UsImZlYXR1cmVfdW5pZmllZF9tZW1iZXIiOmZhbHNlLCJmZWF0dXJlX3R1cm5fbXBkbV9ub3RpZnNfb24iOnRydWUsImZlYXR1cmVfZG9sb3JlcyI6ZmFsc2UsImZlYXR1cmVfZGVza3RvcF9mb3JjZV9wcm9kdWN0aW9uX2NoYW5uZWwiOmZhbHNlLCJmZWF0dXJlX2Rlc2t0b3BfbG9nc191cGxvYWQiOmZhbHNlLCJmZWF0dXJlX21hY29zX2Rpc2FibGVfaHciOnRydWUsImZlYXR1cmVfcXVpbGxfY2prX2NvZGVfYmxvY2siOmZhbHNlLCJmZWF0dXJlX2JvdHNfbm90X21lbWJlcnMiOnRydWUsImZlYXR1cmVfd3RhX3N0b3BfY3JlYXRpb24iOnRydWUsImZlYXR1cmVfbTExbl9jaGFubmVsX2RldGFpbHMiOmZhbHNlLCJmZWF0dXJlX2dyYW51bGFyX2JvdF9nYSI6dHJ1ZSwiZmVhdHVyZV9jaGFubmVsX2FjdGlvbnMiOnRydWUsImZlYXR1cmVfY2hhbm5lbF9hY3Rpb25zX2NsaWVudCI6dHJ1ZSwiZmVhdHVyZV9zaG9ydGN1dHNfcHJvbXB0Ijp0cnVlLCJmZWF0dXJlX2FjY2Vzc2libGVfZGlhbG9ncyI6dHJ1ZSwiZmVhdHVyZV9jYWxsc19jbGlwYm9hcmRfYnJvYWRjYXN0aW5nX29wdGluIjp0cnVlLCJmZWF0dXJlX3NjcmVlbl9zaGFyZV9uZWVkc19hZXJvIjpmYWxzZSwiZmVhdHVyZV9zbGlfdHJlbmRpbmdfZGFzaGJvYXJkIjpmYWxzZSwiZmVhdHVyZV9hY2Nlc3NpYmxlX2ZzX2RpYWxvZ3MiOnRydWUsImZlYXR1cmVfY2hhbm5lbF9oZWFkZXJfbGFiZWxzIjpmYWxzZSwiZmVhdHVyZV90cmFwX2tiX3dpdGhpbl9mc19tb2RhbHMiOnRydWUsImZlYXR1cmVfbW9kZXJuX2ltYWdlX3ZpZXdlciI6dHJ1ZSwiZmVhdHVyZV9lbW9qaV9ieV9pZCI6dHJ1ZSwiZmVhdHVyZV9tY19taWdyYXRpb25fYmFubmVyIjp0cnVlLCJmZWF0dXJlX2FyaWFfYXBwbGljYXRpb25fbW9kZSI6ZmFsc2UsImZlYXR1cmVfdXBkYXRlX211bHRpd29ya3NwYWNlX2NoYW5uZWxfbW9kYWwiOnRydWUsImZlYXR1cmVfbW9kZXJuX3JlcXVlc3Rfd29ya3NwYWNlX2RpYWxvZyI6ZmFsc2UsImZlYXR1cmVfYXBwX3NldHRpbmdzX2dhbnRyeSI6ZmFsc2UsImZlYXR1cmVfbW9kZXJuX3Byb2ZpbGVfZmxleHBhbmUiOmZhbHNlLCJmZWF0dXJlX3NjZ19jb252ZXJzaW9uX2NoYW5uZWxzIjp0cnVlLCJmZWF0dXJlX3JlZHVjZV91bmV4cGVjdGVkX3VuaW5zdGFsbHMiOnRydWUsImZlYXR1cmVfaWRwX2dyb3VwX3dhcm5pbmciOmZhbHNlLCJmZWF0dXJlX2VudGVycHJpc2VfcmV0ZW50aW9uX2FsbG93X292ZXJyaWRlX29uX29yZ19sZXZlbF9jaGFubmVscyI6ZmFsc2UsImZlYXR1cmVfdHJhY2tfdGltZV9zcGVudCI6dHJ1ZSwiZmVhdHVyZV9hbm5vdW5jZV9vbmx5Ijp0cnVlLCJmZWF0dXJlX2Fubm91bmNlX29ubHlfd2Vic29ja2V0Ijp0cnVlLCJmZWF0dXJlX2Fubm91bmNlX29ubHlfcHJvbW8iOmZhbHNlLCJmZWF0dXJlX2F0X21lbnRpb25faW52aXRlcyI6dHJ1ZSwiZmVhdHVyZV9jaGFubmVsX2ludml0ZV90b2tlbml6YXRpb24iOnRydWUsImZlYXR1cmVfYmV0dGVyX3Rva2VuaXphdGlvbl93ZWJhcHBfZmFzdF9mb2xsb3ciOnRydWUsImZlYXR1cmVfaW1wb3J0c19jYW5jZWwiOnRydWUsImZlYXR1cmVfZW1haWxfd29ya29iamVjdF91aSI6ZmFsc2UsImZlYXR1cmVfZW1haWxfbm90aWZ5IjpmYWxzZSwiZmVhdHVyZV9lbWFpbF9wcml2YXRlIjp0cnVlLCJmZWF0dXJlX3NpbmdsZV91c2VyX2V4cG9ydCI6ZmFsc2UsImZlYXR1cmVfY2FsZW5kYXJfc2ltcGxlX2FnZW5kYV92aWV3IjpmYWxzZSwiZmVhdHVyZV9hbmFseXRpY3NfZW5hYmxlX2RpdmlzaW9uIjpmYWxzZSwiZmVhdHVyZV9lbnRlcnByaXNlX2FuYWx5dGljc19hcHBzX3RhYiI6ZmFsc2UsImZlYXR1cmVfZW50ZXJwcmlzZV9hbmFseXRpY3NfMjAxOV9xMV91cGRhdGUiOnRydWUsImZlYXR1cmVfaW5zaWdodHNfYWxsb3dfYWNjZXNzX3RvX2FwcCI6ZmFsc2UsImZlYXR1cmVfaW5zaWdodHNfY29tbXNfaW1wYWN0X21lc3NhZ2Vfc3RhdHMiOmZhbHNlLCJmZWF0dXJlX2luc2lnaHRzX21lc3NhZ2VfYWN0aXZpdHlfYWRtaW4iOmZhbHNlLCJmZWF0dXJlX2luc2lnaHRzX21lc3NhZ2VfYWN0aXZpdHlfdXBkYXRlcyI6ZmFsc2UsImZlYXR1cmVfdGVhbV90aGVtZXMiOmZhbHNlLCJmZWF0dXJlX3VuZnVybF9tZXRhZGF0YSI6ZmFsc2UsImZlYXR1cmVfcGx1c19tZW51X2FkZF9hcHBzX2xpbmsiOmZhbHNlLCJmZWF0dXJlX3JlY2VudF9maWxlc19vbW5pcGlja2VyIjpmYWxzZSwiZmVhdHVyZV9ncmFudWxhcl9ib3QiOnRydWUsImZlYXR1cmVfY2hlY2tvdXRfZm9yY2VfaW50b19sZWdhY3kiOmZhbHNlLCJmZWF0dXJlX2FkbWluX21vdmVfY2hhbm5lbHNfbWVzc2FnZSI6ZmFsc2UsImZlYXR1cmVfbmV3eHBfZmVfaW52aXRlX21vZGVybiI6dHJ1ZSwiZmVhdHVyZV9tb2Rlcm5pemVfY2hhbm5lbF9jcmVhdGVfbW9kYWwiOnRydWUsImZlYXR1cmVfc29uaWNfcGxhY2Vob2xkZXJfbGFiZWxzIjpmYWxzZSwiZmVhdHVyZV9zb25pY19lc2NfY3JlYXRpb24iOmZhbHNlLCJmZWF0dXJlX2Rhbmdlcm91c2x5X2d1YXJkX2lhX3RyYW5zbGF0aW9ucyI6ZmFsc2UsImZlYXR1cmVfcGxhdGZvcm1fY2FsbHNfYXBpIjp0cnVlLCJmZWF0dXJlX3RocmVhZGVkX2NhbGxfYmxvY2siOmZhbHNlLCJmZWF0dXJlX3RyaWdnZXJfaWRfc2NvcGUiOmZhbHNlLCJmZWF0dXJlX2xpZmVjeWNsZV9sb2dnaW5nX3BsYW5zX3BhZ2UiOnRydWUsImZlYXR1cmVfc2xhY2tfbWVzc2FnZV9hdHRhY2htZW50X3Rvb2x0aXAiOmZhbHNlLCJmZWF0dXJlX2VudGVycHJpc2VfbW9iaWxlX2RldmljZV9jaGVjayI6dHJ1ZSwiZmVhdHVyZV9uZXd4cDM3ODkiOnRydWUsImZlYXR1cmVfbmV3eHBfMzc5MyI6dHJ1ZSwiZmVhdHVyZV9uZXd4cF80MTAxIjpmYWxzZSwiZmVhdHVyZV9zaGFyZWRfY2hhbm5lbHNfY3VzdG9tX2Vtb2ppc191cmwiOmZhbHNlLCJmZWF0dXJlX3NoYXJlZF9jaGFubmVsc19jdXN0b21fZW1vamlzX3VybF9jbGllbnQiOmZhbHNlLCJmZWF0dXJlX25ld19jb3B5X2Zvcl9pZGVudGl0eV9iYXNpYyI6ZmFsc2UsImZlYXR1cmVfc29uaWNfbGVhdmVfd29ya3NwYWNlX2RpYWxvZyI6ZmFsc2UsImZlYXR1cmVfc2hhcmVkX2NoYW5uZWxzX25ld191c2VyX3RyaWFsIjp0cnVlLCJmZWF0dXJlX3NoYXJlZF9jaGFubmVsc19pbnZpdGVyX3RyaWFsIjp0cnVlLCJmZWF0dXJlX3NoYXJlZF9jaGFubmVsc19pbnZpdGVyX3RyaWFsX2JhYnlfdGVhbXMiOmZhbHNlLCJmZWF0dXJlX3NoYXJlZF9jaGFubmVsc19zaG9ydGN1dCI6ZmFsc2UsImZlYXR1cmVfc2hhcmVkX2ludml0ZV9hY2NlcHRhbmNlX2VsaWdpYmlsaXR5X3YyX2FwaSI6ZmFsc2UsImZlYXR1cmVfc2hhcmVkX2NoYW5uZWxfaW52aXRlc192MiI6dHJ1ZSwiZmVhdHVyZV9iZXR0ZXJfaW52aXRlc19jYWxsX3YyX2FwaSI6dHJ1ZSwiZmVhdHVyZV9wYWlkX29uYm9hcmRpbmdfcGFnZXVwZGF0ZSI6dHJ1ZSwiZmVhdHVyZV90cmFjZV93ZWJhcHBfaW5pdCI6dHJ1ZSwiZmVhdHVyZV9hbm5vdW5jZW1lbnRfb25seV9jaGFubmVsX2NvcHlfY2hhbmdlX3RyYW5zbGF0aW9ucyI6dHJ1ZSwiZmVhdHVyZV9zdHJpcGVfY29tcGxldGVseV9kb3duX2Jhbm5lciI6ZmFsc2UsImZlYXR1cmVfc2lkZWJhcl9vbmJvYXJkaW5nX2ludml0ZV9wcm9tcHQiOnRydWUsImZlYXR1cmVfdGFyZ2V0ZWRfcHJvbW90aW9uYWxfZGlzY291bnRzIjp0cnVlLCJmZWF0dXJlX3BsYW5zX3BhZ2VfZnJlZV9jb2x1bW4iOnRydWUsImZlYXR1cmVfc2ZiX2R1bm5pbmdfc3RhdGVtZW50Ijp0cnVlLCJmZWF0dXJlX2phcGFuX3RheF9jaGFuZ2VfY2hhcmdlX2Zvcl9hbGxfdGVhbXMiOnRydWUsImZlYXR1cmVfbWFsYXlzaWFfdGF4X2VtYWlsIjp0cnVlLCJmZWF0dXJlX21hbGF5c2lhX3RheF9hc3Nlc3NtZW50Ijp0cnVlLCJmZWF0dXJlX2phcGFuX3RheF9iaWxsaW5nX3N0YXRlbWVudHMiOmZhbHNlLCJmZWF0dXJlX3NpbmdhcG9yZV90YXhfZW1haWwiOmZhbHNlLCJmZWF0dXJlX3NpbmdhcG9yZV90YXhfYXNzZXNzbWVudCI6ZmFsc2UsImZlYXR1cmVfY2hlY2tvdXRfdjJfcHJvZHVjdF9zd2l0Y2hfY2hlY2tvdXRfcmV2aWV3Ijp0cnVlLCJmZWF0dXJlX2NoZWNrb3V0X3YyX3Byb2R1Y3Rfc3dpdGNoX2NoZWNrb3V0X2Zvcm0iOnRydWUsImZlYXR1cmVfY2hlY2tvdXRfdjJfYWNoX3N1cHBvcnQiOnRydWUsImZlYXR1cmVfY2hlY2tvdXRfdjJfbW9iaWxlIjpmYWxzZSwiZmVhdHVyZV9jaGVja291dF92Ml9tb2JpbGVfcGhhc2VfdHdvIjpmYWxzZSwiZmVhdHVyZV9jaGVja291dF92Ml9kaXNhbGxvd19pZV9hY2giOmZhbHNlLCJmZWF0dXJlX2NvbnRleHR1YWxfbWVzc2FnZV9zaG9ydGN1dHMiOnRydWUsImZlYXR1cmVfZW50ZXJwcmlzZV9hbmFseXRpY3NfMjAxOV9xM19lbmhhbmNlbWVudHMiOmZhbHNlLCJmZWF0dXJlX29yZ19sZXZlbF9hcHBzIjpmYWxzZSwiZmVhdHVyZV9jaGFubmVsX3NlY3Rpb25zIjp0cnVlLCJmZWF0dXJlX2NoYW5uZWxfc2VjdGlvbnNfc2lkZWJhcl9iZWhhdmlvcl91aSI6ZmFsc2UsImZlYXR1cmVfZ2xvYmFsX2FjdGlvbnNfdjAiOmZhbHNlLCJmZWF0dXJlX21lc3NhZ2VfbmF2aWdhdGlvbl9zaG9ydGN1dHMiOnRydWUsImZlYXR1cmVfc2VhcmNoX2xpbWl0X3RlYW1fZmlsdGVyIjp0cnVlLCJmZWF0dXJlX2FuYWx5dGljc19zY2ltX2ZpZWxkc19wYWlkIjpmYWxzZSwiZmVhdHVyZV9vcmdfYXBwc19kYXNoYm9hcmQiOmZhbHNlLCJmZWF0dXJlX2dvb2dsZV9kaXJlY3RvcnlfaW52aXRlcyI6ZmFsc2UsImZlYXR1cmVfaGVscF9jZW50ZXJfaW5jaWRlbnRfYmFubmVyIjp0cnVlLCJmZWF0dXJlX3NjZ19lcnJvcl9tZXNzYWdlIjp0cnVlLCJmZWF0dXJlX3NlYXJjaF9yZXN1bHRzX3ZpcnR1YWxpemVkIjpmYWxzZSwiZmVhdHVyZV9zaG93X2VtYWlsX2ZvcndhcmRlZF9ieSI6ZmFsc2UsImZlYXR1cmVfY2hhbm5lbF9lbWFpbF9hZGRyZXNzZXMiOmZhbHNlLCJmZWF0dXJlX25ld19lbm91Z2hfcGVyaW9kaWNfcmVsb2FkcyI6ZmFsc2UsImZlYXR1cmVfaWFwMV9kb3dubG9hZHMiOmZhbHNlLCJmZWF0dXJlX2J1aWxkZXJfZGlzcGxheV9leHBvcnRfZm9ybV9jc3YiOnRydWUsImZlYXR1cmVfYnVpbGRlcl93b3JrZmxvd19hY3Rpdml0eSI6ZmFsc2UsImZlYXR1cmVfYnVpbGRlcl9leHBvcnRfZm9ybV9jc3ZfYWRtaW4iOnRydWUsImZlYXR1cmVfaWFfaGNfc2hvd19jb250ZW50Ijp0cnVlLCJmZWF0dXJlX25ld19iaWxsaW5nX2VtYWlsc190cmFuc2xhdGlvbnMiOnRydWUsImZlYXR1cmVfc2ZiX3BkZl9hZGRpdGlvbmFsX3RyYW5zbGF0aW9ucyI6ZmFsc2UsImZlYXR1cmVfY2hhbm5lbF9tZ210X3BoYXNlX29uZSI6ZmFsc2UsImZlYXR1cmVfY2hhbm5lbF9tZ210X3BoYXNlX3R3byI6ZmFsc2UsImZlYXR1cmVfaWFfaGNfc2hvd19jb250ZW50X21hbnVhbGx5IjpmYWxzZSwiZmVhdHVyZV9jcmVhdG9yc19sb2dpbl93aXRoX2dvb2dsZSI6ZmFsc2UsImZlYXR1cmVfcmF0ZV9saW1pdF9hcHBfY3JlYXRpb24iOmZhbHNlLCJmZWF0dXJlX2V4dGVybmFsX2FwcF90cmFuc2xhdGlvbnMiOmZhbHNlLCJmZWF0dXJlX3NoYXJlZF9jaGFubmVsc19ob21lX3JlbWluZGVycyI6ZmFsc2UsImZlYXR1cmVfZmVhdF9zYXlfbXlfbmFtZSI6dHJ1ZSwiZmVhdHVyZV9hcHBfZGlyZWN0b3J5X3NlY3VyaXR5X2NvbXBsaWFuY2UiOmZhbHNlLCJmZWF0dXJlX2ludml0ZV9saW5rX2NvcHkiOmZhbHNlLCJmZWF0dXJlX3B1dF9hX21lbnRpb25fb25faXQiOmZhbHNlLCJmZWF0dXJlX2dvb2dsZV9kaXJlY3RvcnlfcGxhY2Vob2xkZXIiOmZhbHNlLCJjbGllbnRfbG9ncyI6eyIwIjp7Im51bWJlcnMiOlsiMCJdLCJ1c2VyX2ZhY2luZyI6ZmFsc2V9LCIyIjp7Im51bWJlcnMiOlsiMiJdLCJ1c2VyX2ZhY2luZyI6ZmFsc2V9LCI0Ijp7Im51bWJlcnMiOlsiNCJdLCJ1c2VyX2ZhY2luZyI6ZmFsc2V9LCI1Ijp7Im51bWJlcnMiOlsiNSJdLCJ1c2VyX2ZhY2luZyI6ZmFsc2V9LCIyMyI6eyJudW1iZXJzIjpbIjIzIl0sInVzZXJfZmFjaW5nIjpmYWxzZX0sInNvdW5kcyI6eyJuYW1lIjoic291bmRzIiwibnVtYmVycyI6WyIzNyJdfSwiMzciOnsibmFtZSI6InNvdW5kcyIsIm51bWJlcnMiOlsiMzciXSwidXNlcl9mYWNpbmciOnRydWV9LCI0NyI6eyJudW1iZXJzIjpbIjQ3Il0sInVzZXJfZmFjaW5nIjpmYWxzZX0sIjQ4Ijp7Im51bWJlcnMiOlsiNDgiXSwidXNlcl9mYWNpbmciOmZhbHNlfSwiTWVzc2FnZSBIaXN0b3J5Ijp7Im5hbWUiOiJNZXNzYWdlIEhpc3RvcnkiLCJudW1iZXJzIjpbIjU4Il19LCI1OCI6eyJuYW1lIjoiTWVzc2FnZSBIaXN0b3J5IiwibnVtYmVycyI6WyI1OCJdLCJ1c2VyX2ZhY2luZyI6dHJ1ZX0sIjY3Ijp7Im51bWJlcnMiOlsiNjciXSwidXNlcl9mYWNpbmciOmZhbHNlfSwiNzIiOnsibnVtYmVycyI6WyI3MiJdLCJ1c2VyX2ZhY2luZyI6ZmFsc2V9LCI3MyI6eyJudW1iZXJzIjpbIjczIl0sInVzZXJfZmFjaW5nIjpmYWxzZX0sIjgyIjp7Im51bWJlcnMiOlsiODIiXSwidXNlcl9mYWNpbmciOmZhbHNlfSwiODgiOnsibnVtYmVycyI6WyI4OCJdLCJ1c2VyX2ZhY2luZyI6ZmFsc2V9LCI5MSI6eyJudW1iZXJzIjpbIjkxIl0sInVzZXJfZmFjaW5nIjpmYWxzZX0sIjkzIjp7Im51bWJlcnMiOlsiOTMiXSwidXNlcl9mYWNpbmciOmZhbHNlfSwiOTYiOnsibnVtYmVycyI6WyI5NiJdLCJ1c2VyX2ZhY2luZyI6ZmFsc2V9LCI5OSI6eyJudW1iZXJzIjpbIjk5Il0sInVzZXJfZmFjaW5nIjpmYWxzZX0sIkNoYW5uZWwgTWFya2luZyAoTVMpIjp7Im5hbWUiOiJDaGFubmVsIE1hcmtpbmcgKE1TKSIsIm51bWJlcnMiOlsiMTQxIl19LCIxNDEiOnsibmFtZSI6IkNoYW5uZWwgTWFya2luZyAoTVMpIiwibnVtYmVycyI6WyIxNDEiXSwidXNlcl9mYWNpbmciOnRydWV9LCJDaGFubmVsIE1hcmtpbmcgKENsaWVudCkiOnsibmFtZSI6IkNoYW5uZWwgTWFya2luZyAoQ2xpZW50KSIsIm51bWJlcnMiOlsiMTQyIl19LCIxNDIiOnsibmFtZSI6IkNoYW5uZWwgTWFya2luZyAoQ2xpZW50KSIsIm51bWJlcnMiOlsiMTQyIl0sInVzZXJfZmFjaW5nIjp0cnVlfSwiQ2xvc2UgT2xkIElNcyAoQ2xpZW50KSI6eyJuYW1lIjoiQ2xvc2UgT2xkIElNcyAoQ2xpZW50KSIsIm51bWJlcnMiOlsiMjIxIl19LCIyMjEiOnsibmFtZSI6IkNsb3NlIE9sZCBJTXMgKENsaWVudCkiLCJudW1iZXJzIjpbIjIyMSJdLCJ1c2VyX2ZhY2luZyI6dHJ1ZX0sIjM2NSI6eyJudW1iZXJzIjpbIjM2NSJdLCJ1c2VyX2ZhY2luZyI6ZmFsc2V9LCIzODkiOnsibnVtYmVycyI6WyIzODkiXSwidXNlcl9mYWNpbmciOmZhbHNlfSwiNDM4Ijp7Im51bWJlcnMiOlsiNDM4Il0sInVzZXJfZmFjaW5nIjpmYWxzZX0sIjQ0NCI6eyJudW1iZXJzIjpbIjQ0NCJdLCJ1c2VyX2ZhY2luZyI6ZmFsc2V9LCI0ODEiOnsibnVtYmVycyI6WyI0ODEiXSwidXNlcl9mYWNpbmciOmZhbHNlfSwiNDg4Ijp7Im51bWJlcnMiOlsiNDg4Il0sInVzZXJfZmFjaW5nIjpmYWxzZX0sIjUyOSI6eyJudW1iZXJzIjpbIjUyOSJdLCJ1c2VyX2ZhY2luZyI6ZmFsc2V9LCI1NTIiOnsibnVtYmVycyI6WyI1NTIiXSwidXNlcl9mYWNpbmciOmZhbHNlfSwiZGFzaGJvYXJkIjp7Im5hbWUiOiJkYXNoYm9hcmQiLCJudW1iZXJzIjpbIjY2NiJdfSwiNjY2Ijp7Im5hbWUiOiJkYXNoYm9hcmQiLCJudW1iZXJzIjpbIjY2NiJdLCJ1c2VyX2ZhY2luZyI6ZmFsc2V9LCI2NjciOnsibnVtYmVycyI6WyI2NjciXSwidXNlcl9mYWNpbmciOmZhbHNlfSwiNzczIjp7Im51bWJlcnMiOlsiNzczIl0sInVzZXJfZmFjaW5nIjpmYWxzZX0sIjc3NyI6eyJudW1iZXJzIjpbIjc3NyJdLCJ1c2VyX2ZhY2luZyI6ZmFsc2V9LCI3OTQiOnsibnVtYmVycyI6WyI3OTQiXSwidXNlcl9mYWNpbmciOmZhbHNlfSwiQ2xpZW50IFJlc3BvbnNpdmVuZXNzIjp7Im5hbWUiOiJDbGllbnQgUmVzcG9uc2l2ZW5lc3MiLCJ1c2VyX2ZhY2luZyI6ZmFsc2UsIm51bWJlcnMiOlsiODA4Il19LCI4MDgiOnsibmFtZSI6IkNsaWVudCBSZXNwb25zaXZlbmVzcyIsInVzZXJfZmFjaW5nIjpmYWxzZSwibnVtYmVycyI6WyI4MDgiXX0sIk1lc3NhZ2UgUGFuZSBTY3JvbGxpbmciOnsibmFtZSI6Ik1lc3NhZ2UgUGFuZSBTY3JvbGxpbmciLCJudW1iZXJzIjpbIjg4OCJdfSwiODg4Ijp7Im5hbWUiOiJNZXNzYWdlIFBhbmUgU2Nyb2xsaW5nIiwibnVtYmVycyI6WyI4ODgiXSwidXNlcl9mYWNpbmciOnRydWV9LCJVbnJlYWQgYmFubmVyIGFuZCBkaXZpZGVyIjp7Im5hbWUiOiJVbnJlYWQgYmFubmVyIGFuZCBkaXZpZGVyIiwibnVtYmVycyI6WyI5OTkiXX0sIjk5OSI6eyJuYW1lIjoiVW5yZWFkIGJhbm5lciBhbmQgZGl2aWRlciIsIm51bWJlcnMiOlsiOTk5Il0sInVzZXJfZmFjaW5nIjp0cnVlfSwiMTAwMCI6eyJudW1iZXJzIjpbIjEwMDAiXSwidXNlcl9mYWNpbmciOmZhbHNlfSwiRHVwbGljYXRlIGJhZGdlcyAoZGVza3RvcCBhcHAgaWNvbnMpIjp7Im5hbWUiOiJEdXBsaWNhdGUgYmFkZ2VzIChkZXNrdG9wIGFwcCBpY29ucykiLCJudW1iZXJzIjpbIjE3MDEiXX0sIjE3MDEiOnsibmFtZSI6IkR1cGxpY2F0ZSBiYWRnZXMgKGRlc2t0b3AgYXBwIGljb25zKSIsIm51bWJlcnMiOlsiMTcwMSJdLCJ1c2VyX2ZhY2luZyI6dHJ1ZX0sIk1lbWJlcnMiOnsibmFtZSI6Ik1lbWJlcnMiLCJudW1iZXJzIjpbIjE5NzUiXX0sIjE5NzUiOnsibmFtZSI6Ik1lbWJlcnMiLCJudW1iZXJzIjpbIjE5NzUiXSwidXNlcl9mYWNpbmciOnRydWV9LCJsYXp5IGxvYWRpbmciOnsibmFtZSI6ImxhenkgbG9hZGluZyIsIm51bWJlcnMiOlsiMTk4OSJdfSwiMTk4OSI6eyJuYW1lIjoibGF6eSBsb2FkaW5nIiwibnVtYmVycyI6WyIxOTg5Il0sInVzZXJfZmFjaW5nIjp0cnVlfSwidGhpbl9jaGFubmVsX21lbWJlcnNoaXAiOnsibmFtZSI6InRoaW5fY2hhbm5lbF9tZW1iZXJzaGlwIiwibnVtYmVycyI6WyIxOTkwIl19LCIxOTkwIjp7Im5hbWUiOiJ0aGluX2NoYW5uZWxfbWVtYmVyc2hpcCIsIm51bWJlcnMiOlsiMTk5MCJdLCJ1c2VyX2ZhY2luZyI6dHJ1ZX0sInN0YXRzIjp7Im5hbWUiOiJzdGF0cyIsIm51bWJlcnMiOlsiMTk5MSJdfSwiMTk5MSI6eyJuYW1lIjoic3RhdHMiLCJudW1iZXJzIjpbIjE5OTEiXSwidXNlcl9mYWNpbmciOnRydWV9LCJtcyI6eyJuYW1lIjoibXMiLCJudW1iZXJzIjpbIjE5OTYiXX0sIjE5OTYiOnsibmFtZSI6Im1zIiwibnVtYmVycyI6WyIxOTk2Il0sInVzZXJfZmFjaW5nIjp0cnVlfSwic2hhcmVkX2NoYW5uZWxzX2Nvbm5lY3Rpb24iOnsibmFtZSI6InNoYXJlZF9jaGFubmVsc19jb25uZWN0aW9uIiwibnVtYmVycyI6WyIxOTk5Il19LCIxOTk5Ijp7Im5hbWUiOiJzaGFyZWRfY2hhbm5lbHNfY29ubmVjdGlvbiIsIm51bWJlcnMiOlsiMTk5OSJdLCJ1c2VyX2ZhY2luZyI6ZmFsc2V9LCJkbmQiOnsibmFtZSI6ImRuZCIsIm51bWJlcnMiOlsiMjAwMiJdfSwiMjAwMiI6eyJuYW1lIjoiZG5kIiwibnVtYmVycyI6WyIyMDAyIl0sInVzZXJfZmFjaW5nIjp0cnVlfSwiMjAwMyI6eyJudW1iZXJzIjpbIjIwMDMiXSwidXNlcl9mYWNpbmciOmZhbHNlfSwiVGhyZWFkcyI6eyJuYW1lIjoiVGhyZWFkcyIsIm51bWJlcnMiOlsiMjAwNCJdfSwiMjAwNCI6eyJuYW1lIjoiVGhyZWFkcyIsIm51bWJlcnMiOlsiMjAwNCJdLCJ1c2VyX2ZhY2luZyI6dHJ1ZX0sIjIwMDUiOnsibnVtYmVycyI6WyIyMDA1Il0sInVzZXJfZmFjaW5nIjpmYWxzZX0sIlJlYWN0aW9ucyI6eyJuYW1lIjoiUmVhY3Rpb25zIiwibnVtYmVycyI6WyIyMDA2Il19LCIyMDA2Ijp7Im5hbWUiOiJSZWFjdGlvbnMiLCJudW1iZXJzIjpbIjIwMDYiXSwidXNlcl9mYWNpbmciOnRydWV9LCJUU1NTQi5mb2N1c1RhYkFuZFN3aXRjaFRvQ2hhbm5lbCI6eyJuYW1lIjoiVFNTU0IuZm9jdXNUYWJBbmRTd2l0Y2hUb0NoYW5uZWwiLCJudW1iZXJzIjpbIjIwMDciXX0sIjIwMDciOnsibmFtZSI6IlRTU1NCLmZvY3VzVGFiQW5kU3dpdGNoVG9DaGFubmVsIiwibnVtYmVycyI6WyIyMDA3Il0sInVzZXJfZmFjaW5nIjpmYWxzZX0sIlByZXNlbmNlIERldGVjdGlvbiI6eyJuYW1lIjoiUHJlc2VuY2UgRGV0ZWN0aW9uIiwibnVtYmVycyI6WyIyMDE3Il19LCIyMDE3Ijp7Im5hbWUiOiJQcmVzZW5jZSBEZXRlY3Rpb24iLCJudW1iZXJzIjpbIjIwMTciXSwidXNlcl9mYWNpbmciOnRydWV9LCJtY19zaWJzIjp7Im5hbWUiOiJtY19zaWJzIiwibnVtYmVycyI6WyI5OTk5Il19LCI5OTk5Ijp7Im5hbWUiOiJtY19zaWJzIiwibnVtYmVycyI6WyI5OTk5Il0sInVzZXJfZmFjaW5nIjpmYWxzZX0sIk1lbWJlciBzZWFyY2hpbmciOnsibmFtZSI6Ik1lbWJlciBzZWFyY2hpbmciLCJudW1iZXJzIjpbIjkwMjExIl19LCI5MDIxMSI6eyJuYW1lIjoiTWVtYmVyIHNlYXJjaGluZyIsIm51bWJlcnMiOlsiOTAyMTEiXSwidXNlcl9mYWNpbmciOnRydWV9LCI5ODc2NSI6eyJudW1iZXJzIjpbIjk4NzY1Il0sInVzZXJfZmFjaW5nIjpmYWxzZX0sIjg2NzUzMDkiOnsibnVtYmVycyI6WyI4Njc1MzA5Il0sInVzZXJfZmFjaW5nIjpmYWxzZX19fTsKCWJvb3RfZGF0YS5zdGFydF9tcyA9IERhdGUubm93KCk7Cjwvc2NyaXB0PjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBzcmM9Imh0dHBzOi8vYS5zbGFjay1lZGdlLmNvbS9idjEtOC04Y2FjZGEyL3JvbGx1cC1jb3JlX3JlcXVpcmVkX2xpYnMuZjM5MTU3ZDRlOTEzOTBkNGNjZGIubWluLmpzIiBvbmxvYWQ9IndpbmRvdy5fY2RuID8gX2Nkbi5vayh0aGlzLCBhcmd1bWVudHMpIDogbnVsbCIgb25lcnJvcj0id2luZG93Ll9jZG4gPyBfY2RuLmZhaWxlZCh0aGlzLCBhcmd1bWVudHMpIDogbnVsbCIgY3Jvc3NvcmlnaW49ImFub255bW91cyI+PC9zY3JpcHQ+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiIHNyYz0iaHR0cHM6Ly9hLnNsYWNrLWVkZ2UuY29tL2J2MS04LThjYWNkYTIvbW9kZXJuLnZlbmRvci5jMjBiZjhlMmE1N2JkNDcxODFkNC5taW4uanMiIG9ubG9hZD0id2luZG93Ll9jZG4gPyBfY2RuLm9rKHRoaXMsIGFyZ3VtZW50cykgOiBudWxsIiBvbmVycm9yPSJ3aW5kb3cuX2NkbiA/IF9jZG4uZmFpbGVkKHRoaXMsIGFyZ3VtZW50cykgOiBudWxsIiBjcm9zc29yaWdpbj0iYW5vbnltb3VzIj48L3NjcmlwdD48c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlwdCIgc3JjPSJodHRwczovL2Euc2xhY2stZWRnZS5jb20vYnYxLTgtOGNhY2RhMi9hcHBsaWNhdGlvbi5hZTNjNDFjZmQwZDdkOGM4Y2MxNC5taW4uanMiIG9ubG9hZD0id2luZG93Ll9jZG4gPyBfY2RuLm9rKHRoaXMsIGFyZ3VtZW50cykgOiBudWxsIiBvbmVycm9yPSJ3aW5kb3cuX2NkbiA/IF9jZG4uZmFpbGVkKHRoaXMsIGFyZ3VtZW50cykgOiBudWxsIiBjcm9zc29yaWdpbj0iYW5vbnltb3VzIj48L3NjcmlwdD48c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlwdCIgc3JjPSJodHRwczovL2Euc2xhY2stZWRnZS5jb20vYnYxLTgtOGNhY2RhMi9yb2xsdXAtY29yZV9yZXF1aXJlZF90cy43MDk1ODNjMDAzNjgwYTMwYjMyNS5taW4uanMiIG9ubG9hZD0id2luZG93Ll9jZG4gPyBfY2RuLm9rKHRoaXMsIGFyZ3VtZW50cykgOiBudWxsIiBvbmVycm9yPSJ3aW5kb3cuX2NkbiA/IF9jZG4uZmFpbGVkKHRoaXMsIGFyZ3VtZW50cykgOiBudWxsIiBjcm9zc29yaWdpbj0iYW5vbnltb3VzIj48L3NjcmlwdD48c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlwdCIgc3JjPSJodHRwczovL2Euc2xhY2stZWRnZS5jb20vYnYxLTgtOGNhY2RhMi9UUy53ZWIuMzQ3M2UxOTE5N2M2NDI2MjQxZTQubWluLmpzIiBvbmxvYWQ9IndpbmRvdy5fY2RuID8gX2Nkbi5vayh0aGlzLCBhcmd1bWVudHMpIDogbnVsbCIgb25lcnJvcj0id2luZG93Ll9jZG4gPyBfY2RuLmZhaWxlZCh0aGlzLCBhcmd1bWVudHMpIDogbnVsbCIgY3Jvc3NvcmlnaW49ImFub255bW91cyI+PC9zY3JpcHQ+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiIHNyYz0iaHR0cHM6Ly9hLnNsYWNrLWVkZ2UuY29tL2J2MS04LThjYWNkYTIvc2lnbmFscy5iNGE4MjJiMTljZWE3ZTllYTg2NC5taW4uanMiIG9ubG9hZD0id2luZG93Ll9jZG4gPyBfY2RuLm9rKHRoaXMsIGFyZ3VtZW50cykgOiBudWxsIiBvbmVycm9yPSJ3aW5kb3cuX2NkbiA/IF9jZG4uZmFpbGVkKHRoaXMsIGFyZ3VtZW50cykgOiBudWxsIiBjcm9zc29yaWdpbj0iYW5vbnltb3VzIj48L3NjcmlwdD48c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlwdCIgc3JjPSJodHRwczovL2Euc2xhY2stZWRnZS5jb20vYnYxLTgtOGNhY2RhMi9yb2xsdXAtY29yZV93ZWIuNzAwZmMzODU3NzZlMWExNjhmZTQubWluLmpzIiBvbmxvYWQ9IndpbmRvdy5fY2RuID8gX2Nkbi5vayh0aGlzLCBhcmd1bWVudHMpIDogbnVsbCIgb25lcnJvcj0id2luZG93Ll9jZG4gPyBfY2RuLmZhaWxlZCh0aGlzLCBhcmd1bWVudHMpIDogbnVsbCIgY3Jvc3NvcmlnaW49ImFub255bW91cyI+PC9zY3JpcHQ+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiIHNyYz0iaHR0cHM6Ly9hLnNsYWNrLWVkZ2UuY29tL2J2MS04LThjYWNkYTIvcm9sbHVwLXNlY29uZGFyeV9hX3JlcXVpcmVkLjU5MzNmNWJhZTE1M2Y0ZTU3Y2ZmLm1pbi5qcyIgb25sb2FkPSJ3aW5kb3cuX2NkbiA/IF9jZG4ub2sodGhpcywgYXJndW1lbnRzKSA6IG51bGwiIG9uZXJyb3I9IndpbmRvdy5fY2RuID8gX2Nkbi5mYWlsZWQodGhpcywgYXJndW1lbnRzKSA6IG51bGwiIGNyb3Nzb3JpZ2luPSJhbm9ueW1vdXMiPjwvc2NyaXB0PjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBzcmM9Imh0dHBzOi8vYS5zbGFjay1lZGdlLmNvbS9idjEtOC04Y2FjZGEyL3JvbGx1cC1zZWNvbmRhcnlfYl9yZXF1aXJlZC5lNThkZDQ5ZjBiYzBjMjhhNjBjZi5taW4uanMiIG9ubG9hZD0id2luZG93Ll9jZG4gPyBfY2RuLm9rKHRoaXMsIGFyZ3VtZW50cykgOiBudWxsIiBvbmVycm9yPSJ3aW5kb3cuX2NkbiA/IF9jZG4uZmFpbGVkKHRoaXMsIGFyZ3VtZW50cykgOiBudWxsIiBjcm9zc29yaWdpbj0iYW5vbnltb3VzIj48L3NjcmlwdD48c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlwdCI+VFMuYm9vdChib290X2RhdGEpOzwvc2NyaXB0PjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBzcmM9Imh0dHBzOi8vYS5zbGFjay1lZGdlLmNvbS9idjEtOC04Y2FjZGEyL1RTLndlYi5fNDA0LmFkMmYwNThjNTcxNGNkNGFmOGNhLm1pbi5qcyIgb25sb2FkPSJ3aW5kb3cuX2NkbiA/IF9jZG4ub2sodGhpcywgYXJndW1lbnRzKSA6IG51bGwiIG9uZXJyb3I9IndpbmRvdy5fY2RuID8gX2Nkbi5mYWlsZWQodGhpcywgYXJndW1lbnRzKSA6IG51bGwiIGNyb3Nzb3JpZ2luPSJhbm9ueW1vdXMiPjwvc2NyaXB0PjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBzcmM9Imh0dHBzOi8vYS5zbGFjay1lZGdlLmNvbS9idjEtOC04Y2FjZGEyL3N0aWNreV9uYXYuNWI5MmMwODM4YWUwZTFhYzBhMTIubWluLmpzIiBvbmxvYWQ9IndpbmRvdy5fY2RuID8gX2Nkbi5vayh0aGlzLCBhcmd1bWVudHMpIDogbnVsbCIgb25lcnJvcj0id2luZG93Ll9jZG4gPyBfY2RuLmZhaWxlZCh0aGlzLCBhcmd1bWVudHMpIDogbnVsbCIgY3Jvc3NvcmlnaW49ImFub255bW91cyI+PC9zY3JpcHQ+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiIHNyYz0iaHR0cHM6Ly9hLnNsYWNrLWVkZ2UuY29tL2J2MS04LThjYWNkYTIvZm9vdGVyLmFkODQ4YmU0MTUyM2VkZDVmNDkyLm1pbi5qcyIgb25sb2FkPSJ3aW5kb3cuX2NkbiA/IF9jZG4ub2sodGhpcywgYXJndW1lbnRzKSA6IG51bGwiIG9uZXJyb3I9IndpbmRvdy5fY2RuID8gX2Nkbi5mYWlsZWQodGhpcywgYXJndW1lbnRzKSA6IG51bGwiIGNyb3Nzb3JpZ2luPSJhbm9ueW1vdXMiPjwvc2NyaXB0PjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0Ij5ib290X2RhdGEubm9fbG9naW4gPSB0cnVlOzwvc2NyaXB0PjxzdHlsZT4uY29sb3JfOWY2OWU3Om5vdCgubnVjKSB7Y29sb3I6IzlGNjlFNzt9LmNvbG9yXzRiYmUyZTpub3QoLm51Yykge2NvbG9yOiM0QkJFMkU7fS5jb2xvcl9lNzM5MmQ6bm90KC5udWMpIHtjb2xvcjojRTczOTJEO30uY29sb3JfM2M5ODlmOm5vdCgubnVjKSB7Y29sb3I6IzNDOTg5Rjt9LmNvbG9yXzY3NGIxYjpub3QoLm51Yykge2NvbG9yOiM2NzRCMUI7fS5jb2xvcl9lOTY2OTk6bm90KC5udWMpIHtjb2xvcjojRTk2Njk5O30uY29sb3JfZTBhNzI5Om5vdCgubnVjKSB7Y29sb3I6I0UwQTcyOTt9LmNvbG9yXzY4NGI2Yzpub3QoLm51Yykge2NvbG9yOiM2ODRCNkM7fS5jb2xvcl81Yjg5ZDU6bm90KC5udWMpIHtjb2xvcjojNUI4OUQ1O30uY29sb3JfMmI2ODM2Om5vdCgubnVjKSB7Y29sb3I6IzJCNjgzNjt9LmNvbG9yXzk5YTk0OTpub3QoLm51Yykge2NvbG9yOiM5OUE5NDk7fS5jb2xvcl9kZjNkYzA6bm90KC5udWMpIHtjb2xvcjojREYzREMwO30uY29sb3JfNGNjMDkxOm5vdCgubnVjKSB7Y29sb3I6IzRDQzA5MTt9LmNvbG9yXzliM2I0NTpub3QoLm51Yykge2NvbG9yOiM5QjNCNDU7fS5jb2xvcl9kNTgyNDc6bm90KC5udWMpIHtjb2xvcjojRDU4MjQ3O30uY29sb3JfYmI4NmI3Om5vdCgubnVjKSB7Y29sb3I6I0JCODZCNzt9LmNvbG9yXzVhNDU5Mjpub3QoLm51Yykge2NvbG9yOiM1QTQ1OTI7fS5jb2xvcl9kYjMxNTA6bm90KC5udWMpIHtjb2xvcjojREIzMTUwO30uY29sb3JfMjM1ZTViOm5vdCgubnVjKSB7Y29sb3I6IzIzNUU1Qjt9LmNvbG9yXzllMzk5Nzpub3QoLm51Yykge2NvbG9yOiM5RTM5OTc7fS5jb2xvcl81M2I3NTk6bm90KC5udWMpIHtjb2xvcjojNTNCNzU5O30uY29sb3JfYzM4NmRmOm5vdCgubnVjKSB7Y29sb3I6I0MzODZERjt9LmNvbG9yXzM4NWE4Njpub3QoLm51Yykge2NvbG9yOiMzODVBODY7fS5jb2xvcl9hNjMwMjQ6bm90KC5udWMpIHtjb2xvcjojQTYzMDI0O30uY29sb3JfNTg3MGRkOm5vdCgubnVjKSB7Y29sb3I6IzU4NzBERDt9LmNvbG9yX2VhMjk3Nzpub3QoLm51Yykge2NvbG9yOiNFQTI5Nzc7fS5jb2xvcl81MGEwY2Y6bm90KC5udWMpIHtjb2xvcjojNTBBMENGO30uY29sb3JfZDU1YWVmOm5vdCgubnVjKSB7Y29sb3I6I0Q1NUFFRjt9LmNvbG9yX2QxNzA3ZDpub3QoLm51Yykge2NvbG9yOiNEMTcwN0Q7fS5jb2xvcl80Mzc2MWI6bm90KC5udWMpIHtjb2xvcjojNDM3NjFCO30uY29sb3JfZTA2YjU2Om5vdCgubnVjKSB7Y29sb3I6I0UwNkI1Njt9LmNvbG9yXzhmNGEyYjpub3QoLm51Yykge2NvbG9yOiM4RjRBMkI7fS5jb2xvcl85MDJkNTk6bm90KC5udWMpIHtjb2xvcjojOTAyRDU5O30uY29sb3JfZGU1ZjI0Om5vdCgubnVjKSB7Y29sb3I6I0RFNUYyNDt9LmNvbG9yX2EyYTVkYzpub3QoLm51Yykge2NvbG9yOiNBMkE1REM7fS5jb2xvcl84MjczMjc6bm90KC5udWMpIHtjb2xvcjojODI3MzI3O30uY29sb3JfM2M4YzY5Om5vdCgubnVjKSB7Y29sb3I6IzNDOEM2OTt9LmNvbG9yXzhkNGI4NDpub3QoLm51Yykge2NvbG9yOiM4RDRCODQ7fS5jb2xvcl84NGIyMmY6bm90KC5udWMpIHtjb2xvcjojODRCMjJGO30uY29sb3JfNGVjMGQ2Om5vdCgubnVjKSB7Y29sb3I6IzRFQzBENjt9LmNvbG9yX2UyM2Y5OTpub3QoLm51Yykge2NvbG9yOiNFMjNGOTk7fS5jb2xvcl9lNDc1ZGY6bm90KC5udWMpIHtjb2xvcjojRTQ3NURGO30uY29sb3JfNjE5YTRmOm5vdCgubnVjKSB7Y29sb3I6IzYxOUE0Rjt9LmNvbG9yX2E3MmY3OTpub3QoLm51Yykge2NvbG9yOiNBNzJGNzk7fS5jb2xvcl83ZDQxNGM6bm90KC5udWMpIHtjb2xvcjojN0Q0MTRDO30uY29sb3JfYWJhNzI3Om5vdCgubnVjKSB7Y29sb3I6I0FCQTcyNzt9LmNvbG9yXzk2NWQxYjpub3QoLm51Yykge2NvbG9yOiM5NjVEMUI7fS5jb2xvcl80ZDVlMjY6bm90KC5udWMpIHtjb2xvcjojNEQ1RTI2O30uY29sb3JfZGQ4NTI3Om5vdCgubnVjKSB7Y29sb3I6I0REODUyNzt9LmNvbG9yX2JkOTMzNjpub3QoLm51Yykge2NvbG9yOiNCRDkzMzY7fS5jb2xvcl9lODVkNzI6bm90KC5udWMpIHtjb2xvcjojRTg1RDcyO30uY29sb3JfZGM3ZGJiOm5vdCgubnVjKSB7Y29sb3I6I0RDN0RCQjt9LmNvbG9yX2JjMzY2Mzpub3QoLm51Yykge2NvbG9yOiNCQzM2NjM7fS5jb2xvcl85ZDhlZWU6bm90KC5udWMpIHtjb2xvcjojOUQ4RUVFO30uY29sb3JfODQ2OWJjOm5vdCgubnVjKSB7Y29sb3I6Izg0NjlCQzt9LmNvbG9yXzczNzY5ZDpub3QoLm51Yykge2NvbG9yOiM3Mzc2OUQ7fS5jb2xvcl9iMTRjYmM6bm90KC5udWMpIHtjb2xvcjojQjE0Q0JDO308L3N0eWxlPgoKPCEtLSBzbGFjay13d3ctaGh2bS1tYWluLWlhZC1seTZvLyAyMDIwLTAzLTE0IDAwOjQ5OjAyLyB2YWE1YjRlMTE1YWFhYzA1MWVjYTk5OTYzMzUzODVkZmJlOTlmYzY4NC8gQjpIIC0tPgoKPC9ib2R5PjwvaHRtbD4=
+    http_version: null
+  recorded_at: Sat, 14 Mar 2020 07:49:02 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/users.list?token=bogussdfkljdsf123
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '55'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Mar 2020 08:04:04 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Referrer-Policy:
+      - no-referrer
+      X-Slack-Backend:
+      - h
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 7ae9664ab0187a1239c33e86f2e5689f
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-tsos
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 599f04a365a179d553682d476509c389.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - 0OSAW4WcMpPgPtK2tedRGgbHBlGt4Njo1PzVnJMaidx294ZQu5-gzA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"invalid_auth"}'
+    http_version: null
+  recorded_at: Sat, 14 Mar 2020 08:04:04 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_TOKEN>&text=Hey%21%21%20I%27m%20from%20test%20file&channel=USLACKBOT&username=My%20Bot
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '169'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Mar 2020 17:18:07 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 91d69428b0545d3969f00dac56ffe614
+      X-Oauth-Scopes:
+      - incoming-webhook,chat:write,users:read,channels:read,chat:write.public,chat:write.customize
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-jfpz
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 a847181d425b7fc57e81eb3c800bfdf2.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - rc3PbljBGEfksGAQYBQ5l1wBCFtNnF6b7frnIb23SUXaOGCIGFE2pA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"D010208FSP9","ts":"1584206287.000200","message":{"type":"message","subtype":"bot_message","text":"Hey!!
+        I''m from test file","ts":"1584206287.000200","username":"My Bot","bot_id":"BV6BLS7R6"}}'
+    http_version: null
+  recorded_at: Sat, 14 Mar 2020 17:18:07 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_TOKEN>&text=&channel=USLACKBOT&username=My%20Bot
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '50'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Mar 2020 17:18:07 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 23c0eefae3060878b67dac14103a4360
+      X-Oauth-Scopes:
+      - incoming-webhook,chat:write,users:read,channels:read,chat:write.public,chat:write.customize
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-7q61
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 9046e5a276a05e60ee34c8475e92b8e7.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - UkwSKChHA1j6Qy1190vRW-LBsLWkuih83aEzd--0S2gMYJovlF88uw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"no_text"}'
+    http_version: null
+  recorded_at: Sat, 14 Mar 2020 17:18:08 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_TOKEN>&text=Hey%21%21%20I%27m%20from%20test%20file&channel=USLACKBOT&username=My%20Bot
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '171'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Mar 2020 17:18:47 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - c1c01fe9b20d2cdf6f433caf5cb150f9
+      X-Oauth-Scopes:
+      - incoming-webhook,chat:write,users:read,channels:read,chat:write.public,chat:write.customize
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-xfo1
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 6172bb1a5d00a3b06ae3700570ebe117.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - mT25BP5l_uKEKDmLlZdfElB0RY0M0eTIQz-wDBzaTt8nBvajFDaoVA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"D010208FSP9","ts":"1584206327.000300","message":{"type":"message","subtype":"bot_message","text":"Hey!!
+        I''m from test file","ts":"1584206327.000300","username":"My Bot","bot_id":"BV6BLS7R6"}}'
+    http_version: null
+  recorded_at: Sat, 14 Mar 2020 17:18:47 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_TOKEN>&text=Hey%21%21%20I%27m%20from%20test%20file%21%21&channel=USLACKBOT&username=My%20Bot
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '171'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Mar 2020 17:24:45 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 0a4c956fc6eeb668d09726bdf910f338
+      X-Oauth-Scopes:
+      - incoming-webhook,chat:write,users:read,channels:read,chat:write.public,chat:write.customize
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-o4r2
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 32c16f33c8f5601364fa8229b0d74dc3.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - Akl7-cuCxs1QIgcv0eCXW8vuekZVvWzY2mgbqTc9UQEEbCMymbd0GA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"D010208FSP9","ts":"1584206685.000100","message":{"type":"message","subtype":"bot_message","text":"Hey!!
+        I''m from test file!!","ts":"1584206685.000100","username":"My Bot","bot_id":"BV6BLS7R6"}}'
+    http_version: null
+  recorded_at: Sat, 14 Mar 2020 17:24:45 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '829'
+      Connection:
+      - keep-alive
+      Date:
+      - Sun, 15 Mar 2020 01:09:12 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - c690eb3a4944dcdaca20e4dfcf774deb
+      X-Oauth-Scopes:
+      - incoming-webhook,chat:write,users:read,channels:read,chat:write.public,chat:write.customize,users.profile:read,users:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-y4g4
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 ce71f64ad5dca81beca846466f2d5008.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - uTB8F991SHMkqdRByK4Bkar5hzQ5361be6auqViFwZwA_vHmw0bSZQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"CUT6YR3LJ","name":"lees-test-channel","is_channel":true,"is_group":false,"is_im":false,"created":1583865761,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"lees-test-channel","is_shared":false,"parent_conversation":null,"creator":"UV7S06J4X","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TV6151X8D"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"For
+        having fun with the Slack API!!","creator":"UV7S06J4X","last_set":1584080167},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":2},{"id":"CV60LA20G","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1583865651,"is_archived":false,"is_general":true,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"UV7S06J4X","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TV6151X8D"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"Company-wide
+        announcements and work-based matters","creator":"UV7S06J4X","last_set":1583865651},"purpose":{"value":"This
+        channel is for workspace-wide communication and announcements. All members
+        are in this channel.","creator":"UV7S06J4X","last_set":1583865651},"previous_names":[],"num_members":5},{"id":"CV86T0TPY","name":"random","is_channel":true,"is_group":false,"is_im":false,"created":1583865651,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"random","is_shared":false,"parent_conversation":null,"creator":"UV7S06J4X","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TV6151X8D"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"Non-work
+        banter and water cooler conversation","creator":"UV7S06J4X","last_set":1583865651},"purpose":{"value":"A
+        place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
+        you''d prefer to keep out of more focused work-related channels.","creator":"UV7S06J4X","last_set":1583865651},"previous_names":[],"num_members":5},{"id":"CV8HLGW9L","name":"hannah-j-test","is_channel":true,"is_group":false,"is_im":false,"created":1583876330,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"hannah-j-test","is_shared":false,"parent_conversation":null,"creator":"UUVTM0ZJM","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TV6151X8D"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"Let''s
+        learn about Korean culture","creator":"UUVTM0ZJM","last_set":1584048625},"previous_names":[],"num_members":2},{"id":"CV8PR7M4M","name":"hannahmary","is_channel":true,"is_group":false,"is_im":false,"created":1583963710,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"hannahmary","is_shared":false,"parent_conversation":null,"creator":"UV8PPJX37","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TV6151X8D"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":5},{"id":"CVB8WV8BS","name":"fun","is_channel":true,"is_group":false,"is_im":false,"created":1584048695,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"fun","is_shared":false,"parent_conversation":null,"creator":"UUVTM0ZJM","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TV6151X8D"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":5}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Sun, 15 Mar 2020 01:09:12 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token[token]=<SLACK_TOKEN>&text=Hey%21%21%20I%27m%20from%20test%20file%21%21&channel=USLACKBOT&username=My%20Bot
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '58'
+      Connection:
+      - keep-alive
+      Date:
+      - Sun, 15 Mar 2020 02:41:57 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding
+      X-Slack-Req-Id:
+      - 32ce6c8b79ce199a77e5acc32cb2b128
+      X-Xss-Protection:
+      - '0'
+      X-Slack-Backend:
+      - h
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-vmz3
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 60b744e5b364d04abea9fa6686121242.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - QcVnBXQoiSyIloB8odTU1Llg0U5BPQA_19EmC3AvdBA8r9zI438ycA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"invalid_array_arg"}'
+    http_version: null
+  recorded_at: Sun, 15 Mar 2020 02:41:57 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token[token]=<SLACK_TOKEN>&text=Good%20morning%20SLACKBOT%21&channel=USLACKBOT&username=My%20Bot
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '58'
+      Connection:
+      - keep-alive
+      Date:
+      - Sun, 15 Mar 2020 02:41:58 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding
+      X-Slack-Req-Id:
+      - 5950572f18ca34393207450999d04c91
+      X-Xss-Protection:
+      - '0'
+      X-Slack-Backend:
+      - h
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-5fln
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 174acb08636ac7d9e9a778bbf1bcbc53.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - GDE2lgLLKRjSV9am72Xaq9g6OVycC-SLo0UVHO1KfL0Ie-wJqzteiA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"invalid_array_arg"}'
+    http_version: null
+  recorded_at: Sun, 15 Mar 2020 02:41:58 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token[token]=<SLACK_TOKEN>&text=Hungry&channel=123456&username=My%20Bot
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '58'
+      Connection:
+      - keep-alive
+      Date:
+      - Sun, 15 Mar 2020 02:41:58 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding
+      X-Slack-Req-Id:
+      - caf693b56d7d0cd344e9ca41e6e22c69
+      X-Xss-Protection:
+      - '0'
+      X-Slack-Backend:
+      - h
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-lxed
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 b23fb37cd7fff033ab21e3284f558a28.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - I7FL1khVlRUvF9jVf3kSk18tITSq799SZxO9PfqzQFSzpT4GEGZfiw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"invalid_array_arg"}'
+    http_version: null
+  recorded_at: Sun, 15 Mar 2020 02:41:58 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:07 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 6fd5cd69e45d210e246db027596161b6
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-dr0n
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 57a21088b36c69a83578b5a5579df58f.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - g-ps_SX3t1NpbSLXavSaySMRgtkdGL52-Zxyv9KT6nHql7ERLcKsqw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:07 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:07 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 4d73e5b5a886b7ead3784bc93b2bfe4f
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-huvv
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 a847181d425b7fc57e81eb3c800bfdf2.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - 0R8X4nj2yl8dCgywL08-kYl5JBZ-_diAewGeIi1o5DYCqz36oW2cDg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:07 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:07 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 06b58107b69a8787e8da1765b6ae3a2d
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-ee90
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 2bedbeaa49b4a77447d30097858cb81a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - oljivbU9rS0ZBsfq4AsyDIjfE7rxR5pIEaWxSLdvnpvD8S4OHoxvdQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:07 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:07 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - b0e042909e39bd80baaec6e7f29f5d8b
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-9k48
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 4f3feb5c4393987d42d1971d404d7cea.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - gdEp-4nS-LphQ2goE46vBjVKYEY2S7Kbs5Zfwt6cD0D1RIhd9tgvAA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:07 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:07 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 2a1687db45d000844258720f234e924c
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-suv8
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 98aedae6661e3904540676966998ed89.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - 7gK6FAjBIqw7sV3t-SXCKe4LqP4q0z1bbzdUKqiDRIWw94UQXheL6Q==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:07 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:08 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 8f1e857a34a67dc08d0c3af79e10839e
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-erl2
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 7022a5bbf9872d4a09d63e6cdb457dfe.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - zNSflBPtu6kzbQLImWlhVonw5omBog90Bnt3NgLPpgzMfhxiighKlQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:08 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:08 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - af7cc40db4967eb856470b08f9c7ee69
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-tkiz
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 7eb3b782ab09047ce0d11ee03763894c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - eO0F9Om0IxmfTpu2I4dGRShvscbJz5G3l1sEzZ3Mu1kvwINq6iArfA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:08 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:08 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - cad59c2713d23c1d83e0af0090a9fe31
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-57iu
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 981753271eb5b6d11bc29d52f173a5da.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - yOhRwSH59bUHecoOJXe8b80d3tGtten2fPgJfdFn0LTssyS6W22uKw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:08 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:08 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 3e1c6a9a6e538bd934faa008bf221eb8
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-kirk
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 ee8246c5442dace7525c74f6a799bb47.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - DsL-vPAAWtJufcSng1_hPeCrtVuVcLroCdbjTLWbZPv0uUDLy20Y-g==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:08 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:08 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - da852e751932d7b6c237ab07afb5336b
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-2nvs
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 112d82578d402a38d8d02e8b857617e1.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - ooj5AMsQdbYp4YUaPceJJFHaTCglxiT7b9oPLR4o0WZ33xpaZodR_g==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:08 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SLACK_TOKEN>&types=im
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '430'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 07:39:08 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 4aa77c2abc925e5f5fef2fb34d736246
+      X-Oauth-Scopes:
+      - identify,channels:history,groups:history,im:history,mpim:history,channels:read,im:read,users:read,users.profile:read,channels:write,chat:write,im:write,users:write,users.profile:write
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-nv5l
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 e4d3d5aafc7d7d582423c073065ab563.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - lSDrS21YYmEn3JbXCKJ7kcd0_ylBukX_2UpcNgm1hhgpww90DMVAYw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"D0100ST4T6U","created":1584243619,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"U0102NT1RE3","is_user_deleted":false,"priority":0},{"id":"DVDHLE1HC","created":1584051605,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UVDHLDG0N","is_user_deleted":false,"priority":0},{"id":"DVAVBL4B0","created":1583963654,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8PPJX37","is_user_deleted":false,"priority":0},{"id":"DV8ABAGA0","created":1583964279,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV8Q8T6S1","is_user_deleted":false,"priority":0},{"id":"DV873FZ2T","created":1583875972,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BN9RTP","is_user_deleted":false,"priority":0},{"id":"DV7S3M8LF","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"USLACKBOT","is_user_deleted":false,"priority":0},{"id":"DV7RCMJD6","created":1583940519,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUV26URFC","is_user_deleted":false,"priority":0},{"id":"DV69W8GEL","created":1583874624,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUTG4NT6W","is_user_deleted":false,"priority":0},{"id":"DV618HEMB","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UUVTM0ZJM","is_user_deleted":false,"priority":0},{"id":"DV5GR1CCC","created":1583865749,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7S06J4X","is_user_deleted":false,"priority":0},{"id":"DUWEBM19R","created":1583942505,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV7EPA5EG","is_user_deleted":true,"priority":0},{"id":"DUUT9MNBV","created":1583876584,"is_archived":false,"is_im":true,"is_org_shared":false,"user":"UV6BLS99N","is_user_deleted":false,"priority":0}],"response_metadata":{"next_cursor":""}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 07:39:08 GMT
+recorded_with: VCR 5.1.0
