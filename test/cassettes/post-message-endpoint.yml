@@ -1,0 +1,376 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=UV7S06J4X&text=They%20are%20both%20areas%20where%20the%20repressed%20conscious%20mind%20vents.&token=<BOT_TOKEN>&username=Paprika
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '191'
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 25 Mar 2020 00:05:50 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 2b1fe22575f8ac2c2a5fc8ebc4c5f754
+      X-Oauth-Scopes:
+      - chat:write,channels:read,users:read,chat:write.customize
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-a63k
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 d16c3f15bd14953a9d4109eaaa991de2.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - YCDTXty905AErg0fySasx9O0dyeFGf0sATSTzj_k30mjE4b8tQdB3g==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"DV7S076SK","ts":"1585094750.001000","message":{"type":"message","subtype":"bot_message","text":"They
+        are both areas where the repressed conscious mind vents.","ts":"1585094750.001000","username":"Paprika","bot_id":"BUTG4NRPC"}}'
+    http_version: null
+  recorded_at: Wed, 25 Mar 2020 00:05:50 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=CUT6YR3LJ&text=Don%27t%20you%20think%20dreams%20and%20the%20internet%20are%20similar?&token=<BOT_TOKEN>&username=Paprika
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '190'
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 25 Mar 2020 00:05:50 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - e66f95834f004229ae80c7a154262ebb
+      X-Oauth-Scopes:
+      - chat:write,channels:read,users:read,chat:write.customize
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-lxhd
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 7514e5e25722778fd4b1744d4ecc67e1.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - YxPxD5FJ52Mw9Wa8YP_ScRfpwiX27VCEiusmKjoIkTr4vknw-FGaRw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"CUT6YR3LJ","ts":"1585094750.000300","message":{"type":"message","subtype":"bot_message","text":"Don''t
+        you think dreams and the internet are similar?","ts":"1585094750.000300","username":"Paprika","bot_id":"BUTG4NRPC"}}'
+    http_version: null
+  recorded_at: Wed, 25 Mar 2020 00:05:50 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=UV7S06J4X&text=Hello!%20My%20name%20is%20Paprika.&token=<BOT_TOKEN>&username=Paprika
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '168'
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 25 Mar 2020 00:05:50 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 44d8403233d5fd397d2a724ec5e361b7
+      X-Oauth-Scopes:
+      - chat:write,channels:read,users:read,chat:write.customize
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-cy4d
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 8ae6af4d17aae7471e5fe2792eb6abcd.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - cKzjqmeuZsRk6xlXaiXJDMszBzVrrr3pO0PH-4v4Al_UfFxSdxy3nw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"DV7S076SK","ts":"1585094750.001100","message":{"type":"message","subtype":"bot_message","text":"Hello!
+        My name is Paprika.","ts":"1585094750.001100","username":"Paprika","bot_id":"BUTG4NRPC"}}'
+    http_version: null
+  recorded_at: Wed, 25 Mar 2020 00:05:50 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=UV7S06J4X&text=&token=<BOT_TOKEN>&username=Paprika
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '50'
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 25 Mar 2020 00:05:50 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - fc9196156d092d49c313173c311608ce
+      X-Oauth-Scopes:
+      - chat:write,channels:read,users:read,chat:write.customize
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-s5yd
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 10b37ec1ede3e33f11dd42b87558cd1f.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - kHMLQnvpCJ1mHlwvTG826SzF4lYpiYo7XU5ZrEpUB0I3wLC7MjcJNg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"no_text"}'
+    http_version: null
+  recorded_at: Wed, 25 Mar 2020 00:05:50 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=CUT6YR3LJ&text=&token=<BOT_TOKEN>&username=Paprika
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '50'
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 25 Mar 2020 00:05:50 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - a0bf63ab2654af1806e15f48b8acfd14
+      X-Oauth-Scopes:
+      - chat:write,channels:read,users:read,chat:write.customize
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-ij90
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 34f8ef0e4c880df0650a814412a26ea6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - mKoTMNZt1cgJfL7dCmCwyA9GLfTrFkDXdQKKdBOiEbJQZR943nIU4w==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"no_text"}'
+    http_version: null
+  recorded_at: Wed, 25 Mar 2020 00:05:51 GMT
+recorded_with: VCR 5.1.0
