@@ -1,0 +1,79 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: channel=UUUKJ03NX&text=so%20many%20testssss&token=<SLACK_TOKEN>
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '335'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 16 Mar 2020 05:48:33 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - f4102348d47241a1416e2ee786cead37
+      X-Oauth-Scopes:
+      - channels:read,users:read,chat:write
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - h
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-fmpy
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 0cf6c59c77f0fff670ae085179adc459.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - QZ-OEYLD22psusN_i-KNG71Wag1G4B_FYCpVt8M1KdRyjtH4-_6VpA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"DV22X6K6E","ts":"1584337713.000400","message":{"bot_id":"BV3CAV7UK","type":"message","text":"so
+        many testssss","user":"UV3CAV859","ts":"1584337713.000400","team":"TV63QKAAU","bot_profile":{"id":"BV3CAV7UK","deleted":false,"name":"Space-
+        Kate M - API Project","updated":1584239628,"app_id":"AV22W21DG","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"TV63QKAAU"}}}'
+    http_version: null
+  recorded_at: Mon, 16 Mar 2020 05:48:34 GMT
+recorded_with: VCR 5.1.0

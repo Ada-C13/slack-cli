@@ -1,6 +1,13 @@
 /coverage/
+coverage/
 
 .DS_Store
 
 # Ignore environemnt variables
 .env
+
+#Ignore history
+.history
+
+#launch.Json file
+launch.json
